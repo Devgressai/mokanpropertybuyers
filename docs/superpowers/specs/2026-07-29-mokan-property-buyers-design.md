@@ -97,12 +97,20 @@ Three options were considered:
 | B | Extract a shared engine package consumed by both sites | Cleanest long-term, but requires refactoring SPB — a live 1,136-page site **with no CI**. Rejected as unacceptable risk to a production property. |
 | **C** | **Hard fork + `docs/ENGINE-PROVENANCE.md`** | **Selected.** Same isolation as A, plus a manifest recording which files were taken from SPB unmodified, so improvements can be cherry-picked deliberately in either direction. |
 
-### What is inherited (≈19,500 lines)
+### What is inherited (≈19,500 lines, across the whole fork — not Wave 0A)
 
 Components, route handlers, and SEO libraries: the internal-linking engine, deterministic
 anchor-text rotation, glossary link graph, guide-relevance derivation, JSON-LD schema
 builders, the depth-layer content merge pattern, offer math, the net-proceeds calculator,
 the lead API with escaping/rate-limiting/honeypot, and all six content-quality gates.
+
+> **Correction, 2026-07-29.** This figure describes the fork's eventual scope, not what
+> exists today, and the sentence above was written optimistically. Wave 0A ported very
+> little actual code: `check-assets.mts` is a close port, `check-pages.mts` a loose one,
+> `check-links.mts` borrows only the ORPHAN-vs-HUB-ONLY *concept*. The internal-linking
+> engine, schema builders, offer math, calculator, and lead API **do not exist in this
+> repo yet**. `docs/ENGINE-PROVENANCE.md` is the authoritative record of what was actually
+> taken; where it and this section disagree, the provenance doc is correct.
 
 ### What is discarded (≈83,000 lines)
 
