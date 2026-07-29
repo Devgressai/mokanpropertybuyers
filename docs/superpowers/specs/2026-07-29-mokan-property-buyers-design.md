@@ -163,13 +163,18 @@ question gets answered.
 | Situations | 48 | see §5.1 |
 | Property types | 52 | houses, land, lots, acreage, farm ground, multifamily, small commercial, difficult property |
 | Creative financing | 30 | subject-to, owner finance, assumable, wraparound, lease option, **contract for deed** |
-| County × topic matrix | 120 | 24 counties (pop ≥15,000) × 5 topics |
+| County × topic matrix | 120 | 30 counties (pop ≥15,000) × 4 topics |
 | City × situation combos | 450 | 30 cities × 15 situations, content-gated |
 | Guides | 100 | educational, top-of-funnel |
 | Blog | 110 | |
 | Glossary | 45 | state-tagged where law diverges |
 | **State-line silo** | **40** | §6 — the differentiator |
-| **Total** | **≈1,218** | parity with SPB's 1,136 |
+| **Total** | **1,218** | parity with SPB's 1,136 |
+
+**Scope note:** 1,218 routes is far too large for one implementation plan. This spec
+yields a **series** of plans, one per wave in §9, each independently shippable and each
+gated on CI green before the next begins. Wave 0 (scaffold, engine fork, state hubs, and
+the state-line silo) is the first plan and the only one that needs to be written now.
 
 ### 5.1 Situations (48) — market-specific, not inherited
 
@@ -296,10 +301,15 @@ link-equity-passing, invisible to the index.
 
 | Wave | Adds | Cumulative indexed |
 |---|---|---|
-| 0 — Foundation | static, state hubs, metro, regions, top 20 counties, top 60 cities, 24 core situations, **the full state-line silo** | ≈170 |
-| 1 — Coverage | remaining 33 counties, cities to 144, situations to 48, property types, financing | ≈360 |
-| 2 — Authority | guides, glossary, county × topic matrix | ≈625 |
-| 3 — Long tail | blog, indexed combo subset | ≈855 |
+| 0 — Foundation | static 14, state hubs 2, metro 1, regions 9, top 20 counties, top 60 cities, 24 core situations, **the full state-line silo 40** | **170** |
+| 1 — Coverage | remaining 33 counties, cities to 144 (+84), situations to 48 (+24), property types 52, financing 30 | **393** |
+| 2 — Authority | guides 100, glossary 45, county × topic 120 | **658** |
+| 3 — Long tail | blog 110, indexed combo subset 120 | **888** |
+
+At full maturity: **1,218 routes, 888 indexed, 330 `noindex, follow`** — and that 330 is
+exactly the un-enriched share of the 450 city × situation combos, which is precisely the
+page class SPB had to retroactively noindex after Search Console showed zero impressions.
+Here they start gated rather than getting rescued later.
 
 The state-line silo ships in **Wave 0**, not last. It is the reason the site deserves to
 rank, and it is what earns links — which is the actual bottleneck.
