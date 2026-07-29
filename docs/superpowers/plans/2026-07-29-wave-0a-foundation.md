@@ -617,7 +617,7 @@ console.log(
 - [ ] **Step 4: Generate and run the test to verify it passes**
 
 Run: `npm run codegen:geography && npx vitest run tests/geography.test.ts`
-Expected: `geography.ts: 2 states, 53 counties, 144 cities`, then PASS (9 tests)
+Expected: `geography.ts: 2 states, 53 counties, 144 cities`, then PASS (11 tests — 4 in the `slugifyPlace` block, 7 in the `footprint` block)
 
 - [ ] **Step 5: Commit**
 
