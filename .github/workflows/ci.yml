@@ -31,9 +31,11 @@ jobs:
         run: npm run check:slugs
       - name: State-claims gate
         run: npm run check:state-claims
-      # Gate steps are appended by the tasks that create them:
-      #   Task 8 -> check:pages, check:assets, check:links
-      # CI must be green at every commit, so a step is never added before the
-      # script it runs exists.
+      - name: Page graph gate
+        run: npm run check:pages
+      - name: Asset existence gate
+        run: npm run check:assets
+      - name: Internal link gate
+        run: npm run check:links
       - name: Build
         run: npm run build
