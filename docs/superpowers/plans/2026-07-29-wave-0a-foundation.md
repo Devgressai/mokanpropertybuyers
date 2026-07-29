@@ -15,7 +15,8 @@
 - **Honesty:** `src/data/trust.ts` ships with empty arrays. No review counts, ratings, homes-purchased, dollars-paid, or years-in-business. No case studies. No invented market data. No "guaranteed" language.
 - **NAP:** placeholders only, centralized in `src/lib/site.ts`, clearly marked. Real values land later (spec §13).
 - **Indexation:** a page is `index, follow` only when it passes the content gate. Everything else is `noindex, follow`.
-- **Never build locally.** CI is the gate. Do not run `npm run build` on the workstation; push and read the Actions result.
+- **Never build locally.** CI is the gate. Do not run `npm run build` on the workstation; push and read the Actions result. Running `vitest`, `tsc --noEmit`, and individual gate scripts locally is expected and required — those are not builds.
+- **Each gate task appends its own CI step.** Tasks 2, 3, 6, and 8 add their step to `.github/workflows/ci.yml` in the same commit that creates the script, so CI is green at every commit and never invokes a script that does not exist yet.
 - **Commits:** no `Co-Authored-By` or `Claude-Session` trailers.
 - **Palette:** only the `--mk-*` tokens from spec §10. `--mk-clay` on `--mk-limestone` is 4.35:1 — large text and buttons only; use `--mk-clay-ink` for small text.
 - **Deploy:** push to `main` on GitHub only. Vercel and DNS are user-managed.
@@ -299,23 +300,21 @@ jobs:
         run: npm test
       - name: Lint
         run: npm run lint
-      - name: Geography codegen is committed and current
-        run: |
-          npm run codegen:geography
-          git diff --exit-code src/data/geography.ts \
-            || (echo "::error::src/data/geography.ts is stale — run npm run codegen:geography and commit" && exit 1)
-      - name: Content gates
-        run: |
-          npm run check:slugs
-          npm run check:state-claims
-          npm run check:pages
-          npm run check:assets
-          npm run check:links
+      # Gate steps are appended by the tasks that create them:
+      #   Task 2 -> geography codegen drift check
+      #   Task 3 -> check:slugs
+      #   Task 6 -> check:state-claims
+      #   Task 8 -> check:pages, check:assets, check:links
+      # CI must be green at every commit, so a step is never added before the
+      # script it runs exists.
       - name: Build
         run: npm run build
 ```
 
-The codegen-drift check matters: it makes a hand-edited `geography.ts` fail CI, which is what keeps the generated file honest.
+**Note on `check:all`:** `package.json` declares every gate from Task 1 as a
+forward declaration, but CI does not invoke `check:all` until Task 8 adds the
+last gate script. Running `npm run check:all` locally before Task 8 will fail on
+missing scripts — that is expected. Run individual gates until then.
 
 - [ ] **Step 10: Commit**
 
