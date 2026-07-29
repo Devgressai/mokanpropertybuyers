@@ -243,6 +243,27 @@ the same paragraph in the first place. The gate catches careless drafting; it do
 cannot certify correctness. Any author who treats a green gate as proof of accuracy has
 misread it.
 
+#### The four known evasion classes
+
+| # | Class | Example that evades | Fixable by a better marker list? |
+|---|---|---|---|
+| 1 | **Cross-paragraph split** | Missouri law in one paragraph, Kansas law in the next, neither naming both states | No — the checker's unit of analysis is one block |
+| 2 | **Vocabulary avoidance** | "the bank can take your home in about three weeks"; "repossesses without going before a judge"; "auction … with no waiting period" | Partially — but synonym lists never close |
+| 3 | **Implicit / anaphoric state reference** | "Homestead protection **here** is capped at fifteen thousand dollars, unlike our neighbors **across the state line** where it is unlimited." | **No** — it never writes "Missouri" or "Kansas", so the state regex never fires at all |
+| 4 | **Geographic false *positive*** | "Homes along the **Missouri River** in **Kansas** floodplain zones may carry a **lien** …" | Partially — `(?!\s+(City\|River))` helps |
+
+Class 1 is the likeliest in practice: it is the natural shape of a genuine
+"here's Missouri, here's Kansas" comparison page. Class 3 is the most dangerous, because
+no improvement to the gate can ever detect it.
+
+#### Binding authoring rule
+
+Because classes 1 and 3 are undetectable by this gate, the rule for authors is not "pass
+the gate" but: **every paragraph asserting law carries an explicit `[MO]` or `[KS]` label,
+and never uses "here", "across the line", or "our neighbors" as a stand-in for a state
+name.** Deictic references to a state are prohibited in legal copy. The gate enforces a
+floor; this rule is the actual standard.
+
 ---
 
 ## 7. Slug and Collision Policy
