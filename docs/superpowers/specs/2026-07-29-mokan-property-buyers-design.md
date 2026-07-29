@@ -227,7 +227,21 @@ a page.
 Every legal claim must (a) declare which state it applies to, (b) carry a statute or
 official-source citation, and (c) be verified against that source at authoring time.
 Where a claim cannot be verified, the page says so and links the official source rather
-than asserting. This rule is mechanically enforced — see §11.
+than asserting.
+
+**The `check:state-claims` gate is a backstop, not enforcement.** It was adversarially
+probed on 2026-07-29 and five of six evasions got through: plain-English phrasing with no
+legal marker word ("the bank can take your home in about three weeks"), synonyms
+("repossesses without going before a judge", "auction ... with no waiting period"), equity
+wording ("protect the same amount of your equity"), and a blend split across two adjacent
+paragraphs. It also false-positives on "Flood damage along the Missouri River ... Kansas
+buyers face the same lien issues", which is legitimate copy in this market.
+
+So the primary defense is **structural**: the state-hub IA (§4) gives every legal claim a
+single-state home, and per-state pages mean the two bodies of law are never drafted into
+the same paragraph in the first place. The gate catches careless drafting; it does not and
+cannot certify correctness. Any author who treats a green gate as proof of accuracy has
+misread it.
 
 ---
 
