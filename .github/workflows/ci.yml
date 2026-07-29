@@ -27,8 +27,9 @@ jobs:
             echo "::error::src/data/geography.ts is stale. Run 'npm run codegen:geography' and commit the result.";
             exit 1;
           }
+      - name: Slug gate
+        run: npm run check:slugs
       # Gate steps are appended by the tasks that create them:
-      #   Task 3 -> check:slugs
       #   Task 6 -> check:state-claims
       #   Task 8 -> check:pages, check:assets, check:links
       # CI must be green at every commit, so a step is never added before the
