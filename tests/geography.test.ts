@@ -44,7 +44,7 @@ describe("footprint", () => {
     expect(Math.min(...cities.map((c) => c.population))).toBeGreaterThanOrEqual(1000);
   });
 
-  it("keeps both Kansas Citys as distinct pages", () => {
+  it("keeps both Kansas Cities as distinct pages", () => {
     const kc = cities.filter((c) => c.name === "Kansas City");
     expect(kc).toHaveLength(2);
     expect(kc.map((c) => c.slug).sort()).toEqual([
