@@ -20,8 +20,14 @@ jobs:
         run: npm test
       - name: Lint
         run: npm run lint
+      - name: Geography codegen drift check
+        run: |
+          npm run codegen:geography
+          git diff --exit-code src/data/geography.ts || {
+            echo "::error::src/data/geography.ts is stale. Run 'npm run codegen:geography' and commit the result.";
+            exit 1;
+          }
       # Gate steps are appended by the tasks that create them:
-      #   Task 2 -> geography codegen drift check
       #   Task 3 -> check:slugs
       #   Task 6 -> check:state-claims
       #   Task 8 -> check:pages, check:assets, check:links
