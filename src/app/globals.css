@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+:root {
+  --mk-ink: #14181b;
+  --mk-river: #1d4e63;
+  --mk-river-deep: #12333f;
+  --mk-limestone: #f4f1ea;
+  --mk-stone: #ded8cc;
+  --mk-slate: #5c6670;
+  --mk-clay: #b4552d;
+  --mk-clay-ink: #8f3f1e;
+}
+
+@theme inline {
+  --color-ink: var(--mk-ink);
+  --color-river: var(--mk-river);
+  --color-river-deep: var(--mk-river-deep);
+  --color-limestone: var(--mk-limestone);
+  --color-stone: var(--mk-stone);
+  --color-slate: var(--mk-slate);
+  --color-clay: var(--mk-clay);
+  --color-clay-ink: var(--mk-clay-ink);
+}
+
+body {
+  background: var(--mk-limestone);
+  color: var(--mk-ink);
+}

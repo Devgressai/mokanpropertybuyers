@@ -1,0 +1,41 @@
+{
+  "name": "mokanpropertybuyers",
+  "version": "0.1.0",
+  "private": true,
+  "engines": { "node": ">=20.0.0" },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "codegen:geography": "tsx scripts/codegen-geography.mts",
+    "check:slugs": "tsx scripts/check-slugs.mts",
+    "check:state-claims": "tsx scripts/check-state-claims.mts",
+    "check:pages": "tsx scripts/check-pages.mts",
+    "check:assets": "tsx scripts/check-assets.mts",
+    "check:links": "tsx scripts/check-links.mts",
+    "check:all": "npm run typecheck && npm run test && npm run check:slugs && npm run check:state-claims && npm run check:pages && npm run check:assets && npm run check:links"
+  },
+  "dependencies": {
+    "next": "^15.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "resend": "^6.9.4"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^15.3.0",
+    "postcss": "^8.5.0",
+    "tailwindcss": "^4.0.0",
+    "tsx": "^4.23.0",
+    "typescript": "^5.0.0",
+    "vitest": "^3.0.0"
+  }
+}

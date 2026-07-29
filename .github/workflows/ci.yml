@@ -1,0 +1,31 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Unit tests
+        run: npm test
+      - name: Lint
+        run: npm run lint
+      # Gate steps are appended by the tasks that create them:
+      #   Task 2 -> geography codegen drift check
+      #   Task 3 -> check:slugs
+      #   Task 6 -> check:state-claims
+      #   Task 8 -> check:pages, check:assets, check:links
+      # CI must be green at every commit, so a step is never added before the
+      # script it runs exists.
+      - name: Build
+        run: npm run build
