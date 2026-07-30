@@ -19,7 +19,7 @@ import { stateLineContentForeclosure } from "../src/data/state-line-content-fore
 import { stateLineContentMoney } from "../src/data/state-line-content-money";
 import { citations } from "../src/data/legal-citations";
 import { getPageContent, contentRegistries } from "../src/data/content-registry";
-import { isIndexable, MIN_INDEXABLE_WORDS } from "../src/lib/seo/indexation";
+import { isIndexable, isBodyIndexable, MIN_INDEXABLE_WORDS } from "../src/lib/seo/indexation";
 import { findUnlabeledBlends, auditClaimList } from "../scripts/check-state-claims.mts";
 
 const FLAGSHIP_MIN_WORDS = 900;
@@ -298,13 +298,25 @@ describe("state-line transaction cluster content", () => {
     }
   });
 
-  it("makes all four pages indexable -- every one of them actually clears the 600-word floor honestly", () => {
+  it("clears the 600-word floor on all four pages, honestly", () => {
     // Unlike the foreclosure and money clusters, this is not a foregone
-    // conclusion -- two of these pages carry zero legal claims. If either one
-    // is ever trimmed below 600 words, it should go noindex rather than have
-    // this assertion loosened.
+    // conclusion -- two of these pages carry zero legal claims. If any of
+    // these four is ever trimmed below 600 words, it should go noindex rather
+    // than have this assertion loosened.
     for (const slug of Object.keys(stateLineContentTransaction)) {
-      expect(isIndexable(slug), slug).toBe(true);
+      expect(isBodyIndexable(getPageContent(slug)!.body), slug).toBe(true);
     }
+  });
+
+  it("indexes only the two pages with a verified claim -- claims-less pages wait for ledger coverage", () => {
+    // Task 7.5: a stateLine page's title promises a named legal comparison,
+    // so clearing the word floor is not enough on its own. probate and
+    // tax-sale each carry a verified claim and index; contract-for-deed and
+    // seller-disclosure carry none and stay noindex,follow until the ledger
+    // covers either state for those topics. See src/lib/seo/indexation.ts.
+    expect(isIndexable("probate-missouri-vs-kansas")).toBe(true);
+    expect(isIndexable("tax-sale-missouri-vs-kansas")).toBe(true);
+    expect(isIndexable("contract-for-deed-missouri-vs-kansas")).toBe(false);
+    expect(isIndexable("seller-disclosure-missouri-vs-kansas")).toBe(false);
   });
 });

@@ -109,6 +109,38 @@ Ruled DEFER by the final whole-branch review, with reasoning:
 
 ---
 
+## Wave 0C — waiting on ledger coverage, not on code
+
+Task 7.5 added a second indexation gate for `stateLine` pages: clearing the
+600-word floor is necessary but not sufficient — the page also needs at least
+one entry in its `claims` array (`isIndexable()` in
+`src/lib/seo/indexation.ts`). A `stateLine` page's title promises a named
+legal comparison; word count alone doesn't prove the comparison happened.
+State/county/city pages are unaffected — their titles describe a place, not a
+legal comparison, so they keep the word-count-only rule.
+
+Two pages currently sit below that bar, both `noindex, follow` (reachable,
+linked, passing link equity — just not indexed):
+
+- `contract-for-deed-missouri-vs-kansas` — 745 words, 0 claims. The ledger has
+  no verified rule for either Missouri or Kansas on contract-for-deed default
+  or reinstatement.
+- `seller-disclosure-missouri-vs-kansas` — 756 words, 0 claims. The ledger has
+  no verified seller-disclosure requirement for either state.
+
+**No code change is needed to bring these into the index.** Once
+`src/data/legal-citations.ts` gains a verified citation for either topic in
+either state, and the corresponding page in
+`src/data/state-line-content-transaction.ts` adds a `claims: [...]` entry
+naming it, `isIndexable()` picks it up automatically the next time the site
+builds. Do not lower the claims-gate bar to work around the wait — see the
+comment above `isTopicallyIndexable()` in `indexation.ts` for why.
+
+Indexable count: 12 of 213 pages (14 before this gate; the two pages above
+dropped out). `check:links` confirms 0 orphans among the 12.
+
+---
+
 ## Not yet built (Wave 0A scope boundary)
 
 - **Lead pipeline** (spec §12) — `resend` is a declared dependency but no

@@ -41,4 +41,38 @@ describe("indexation gate", () => {
     expect(wordCount(body)).toBe(MIN_INDEXABLE_WORDS);
     expect(isBodyIndexable(body)).toBe(true);
   });
+
+  describe("stateLine claims gate", () => {
+    // These two carry zero verified claims by design (see
+    // state-line-content-transaction.ts) -- the ledger has no MO or KS
+    // coverage for either topic yet. They clear the word-count floor, so if
+    // the claims gate ever regresses to a word-count-only check, these
+    // assertions catch it.
+    it("does not index a stateLine page with 0 claims, even past the word floor", () => {
+      expect(isIndexable("contract-for-deed-missouri-vs-kansas")).toBe(false);
+      expect(isIndexable("seller-disclosure-missouri-vs-kansas")).toBe(false);
+    });
+
+    it("still follows links on those two pages", () => {
+      expect(robotsFor("contract-for-deed-missouri-vs-kansas"))
+        .toEqual({ index: false, follow: true });
+      expect(robotsFor("seller-disclosure-missouri-vs-kansas"))
+        .toEqual({ index: false, follow: true });
+    });
+
+    it("indexes a stateLine page that carries at least one verified claim", () => {
+      // tax-sale-missouri-vs-kansas: 2 Missouri claims, honest about the
+      // Kansas gap -- this is the shape the gate is supposed to let through.
+      expect(isIndexable("tax-sale-missouri-vs-kansas")).toBe(true);
+    });
+
+    it("does not gate non-stateLine page types on claims", () => {
+      // A state/county/city page has no `claims` field at all -- its title
+      // describes a place, not a legal comparison, so the word-count floor
+      // alone must still decide it. This page has no content registered, so
+      // it fails on word count, not on a wrongly-applied claims check --
+      // confirmed by isBodyIndexable never entering the picture here.
+      expect(isIndexable("sell-my-house-fast-worth-county-mo")).toBe(false);
+    });
+  });
 });
