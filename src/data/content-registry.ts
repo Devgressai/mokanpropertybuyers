@@ -1,5 +1,6 @@
 import type { LegalClaim } from "@/types/legal";
 import { stateLineContentForeclosure } from "@/data/state-line-content-foreclosure";
+import { stateLineContentMoney } from "@/data/state-line-content-money";
 
 export interface PageContent {
   slug: string;
@@ -21,7 +22,10 @@ export interface PageContent {
  * Extension point: future waves `push(...)` a `Record<string, PageContent>`
  * onto this array rather than editing `merged` directly.
  */
-const registries: Record<string, PageContent>[] = [stateLineContentForeclosure];
+const registries: Record<string, PageContent>[] = [
+  stateLineContentForeclosure,
+  stateLineContentMoney,
+];
 
 /** Exported for `check:content-slugs`: a collision is invisible after merge. */
 export const contentRegistries: Record<string, PageContent>[] = registries;
