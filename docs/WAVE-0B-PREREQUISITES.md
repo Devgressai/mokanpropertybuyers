@@ -1,5 +1,11 @@
 # Wave 0B Prerequisites and Carry-Forwards
 
+> **STATUS 2026-07-30 — Wave 0B is complete.** Items 1 and 2 below are CLOSED
+> (see the strikethroughs). The state-line silo shipped: 14 anchor pages plus 2
+> deep state hubs, 194 paragraphs, 48 verified claims, 0 unlabeled MO/KS blends,
+> 0 uncited claims. 14 of 213 pages are indexed. The lead pipeline shipped too.
+> Everything still open below is Wave 0C's inheritance.
+
 Everything Wave 0A deliberately left undone, and the traps waiting for whoever
 picks this up. Promoted out of the SDD progress ledger — that file lives in
 gitignored scratch and `git clean -fdx` would erase it.
@@ -12,7 +18,7 @@ indexed. See `README.md` for orientation and the design spec for the plan.
 
 ## Blocking — do these BEFORE the work they gate
 
-### 1. Wire `claimIsCited` before writing a single legal claim
+### 1. ~~Wire `claimIsCited` before writing a single legal claim~~ — CLOSED (commit 51211ce)
 
 **This is the most dangerous item in the repo.** `src/types/legal.ts` defines
 `LegalClaim` with a required `citation` field, and `scripts/check-state-claims.mts`
@@ -28,7 +34,7 @@ enforced. **Wire `missingCitation` into `auditClaims()` in the same task that
 writes the first claim.** This was a defect in the Wave 0A plan: the task brief's
 interface summary listed the field and the brief's own reference code omitted it.
 
-### 2. Add content-slug collision detection before the SECOND content map
+### 2. ~~Add content-slug collision detection before the SECOND content map~~ — CLOSED (commit 7b21066)
 
 `src/data/content-registry.ts` merges via `Object.assign({}, ...registries)` —
 **last wins, silently.** Two content maps defining the same slug means one page's
@@ -47,7 +53,7 @@ advertised a `logo.png` that never existed, sitewide, in three JSON-LD blocks �
 no build broke, no error was thrown. This gate is the only thing that catches
 that, so give it something to check.
 
-### 4. Extend `placeLabel()` when adding any new H1 shape
+### 4. ~~Extend `placeLabel()` when adding any new H1 shape~~ — CLOSED for stateLine (commit f913c9d, explicit `label` field). Still applies to any FUTURE H1 shape.
 
 `src/lib/seo/placeCopy.ts` strips `/^Sell Your House Fast in /` off `h1` to get a
 place label. Correct for all 199 pages today (verified: 0 leaks). On a
@@ -156,3 +162,43 @@ dropped out). `check:links` confirms 0 orphans among the 12.
   implies).
 - **All page content** — every silo in spec §5 beyond geography, and the 40-page
   state-line silo in §6 that is the site's actual differentiator.
+
+
+---
+
+## Wave 0C inheritance — added 2026-07-30
+
+### Ledger gaps that keep two pages out of the index
+
+`contract-for-deed-missouri-vs-kansas` and `seller-disclosure-missouri-vs-kansas`
+are written, linked, and `noindex, follow`. They index themselves the moment the
+ledger covers their topic — no code change. Verify and add:
+
+| Needed claim | Where to look |
+|---|---|
+| Kansas tax-sale redemption | K.S.A. ch. 79 |
+| Contract-for-deed default/forfeiture, Missouri | RSMo ch. 443 / case law |
+| Contract-for-deed default/forfeiture, Kansas | K.S.A. ch. 58 |
+| Seller disclosure duty, Missouri | RSMo ch. 339; Mo. real-estate commission rules |
+| Seller disclosure duty, Kansas | K.S.A. ch. 58; KREC rules |
+
+### The remaining ~26 silo pages
+
+Spec §6 anticipates 40 silo pages; 14 anchors shipped. The rest are per-state
+transactional variants (selling an inherited house in Missouri, selling in
+foreclosure in Kansas, and so on). They inherit the same content contract.
+
+### Every Missouri citation needs its effective date re-checked
+
+`revisor.mo.gov` serves amended text **ahead of its effective date**. RSMo 513.475
+renders "forty thousand dollars" today while $15,000 is the figure in force until
+2027-01-01. **On 2027-01-01 the `mo-homestead` claim and its `pendingChange` must
+swap** — the pending figure becomes current. Nothing automates that. Anyone
+touching the homestead pages after January must check.
+
+### Parallel agents need real isolation
+
+Two implementers were run concurrently in this shared checkout on disjoint file
+lists. It still broke: `tsc` and `vitest` are checkout-global, so one agent's
+in-progress code failed the other's verification. Disjoint files are not enough —
+use a git worktree per agent, or run implementers sequentially.
