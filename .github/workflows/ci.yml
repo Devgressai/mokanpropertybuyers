@@ -39,5 +39,7 @@ jobs:
         run: npm run check:assets
       - name: Internal link gate
         run: npm run check:links
+      - name: Lead delivery smoke test
+        run: npm run check:leads
       - name: Build
         run: npm run build

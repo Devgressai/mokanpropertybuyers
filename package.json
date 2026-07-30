@@ -17,7 +17,8 @@
     "check:pages": "tsx scripts/check-pages.mts",
     "check:assets": "tsx scripts/check-assets.mts",
     "check:links": "tsx scripts/check-links.mts",
-    "check:all": "npm run typecheck && npm run test && npm run check:slugs && npm run check:state-claims && npm run check:content-slugs && npm run check:pages && npm run check:assets && npm run check:links"
+    "check:leads": "tsx scripts/check-leads.mts",
+    "check:all": "npm run typecheck && npm run test && npm run check:slugs && npm run check:state-claims && npm run check:content-slugs && npm run check:pages && npm run check:assets && npm run check:links && npm run check:leads"
   },
   "dependencies": {
     "next": "^15.3.0",
