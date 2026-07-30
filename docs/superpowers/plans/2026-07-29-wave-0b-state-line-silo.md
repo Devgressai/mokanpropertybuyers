@@ -371,6 +371,59 @@ next to it, and a claim nobody can check is a claim nobody should trust."
 **Interfaces:**
 - Produces: `export const citations: Record<string, LegalClaim>` keyed by a stable id (e.g. `mo-homestead`, `ks-redemption-12mo`)
 
+- [ ] **Step 0: Extend `LegalClaim` with effective dating — a statute can be law and not yet in force**
+
+**This step exists because verification already caught a live trap.** On 2026-07-29,
+`revisor.mo.gov` served RSMo 513.475 reading "forty thousand dollars" with the revision
+history `A.L. 2026 H.B. 1870 merged with S.B. 835 & 1111` and **Effective Date:
+January 1, 2027**. The current operative Missouri homestead exemption is **$15,000**;
+H.B. 1870 (signed 2026-05-06) raises it to **$40,000 on 2027-01-01**, with triennial CPI
+adjustment beginning 2029-04-01.
+
+**The Missouri Revisor publishes amended text ahead of its effective date.** Any author who
+verifies against revisor.mo.gov and copies the number will publish a figure that is wrong
+for the next five months — and a distressed Missouri homeowner deciding what equity is
+protected would be misinformed by exactly $25,000.
+
+So `LegalClaim` gains effective dating:
+
+```typescript
+export interface LegalClaim {
+  state: StateCode;
+  claim: string;
+  citation: string;
+  sourceUrl?: string;
+  /** ISO date the claim was checked against its source. */
+  verifiedOn: string;
+  /**
+   * ISO date this rule took effect. Omit when the rule is long-settled.
+   */
+  effectiveFrom?: string;
+  /**
+   * A scheduled change to this rule that is enacted but not yet in force.
+   * Rendered to the reader, because a seller planning around a deadline needs
+   * to know the rule changes before their timeline ends.
+   */
+  pendingChange?: {
+    /** What it becomes. */
+    claim: string;
+    /** ISO date it takes effect. */
+    effectiveFrom: string;
+    /** The enacting instrument, e.g. "H.B. 1870 (2026)". */
+    citation: string;
+    sourceUrl?: string;
+  };
+}
+```
+
+**Binding rule for every claim in the ledger: check whether the text you are reading is
+currently in force.** Look for an "Effective Date" line and a recent `A.L.` entry in the
+revision history. If the text is future-effective, record the *current* rule as `claim` and
+the coming change as `pendingChange`. Note the same hazard may exist on `ksrevisor.gov`.
+
+Update `auditClaimList` so a `pendingChange` without its own `citation` fails the gate, and
+add tests covering both the effective-dating fields and that failure.
+
 - [ ] **Step 1: Verify each claim against a primary source**
 
 Use `WebSearch` and `WebFetch` against **official sources only** — `revisor.mo.gov`, `ksrevisor.gov`, `law.justia.com`, county assessor and Department of Revenue sites, the Kansas and Missouri courts. Do not cite a blog, a law-firm marketing page, or a memory.
@@ -383,10 +436,10 @@ The claim set to verify, at minimum:
 | `mo-notice-period` | Missouri's required notice/publication period before a trustee sale | RSMo 443.320 et seq. |
 | `mo-redemption` | Missouri post-sale redemption, and the narrow circumstances it exists in | RSMo 443.410 |
 | `ks-judicial` | Kansas requires judicial foreclosure | K.S.A. ch. 60 |
-| `ks-redemption-12mo` | Kansas redemption period, generally 12 months | K.S.A. 60-2414 |
-| `ks-redemption-3mo` | Shortened to 3 months when less than one-third of the debt is paid | K.S.A. 60-2414 |
-| `mo-homestead` | Missouri homestead exemption amount | RSMo 513.475 |
-| `ks-homestead` | Kansas homestead exemption — unlimited value, 160 rural acres / 1 urban acre | Kan. Const. Art. 15 §9; K.S.A. 60-2301 |
+| `ks-redemption-12mo` | Kansas redemption period. **VERIFIED 2026-07-29: "the defendant owner may redeem any real property sold under execution … at any time within 12 months from the day of sale."** | K.S.A. 60-2414 |
+| `ks-redemption-3mo` | Shortened redemption. **VERIFIED 2026-07-29: 3 months when default occurs "before ⅓ of the original indebtedness secured by the mortgage or lien has been paid"; but the court orders the full 12 months if all liens total less than ⅓ of market value.** | K.S.A. 60-2414 |
+| `mo-homestead` | Missouri homestead exemption amount. **VERIFIED 2026-07-29: $15,000 currently; $40,000 from 2027-01-01 per H.B. 1870 (signed 2026-05-06); triennial CPI adjustment from 2029-04-01. Record as `claim` + `pendingChange`.** | RSMo 513.475 |
+| `ks-homestead` | Kansas homestead exemption. **VERIFIED 2026-07-29: 160 acres farming land / 1 acre within an incorporated town or city, NO dollar limit on value (annotation 45: "without dollar value limitation").** | Kan. Const. Art. 15 §9; K.S.A. 60-2301 |
 | `mo-transfer-tax-ban` | Missouri constitutional prohibition on real estate transfer taxes | Mo. Const. Art. X §25 |
 | `ks-mortgage-reg-tax` | Kansas mortgage registration tax repeal and its phase-out | K.S.A. 79-3102 history |
 | `mo-assessment-19` | Missouri residential assessment ratio | RSMo 137.115 |
