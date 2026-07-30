@@ -13,10 +13,11 @@
     "codegen:geography": "tsx scripts/codegen-geography.mts",
     "check:slugs": "tsx scripts/check-slugs.mts",
     "check:state-claims": "tsx scripts/check-state-claims.mts",
+    "check:content-slugs": "tsx scripts/check-content-slugs.mts",
     "check:pages": "tsx scripts/check-pages.mts",
     "check:assets": "tsx scripts/check-assets.mts",
     "check:links": "tsx scripts/check-links.mts",
-    "check:all": "npm run typecheck && npm run test && npm run check:slugs && npm run check:state-claims && npm run check:pages && npm run check:assets && npm run check:links"
+    "check:all": "npm run typecheck && npm run test && npm run check:slugs && npm run check:state-claims && npm run check:content-slugs && npm run check:pages && npm run check:assets && npm run check:links"
   },
   "dependencies": {
     "next": "^15.3.0",

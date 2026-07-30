@@ -31,6 +31,8 @@ jobs:
         run: npm run check:slugs
       - name: State-claims gate
         run: npm run check:state-claims
+      - name: Content-slug gate
+        run: npm run check:content-slugs
       - name: Page graph gate
         run: npm run check:pages
       - name: Asset existence gate

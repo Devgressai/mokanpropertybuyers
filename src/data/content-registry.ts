@@ -22,6 +22,9 @@ export interface PageContent {
  */
 const registries: Record<string, PageContent>[] = [];
 
+/** Exported for `check:content-slugs`: a collision is invisible after merge. */
+export const contentRegistries: Record<string, PageContent>[] = registries;
+
 const merged: Record<string, PageContent> = Object.assign({}, ...registries);
 
 export function getPageContent(slug: string): PageContent | undefined {
