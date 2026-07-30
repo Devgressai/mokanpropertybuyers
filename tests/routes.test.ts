@@ -26,8 +26,12 @@ describe("geo route", () => {
   });
 
   it("keeps follow true and index false for a page with no hand-written content", async () => {
+    // sell-my-house-fast-missouri was this test's example until Task 8
+    // (Wave 0B) gave both state hubs hand-written content and made them
+    // indexable on purpose -- a county page is still untouched, since
+    // counties and cities are out of scope through Wave 0B.
     const metadata = await generateMetadata({
-      params: Promise.resolve({ slug: "sell-my-house-fast-missouri" }),
+      params: Promise.resolve({ slug: "sell-my-house-fast-jackson-county-mo" }),
     });
     expect(metadata.robots).toEqual({ index: false, follow: true });
   });
