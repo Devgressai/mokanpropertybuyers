@@ -1,4 +1,5 @@
 import { states, counties, cities, type StateCode } from "@/data/geography";
+import { stateLinePages } from "@/data/state-line";
 import { SITE } from "@/lib/site";
 import type { PageType, SeoPage } from "@/types/seo";
 
@@ -56,6 +57,24 @@ function buildSeoPages(): SeoPage[] {
       metaDescription:
         `Sell your ${city.name}, ${city.state} house as-is for cash. No repairs, ` +
         `no commissions, no fees. Get an offer and close on your timeline.`,
+    });
+  }
+
+  // The state-line silo: topical, not geographic. A single-state page
+  // parents to that state's hub; a genuinely bi-state comparison page gets
+  // no parent, because forcing one would imply that state owns the
+  // comparison.
+  for (const def of stateLinePages) {
+    pages.push({
+      slug: def.slug,
+      title: def.title,
+      h1: def.h1,
+      type: "stateLine",
+      stateCode: def.state,
+      parentSlug: def.state ? stateByCode.get(def.state)!.slug : undefined,
+      priority: 95,
+      metaDescription: def.metaDescription,
+      label: def.label,
     });
   }
 

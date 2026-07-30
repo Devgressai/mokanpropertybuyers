@@ -9,6 +9,7 @@ import type { SeoPage } from "@/types/seo";
 import StatePage from "@/components/seo/StatePage";
 import CountyPage from "@/components/seo/CountyPage";
 import CityPage from "@/components/seo/CityPage";
+import StateLinePage from "@/components/seo/StateLinePage";
 
 export const dynamicParams = false;
 
@@ -47,7 +48,9 @@ export default async function GeoPage(
   // Content is resolved SERVER-SIDE and passed as props. The page components
   // are client components; importing the registry into one would ship the
   // whole corpus to the browser.
-  const content = getPageContent(slug)?.body ?? [];
+  const pageContent = getPageContent(slug);
+  const content = pageContent?.body ?? [];
+  const claims = pageContent?.claims;
 
   // Ancestors and siblings are resolved here too, for the same reason --
   // the components below never touch the page index directly.
@@ -81,6 +84,10 @@ export default async function GeoPage(
           county={parent}
           nearby={nearby}
         />
+      );
+    case "stateLine":
+      return (
+        <StateLinePage page={page} body={content} breadcrumbs={breadcrumbs} claims={claims} />
       );
     default:
       notFound();

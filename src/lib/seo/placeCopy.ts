@@ -4,9 +4,15 @@ import type { BreadcrumbItem, SeoPage } from "@/types/seo";
  * Strips the boilerplate lede off an SeoPage's H1 to get a bare place name
  * ("Sell Your House Fast in Jackson County, MO" -> "Jackson County, MO").
  * Pure string work, no lookups -- safe to call from client components.
+ *
+ * Prefers `page.label` when it's set. Not every page's h1 is a "Sell Your
+ * House Fast in X" sentence -- the stateLine silo's h1s are full topic
+ * sentences like "Missouri Foreclosure vs. Kansas Foreclosure" -- and
+ * falling through the regex on those would leak the whole sentence into a
+ * breadcrumb crumb instead of a short label.
  */
 export function placeLabel(page: SeoPage): string {
-  return page.h1.replace(/^Sell Your House Fast in /, "");
+  return page.label ?? page.h1.replace(/^Sell Your House Fast in /, "");
 }
 
 /**

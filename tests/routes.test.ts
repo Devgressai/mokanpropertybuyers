@@ -18,10 +18,11 @@ describe("geo route", () => {
     expect(slugs).toContain("sell-my-house-fast-kansas-city-ks");
   });
 
-  it("generates all 199 slugs with none repeated", async () => {
+  it("generates all 213 slugs with none repeated", async () => {
+    // 199 geographic (state/county/city) + 14 state-line silo pages (Wave 0B).
     const slugs = (await generateStaticParams()).map((p) => p.slug);
-    expect(slugs).toHaveLength(199);
-    expect(new Set(slugs).size).toBe(199);
+    expect(slugs).toHaveLength(199 + 14);
+    expect(new Set(slugs).size).toBe(199 + 14);
   });
 
   it("keeps follow true and index false for a page with no hand-written content", async () => {

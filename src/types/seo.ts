@@ -25,6 +25,14 @@ export interface SeoPage {
   priority: number;
   metaDescription: string;
   heroSubtext?: string;
+  /**
+   * Explicit breadcrumb/link label. Geographic pages don't need this --
+   * `placeLabel()` strips the "Sell Your House Fast in " lede off their h1 --
+   * but a page whose h1 isn't that sentence (the stateLine silo) would
+   * otherwise leak the whole h1 into a breadcrumb crumb. `placeLabel()`
+   * prefers this field when it's set.
+   */
+  label?: string;
 }
 
 export interface LinkItem {

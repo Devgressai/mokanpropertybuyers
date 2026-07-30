@@ -35,10 +35,20 @@ describe("pageIndex", () => {
   });
 
   it("splits pages by state without losing any", () => {
+    // getPagesByState filters on stateCode, which the four single-state
+    // stateLine pages now carry too (Wave 0B) -- so the geographic total
+    // alone is no longer the whole count; the single-state silo pages join it.
     const mo = getPagesByState("MO").length;
     const ks = getPagesByState("KS").length;
-    expect(mo + ks).toBe(2 + 53 + 144);
-    expect(mo).toBe(1 + 31 + getPagesByType("city").filter(c => c.stateCode === "MO").length);
+    const geoTotal = 2 + 53 + 144;
+    const stateLineWithState = getPagesByType("stateLine").filter((p) => p.stateCode).length;
+    expect(mo + ks).toBe(geoTotal + stateLineWithState);
+    expect(mo).toBe(
+      1 +
+        31 +
+        getPagesByType("city").filter((c) => c.stateCode === "MO").length +
+        getPagesByType("stateLine").filter((p) => p.stateCode === "MO").length
+    );
   });
 
   it("emits no duplicate slugs", () => {
