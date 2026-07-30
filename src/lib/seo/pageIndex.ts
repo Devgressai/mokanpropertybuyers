@@ -1,5 +1,5 @@
 import { states, counties, cities, type StateCode } from "@/data/geography";
-import { stateLinePages } from "@/data/state-line";
+import { stateLinePages, STATE_LINE_HUB_SLUG } from "@/data/state-line";
 import { SITE } from "@/lib/site";
 import type { PageType, SeoPage } from "@/types/seo";
 
@@ -11,6 +11,11 @@ function buildSeoPages(): SeoPage[] {
 
   for (const state of states) {
     const own = counties.filter((c) => c.state === state.code);
+    // The single-state slice of the state-line silo -- kept out of
+    // `childSlugs` (reserved for counties, an actual place hierarchy) and in
+    // `nearbySlugs` instead, so a topic list never gets rendered as though it
+    // were more counties. See StatePage's two separate PlaceLinkList calls.
+    const siloTopics = stateLinePages.filter((d) => d.state === state.code);
     pages.push({
       slug: state.slug,
       title: `Sell My House Fast in ${state.name} | ${SITE.name}`,
@@ -18,6 +23,7 @@ function buildSeoPages(): SeoPage[] {
       type: "state",
       stateCode: state.code,
       childSlugs: own.map((c) => c.slug),
+      nearbySlugs: siloTopics.map((d) => d.slug),
       priority: 100,
       metaDescription:
         `We buy houses, land, and small multifamily for cash across ${state.name}. ` +
@@ -64,7 +70,18 @@ function buildSeoPages(): SeoPage[] {
   // parents to that state's hub; a genuinely bi-state comparison page gets
   // no parent, because forcing one would imply that state owns the
   // comparison.
+  //
+  // Link graph within the silo itself (see src/data/state-line.ts):
+  //   - `which-side-of-state-line-road` is the silo hub. Its `childSlugs`
+  //     lists all thirteen siblings -- the automatic "explore the silo"
+  //     index, same pattern as a state's county list.
+  //   - Every other page's `nearbySlugs` is its curated `relatedSlugs`: a
+  //     handful of topically-related siblings plus a link back to the hub.
+  //     That's a real, contextual inbound edge for every silo page, not just
+  //     the hub listing -- see check-links.mts on why that distinction
+  //     matters.
   for (const def of stateLinePages) {
+    const isHub = def.slug === STATE_LINE_HUB_SLUG;
     pages.push({
       slug: def.slug,
       title: def.title,
@@ -72,6 +89,10 @@ function buildSeoPages(): SeoPage[] {
       type: "stateLine",
       stateCode: def.state,
       parentSlug: def.state ? stateByCode.get(def.state)!.slug : undefined,
+      childSlugs: isHub
+        ? stateLinePages.filter((d) => d.slug !== STATE_LINE_HUB_SLUG).map((d) => d.slug)
+        : undefined,
+      nearbySlugs: def.relatedSlugs?.map((r) => r.slug),
       priority: 95,
       metaDescription: def.metaDescription,
       label: def.label,

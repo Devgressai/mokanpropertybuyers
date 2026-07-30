@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getAllSeoSlugs, getPageBySlug } from "@/lib/seo/pageIndex";
 import { robotsFor } from "@/lib/seo/indexation";
 import { getPageContent } from "@/data/content-registry";
+import { getStateLineDef, type RelatedLink } from "@/data/state-line";
 import { SITE } from "@/lib/site";
 import { buildBreadcrumbs } from "@/lib/seo/placeCopy";
 import type { SeoPage } from "@/types/seo";
@@ -10,6 +11,7 @@ import StatePage from "@/components/seo/StatePage";
 import CountyPage from "@/components/seo/CountyPage";
 import CityPage from "@/components/seo/CityPage";
 import StateLinePage from "@/components/seo/StateLinePage";
+import type { RelatedLinkItem } from "@/components/seo/RelatedLinkList";
 
 export const dynamicParams = false;
 
@@ -38,6 +40,18 @@ function resolveAll(slugs: string[] | undefined): SeoPage[] {
     .filter((p): p is SeoPage => p !== undefined);
 }
 
+/**
+ * Resolves a state-line page's curated `relatedSlugs` to renderable links,
+ * dropping any whose target isn't a real page. The anchor text is authored
+ * per source-page in `state-line.ts` -- unlike `resolveAll`, this keeps that
+ * anchor rather than falling back to the target's own label.
+ */
+function resolveRelatedLinks(links: RelatedLink[] | undefined): RelatedLinkItem[] {
+  return (links ?? [])
+    .filter((l) => getPageBySlug(l.slug) !== undefined)
+    .map((l) => ({ slug: l.slug, anchor: l.anchor }));
+}
+
 export default async function GeoPage(
   { params }: { params: Promise<{ slug: string }> }
 ) {
@@ -63,7 +77,13 @@ export default async function GeoPage(
   switch (page.type) {
     case "state":
       return (
-        <StatePage page={page} body={content} breadcrumbs={breadcrumbs} counties={children} />
+        <StatePage
+          page={page}
+          body={content}
+          breadcrumbs={breadcrumbs}
+          counties={children}
+          siloTopics={nearby}
+        />
       );
     case "county":
       return (
@@ -87,7 +107,14 @@ export default async function GeoPage(
       );
     case "stateLine":
       return (
-        <StateLinePage page={page} body={content} breadcrumbs={breadcrumbs} claims={claims} />
+        <StateLinePage
+          page={page}
+          body={content}
+          breadcrumbs={breadcrumbs}
+          claims={claims}
+          siblings={children}
+          related={resolveRelatedLinks(getStateLineDef(slug)?.relatedSlugs)}
+        />
       );
     default:
       notFound();

@@ -1,16 +1,40 @@
 // tests/check-links.test.ts
 import { describe, expect, it } from "vitest";
 import { analyzeLinks, auditLinks, type LinkNode } from "../scripts/check-links.mts";
+import { getAllSeoSlugs } from "../src/lib/seo/pageIndex.js";
+import { isIndexable } from "../src/lib/seo/indexation.js";
+import { stateLinePages } from "../src/data/state-line.js";
 
-describe("auditLinks (real page index, empty content registry)", () => {
-  it("reports honestly that there are 0 indexable pages to check", () => {
-    // The content registry is empty by design until Wave 0B lands copy, so
-    // isIndexable() is false for every real slug -- this is the case the
-    // gate must report as "nothing to check", not as a false "all OK".
+describe("auditLinks (real page index, live content registry)", () => {
+  // Wave 0B landed hand-written copy for five state-line pages, so
+  // isIndexable() is now true for those five -- this asserts the real
+  // wiring, not a hardcoded page count that would go stale the moment
+  // Task 6 or 7 adds more content.
+  it("reports at least one indexable page and 0 orphans / 0 hub-only", () => {
     const audit = auditLinks();
-    expect(audit.checked).toBe(0);
+    expect(audit.checked).toBeGreaterThan(0);
     expect(audit.orphans).toEqual([]);
     expect(audit.hubOnly).toEqual([]);
+  });
+
+  it("gives every currently-indexable state-line page a contextual inbound link, not just the hub listing", () => {
+    // Contextual = a parentSlug/nearbySlugs edge from a genuinely related
+    // page, as opposed to only being reachable via a hub's automatic
+    // listing. See the curated `relatedSlugs` cross-links in
+    // src/data/state-line.ts.
+    const stateLineSlugs = new Set(stateLinePages.map((d) => d.slug));
+    const indexableStateLineSlugs = getAllSeoSlugs().filter(
+      (slug) => stateLineSlugs.has(slug) && isIndexable(slug)
+    );
+    // Guards against this test silently checking nothing if content ever
+    // regresses back out of the registry.
+    expect(indexableStateLineSlugs.length).toBeGreaterThan(0);
+
+    const audit = auditLinks();
+    for (const slug of indexableStateLineSlugs) {
+      expect(audit.orphans).not.toContain(slug);
+      expect(audit.hubOnly).not.toContain(slug);
+    }
   });
 });
 
