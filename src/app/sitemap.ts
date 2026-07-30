@@ -3,7 +3,12 @@ import { seoPages } from "@/lib/seo/pageIndex";
 import { isIndexable } from "@/lib/seo/indexation";
 import { SITE } from "@/lib/site";
 
-const STATIC_PATHS = ["", "/how-it-works", "/about", "/contact", "/faq"];
+// Only paths with a route that actually exists today belong here. Advertising
+// a URL that 404s is worse than advertising a noindex page — Google indexes
+// the 404 and the site loses the crawl budget for nothing. Add an entry the
+// same commit its page ships, never before.
+// Pending, not yet built: "/how-it-works", "/about", "/contact", "/faq".
+const STATIC_PATHS = [""];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries = STATIC_PATHS.map((p) => ({
