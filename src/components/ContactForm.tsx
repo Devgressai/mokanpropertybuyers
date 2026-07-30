@@ -6,14 +6,16 @@
 // -- this is a client component and pulls in nothing from src/data. NAP is
 // not rendered: there is none yet (see src/lib/site.ts).
 //
-// src/lib/leads.ts is imported for its pure, side-effect-free pieces only
-// (FIELD_LIMITS, isValidEmail, isValidPhone) so client-side validation
-// mirrors the server's contract instead of retyping the same numbers and
-// regexes and risking drift. Nothing here calls submitLead, touches
+// src/lib/lead-validation.ts is imported for its pure, side-effect-free
+// pieces (FIELD_LIMITS, isValidEmail, isValidPhone) so client-side
+// validation mirrors the server's contract instead of retyping the same
+// numbers and regexes and risking drift. That module has no env access and
+// no transport imports, by construction -- unlike src/lib/leads.ts, which
+// is merely safe today. Nothing here calls submitLead, touches
 // process.env, or talks to Resend -- that all stays server-side in the
 // route handler.
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { FIELD_LIMITS, isValidEmail, isValidPhone } from "@/lib/leads";
+import { FIELD_LIMITS, isValidEmail, isValidPhone } from "@/lib/lead-validation";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 

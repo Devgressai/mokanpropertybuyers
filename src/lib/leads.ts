@@ -40,23 +40,14 @@ export interface ValidatedLead {
   message: string;
 }
 
-export const FIELD_LIMITS = {
-  name: 100,
-  email: 254,
-  phone: 20,
-  propertyAddress: 200,
-  message: 2000,
-} as const;
-
-/** Escape HTML special characters before any user string reaches an email body. */
-export function escapeHtml(input: string): string {
-  return input
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
+// FIELD_LIMITS, escapeHtml, isValidEmail, and isValidPhone live in
+// lead-validation.ts -- the pure, dependency-free surface that
+// ContactForm.tsx ("use client") imports from directly, so a future import
+// added to this file (e.g. the `resend` package) can never ride along into
+// the client bundle. Re-exported here for backward compatibility with
+// existing callers/tests.
+import { FIELD_LIMITS, escapeHtml, isValidEmail, isValidPhone } from "./lead-validation";
+export { FIELD_LIMITS, escapeHtml, isValidEmail, isValidPhone };
 
 /**
  * Strip CR/LF before a value is placed in an email header (subject, reply-to).
@@ -64,16 +55,6 @@ export function escapeHtml(input: string): string {
  */
 function stripCrlf(input: string): string {
   return input.replace(/[\r\n]+/g, " ").trim();
-}
-
-export function isValidEmail(email: string): boolean {
-  return email.length <= FIELD_LIMITS.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-export function isValidPhone(phone: string): boolean {
-  if (phone.length > FIELD_LIMITS.phone) return false;
-  const digits = phone.replace(/\D/g, "");
-  return digits.length >= 10 && digits.length <= 15;
 }
 
 export type LeadValidationResult =
