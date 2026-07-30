@@ -1,6 +1,7 @@
 import type { LegalClaim } from "@/types/legal";
 import { stateLineContentForeclosure } from "@/data/state-line-content-foreclosure";
 import { stateLineContentMoney } from "@/data/state-line-content-money";
+import { stateLineContentTransaction } from "@/data/state-line-content-transaction";
 
 export interface PageContent {
   slug: string;
@@ -25,6 +26,7 @@ export interface PageContent {
 const registries: Record<string, PageContent>[] = [
   stateLineContentForeclosure,
   stateLineContentMoney,
+  stateLineContentTransaction,
 ];
 
 /** Exported for `check:content-slugs`: a collision is invisible after merge. */
