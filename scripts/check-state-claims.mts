@@ -31,14 +31,36 @@ export function claimIsCited(claim: LegalClaim): boolean {
   return claim.citation.trim().length > 0;
 }
 
+/**
+ * Every claim must carry a citation AND a verification date. An uncited claim
+ * typechecks — `citation: ""` satisfies `citation: string` — so the type alone
+ * never enforced this. Wave 0A shipped `claimIsCited` uncalled; this is the
+ * call site.
+ */
+export function auditClaimList(slug: string, claims: LegalClaim[]): string[] {
+  const problems: string[] = [];
+  for (const c of claims) {
+    if (!claimIsCited(c)) {
+      problems.push(`${slug}: uncited [${c.state}] "${c.claim.slice(0, 80)}"`);
+    } else if (c.verifiedOn.trim() === "") {
+      problems.push(`${slug}: unverified [${c.state}] "${c.claim.slice(0, 80)}"`);
+    }
+  }
+  return problems;
+}
+
 export interface ClaimAudit {
   total: number;
+  claimCount: number;
   unlabeledBlends: string[];
+  missingCitation: string[];
 }
 
 export function auditClaims(): ClaimAudit {
   const blends: string[] = [];
+  const missingCitation: string[] = [];
   let total = 0;
+  let claimCount = 0;
   for (const slug of allContentSlugs()) {
     const content = getPageContent(slug);
     if (!content) continue;
@@ -46,18 +68,30 @@ export function auditClaims(): ClaimAudit {
     for (const p of findUnlabeledBlends(content.body)) {
       blends.push(`${slug}: ${p.slice(0, 120)}…`);
     }
+    const claims = content.claims ?? [];
+    claimCount += claims.length;
+    missingCitation.push(...auditClaimList(slug, claims));
   }
-  return { total, unlabeledBlends: blends };
+  return { total, claimCount, unlabeledBlends: blends, missingCitation };
 }
 
 function main(): void {
-  const { total, unlabeledBlends } = auditClaims();
+  const { total, claimCount, unlabeledBlends, missingCitation } = auditClaims();
   if (unlabeledBlends.length) {
     for (const b of unlabeledBlends) console.error(`UNLABELED BLEND  ${b}`);
-    console.error(`\ncheck:state-claims FAILED — ${unlabeledBlends.length} blended paragraphs`);
+  }
+  if (missingCitation.length) {
+    for (const m of missingCitation) console.error(`MISSING CITATION  ${m}`);
+  }
+  if (unlabeledBlends.length || missingCitation.length) {
+    console.error(
+      `\ncheck:state-claims FAILED — ${unlabeledBlends.length} blended paragraphs, ${missingCitation.length} uncited claims`
+    );
     process.exit(1);
   }
-  console.log(`check:state-claims OK — ${total} paragraphs, 0 unlabeled MO/KS blends`);
+  console.log(
+    `check:state-claims OK — ${total} paragraphs, ${claimCount} claims, ${unlabeledBlends.length} unlabeled MO/KS blends, ${missingCitation.length} uncited claims`
+  );
 }
 
 if (process.argv[1]?.includes("check-state-claims")) main();

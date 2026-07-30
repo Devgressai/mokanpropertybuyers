@@ -1,7 +1,15 @@
+import type { LegalClaim } from "@/types/legal";
+
 export interface PageContent {
   slug: string;
   /** Paragraph blocks of hand-written body copy. */
   body: string[];
+  /**
+   * Statements of law made by this page. Every entry is audited by
+   * `check:state-claims` for a non-empty citation and verification date.
+   * Absent on pages that assert no law.
+   */
+  claims?: LegalClaim[];
 }
 
 /**

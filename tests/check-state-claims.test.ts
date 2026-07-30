@@ -1,6 +1,6 @@
 // tests/check-state-claims.test.ts
 import { describe, expect, it } from "vitest";
-import { findUnlabeledBlends, claimIsCited } from "../scripts/check-state-claims.mts";
+import { findUnlabeledBlends, claimIsCited, auditClaimList } from "../scripts/check-state-claims.mts";
 
 describe("state-claims gate", () => {
   it("flags a paragraph naming both states with no state label", () => {
@@ -66,5 +66,36 @@ describe("state-claims gate", () => {
       "In Missouri and Kansas the redemption period varies by state.",
     ]);
     expect(blends).toHaveLength(1);
+  });
+});
+
+describe("citation enforcement", () => {
+  it("reports a claim whose citation is empty", () => {
+    const result = auditClaimList("sell-my-house-fast-missouri", [
+      { state: "MO", claim: "Homestead is $15,000.", citation: "", verifiedOn: "2026-07-29" },
+    ]);
+    expect(result).toHaveLength(1);
+    expect(result[0]).toContain("sell-my-house-fast-missouri");
+    expect(result[0]).toContain("Homestead is $15,000.");
+  });
+
+  it("reports a claim whose citation is only whitespace", () => {
+    expect(auditClaimList("x", [
+      { state: "KS", claim: "Redemption is 12 months.", citation: "   ", verifiedOn: "2026-07-29" },
+    ])).toHaveLength(1);
+  });
+
+  it("accepts a cited claim", () => {
+    expect(auditClaimList("x", [
+      { state: "MO", claim: "Homestead is $15,000.",
+        citation: "RSMo 513.475", verifiedOn: "2026-07-29" },
+    ])).toEqual([]);
+  });
+
+  it("reports a claim with no verifiedOn date", () => {
+    expect(auditClaimList("x", [
+      { state: "MO", claim: "Homestead is $15,000.",
+        citation: "RSMo 513.475", verifiedOn: "" },
+    ])).toHaveLength(1);
   });
 });
