@@ -45,6 +45,24 @@ export function auditClaimList(slug: string, claims: LegalClaim[]): string[] {
     } else if (c.verifiedOn.trim() === "") {
       problems.push(`${slug}: unverified [${c.state}] "${c.claim.slice(0, 80)}"`);
     }
+    // A pendingChange asserts a future rule; if it carries no citation of its
+    // own, that assertion is exactly as uncited as the current claim would be
+    // without one — the enacting instrument is what makes it verifiable.
+    if (c.pendingChange && c.pendingChange.citation.trim() === "") {
+      problems.push(
+        `${slug}: pendingChange uncited [${c.state}] "${c.pendingChange.claim.slice(0, 80)}"`
+      );
+    }
+    // "proposed" means the change has not been enacted -- it may never
+    // happen (a ballot measure can fail, a bill can die in committee). That
+    // is a materially weaker claim than "enacted," and a reader needs to
+    // know what still has to occur, or the page reads as certain when it
+    // is only possible.
+    if (c.pendingChange?.status === "proposed" && !c.pendingChange.contingency?.trim()) {
+      problems.push(
+        `${slug}: proposed pendingChange missing contingency [${c.state}] "${c.pendingChange.claim.slice(0, 80)}"`
+      );
+    }
   }
   return problems;
 }

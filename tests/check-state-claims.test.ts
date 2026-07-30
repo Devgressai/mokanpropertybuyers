@@ -98,4 +98,96 @@ describe("citation enforcement", () => {
         citation: "RSMo 513.475", verifiedOn: "" },
     ])).toHaveLength(1);
   });
+
+  it("accepts a claim carrying effectiveFrom", () => {
+    expect(auditClaimList("x", [
+      { state: "MO", claim: "Trustee sale notice runs 20 insertions.",
+        citation: "RSMo 443.320", verifiedOn: "2026-07-29",
+        effectiveFrom: "1989-08-28" },
+    ])).toEqual([]);
+  });
+
+  it("accepts an enacted pendingChange that carries its own citation", () => {
+    expect(auditClaimList("x", [
+      { state: "MO", claim: "Homestead is $15,000.",
+        citation: "RSMo 513.475", verifiedOn: "2026-07-29",
+        pendingChange: {
+          claim: "Homestead rises to $40,000.",
+          effectiveFrom: "2027-01-01",
+          citation: "H.B. 1870 (2026)",
+          status: "enacted",
+        } },
+    ])).toEqual([]);
+  });
+
+  it("accepts a proposed pendingChange that carries a contingency", () => {
+    expect(auditClaimList("x", [
+      { state: "KS", claim: "Residential assessment rate is 11.5%.",
+        citation: "Kan. Const. Art. 11 §1", verifiedOn: "2026-07-29",
+        pendingChange: {
+          claim: "Assessment increases capped at 3% annually.",
+          effectiveFrom: "2026-01-01",
+          citation: "HCR 5011 (2025)",
+          status: "proposed",
+          contingency: "requires two-thirds passage in both chambers and statewide voter approval",
+        } },
+    ])).toEqual([]);
+  });
+
+  it("rejects a proposed pendingChange with no contingency", () => {
+    const result = auditClaimList("x", [
+      { state: "KS", claim: "Residential assessment rate is 11.5%.",
+        citation: "Kan. Const. Art. 11 §1", verifiedOn: "2026-07-29",
+        pendingChange: {
+          claim: "Assessment increases capped at 3% annually.",
+          effectiveFrom: "2026-01-01",
+          citation: "HCR 5011 (2025)",
+          status: "proposed",
+        } },
+    ]);
+    expect(result).toHaveLength(1);
+    expect(result[0]).toContain("contingency");
+  });
+
+  it("rejects a proposed pendingChange whose contingency is only whitespace", () => {
+    expect(auditClaimList("x", [
+      { state: "KS", claim: "Placeholder.",
+        citation: "K.S.A. 1-1", verifiedOn: "2026-07-29",
+        pendingChange: {
+          claim: "Placeholder future rule.",
+          effectiveFrom: "2027-01-01",
+          citation: "HCR 0000 (2025)",
+          status: "proposed",
+          contingency: "   ",
+        } },
+    ])).toHaveLength(1);
+  });
+
+  it("rejects a pendingChange with no citation of its own", () => {
+    const result = auditClaimList("x", [
+      { state: "MO", claim: "Homestead is $15,000.",
+        citation: "RSMo 513.475", verifiedOn: "2026-07-29",
+        pendingChange: {
+          claim: "Homestead rises to $40,000.",
+          effectiveFrom: "2027-01-01",
+          citation: "",
+          status: "enacted",
+        } },
+    ]);
+    expect(result).toHaveLength(1);
+    expect(result[0]).toContain("pendingChange");
+  });
+
+  it("rejects a pendingChange whose citation is only whitespace", () => {
+    expect(auditClaimList("x", [
+      { state: "KS", claim: "Placeholder current rule.",
+        citation: "K.S.A. 1-1", verifiedOn: "2026-07-29",
+        pendingChange: {
+          claim: "Placeholder future rule.",
+          effectiveFrom: "2027-01-01",
+          citation: "   ",
+          status: "enacted",
+        } },
+    ])).toHaveLength(1);
+  });
 });
