@@ -293,3 +293,70 @@ being mistaken for enacted text) but was resolved by reading the actual
 enacted subsection directly. `ksrevisor.gov` did not exhibit the
 forward-serving behavior found on `revisor.mo.gov` on any statute checked
 here.
+
+
+---
+
+## Addendum — controller precision fixes, 2026-07-30
+
+Three claims were restated after independent verification. None was a fabrication; all
+three were precision failures of the kind that quietly discredit the citations around them.
+
+### `mo-nonjudicial` — citation did not support the claim
+
+**Was:** cited RSMo 443.410 as authority for foreclosing without a court.
+
+RSMo 443.410 is the **redemption** section. Its opening clause ("real estate which may be
+sold under any power of sale in a mortgage deed of trust") *presupposes* the power of sale
+but does not grant it. Citing the redemption statute as authority for non-judicial
+foreclosure is a mismatch a knowledgeable reader catches immediately — and having caught
+it, they reasonably distrust every other citation on the page.
+
+**Now cites:**
+- **RSMo 443.290** — "Mortgages and security agreements with power of sale." Operative
+  language: "All mortgages of real property or security agreements providing for a security
+  interest in personal property, or both, with powers of sale in the mortgagee or secured
+  party…" Revision history `(RSMo 1939 § 3462, A.L. 1965 p. 114)`, Effective 28 Aug 1965.
+  Verified https://revisor.mo.gov/main/OneSection.aspx?section=443.290
+- **RSMo 443.327** — "Sale by trustee exercising powers under security instrument."
+  Confirmed by catchline from the chapter range 443.290–443.330.
+
+Related sections in the same chapter, confirmed by catchline: 443.300 (death of debtor,
+foreclosure stayed), 443.310 (sales, where made — number of days' notice), 443.320 (notice,
+contents — how published), 443.325 (individual notice of foreclosure sale), 443.330 (trustee
+failing to execute trust).
+
+### `jackson-county-reassessment` — overstated a procedural ruling as a merits win
+
+**Was:** "the Missouri Court of Appeals, Western District sided with the Commission on
+December 30, 2025."
+
+The court **reversed the circuit court's dismissal** of the State Tax Commission's
+enforcement suit (No. WD87831, Mo. App. W.D., Dec. 30, 2025) — it revived the case. That is
+a ruling that the suit may proceed, not a judgment that the Commission wins.
+
+The distinction is not academic. A Jackson County homeowner reading this page may be
+deciding whether to pursue their own assessment appeal, and "the state won" implies a
+settled outcome that "the case is still live" does not. Restated to say what the court
+actually did and that the underlying dispute was unresolved as of review.
+
+The STC's August 6, 2024 order and its quoted finding — failures "widespread and systemic,
+affecting at least 75 percent of the parcels to which these requirements applied" — were
+independently confirmed and are unchanged.
+
+### `kcmo-earnings-tax` — unofficial tally stated as certified
+
+**Was:** "renewed it on April 7, 2026 (75.45% in favor), extending it through 2031."
+
+The 75.45% figure came from election-night reporting, which described it as **unofficial
+results.** The rate (1%), the date (April 7, 2026), and the five-year renewal cycle are all
+verified and unchanged; the precise percentage is now described as approximate and
+unofficial, with the certified result named as the authority.
+
+### Note on the perfect record
+
+The original ledger reported 17 of 17 claims verified with zero UNVERIFIED entries. That is
+possible, but a clean sweep on a first pass deserves scrutiny rather than trust — and
+spot-checking three claims found three precision problems. No claim was downgraded to
+UNVERIFIED, because all three survived restatement. Future waves should assume the same
+scrutiny applies to their own ledger additions.

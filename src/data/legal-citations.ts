@@ -22,11 +22,11 @@ export const citations: Record<string, LegalClaim> = {
   "mo-nonjudicial": {
     state: "MO",
     claim:
-      "Missouri lets a lender foreclose without ever going to court. A deed of trust may be foreclosed by trustee's sale at the lender's option, as an alternative to foreclosing by suit.",
-    citation: "RSMo 443.410",
-    sourceUrl: "https://revisor.mo.gov/main/OneSection.aspx?section=443.410",
-    verifiedOn: "2026-07-29",
-    effectiveFrom: "1993-08-28",
+      "Missouri lets a lender foreclose without ever going to court. A mortgage or deed of trust may carry a power of sale in the mortgagee or secured party, and a trustee exercising that power sells the property directly rather than suing to foreclose.",
+    citation: "RSMo 443.290 (mortgages and security agreements with power of sale); RSMo 443.327 (sale by trustee exercising powers under security instrument)",
+    sourceUrl: "https://revisor.mo.gov/main/OneSection.aspx?section=443.290",
+    verifiedOn: "2026-07-30",
+    effectiveFrom: "1965-08-28",
   },
 
   "ks-judicial": {
@@ -147,7 +147,7 @@ export const citations: Record<string, LegalClaim> = {
   "jackson-county-reassessment": {
     state: "MO",
     claim:
-      "The Missouri State Tax Commission found Jackson County's 2023 reassessment failed to give proper notice and skipped required physical inspections on parcels facing increases of 15% or more, affecting at least 75% of the parcels subject to those requirements. Its August 6, 2024 order directed the county to correct the 2023 assessment roll so that subclass (1) parcel valuations, excluding new construction or improvements, do not exceed a 15% increase since the last assessment. Jackson County contested the order in court; the Missouri Court of Appeals, Western District sided with the Commission on December 30, 2025.",
+      "The Missouri State Tax Commission found Jackson County's 2023 reassessment failed to give proper notice and skipped required physical inspections on parcels facing increases of 15% or more, affecting at least 75% of the parcels subject to those requirements. Its August 6, 2024 order directed the county to correct the 2023 assessment roll so that subclass (1) parcel valuations, excluding new construction or improvements, do not exceed a 15% increase since the last assessment. Jackson County contested the order in court. On December 30, 2025 the Missouri Court of Appeals, Western District (No. WD87831) reversed the circuit court's dismissal of the Commission's enforcement suit, allowing that suit to proceed. That was a ruling on whether the case may go forward, not a final judgment on the merits, and the underlying dispute was not finally resolved as of this page's review date.",
     citation:
       "Order of the State Tax Commission of Missouri to Jackson County (Aug. 6, 2024); State ex rel. State Tax Comm'n v. County Executive of Jackson County, No. WD87831 (Mo. App. W.D. Dec. 30, 2025)",
     sourceUrl:
@@ -193,10 +193,10 @@ export const citations: Record<string, LegalClaim> = {
   "kcmo-earnings-tax": {
     state: "MO",
     claim:
-      "Kansas City, Missouri imposes a 1% earnings tax on wages, salaries, commissions, and other compensation of residents (and of nonresidents for work done in the city), plus net profits of businesses conducted in the city. State law requires the city to resubmit the tax to voters every five years to keep collecting it; Kansas City voters renewed it on April 7, 2026 (75.45% in favor), extending it through 2031.",
+      "Kansas City, Missouri imposes a 1% earnings tax on wages, salaries, commissions, and other compensation of residents (and of nonresidents for work done in the city), plus net profits of businesses conducted in the city. State law requires the city to resubmit the tax to voters every five years to keep collecting it; Kansas City voters renewed it on April 7, 2026 by a wide margin, extending it for another five years. (Election-night reporting put approval near 75%, but that figure was unofficial; the certified result is the authority.)",
     citation: "RSMo 92.111; Kansas City, Mo. Code of Ordinances §68-382",
     sourceUrl: "https://www.kcmo.gov/city-hall/departments/finance/earnings-tax",
-    verifiedOn: "2026-07-29",
+    verifiedOn: "2026-07-30",
     effectiveFrom: "2026-04-07",
   },
 };
