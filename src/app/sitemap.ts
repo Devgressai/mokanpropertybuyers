@@ -7,8 +7,7 @@ import { SITE } from "@/lib/site";
 // a URL that 404s is worse than advertising a noindex page — Google indexes
 // the 404 and the site loses the crawl budget for nothing. Add an entry the
 // same commit its page ships, never before.
-// Pending, not yet built: "/how-it-works", "/about", "/contact", "/faq".
-const STATIC_PATHS = [""];
+const STATIC_PATHS = ["", "/how-it-works", "/about", "/contact", "/faq"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries = STATIC_PATHS.map((p) => ({
