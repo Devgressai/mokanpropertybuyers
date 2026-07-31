@@ -24,9 +24,14 @@ import type { PageContent } from "@/data/content-registry";
  * Same binding rules as every content map before this one: every paragraph
  * asserting law carries `[MO]` or `[KS]`, never both; every legal assertion
  * traces to a real entry in `citations` rather than being retyped from
- * memory; and no deictic stand-in for a named state, or for "this city" as a
- * substitute for one, appears anywhere. Every sentence below is worded fresh
- * for this map -- not copied from city-content-tier3a.ts, either county
+ * memory; and no deictic stand-in for a named state appears anywhere. Every
+ * page also names its own city rather than falling back on "this city" as a
+ * generic stand-in -- an audit of the forty city pages written before this
+ * one found up to 23 uses of "this city" on a single page, a template
+ * fingerprint this map avoids by naming the place, using "the city," or
+ * reaching for a genuine local descriptor wherever a sentence is about the
+ * place. Every sentence below is worded fresh for this map -- not copied
+ * from city-content-tier3a.ts, either county
  * content map, or either tier-1/tier-2 city map -- because the exhaustive
  * duplication gate checks every 160-character window across the whole
  * registry, not just within this file. The risk this map is most exposed to
@@ -51,7 +56,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "[MO] Undoing an Oak Grove trustee's sale afterward comes down to three separate conditions under RSMo 443.410 and RSMo 443.420: the property has to end up back with the lender itself rather than an outside buyer, the former owner has to have already put an intent to redeem on paper, and a bond covering the debt has to be filed within twenty days of the sale -- absent any one of the three, nothing is left to redeem.",
 
-      "[MO] The same two statewide numbers reach an Oak Grove sale as anywhere else in Missouri -- RSMo 513.475's $15,000 equity shield against an unsecured judgment, rising to $40,000 once January 1, 2027 arrives, and RSMo 137.115's flat 19% residential assessment ratio, a rate this city's own position at the county's edge does nothing to change.",
+      "[MO] The same two statewide numbers reach an Oak Grove sale as anywhere else in Missouri -- RSMo 513.475's $15,000 equity shield against an unsecured judgment, rising to $40,000 once January 1, 2027 arrives, and RSMo 137.115's flat 19% residential assessment ratio, a rate Oak Grove's own position at the county's edge does nothing to change.",
 
       "[MO] Falling behind on property taxes, rather than a mortgage, sends an Oak Grove parcel down RSMo 140.340's separate path instead -- a full year of unconditional redemption counted from the tax sale itself, and a weaker right that lingers afterward until the purchaser actually collects the collector's deed.",
 
@@ -59,21 +64,21 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "[MO] An Oak Grove estate still has to clear Missouri's own probate gate before a house can change hands. RSMo 473.780 opens independent administration, and the lighter oversight that comes with it, only where a will itself authorizes that path or allows it once every heir agrees; short of either, supervised administration governs and the court reviews a sale step by step.",
 
-      "[MO] No transfer tax attaches to an Oak Grove closing either, courtesy of Article X, Section 25 of the Missouri Constitution -- a rule Missouri voters wrote into the constitution in 2010 that reaches this city with the same force it reaches Kansas City itself.",
+      "[MO] No transfer tax attaches to an Oak Grove closing either, courtesy of Article X, Section 25 of the Missouri Constitution -- a rule Missouri voters wrote into the constitution in 2010 that reaches Oak Grove with the same force it reaches Kansas City itself.",
 
       "Oak Grove's own footprint reaches slightly across the county line into Lafayette County as well, which matters for a genuinely practical reason -- a parcel on that side answers to the Lafayette County courthouse and treasurer rather than Jackson County's, even though the identical statewide Missouri statutes above reach either side the same way.",
 
       "[MO] RSMo 442.606 imposes a two-part duty on an Oak Grove seller who has actual knowledge a house once served as a methamphetamine lab: the fact itself must go into writing for the buyer, and if the seller also knew, or reasonably should have, that the same address sheltered or supplied a person with a qualifying conviction, that too requires its own separate written notice -- a duty reaching an older rail-town house near downtown exactly as it reaches a newer home farther out.",
 
-      "Oak Grove's own pace differs from Blue Springs and Grain Valley closer to the built-up core of the county -- newer subdivision growth has pushed east along Interstate 70 toward this city more slowly than it has toward those two, leaving Oak Grove with an older average housing stock and a smaller, steadier resale market than either of its more built-up neighbors.",
+      "Oak Grove's own pace differs from Blue Springs and Grain Valley closer to the built-up core of the county -- newer subdivision growth has pushed east along Interstate 70 toward this stretch of the county more slowly than it has toward those two, leaving Oak Grove with an older average housing stock and a smaller, steadier resale market than either of its more built-up neighbors.",
 
-      "None of the above makes a fast cash sale the default choice for a seller in Oak Grove. An owner with no trustee's-sale notice already in motion and no fixed estate deadline is usually better off listing conventionally, since this city's smaller but steady commuter demand has kept a well-priced house moving even without the newer-construction draw Blue Springs and Grain Valley offer.",
+      "None of the above makes a fast cash sale the default choice for a seller in Oak Grove. An owner with no trustee's-sale notice already in motion and no fixed estate deadline is usually better off listing conventionally, since Oak Grove's smaller but steady commuter demand has kept a well-priced house moving even without the newer-construction draw Blue Springs and Grain Valley offer.",
 
       "A cash sale earns real consideration in Oak Grove for an older rail-era house carrying repair needs a conventional lender will not finance, a Lafayette County-line parcel whose title has gotten complicated by which side of the county it actually sits on, or an estate that needs to close on a fixed date -- not as the first move for a seller with time and a marketable house.",
 
       "[MO] None of this is legal advice. An Oak Grove homeowner facing a specific foreclosure notice, tax bill, or probate filing, or unsure which county's courthouse actually handles a parcel near the Lafayette County line, should talk to a Missouri attorney who can review the actual paperwork rather than rely on a general city-level summary.",
 
-      "The old Missouri Pacific depot itself no longer runs passenger service, but Oak Grove's downtown grid still follows the rail line's original layout, a detail a buyer drawn to this city's older housing stock often notices well before anything the statutes above ever touch.",
+      "The old Missouri Pacific depot itself no longer runs passenger service, but Oak Grove's downtown grid still follows the rail line's original layout, a detail a buyer drawn to Oak Grove's older housing stock often notices well before anything the statutes above ever touch.",
     ],
     claims: [
       citations["mo-nonjudicial"],
@@ -94,13 +99,13 @@ export const cityContentTier3b: Record<string, PageContent> = {
     body: [
       "Parkville is a Platte County city of roughly 8,859 people about 10.4 miles from the metro's core, built up along a stretch of Missouri River bluffs where Park University -- a private college founded in 1875 -- anchors a compact, walkable downtown considerably older than the newer subdivision growth found elsewhere in the county. English Landing Park, a riverfront green space at the foot of that downtown, floods on a regular enough cycle that longtime residents plan around it rather than treat it as a rare event.",
 
-      "[MO] Every part of this city sits in Platte County, Missouri, so a house sale in Parkville follows the same statewide Missouri rules reaching Platte City, Weston, and every other city in this county -- a trustee-driven foreclosure process, a dollar-figure homestead exemption, and a flat statewide assessment ratio, none of which bends for a riverfront address.",
+      "[MO] All of Parkville sits inside Platte County, Missouri, so a house sale in this bluff-top city follows the same statewide Missouri rules reaching Platte City, Weston, and every other city in this county -- a trustee-driven foreclosure process, a dollar-figure homestead exemption, and a flat statewide assessment ratio, none of which bends for a riverfront address.",
 
       "[MO] A missed mortgage payment on a Parkville house sets off the identical mechanism as anywhere in the county: RSMo 443.290 gives the deed of trust's own named trustee the power of sale, RSMo 443.327 lets that trustee use it without ever filing suit, and because Platte County's population -- roughly 111,940 -- clears RSMo 443.320's 50,000-person line comfortably, notice ahead of a Parkville sale has to run the full twenty insertions in a daily newspaper.",
 
       "[MO] A right to undo that sale afterward is the exception under RSMo 443.410 and RSMo 443.420, not the rule -- it exists only where the lender itself bought the property back, the borrower had already put an intent to redeem in writing, and a bond for the full debt went up inside twenty days of the sale.",
 
-      "[MO] The same statewide dollar figures reach a Parkville sale as anywhere in Missouri: $15,000 of equity sits beyond an unsecured creditor's reach under RSMo 513.475 today, climbing to $40,000 on January 1, 2027, while RSMo 137.115 taxes an ordinary residential parcel in this city at 19% of its market value whether that parcel sits on the bluff or down near the river.",
+      "[MO] The same statewide dollar figures reach a Parkville sale as anywhere in Missouri: $15,000 of equity sits beyond an unsecured creditor's reach under RSMo 513.475 today, climbing to $40,000 on January 1, 2027, while RSMo 137.115 taxes an ordinary residential parcel in Parkville at 19% of its market value whether that parcel sits on the bluff or down near the river.",
 
       "[MO] Unpaid property taxes, as distinct from a missed loan payment, route a Parkville property through RSMo 140.340 instead -- a full, unconditional year of redemption from the tax-sale date, plus a weaker right that survives afterward until the purchaser actually secures the collector's deed.",
 
@@ -108,9 +113,9 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "[MO] A Parkville estate still has to clear Missouri probate before a house can pass with clear title. RSMo 473.780 permits independent administration, and the lighter oversight it brings, only where the will itself authorizes that path or allows it with every heir's consent; anything less sends the estate into supervised administration, with the court reviewing a sale step by step.",
 
-      "[MO] Closing on a Parkville house carries no state or local transfer tax either -- Article X, Section 25 of the Missouri Constitution has barred one since Missouri voters adopted it in 2010, a rule reaching this city's riverfront parcels exactly as it reaches an inland lot elsewhere in the county.",
+      "[MO] Closing on a Parkville house carries no state or local transfer tax either -- Article X, Section 25 of the Missouri Constitution has barred one since Missouri voters adopted it in 2010, a rule reaching Parkville's riverfront parcels exactly as it reaches an inland lot elsewhere in the county.",
 
-      "Parkville's own history with the Missouri River cuts two ways for a seller in this city -- the same bluff-top setting that gives the historic downtown its character also means a low-lying parcel closer to the water can carry flood-zone requirements a conventional lender's underwriting takes seriously, a practical financing hurdle distinct from anything the statutes above address.",
+      "Parkville's own history with the Missouri River cuts two ways for a seller in this bluff-top city -- the same setting that gives the historic downtown its character also means a low-lying parcel closer to the water can carry flood-zone requirements a conventional lender's underwriting takes seriously, a practical financing hurdle distinct from anything the statutes above address.",
 
       "Park University's own presence gives Parkville a modest rental-driven segment of its housing market that a purely residential Platte County town like Weatherby Lake or Weston does not share to the same degree.",
 
@@ -118,7 +123,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "Platte City, the county seat, and Weston, an older river town of its own farther north, both carry a different character than Parkville's own university-and-arts-district identity -- a difference in local flavor within one county, not in which statutes reach any of the three.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Parkville. An owner of a well-kept home on the bluff, away from the flood-prone lower blocks, with no pressing deadline, is usually still better off testing a normal listing first, since this city's own historic downtown and university connection continue to draw real buyer interest a discounted quick sale would leave on the table.",
+      "None of the above makes a fast cash sale the obvious answer for a seller in Parkville. An owner of a well-kept home on the bluff, away from the flood-prone lower blocks, with no pressing deadline, is usually still better off testing a normal listing first, since Parkville's own historic downtown and university connection continue to draw real buyer interest a discounted quick sale would leave on the table.",
 
       "A cash sale earns genuine consideration in Parkville specifically for a lower-lying property whose flood-zone status has stalled a conventional buyer's financing, a rental between Park University-connected tenants that an owner wants off the books quickly, or an estate needing to close on a fixed date -- not as the default answer for a seller with time and a marketable house on higher ground.",
 
@@ -152,19 +157,19 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "[MO] A Pleasant Hill borrower does not automatically get a second chance after a trustee's sale -- RSMo 443.410 and RSMo 443.420 open that door only when the lender itself ends up owning the property from the sale, a written intent to redeem was already on file, and a bond for the full debt amount was posted inside the following twenty days.",
 
-      "[MO] RSMo 513.475 keeps $15,000 of home equity out of an unsecured creditor's reach in Pleasant Hill today, a figure rising to $40,000 once January 1, 2027 arrives, while RSMo 137.115 taxes an ordinary residential parcel in this city at 19% of its market value regardless of whether that parcel's own courthouse sits in Harrisonville or Independence.",
+      "[MO] RSMo 513.475 keeps $15,000 of home equity out of an unsecured creditor's reach in Pleasant Hill today, a figure rising to $40,000 once January 1, 2027 arrives, while RSMo 137.115 taxes an ordinary residential parcel in Pleasant Hill at 19% of its market value regardless of whether that parcel's own courthouse sits in Harrisonville or Independence.",
 
       "[MO] Missouri skips a dedicated property-condition disclosure form entirely, in Pleasant Hill as everywhere else in the state -- instead, RSMo 407.020 folds real estate into the Missouri Merchandising Practices Act's own reach, making it unlawful to conceal, suppress, or omit a fact a buyer would consider material, with RSMo 407.010 spelling out that \"merchandise\" covers a house sale just as much as any other transaction.",
 
       "[MO] A tax delinquency, rather than a mortgage default, moves a Pleasant Hill property under RSMo 140.340 instead -- a full year of unconditional redemption from the sale date, and a weaker right that continues afterward until the purchaser actually obtains the collector's deed.",
 
-      "This site's Cass County page and its own Jackson County page both cover the fuller detail behind these figures -- the first walking through how the same rules reach Harrisonville, Belton, and Raymore alongside Pleasant Hill, the second covering the reassessment dispute touching the sliver of this city that sits inside Jackson County's own boundary.",
+      "This site's Cass County page and its own Jackson County page both cover the fuller detail behind these figures -- the first walking through how the same rules reach Harrisonville, Belton, and Raymore alongside Pleasant Hill, the second covering the reassessment dispute touching the sliver of Pleasant Hill that sits inside Jackson County's own boundary.",
 
       "[MO] An heir inheriting a Pleasant Hill house still has to clear Missouri's own probate question first. RSMo 473.780 opens independent administration only where a will authorizes it or allows it with every heir's consent; short of either, supervised administration governs and a judge reviews the sale.",
 
       "[MO] No transfer tax touches a Pleasant Hill closing either, courtesy of Article X, Section 25 of the Missouri Constitution, in place since Missouri voters approved it in 2010 -- a rule that draws no distinction based on which county a specific parcel sits in.",
 
-      "The Amtrak stop downtown, on the twice-daily Missouri River Runner route between Kansas City and St. Louis, gives Pleasant Hill a genuine transit connection no other city in this batch shares, and it has kept the historic downtown around the depot a real draw for a buyer specifically looking for that character rather than newer subdivision construction. A house within walking distance of the platform tends to hold its own resale value even when a comparable property farther from the tracks sits on the market longer, a genuinely local pattern tied to this city's own rail heritage rather than to anything the statutes above touch.",
+      "The Amtrak stop downtown, on the twice-daily Missouri River Runner route between Kansas City and St. Louis, gives Pleasant Hill a genuine transit connection no other city in this batch shares, and it has kept the historic downtown around the depot a real draw for a buyer specifically looking for that character rather than newer subdivision construction. A house within walking distance of the platform tends to hold its own resale value even when a comparable property farther from the tracks sits on the market longer, a genuinely local pattern tied to Pleasant Hill's own rail heritage rather than to anything the statutes above touch.",
 
       "Harrisonville, the Cass County seat farther south, and Lee's Summit, just across the Jackson County line to the north, both carry more active resale markets than Pleasant Hill's own smaller, rail-heritage downtown, though the identical statutes reach all three.",
 
@@ -192,7 +197,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
     body: [
       "Nevada is the county seat of Vernon County, roughly 8,262 people about 87.6 miles from the metro's core -- pronounced locally \"nuh-VAY-duh,\" not like the state it shares a spelling with. Cottey College, a small private women's college founded in 1884, sits inside city limits, and the local Bushwhacker Museum keeps alive Vernon County's own Civil War-era history as a base for pro-Confederate guerrilla fighters, a history the county still markets itself around today.",
 
-      "[MO] Every acre of Nevada sits in Missouri, inside Vernon County, so Missouri law reaches a house sale in this city start to finish -- but this is a genuinely smaller, thinner market than Jackson, Clay, or Cass County, with far fewer comparable recent sales to price a specific house against.",
+      "[MO] Every acre of Nevada sits in Missouri, inside Vernon County, so Missouri law reaches a house sale in this Vernon County seat start to finish -- but this is a genuinely smaller, thinner market than Jackson, Clay, or Cass County, with far fewer comparable recent sales to price a specific house against.",
 
       "[MO] Foreclosure on a Nevada house still runs through the same trustee mechanism RSMo 443.290 and RSMo 443.327 set up statewide -- a named trustee sells on default, with no lawsuit at any point -- but Vernon County's own population, roughly 19,710, sits well under the 50,000-resident line RSMo 443.320 uses, so notice ahead of a Nevada sale runs through four weekly newspaper issues instead, the last one landing no more than a week before the sale.",
 
@@ -212,11 +217,11 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "[MO] No single Missouri statute forces a seller anywhere in this footprint, Nevada included, to fill out a general property-condition disclosure form -- the real backstop against staying quiet about a known defect is the Missouri Merchandising Practices Act, whose RSMo 407.010 definition of \"merchandise\" expressly reaches real estate and whose RSMo 407.020 treats a concealed or omitted material fact as unlawful regardless of whether any specific form was ever signed.",
 
-      "Vernon County's own remaining towns are considerably smaller than Nevada itself, leaving this city as the only real commercial and educational hub for a genuinely rural stretch of southwest Missouri -- a concentration of buyer demand into one city that a county with several similarly sized towns would not show.",
+      "Vernon County's own remaining towns are considerably smaller than Nevada itself, leaving the city as the only real commercial and educational hub for a genuinely rural stretch of southwest Missouri -- a concentration of buyer demand into one city that a county with several similarly sized towns would not show.",
 
       "[MO] The trade-off in a market this size cuts both ways: fewer active buyers outside Cottey College's own hiring and enrollment cycle means a Nevada house can sit unsold for a longer stretch once listed, but that same thinness also removes pressure toward an unnecessarily fast decision.",
 
-      "A fast cash sale is not the obvious answer for a seller in Nevada just because this city's own buyer pool runs thinner than the metro's. Absent an actual trustee's-sale notice already published or a hard estate deadline, an owner typically comes out ahead listing conventionally and accepting that this smaller market simply takes longer to sell in.",
+      "A fast cash sale is not the obvious answer for a seller in Nevada just because this small city's own buyer pool runs thinner than the metro's. Absent an actual trustee's-sale notice already published or a hard estate deadline, an owner typically comes out ahead listing conventionally and accepting that this smaller market simply takes longer to sell in.",
 
       "Where a cash sale genuinely fits Nevada is narrower than it might first appear: a landlord's rental near campus caught between tenants, an heir whose estate has to close by a set date, or a house whose repair list is long enough that a market this size has no lender willing to finance it -- not a seller who simply has time and a house in decent shape.",
 
@@ -240,7 +245,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
     body: [
       "Boonville is the county seat of Cooper County, roughly 7,782 people about 98.8 miles from the metro's core -- the farthest city in this site's entire footprint from the Kansas City core, sitting on a Missouri River bluff along Interstate 70. The Katy Trail, a rail-to-trail conversion running the length of the old Missouri-Kansas-Texas Railroad, passes directly through downtown, and a riverboat casino built along the water has operated under a series of different owners since the late 1990s.",
 
-      "[MO] Every acre of Boonville sits in Missouri, inside Cooper County, so Missouri law reaches a house sale in this city start to finish -- but at nearly 99 miles out, this is a genuinely smaller and slower market than anywhere closer to the metro core in this footprint, with far fewer comparable recent sales to price a specific house against.",
+      "[MO] Every acre of Boonville sits in Missouri, inside Cooper County, so Missouri law reaches a house sale in this river town start to finish -- but at nearly 99 miles out, this is a genuinely smaller and slower market than anywhere closer to the metro core in this footprint, with far fewer comparable recent sales to price a specific house against.",
 
       "[MO] Cooper County's own foreclosure mechanics follow the identical two Missouri statutes used everywhere in the state -- a deed of trust names its own trustee under RSMo 443.290, and RSMo 443.327 authorizes that trustee to sell directly once a borrower defaults, no lawsuit required. What differs for Boonville is the notice clock: with roughly 16,947 residents, Cooper County falls well short of the 50,000-person threshold RSMo 443.320 sets, so a weekly newspaper carries the sale notice four separate times, wrapping up no later than a week before the sale itself.",
 
@@ -258,7 +263,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "The Katy Trail's own presence through downtown Boonville draws cyclists and hikers passing through on a multi-day trip, a real if modest tourism draw for a house within walking distance of the trailhead, while the riverboat casino brings a different, more transactional kind of visitor traffic that has little bearing on the resale market for an ordinary house nearby.",
 
-      "[MO] Missouri does not leave a Boonville seller's knowledge of a house's meth history to guesswork -- RSMo 442.606 turns actual knowledge that a property was used to manufacture the drug into a mandatory written disclosure, with a further written disclosure required only when the seller separately knew, or had reason to know, that the property once housed or supplied someone convicted of a related offense, a real question given how much of this city's own housing predates modern construction standards.",
+      "[MO] Missouri does not leave a Boonville seller's knowledge of a house's meth history to guesswork -- RSMo 442.606 turns actual knowledge that a property was used to manufacture the drug into a mandatory written disclosure, with a further written disclosure required only when the seller separately knew, or had reason to know, that the property once housed or supplied someone convicted of a related offense, a real question given how much of Boonville's own housing predates modern construction standards.",
 
       "At nearly 99 miles from the metro core, Boonville functions as its own small regional hub for Cooper County rather than as an extension of anywhere closer to Kansas City, and an appraiser pricing a specific Boonville house is working from a genuinely thinner and more geographically scattered set of comparable sales than one would find in any of the metro counties this site otherwise covers.",
 
@@ -288,7 +293,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
     body: [
       "Basehor is a Leavenworth County city of roughly 7,719 people about 18.9 miles from the metro's core, sitting along the K-7 highway corridor connecting the Kansas City core to Leavenworth and Fort Leavenworth farther north. Basehor-Linwood USD 458 has grown alongside the city itself, and new subdivision construction along K-7 has made this one of the faster-growing small cities in this county over the past decade.",
 
-      "[KS] Every part of this city sits in Kansas, inside Leavenworth County, so a house sale in Basehor answers to Kansas's statewide statutes throughout -- the same judicial foreclosure process, uncapped homestead exemption, and tax-sale mechanics reaching Leavenworth, Lansing, and Tonganoxie alongside this city, this county's own K-7 growth corridor notwithstanding.",
+      "[KS] Basehor sits entirely inside Leavenworth County, Kansas, so this K-7 corridor city runs on the identical statewide rulebook as Leavenworth, Lansing, and Tonganoxie -- a judicial foreclosure requirement, an uncapped homestead exemption, and the same tax-sale mechanics reaching every single one of them -- this corridor's own faster growth pace notwithstanding.",
 
       "[KS] K.S.A. 60-2410 is the reason no trustee in Basehor can sell a defaulted property on their own signature the way one could just across the state line -- a lender has to sue first, and only after winning a judgment does K.S.A. 60-2415 let a sheriff's sale proceed, subject to the district court's own confirmation.",
 
@@ -306,15 +311,15 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "[KS] A Basehor estate's own path through probate is a Kansas judge's decision under K.S.A. 59-3202, not something the family gets to pick on its own -- the estate's size, whether its heirs actually get along, its solvency, and the likely expense of a fuller administration all shape whether it ends up simplified or supervised.",
 
-      "Basehor's own growth is tied to a different commute pattern than Leavenworth's or Lansing's own institutional economies -- a newer resident in this city is more often commuting into the Kansas City core itself along K-7 and I-70 than working at Fort Leavenworth or the correctional facility that shapes those two cities' own labor markets. That commute pattern has drawn a younger, family-oriented buyer pool into Basehor's own newer subdivisions over the past decade, a genuinely different demographic mix than the older, more institutionally tied households found closer to Fort Leavenworth itself.",
+      "Basehor's own growth is tied to a different commute pattern than Leavenworth's or Lansing's own institutional economies -- a newer Basehor resident is more often commuting into the Kansas City core itself along K-7 and I-70 than working at Fort Leavenworth or the correctional facility that shapes those two cities' own labor markets. That commute pattern has drawn a younger, family-oriented buyer pool into Basehor's own newer subdivisions over the past decade, a genuinely different demographic mix than the older, more institutionally tied households found closer to Fort Leavenworth itself.",
 
       "[KS] Basehor's own recent subdivision boom carries a real closing-day consequence: K.S.A. 12-6a20 requires a seller to disclose any special assessment or improvement-district fee tied to that new construction, with a good-faith estimate standing in when the exact figure isn't set yet, and requires the buyer's own written acknowledgment before the sale closes.",
 
       "Tonganoxie, a similarly fast-growing Leavenworth County exurb a few miles west, has followed a different corridor -- U.S. 24/40 rather than K-7 -- and draws a somewhat different commuter than Basehor's own growth does, even though both answer to the identical Kansas statutes above. Leavenworth and Lansing, closer to the fort and the correctional facility, round out the rest of this county's four cities with an older, more established housing stock than either of the two exurbs shows.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Basehor. An owner in a newer subdivision with real equity and no urgent deadline is usually still better off listing conventionally, since the same growth fueling new construction in this city keeps demand for existing homes strong too.",
+      "None of the above makes a fast cash sale the obvious answer for a seller in Basehor. An owner in a newer subdivision with real equity and no urgent deadline is usually still better off listing conventionally, since the same growth fueling new construction along that K-7 corridor keeps demand for existing homes just as strong.",
 
-      "A cash sale earns genuine consideration in this city for an older, pre-boom house carrying repair needs a conventional lender will not finance, or a property whose special-assessment paperwork has stalled a conventional closing -- not the default choice for a seller sitting on real, meaningful equity with no particular rush to close before any deadline arrives.",
+      "A cash sale earns genuine consideration in Basehor for an older, pre-boom house carrying repair needs a conventional lender will not finance, or a property whose special-assessment paperwork has stalled a conventional closing -- not the default choice for a seller sitting on real, meaningful equity with no particular rush to close before any deadline arrives.",
 
       "[KS] None of this is legal advice. A Basehor homeowner facing a specific foreclosure summons, special-assessment question, or probate filing should talk to a Kansas attorney who can review the actual paperwork, not rely on a general city-level overview -- particularly where a newer subdivision's own paperwork has not yet caught up with how quickly the surrounding growth has moved.",
     ],
@@ -349,13 +354,13 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "[KS] A delinquent-tax sale anywhere in Bonner Springs follows the same before-the-sale-only structure Kansas uses everywhere -- K.S.A. 79-2803 cuts off redemption the moment the sale itself happens, while K.S.A. 79-2401a still requires whichever county actually runs the sale to hold a bid-off property for two years, three when it qualifies as a homestead, before pursuing a further sale.",
 
-      "[KS] Property in this city carries the identical 11.5% residential assessment ratio Article 11, Section 1 of the Kansas Constitution sets statewide, regardless of which of the three counties' own assessors actually sets the underlying market-value estimate for a given parcel.",
+      "[KS] Property in Bonner Springs carries the identical 11.5% residential assessment ratio Article 11, Section 1 of the Kansas Constitution sets statewide, regardless of which of the three counties' own assessors actually sets the underlying market-value estimate for a given parcel.",
 
       "This site's Wyandotte County page, its Johnson County, Kansas page, and its Leavenworth County page each cover the fuller countywide picture behind these figures from their own side of the line, rather than this summary repeating all three in full.",
 
       "[KS] A Kansas probate judge, applying K.S.A. 59-3202, is the one who actually decides whether a Bonner Springs estate gets the lighter simplified track or the fuller supervised one, regardless of which of the three counties happens to hold the property's own tax record.",
 
-      "[KS] Financing a purchase anywhere in Bonner Springs no longer triggers the old Kansas mortgage-registration tax either -- K.S.A. 79-3102 was repealed statewide effective January 1, 2019, a repeal that reaches every parcel in this city regardless of which county's own recorder handles the deed.",
+      "[KS] Financing a purchase anywhere in Bonner Springs no longer triggers the old Kansas mortgage-registration tax either -- K.S.A. 79-3102 was repealed statewide effective January 1, 2019, a repeal that reaches every Bonner Springs parcel regardless of which county's own recorder handles the deed.",
 
       "The National Agricultural Center and Hall of Fame and the amphitheater both draw visitors from well beyond Bonner Springs's own city limits, a fact about local tourism and events rather than about which of the three counties actually reaches a specific house sale nearby, notwithstanding how often a visitor asks which county the museum itself technically sits in.",
 
@@ -385,9 +390,9 @@ export const cityContentTier3b: Record<string, PageContent> = {
     body: [
       "Fort Scott is the county seat of Bourbon County, roughly 7,565 people about 88.1 miles from the metro's core -- the most distant Kansas city in this batch, and the only one built around an actual 1840s U.S. Army post established to help keep peace along the frontier. Fort Scott National Historic Site, the restored fort itself, sits at the center of downtown, and the surrounding blocks carry some of the oldest housing stock anywhere in this site's footprint.",
 
-      "[KS] Every part of this city sits in Kansas, inside Bourbon County, so a house sale in Fort Scott answers to Kansas's statewide statutes throughout -- but this is a genuinely smaller, thinner market than Johnson or Wyandotte County, with far fewer comparable recent sales to price a specific house against and a noticeably slower overall pace of turnover.",
+      "[KS] Every part of Fort Scott sits in Kansas, inside Bourbon County, so a house sale in this historic fort town answers to Kansas's statewide statutes throughout -- but this is a genuinely smaller, thinner market than Johnson or Wyandotte County, with far fewer comparable recent sales to price a specific house against and a noticeably slower overall pace of turnover.",
 
-      "[KS] Fort Scott offers no shortcut for a defaulting borrower's lender -- K.S.A. 60-2410 requires filing suit and winning a judgment before anything else can happen, and K.S.A. 60-2415 then requires a district judge's own confirmation of the sheriff's sale that follows, regardless of how far this city sits from the metro core.",
+      "[KS] Fort Scott offers no shortcut for a defaulting borrower's lender -- K.S.A. 60-2410 requires filing suit and winning a judgment before anything else can happen, and K.S.A. 60-2415 then requires a district judge's own confirmation of the sheriff's sale that follows, regardless of how far Fort Scott sits from the metro core.",
 
       "[KS] Redemption in Fort Scott does not begin until K.S.A. 60-2415's confirmation is entered -- from that point, K.S.A. 60-2414 gives the owner twelve months, shortened to three only where an early default struck a loan still heavily leveraged, and restored to a full year wherever total liens amount to less than a third of the property's value.",
 
@@ -399,7 +404,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "[KS] Distance from the metro core has no bearing on Fort Scott's own assessment math -- Article 11, Section 1 of the Kansas Constitution fixes residential property at 11.5% of value everywhere in the state, and only the county assessor's estimate of what a specific Fort Scott parcel is worth actually differs county to county.",
 
-      "[KS] Given how much of this city's own housing predates modern construction, a Fort Scott seller should pay particular attention to Kansas's radon-disclosure rule -- K.S.A. 58-3078a requires disclosing any known elevated radon reading in writing, with the sale contract itself carrying the state's own required warning language, a genuinely more common issue in a century-old basement than in newer construction.",
+      "[KS] Given how much of Fort Scott's own housing predates modern construction, a seller should pay particular attention to Kansas's radon-disclosure rule -- K.S.A. 58-3078a requires disclosing any known elevated radon reading in writing, with the sale contract itself carrying the state's own required warning language, a genuinely more common issue in a century-old basement than in newer construction.",
 
       "[KS] Financing a purchase in Fort Scott no longer triggers Kansas's former mortgage-registration tax either -- K.S.A. 79-3102 was fully repealed statewide effective January 1, 2019.",
 
@@ -407,9 +412,9 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "Fort Scott National Historic Site itself draws a steady if modest stream of history-minded visitors each year, a fact about local tourism rather than about which statutes reach a house sale nearby -- and much of the housing surrounding the old fort predates the Civil War era the site itself commemorates. A handful of bed-and-breakfast conversions near the fort have found a niche market among those visitors, a modest but real commercial use for an older house that a purely residential block farther from the historic site does not share.",
 
-      "Bourbon County's own remaining towns are considerably smaller than Fort Scott itself, leaving this city as the only real commercial center for a genuinely rural stretch of southeast Kansas -- a concentration of buyer demand into one city that a county with several similarly sized towns would not show, though that concentration still translates into far fewer transactions in a typical month than a metro-area suburb would see.",
+      "Bourbon County's own remaining towns are considerably smaller than Fort Scott itself, leaving it as the only real commercial center for a genuinely rural stretch of southeast Kansas -- a concentration of buyer demand into one city that a county with several similarly sized towns would not show, though that concentration still translates into far fewer transactions in a typical month than a metro-area suburb would see.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Fort Scott. An owner of a well-kept historic home near the fort, with time and no pressing deadline, is usually still better off testing a normal listing first, since this city's genuine architectural character continues to draw specific buyer interest a fast, discounted sale would not capture.",
+      "None of the above makes a fast cash sale the obvious answer for a seller in Fort Scott. An owner of a well-kept historic home near the fort, with time and no pressing deadline, is usually still better off testing a normal listing first, since this fort town's own genuine architectural character continues to draw specific buyer interest a fast, discounted sale would not capture.",
 
       "A cash sale earns real consideration in Fort Scott for a house whose age has produced repair needs a conventional lender will not finance, an estate that needs to close before a fixed date, or an owner already facing a scheduled sheriff's sale with the clock already running -- not as the default answer for a seller with time and a marketable historic home.",
 
@@ -450,7 +455,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "[MO] No transfer tax touches a Cameron closing either -- Article X, Section 25 of the Missouri Constitution has barred one since Missouri voters adopted it in 2010, a rule that draws no distinction based on which county a specific parcel sits in.",
 
-      "Cameron's own position at the I-35/US-36 junction has drawn warehousing, trucking, and light-manufacturing employment that a small city off the interstate rarely sees, a genuinely diversified economic base beyond the correctional center that gives this city's resale market a steadier floor than a purely agricultural Clinton County town might have.",
+      "Cameron's own position at the I-35/US-36 junction has drawn warehousing, trucking, and light-manufacturing employment that a small city off the interstate rarely sees, a genuinely diversified economic base beyond the correctional center that gives Cameron's resale market a steadier floor than a purely agricultural Clinton County town might have.",
 
       "[MO] A Cameron seller who actually knows a specific parcel contains a permitted or unpermitted solid waste disposal site or demolition landfill owes RSMo 260.213's own written disclosure -- signed, dated, and delivered early in the negotiation -- spelling out the site's location and warning that the buyer could be assuming liability to the state for cleaning it up.",
 
@@ -482,7 +487,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
     body: [
       "Roeland Park is one of the smallest cities by area in Johnson County, Kansas, roughly 6,712 people about 5.4 miles from the metro's core, entirely landlocked by Fairway, Mission, Overland Park, and Shawnee on every side. Barely three square miles in total, this inner-ring city built out almost entirely in the postwar decades of the mid-twentieth century, giving it an older, more uniform housing stock than the newer subdivisions found farther southwest in the same county.",
 
-      "[KS] Every single acre of Roeland Park sits in Johnson County, Kansas -- not the differently named Johnson County, Missouri roughly 65 miles southeast, which this site instead treats on its Warrensburg page -- so Kansas law governs a house sale in this city in full, and no Missouri statute enters into it at any point.",
+      "[KS] Every single acre of Roeland Park sits in Johnson County, Kansas -- not the differently named Johnson County, Missouri roughly 65 miles southeast, which this site instead treats on its Warrensburg page -- so Kansas law governs a house sale in this landlocked city in full, and no Missouri statute enters into it at any point.",
 
       "[KS] A defaulted Roeland Park mortgage cannot be foreclosed by a trustee acting alone the way a Missouri deed of trust would allow -- K.S.A. 60-2410 sends the lender to court for a judgment first, and K.S.A. 60-2415 puts the district court in charge of confirming whatever sheriff's sale results.",
 
@@ -502,11 +507,11 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "[KS] Given how much of Roeland Park's own housing predates the newer construction found farther southwest in Johnson County, Kansas, a seller working with an agent should know Kansas puts the burden of catching a known defect on the licensee handling the sale, not the seller personally -- K.S.A. 58-30,106 requires that licensee to flag adverse facts actually known to a buyer who counts only as a customer, physical condition and title problems included.",
 
-      "Fairway, Mission, Overland Park, and Shawnee border this small city on every side, leaving Roeland Park almost no room to grow outward -- a genuine ceiling on future development that a still-expanding Johnson County, Kansas suburb farther out does not face. What growth this city has seen instead has come from redeveloping existing lots rather than annexing new land, a slower and more incremental pattern than the large-scale subdivision construction found in a newer part of the county, and one that has kept Roeland Park's own street grid largely unchanged for decades even as the surrounding suburbs have continued expanding around it.",
+      "Fairway, Mission, Overland Park, and Shawnee border Roeland Park on every single side, leaving almost no room left to grow outward -- a genuine ceiling on future development that a still-expanding Johnson County, Kansas suburb farther out does not face. What growth it has seen instead has come from redeveloping existing lots rather than annexing new land, a slower and more incremental pattern than the large-scale subdivision construction found in a newer part of the county, and one that has kept Roeland Park's own street grid largely unchanged for decades even as the surrounding suburbs have continued expanding around it.",
 
       "Merriam and Mission, both nearby in the same closer-in cluster of older Johnson County, Kansas cities, share Roeland Park's own postwar-built character and small footprint, a genuinely different pattern of age and scale from Overland Park's or Olathe's own considerably newer growth farther out in the same county's own southwestern reaches.",
 
-      "None of the above makes a fast cash sale the default answer for a seller in Roeland Park. An owner of an older, well-kept house in this city with real equity and no urgent deadline is usually still better off listing conventionally, since this city's small, landlocked footprint has not stopped it from drawing steady buyer interest from people specifically looking for its closer-in location and its own shorter commute into the metro core.",
+      "None of the above makes a fast cash sale the default answer for a seller in Roeland Park. An owner of an older, well-kept house in Roeland Park with real equity and no urgent deadline is usually still better off listing conventionally instead, since its own small, landlocked footprint has not stopped it from drawing steady buyer interest from people specifically looking for its closer-in location and its own shorter commute into the metro core.",
 
       "A cash sale earns genuine consideration in Roeland Park for an older house carrying real deferred maintenance a conventional lender will not finance, or an estate racing against a fixed closing deadline -- not as the first move for an owner with plenty of time on their side and no such pressure.",
 
@@ -540,7 +545,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "[KS] K.S.A. 79-2401a gives this county its own multi-year holding period on a De Soto property it bids off at a tax foreclosure sale -- two years generally, three for a qualifying homestead -- while K.S.A. 79-2803 shuts off redemption completely once that sale is actually held.",
 
-      "[KS] This site's Johnson County, Kansas page covers the fuller countywide picture behind these figures, including how the same uncapped exemption and holding period reach Gardner and Edgerton nearer this city's own far-western edge.",
+      "[KS] This site's Johnson County, Kansas page covers the fuller countywide picture behind these figures, including how the same uncapped exemption and holding period reach Gardner and Edgerton nearer De Soto's own far-western edge.",
 
       "[KS] Property in De Soto carries the identical 11.5% residential assessment ratio Article 11, Section 1 of the Kansas Constitution sets statewide -- the Panasonic project's own construction activity changes the underlying market-value estimate an assessor sets for nearby parcels over time, never that fixed percentage itself.",
 
@@ -550,13 +555,13 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "[KS] Whether a De Soto estate proceeds as simplified or fully supervised is a Kansas judge's own call under K.S.A. 59-3202, weighing the estate's size, how well its heirs get along, its solvency, and what a fuller administration would likely cost.",
 
-      "The Panasonic plant's own construction workforce has already pushed rental demand and new-home construction in De Soto well above what this city's own historically modest growth rate would predict, a genuinely different driver than the university- or interstate-driven growth found in other cities in this footprint. Local reporting on the project has described thousands of construction jobs at the site's peak build-out, a scale of activity that has drawn short-term workers into the local rental market well beyond what a city this size would otherwise support.",
+      "The Panasonic plant's own construction workforce has already pushed rental demand and new-home construction in De Soto well above what De Soto's own historically modest growth rate would predict, a genuinely different driver than the university- or interstate-driven growth found in other cities in this footprint. Local reporting on the project has described thousands of construction jobs at the site's peak build-out, a scale of activity that has drawn short-term workers into the local rental market well beyond what a city this size would otherwise support.",
 
       "Gardner and Edgerton, De Soto's own nearer neighbors at the western edge of Johnson County, Kansas, have seen a smaller version of the same construction-driven growth, while Overland Park and Olathe closer to the built-up core carry a far older, more established housing stock than any of the three. The Sunflower site's own decades as a federal ammunition plant left behind an environmental cleanup history a buyer's lender sometimes asks about directly, separate from anything the statutes above require a seller to volunteer -- an older parcel near the plant's own former boundary can carry a genuinely different due-diligence timeline than a newer subdivision lot built well clear of that history.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in De Soto. An owner with real equity and no urgent deadline is usually still better off listing conventionally, since the same construction boom driving new demand in this city keeps interest in existing homes strong too.",
+      "None of the above makes a fast cash sale the obvious answer for a seller in De Soto. An owner with real equity and no urgent deadline is usually still better off listing conventionally, since the same Panasonic-driven construction boom happening nearby keeps interest in existing homes just as strong too.",
 
-      "A cash sale earns genuine consideration in this city for a thin-equity owner once a mortgage and any liens are counted, or a property whose special-assessment status has complicated a conventional buyer's own financing -- not the default choice for a seller with real equity to spare and no particular reason to rush.",
+      "A cash sale still earns genuine consideration in De Soto for a thin-equity owner once a mortgage and any liens are counted, or a property whose special-assessment status has complicated a conventional buyer's own financing -- not the default choice for a seller with real equity to spare and no particular reason to rush.",
 
       "[KS] None of this is legal advice. A De Soto homeowner unsure whether a specific parcel carries a special assessment, or facing a foreclosure judgment or probate question, should talk to a Kansas attorney who can review the actual paperwork rather than rely on a general overview like this one.",
     ],
@@ -579,13 +584,13 @@ export const cityContentTier3b: Record<string, PageContent> = {
     body: [
       "Eudora sits along the Kansas River between Lawrence and De Soto, roughly 6,466 people about 29.9 miles from the metro's core, in Douglas County. The city's own name honors Eudora Young Barker, a Shawnee woman on whose land the original townsite was platted in the 1850s, and Eudora's own housing stock today is overwhelmingly owner-occupied rather than the rental-heavy mix found closer to the University of Kansas.",
 
-      "[KS] Every part of Eudora sits in Kansas, inside Douglas County, so a house sale in this city answers to the same statewide Kansas statutes reaching Lawrence and Baldwin City alongside it -- judicial foreclosure, an uncapped homestead exemption, and a fixed statewide assessment ratio, none of which bends for this city's own smaller, more residential character.",
+      "[KS] Every single part of Eudora sits in Kansas, inside Douglas County, so a house sale in this river town answers to the same statewide Kansas statutes reaching Lawrence and Baldwin City alongside it -- judicial foreclosure, an uncapped homestead exemption, and a fixed statewide assessment ratio, none of which bends for Eudora's own smaller, more residential character.",
 
       "[KS] There is simply no private, out-of-court foreclosure option for a Eudora mortgage -- K.S.A. 60-2410 forces the lender into a lawsuit that ends in a judgment, and only after K.S.A. 60-2415's district-court confirmation of the sheriff's sale does a buyer actually take title.",
 
       "[KS] A Eudora owner's right to redeem under K.S.A. 60-2414 runs from the date of confirmation, not the sale itself -- twelve months in the ordinary case, three months only where an early default hit a loan still owing most of what was borrowed, and back to twelve whenever the property's combined liens fall under a third of its value.",
 
-      "[KS] Because Eudora's own housing stock leans so heavily owner-occupied rather than rented out, Kansas's homestead rule reaches more of this city's own houses in practice than it reaches in Lawrence's rental-heavy market a few miles east -- K.S.A. 60-2301 and Kan. Const. Art. 15 Section 9 put a qualifying homestead beyond any unsecured creditor's judgment, with the exemption's protection carrying no dollar ceiling, though it belongs to the resident owner rather than a landlord.",
+      "[KS] Because Eudora's own housing stock leans so heavily owner-occupied rather than rented out, Kansas's homestead rule reaches more of Eudora's own houses in practice than it reaches in Lawrence's rental-heavy market a few miles east -- K.S.A. 60-2301 and Kan. Const. Art. 15 Section 9 put a qualifying homestead beyond any unsecured creditor's judgment, with the exemption's protection carrying no dollar ceiling, though it belongs to the resident owner rather than a landlord.",
 
       "[KS] A delinquent-tax sale in Douglas County holds a bid-off Eudora property for a full two years before the county even pursues a further sale, three years when the property actually qualifies as a homestead, all under K.S.A. 79-2401a.",
 
@@ -599,11 +604,11 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "[KS] A Eudora seller's own agent, not the seller, carries Kansas's broader duty to catch a known defect -- K.S.A. 58-30,106 obligates a licensee representing the seller to tell a customer-buyer about adverse material facts actually known, from title issues to the property's physical condition.",
 
-      "Sitting on the Kansas River between Lawrence and De Soto gives Eudora a genuinely different position than either of its larger neighbors -- close enough to commute to the university town's own job market, but far enough to keep a smaller, quieter, more conventional residential character than Lawrence's own academic-calendar-driven turnover. The De Soto side of that positioning has taken on new weight as the Panasonic battery plant's own construction workforce has spread rental demand outward along the river corridor, giving Eudora a second commute option beyond Lawrence that this city did not have as recently as a few years ago.",
+      "Sitting on the Kansas River between Lawrence and De Soto gives Eudora a genuinely different position than either of its larger neighbors -- close enough to commute to the university town's own job market, but far enough to keep a smaller, quieter, more conventional residential character than Lawrence's own academic-calendar-driven turnover. The De Soto side of that positioning has taken on new weight as the Panasonic battery plant's own construction workforce has spread rental demand outward along the river corridor, giving Eudora a second commute option beyond Lawrence that it did not have as recently as a few years ago.",
 
       "Baldwin City, the third of Douglas County's three incorporated cities, sits farther south and carries its own small-college character built around Baker University, a genuinely different draw than either Lawrence's larger university or Eudora's own purely residential market. All three cities answer to the identical Douglas County-anchored statutes above, but a homeowner comparing Eudora's own market against either neighbor should expect a genuinely different buyer profile in each: a Lawrence sale competes against a large, rotating pool of student and staff renters converting to ownership, a Baldwin City sale draws from a smaller pool tied to Baker University's own faculty and staff, and a Eudora sale draws overwhelmingly from families and commuters looking for an established, owner-occupied neighborhood rather than anything tied to either college.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Eudora. An owner-occupied home in genuinely good condition with no urgent deadline is usually still better off listed conventionally, since this city's own steady, owner-occupied character has kept demand for existing homes reasonably consistent.",
+      "None of the above makes a fast cash sale the obvious answer for a seller in Eudora. An owner-occupied home in genuinely good condition with no urgent deadline is usually still better off listed conventionally, since Eudora's own steady, owner-occupied character has kept demand for existing homes reasonably consistent over time.",
 
       "A cash sale earns genuine consideration in Eudora for a house carrying real repair needs a conventional lender will not finance, or for an estate that needs an uncomplicated and genuinely fast close -- not as the default answer for an owner-occupant with equity and time to spare.",
 
@@ -627,7 +632,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
     body: [
       "Greenwood is a small Jackson County city of roughly 6,123 people about 22.1 miles from the metro's core, sitting along U.S. Highway 50 between Lee's Summit and the Cass County line, bordering Lake Winnebago's own small residential footprint to the south. Far smaller than Lee's Summit or Blue Springs closer to the built-up core of the county, Greenwood has grown gradually as a quiet commuter town rather than through the large-scale subdivision development found elsewhere in eastern Jackson County.",
 
-      "[MO] Every acre of Greenwood sits in Jackson County, Missouri, so it follows the same statewide rules reaching Kansas City, Lee's Summit, and every other city in this county -- Missouri law throughout, with this city's own small size changing nothing about which statutes apply.",
+      "[MO] Every acre of Greenwood sits in Jackson County, Missouri, so it follows the same statewide rules reaching Kansas City, Lee's Summit, and every other city in this county -- Missouri law throughout, with Greenwood's own small size changing nothing about which statutes apply.",
 
       "[MO] A Greenwood homeowner whose own 2023 or 2024 valuation jumped sharply is part of the same dispute touching every Jackson County parcel -- the State Tax Commission's own order found the county's reassessment skipped required notice and physical inspections, the county challenged that finding in court, and the Missouri Court of Appeals let the Commission's enforcement suit proceed this past December without resolving whose numbers were actually correct. A Greenwood owner disputing a specific figure has an active process to raise with the assessor, not a settled outcome either way, and this site's Jackson County page covers that dispute at length.",
 
@@ -635,7 +640,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "[MO] Three separate conditions, not one, decide whether a Greenwood trustee's sale can be undone under RSMo 443.410 and RSMo 443.420: the lender itself has to be the one who ends up owning the property, the borrower has to have already filed a written intent to redeem, and a bond for the full debt has to go up inside twenty days of the sale date.",
 
-      "[MO] The same statewide dollar figures reach a Greenwood sale as anywhere else in Missouri -- $15,000 of equity shielded from an unsecured judgment under RSMo 513.475 today, rising to $40,000 in 2027, and RSMo 137.115's flat 19% residential assessment ratio, a rate this city's small size does nothing to change.",
+      "[MO] The same statewide dollar figures reach a Greenwood sale as anywhere else in Missouri -- $15,000 of equity shielded from an unsecured judgment under RSMo 513.475 today, rising to $40,000 in 2027, and RSMo 137.115's flat 19% residential assessment ratio, a rate Greenwood's own small size does nothing to change.",
 
       "[MO] Falling behind on property taxes, as distinct from a mortgage, sends a Greenwood parcel through RSMo 140.340 instead -- a full year of unconditional redemption from the tax-sale date, and a weaker right that lingers afterward until the purchaser actually collects the collector's deed.",
 
@@ -676,7 +681,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
     body: [
       "Tonganoxie is a Leavenworth County city of roughly 6,102 people about 26.8 miles from the metro's core, its own name honoring Chief Tonganoxie, a 19th-century Delaware (Lenape) leader whose people were relocated to this part of Kansas before the city was platted around the rail line that later became the U.S. 24/40 corridor. Newer subdivision growth along that corridor has made Tonganoxie one of the faster-growing small cities in this county over the past decade, a pace of change the city's own downtown core, still centered on a handful of blocks near the old rail depot, has absorbed without losing much of its original small-town layout.",
 
-      "[KS] Tonganoxie sits entirely inside Leavenworth County, Kansas, so this city's own house sales run on Kansas's statewide rulebook from start to finish -- a judicial foreclosure requirement, an uncapped homestead protection, and the same tax-sale mechanics that also govern Leavenworth, Lansing, and Basehor.",
+      "[KS] Tonganoxie sits entirely inside Leavenworth County, Kansas, so its own house sales run on Kansas's statewide rulebook from start to finish -- a judicial foreclosure requirement, an uncapped homestead protection, and the same tax-sale mechanics that also govern Leavenworth, Lansing, and Basehor.",
 
       "[KS] Kansas routes every single Tonganoxie foreclosure through the same courthouse door -- K.S.A. 60-2410 requires a judgment before a sheriff's sale can happen at all, and K.S.A. 60-2415 requires a district judge to sign off on that sale before it becomes final.",
 
@@ -702,7 +707,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "None of the above makes a fast cash sale the obvious answer for a seller in Tonganoxie. An owner sitting on real equity in a newer subdivision, with no urgent deadline pressing, is usually still better off going the conventional-listing route, since the U.S. 24/40 corridor's own growth has kept demand for existing homes just as strong as it has for new construction.",
 
-      "A cash sale earns genuine consideration in this city for an older, pre-growth house carrying real repair needs a conventional lender will not finance, or an estate that genuinely cannot wait out a normal listing timeline -- not the default choice for a seller with equity and no fixed deadline in sight.",
+      "A cash sale earns genuine consideration in Tonganoxie for an older, pre-growth house carrying real repair needs a conventional lender will not finance, or an estate that genuinely cannot wait out a normal listing timeline -- not the default choice for a seller with equity and no fixed deadline in sight.",
 
       "[KS] None of this is legal advice. A Tonganoxie homeowner facing a specific foreclosure summons or probate filing should talk to a Kansas attorney who can review the actual paperwork directly, not rely on a general city-level overview like this one.",
     ],
