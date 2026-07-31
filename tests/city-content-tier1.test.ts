@@ -387,8 +387,20 @@ describe("city content -- tier-1 Wave 0C", () => {
     expect(duplicates).toEqual([]);
   });
 
-  it("has zero duplicate 160-character windows across the entire content registry (all six maps)", () => {
-    expect(contentRegistries.length).toBe(6);
+  it("has zero duplicate 160-character windows across the entire content registry", () => {
+    // Asserts this file's map is REGISTERED, not how many maps exist. The
+    // earlier version pinned contentRegistries.length to an exact count, which
+    // meant every future content wave broke a test in an unrelated file for no
+    // reason. A count is not the property under test.
+    //
+    // NOTE: this scans at stride 20, which SAMPLES rather than proves. The
+    // authoritative check is `npm run check:duplication` (gate #10), which is
+    // exhaustive at stride 1. A coarse stride reported 0 duplicates here while
+    // the exhaustive gate found 23 -- see docs/WAVE-0B-PREREQUISITES.md.
+    expect(
+      contentRegistries.some((m) => "sell-my-house-fast-kansas-city-mo" in m),
+      "tier-1 city map is registered"
+    ).toBe(true);
     const windows = new Map<string, string>();
     const duplicates: string[] = [];
     for (const map of contentRegistries) {

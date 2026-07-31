@@ -5,6 +5,7 @@ import { stateLineContentTransaction } from "@/data/state-line-content-transacti
 import { stateHubContent } from "@/data/state-hub-content";
 import { countyContentMetro } from "@/data/county-content-metro";
 import { cityContentTier1 } from "@/data/city-content-tier1";
+import { cityContentTier2 } from "@/data/city-content-tier2";
 
 export interface PageContent {
   slug: string;
@@ -33,6 +34,7 @@ const registries: Record<string, PageContent>[] = [
   stateHubContent,
   countyContentMetro,
   cityContentTier1,
+  cityContentTier2,
 ];
 
 /** Exported for `check:content-slugs`: a collision is invisible after merge. */
