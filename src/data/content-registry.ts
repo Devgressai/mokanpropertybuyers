@@ -3,6 +3,7 @@ import { stateLineContentForeclosure } from "@/data/state-line-content-foreclosu
 import { stateLineContentMoney } from "@/data/state-line-content-money";
 import { stateLineContentTransaction } from "@/data/state-line-content-transaction";
 import { stateHubContent } from "@/data/state-hub-content";
+import { countyContentMetro } from "@/data/county-content-metro";
 
 export interface PageContent {
   slug: string;
@@ -29,6 +30,7 @@ const registries: Record<string, PageContent>[] = [
   stateLineContentMoney,
   stateLineContentTransaction,
   stateHubContent,
+  countyContentMetro,
 ];
 
 /** Exported for `check:content-slugs`: a collision is invisible after merge. */

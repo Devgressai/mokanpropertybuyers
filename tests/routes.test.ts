@@ -28,10 +28,13 @@ describe("geo route", () => {
   it("keeps follow true and index false for a page with no hand-written content", async () => {
     // sell-my-house-fast-missouri was this test's example until Task 8
     // (Wave 0B) gave both state hubs hand-written content and made them
-    // indexable on purpose -- a county page is still untouched, since
-    // counties and cities are out of scope through Wave 0B.
+    // indexable on purpose. sell-my-house-fast-jackson-county-mo was this
+    // test's next example until Wave 0C's first eight county hubs (see
+    // src/data/county-content-metro.ts) gave it content too. Buchanan
+    // County, Missouri is one of the 45 counties still untouched -- pick
+    // another still-uncovered county here if a later wave reaches it.
     const metadata = await generateMetadata({
-      params: Promise.resolve({ slug: "sell-my-house-fast-jackson-county-mo" }),
+      params: Promise.resolve({ slug: "sell-my-house-fast-buchanan-county-mo" }),
     });
     expect(metadata.robots).toEqual({ index: false, follow: true });
   });
