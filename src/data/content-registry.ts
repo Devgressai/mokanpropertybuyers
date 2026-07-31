@@ -8,6 +8,7 @@ import { countyContentOuter } from "@/data/county-content-outer";
 import { cityContentTier1 } from "@/data/city-content-tier1";
 import { cityContentTier2 } from "@/data/city-content-tier2";
 import { cityContentTier3a } from "@/data/city-content-tier3a";
+import { cityContentTier3b } from "@/data/city-content-tier3b";
 
 export interface PageContent {
   slug: string;
@@ -39,6 +40,7 @@ const registries: Record<string, PageContent>[] = [
   cityContentTier1,
   cityContentTier2,
   cityContentTier3a,
+  cityContentTier3b,
 ];
 
 /** Exported for `check:content-slugs`: a collision is invisible after merge. */

@@ -459,8 +459,9 @@ describe("city content -- tier-2 Wave 0C", () => {
 
   it("has zero duplicate 160-character windows across the entire content registry (all nine maps)", () => {
     // Was 7 until county-content-outer.ts landed, then 8 until
-    // city-content-tier3a.ts (Wave 0C, batch 1) landed.
-    expect(contentRegistries.length).toBe(9);
+    // city-content-tier3a.ts (Wave 0C, batch 1) landed, then 9 until
+    // city-content-tier3b.ts (Wave 0C, batch 2) landed.
+    expect(contentRegistries.length).toBe(10);
     const windows = new Map<string, string>();
     const duplicates: string[] = [];
     for (const map of contentRegistries) {

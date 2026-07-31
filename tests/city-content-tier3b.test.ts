@@ -1,15 +1,17 @@
-// tests/city-content-tier3a.test.ts
+// tests/city-content-tier3b.test.ts
 //
-// Wave 0C, batch 1 -- the fourteen tier-3 city pages, the ninth content map.
-// Same mechanical contract as city-content-tier1.test.ts and
-// city-content-tier2.test.ts. Three of these fourteen cities (Merriam,
-// Mission, Spring Hill) sit in Johnson County, KANSAS -- a differently named
-// Johnson County, MISSOURI exists roughly 65 miles away with the opposite
-// foreclosure procedure and opposite money rules, and a published page on
-// this site has already shipped that exact mistake once before it was
-// caught. Every assertion here is designed to fail against broken content,
-// not just pass against correct content.
+// Wave 0C, batch 2 -- the fourteen tier-3 city pages, the tenth content map.
+// Same mechanical contract as city-content-tier3a.test.ts. Two of these
+// fourteen cities (Roeland Park, De Soto) sit in Johnson County, KANSAS -- a
+// differently named Johnson County, MISSOURI exists roughly 65 miles away
+// with the opposite foreclosure procedure and opposite money rules, and a
+// published page on this site has already shipped that exact mistake once
+// before it was caught. Bonner Springs also names Johnson County, Kansas as
+// one of the three counties it straddles, so it carries the same guard.
+// Every assertion here is designed to fail against broken content, not just
+// pass against correct content.
 import { describe, expect, it } from "vitest";
+import { cityContentTier3b } from "../src/data/city-content-tier3b";
 import { cityContentTier3a } from "../src/data/city-content-tier3a";
 import { cityContentTier1 } from "../src/data/city-content-tier1";
 import { cityContentTier2 } from "../src/data/city-content-tier2";
@@ -35,57 +37,60 @@ const LABEL = /\[(MO|KS)\]/;
 const DEICTIC = /\b(here|across the line|our neighbors|both states|either state)\b/i;
 
 const EXPECTED_SLUGS = [
-  "sell-my-house-fast-marshall-mo",
-  "sell-my-house-fast-ottawa-ks",
-  "sell-my-house-fast-lansing-ks",
-  "sell-my-house-fast-kearney-mo",
-  "sell-my-house-fast-merriam-ks",
-  "sell-my-house-fast-smithville-mo",
-  "sell-my-house-fast-atchison-ks",
-  "sell-my-house-fast-excelsior-springs-mo",
-  "sell-my-house-fast-maryville-mo",
-  "sell-my-house-fast-mission-ks",
-  "sell-my-house-fast-harrisonville-mo",
-  "sell-my-house-fast-spring-hill-ks",
-  "sell-my-house-fast-clinton-mo",
-  "sell-my-house-fast-chillicothe-mo",
+  "sell-my-house-fast-oak-grove-mo",
+  "sell-my-house-fast-parkville-mo",
+  "sell-my-house-fast-pleasant-hill-mo",
+  "sell-my-house-fast-nevada-mo",
+  "sell-my-house-fast-boonville-mo",
+  "sell-my-house-fast-basehor-ks",
+  "sell-my-house-fast-bonner-springs-ks",
+  "sell-my-house-fast-fort-scott-ks",
+  "sell-my-house-fast-cameron-mo",
+  "sell-my-house-fast-roeland-park-ks",
+  "sell-my-house-fast-de-soto-ks",
+  "sell-my-house-fast-eudora-ks",
+  "sell-my-house-fast-greenwood-mo",
+  "sell-my-house-fast-tonganoxie-ks",
 ];
 
-// The three Johnson County KS cities in this batch -- the collision class
-// this batch is at highest risk of getting wrong, alongside the seven
-// Johnson County KS/MO cities already shipped in tier1/tier2.
-const JOHNSON_COUNTY_KS_SLUGS = [
-  "sell-my-house-fast-merriam-ks",
-  "sell-my-house-fast-mission-ks",
-  "sell-my-house-fast-spring-hill-ks",
+// The two Johnson County KS cities in this batch, plus Bonner Springs, which
+// names Johnson County, Kansas as one of the three counties it straddles --
+// the collision class this batch is at highest risk of getting wrong,
+// alongside the ten Johnson County KS/MO cities already shipped in
+// tier1/tier2/tier3a.
+const JOHNSON_COUNTY_KS_PRIMARY_SLUGS = [
+  "sell-my-house-fast-roeland-park-ks",
+  "sell-my-house-fast-de-soto-ks",
+];
+const JOHNSON_COUNTY_KS_MENTION_SLUGS = [
+  ...JOHNSON_COUNTY_KS_PRIMARY_SLUGS,
+  "sell-my-house-fast-bonner-springs-ks",
 ];
 
-// Counties whose own hub page has content as of this map's commit -- the
-// eight metro counties (Clay, Johnson KS, Cass among them) plus the twelve
-// counties a concurrent agent added in county-content-outer.ts, including
-// Saline, Franklin, Leavenworth, Ray, Miami KS, and Henry, all confirmed in
-// the registry at this map's own commit. Only Atchison, Nodaway, and
-// Livingston Counties have no hub page anywhere in this footprint yet.
+// Counties whose own hub page has content as of this map's commit.
 const COUNTIES_WITH_CONTENT = new Set([
   ...Object.keys(countyContentMetro),
   ...Object.keys(countyContentOuter),
 ]);
 const NO_CONTENT_COUNTY_SLUGS = new Set([
-  "sell-my-house-fast-atchison-ks", // Atchison
-  "sell-my-house-fast-maryville-mo", // Nodaway
-  "sell-my-house-fast-chillicothe-mo", // Livingston
+  "sell-my-house-fast-nevada-mo", // Vernon
+  "sell-my-house-fast-boonville-mo", // Cooper
+  "sell-my-house-fast-fort-scott-ks", // Bourbon
+  "sell-my-house-fast-cameron-mo", // Clinton MO
 ]);
 
-// Multi-county cities: primary county per geography.ts's countySlug, plus a
-// secondary county the page is allowed to name for courthouse/tax-sale
-// purposes without treating it as the primary jurisdiction.
-const MULTI_COUNTY_SECONDARY: Record<string, string> = {
-  "sell-my-house-fast-smithville-mo": "Platte",
-  "sell-my-house-fast-excelsior-springs-mo": "Ray",
-  "sell-my-house-fast-spring-hill-ks": "Miami",
+// Multi-county cities: primary county per geography.ts's countySlug, plus
+// secondary county names the page is allowed to mention for
+// courthouse/tax-sale purposes without treating them as the primary
+// jurisdiction.
+const MULTI_COUNTY_SECONDARY: Record<string, string[]> = {
+  "sell-my-house-fast-oak-grove-mo": ["Lafayette"],
+  "sell-my-house-fast-pleasant-hill-mo": ["Jackson"],
+  "sell-my-house-fast-cameron-mo": ["DeKalb"],
+  "sell-my-house-fast-bonner-springs-ks": ["Leavenworth", "Johnson"],
 };
 
-const pages = Object.values(cityContentTier3a);
+const pages = Object.values(cityContentTier3b);
 const cityBySlug = new Map(cities.map((c) => [c.slug, c]));
 const countyBySlug = new Map(counties.map((c) => [c.slug, c]));
 
@@ -93,13 +98,13 @@ function wordCount(body: string[]): number {
   return body.join(" ").trim().split(/\s+/).filter(Boolean).length;
 }
 
-describe("city content -- tier-3 Wave 0C, batch 1", () => {
+describe("city content -- tier-3 Wave 0C, batch 2", () => {
   it("defines exactly the fourteen expected city slugs", () => {
-    expect(Object.keys(cityContentTier3a).sort()).toEqual([...EXPECTED_SLUGS].sort());
+    expect(Object.keys(cityContentTier3b).sort()).toEqual([...EXPECTED_SLUGS].sort());
   });
 
   it("keeps each entry's slug field matching its registry key, and matching a real city in geography.ts", () => {
-    for (const [key, page] of Object.entries(cityContentTier3a)) {
+    for (const [key, page] of Object.entries(cityContentTier3b)) {
       expect(page.slug).toBe(key);
       expect(cityBySlug.get(key), key).toBeDefined();
     }
@@ -107,20 +112,20 @@ describe("city content -- tier-3 Wave 0C, batch 1", () => {
 
   it("verifies every city's parent county against geography.ts -- CityDef.countySlug is authoritative", () => {
     const expectedCounty: Record<string, string> = {
-      "sell-my-house-fast-marshall-mo": "sell-my-house-fast-saline-county-mo",
-      "sell-my-house-fast-ottawa-ks": "sell-my-house-fast-franklin-county-ks",
-      "sell-my-house-fast-lansing-ks": "sell-my-house-fast-leavenworth-county-ks",
-      "sell-my-house-fast-kearney-mo": "sell-my-house-fast-clay-county-mo",
-      "sell-my-house-fast-merriam-ks": "sell-my-house-fast-johnson-county-ks",
-      "sell-my-house-fast-smithville-mo": "sell-my-house-fast-clay-county-mo",
-      "sell-my-house-fast-atchison-ks": "sell-my-house-fast-atchison-county-ks",
-      "sell-my-house-fast-excelsior-springs-mo": "sell-my-house-fast-clay-county-mo",
-      "sell-my-house-fast-maryville-mo": "sell-my-house-fast-nodaway-county-mo",
-      "sell-my-house-fast-mission-ks": "sell-my-house-fast-johnson-county-ks",
-      "sell-my-house-fast-harrisonville-mo": "sell-my-house-fast-cass-county-mo",
-      "sell-my-house-fast-spring-hill-ks": "sell-my-house-fast-johnson-county-ks",
-      "sell-my-house-fast-clinton-mo": "sell-my-house-fast-henry-county-mo",
-      "sell-my-house-fast-chillicothe-mo": "sell-my-house-fast-livingston-county-mo",
+      "sell-my-house-fast-oak-grove-mo": "sell-my-house-fast-jackson-county-mo",
+      "sell-my-house-fast-parkville-mo": "sell-my-house-fast-platte-county-mo",
+      "sell-my-house-fast-pleasant-hill-mo": "sell-my-house-fast-cass-county-mo",
+      "sell-my-house-fast-nevada-mo": "sell-my-house-fast-vernon-county-mo",
+      "sell-my-house-fast-boonville-mo": "sell-my-house-fast-cooper-county-mo",
+      "sell-my-house-fast-basehor-ks": "sell-my-house-fast-leavenworth-county-ks",
+      "sell-my-house-fast-bonner-springs-ks": "sell-my-house-fast-wyandotte-county-ks",
+      "sell-my-house-fast-fort-scott-ks": "sell-my-house-fast-bourbon-county-ks",
+      "sell-my-house-fast-cameron-mo": "sell-my-house-fast-clinton-county-mo",
+      "sell-my-house-fast-roeland-park-ks": "sell-my-house-fast-johnson-county-ks",
+      "sell-my-house-fast-de-soto-ks": "sell-my-house-fast-johnson-county-ks",
+      "sell-my-house-fast-eudora-ks": "sell-my-house-fast-douglas-county-ks",
+      "sell-my-house-fast-greenwood-mo": "sell-my-house-fast-jackson-county-mo",
+      "sell-my-house-fast-tonganoxie-ks": "sell-my-house-fast-leavenworth-county-ks",
     };
     for (const slug of EXPECTED_SLUGS) {
       const city = cityBySlug.get(slug)!;
@@ -128,18 +133,26 @@ describe("city content -- tier-3 Wave 0C, batch 1", () => {
     }
   });
 
-  it("confirms the three multi-county cities against geography.ts's countiesAll", () => {
-    const smithville = cityBySlug.get("sell-my-house-fast-smithville-mo")!;
-    expect(smithville.countiesAll).toEqual(
-      expect.arrayContaining(["sell-my-house-fast-clay-county-mo", "sell-my-house-fast-platte-county-mo"])
+  it("confirms the four multi-county cities against geography.ts's countiesAll", () => {
+    const oakGrove = cityBySlug.get("sell-my-house-fast-oak-grove-mo")!;
+    expect(oakGrove.countiesAll).toEqual(
+      expect.arrayContaining(["sell-my-house-fast-jackson-county-mo", "sell-my-house-fast-lafayette-county-mo"])
     );
-    const excelsior = cityBySlug.get("sell-my-house-fast-excelsior-springs-mo")!;
-    expect(excelsior.countiesAll).toEqual(
-      expect.arrayContaining(["sell-my-house-fast-clay-county-mo", "sell-my-house-fast-ray-county-mo"])
+    const pleasantHill = cityBySlug.get("sell-my-house-fast-pleasant-hill-mo")!;
+    expect(pleasantHill.countiesAll).toEqual(
+      expect.arrayContaining(["sell-my-house-fast-cass-county-mo", "sell-my-house-fast-jackson-county-mo"])
     );
-    const springHill = cityBySlug.get("sell-my-house-fast-spring-hill-ks")!;
-    expect(springHill.countiesAll).toEqual(
-      expect.arrayContaining(["sell-my-house-fast-johnson-county-ks", "sell-my-house-fast-miami-county-ks"])
+    const cameron = cityBySlug.get("sell-my-house-fast-cameron-mo")!;
+    expect(cameron.countiesAll).toEqual(
+      expect.arrayContaining(["sell-my-house-fast-clinton-county-mo", "sell-my-house-fast-dekalb-county-mo"])
+    );
+    const bonnerSprings = cityBySlug.get("sell-my-house-fast-bonner-springs-ks")!;
+    expect(bonnerSprings.countiesAll).toEqual(
+      expect.arrayContaining([
+        "sell-my-house-fast-johnson-county-ks",
+        "sell-my-house-fast-leavenworth-county-ks",
+        "sell-my-house-fast-wyandotte-county-ks",
+      ])
     );
   });
 
@@ -257,11 +270,13 @@ describe("city content -- tier-3 Wave 0C, batch 1", () => {
     }
   });
 
-  it("names the secondary county for each multi-county city without treating it as the page's primary jurisdiction", () => {
-    for (const [slug, secondaryName] of Object.entries(MULTI_COUNTY_SECONDARY)) {
-      const page = cityContentTier3a[slug];
+  it("names every secondary county for each multi-county city without treating it as the page's primary jurisdiction", () => {
+    for (const [slug, secondaryNames] of Object.entries(MULTI_COUNTY_SECONDARY)) {
+      const page = cityContentTier3b[slug];
       const text = page.body.join(" ");
-      expect(text, slug).toContain(secondaryName);
+      for (const secondaryName of secondaryNames) {
+        expect(text, `${slug}: expected "${secondaryName}"`).toContain(secondaryName);
+      }
       const city = cityBySlug.get(slug)!;
       const primaryCounty = countyBySlug.get(city.countySlug)!;
       expect(text, slug).toContain(primaryCounty.name);
@@ -297,6 +312,7 @@ describe("city content -- tier-3 Wave 0C, batch 1", () => {
       ...Object.values(countyContentOuter),
       ...Object.values(cityContentTier1),
       ...Object.values(cityContentTier2),
+      ...Object.values(cityContentTier3a),
     ];
     const sentences = new Map<string, string[]>();
     for (const page of [...priorPages, ...pages]) {
@@ -313,7 +329,7 @@ describe("city content -- tier-3 Wave 0C, batch 1", () => {
       .filter(([, slugs]) => new Set(slugs).size > 1)
       // Only fail on collisions that involve this map -- a prior map
       // repeating itself is that map's own test's job to catch.
-      .filter(([, slugs]) => slugs.some((s) => Object.prototype.hasOwnProperty.call(cityContentTier3a, s)));
+      .filter(([, slugs]) => slugs.some((s) => Object.prototype.hasOwnProperty.call(cityContentTier3b, s)));
     expect(shared.map(([, slugs]) => slugs.join(" + ")), "identical disclaimer reused").toEqual([]);
   });
 
@@ -327,12 +343,12 @@ describe("city content -- tier-3 Wave 0C, batch 1", () => {
 
   // --- The Johnson County trap -----------------------------------------
 
-  it("never writes 'Johnson County' without a state qualifier ('Kansas' or 'Missouri') on any of the three Johnson County KS pages", () => {
+  it("never writes 'Johnson County' without a state qualifier ('Kansas' or 'Missouri') on any page mentioning it", () => {
     const BARE_JOHNSON_COUNTY = /Johnson County(?!(?:['’]s)?,?\s*(Kansas|Missouri|KS|MO)\b)/gi;
     const EXEMPT_CONTEXT =
-      /(Kansas's own Johnson County|which Johnson County|"Johnson County"|Johnson County a (piece of mail|given piece)|Johnson County page|Johnson County treasurer|Johnson County('s)? own (tax-sale|statutes)|Johnson County hub)/;
-    for (const slug of JOHNSON_COUNTY_KS_SLUGS) {
-      const page = cityContentTier3a[slug];
+      /(Kansas's own Johnson County|which Johnson County|"Johnson County"|Johnson County a (piece of mail|given piece)|Johnson County page|Johnson County treasurer|Johnson County('s)? own (tax-sale|statutes)|Johnson County hub|Johnson County's own eastern|Johnson County-anchored)/;
+    for (const slug of JOHNSON_COUNTY_KS_MENTION_SLUGS) {
+      const page = cityContentTier3b[slug];
       for (const paragraph of page.body) {
         if (!/Johnson County/.test(paragraph)) continue;
         let m: RegExpExecArray | null;
@@ -346,16 +362,16 @@ describe("city content -- tier-3 Wave 0C, batch 1", () => {
     }
   });
 
-  it("names the Johnson County, Kansas county page for each of the three Johnson County KS cities", () => {
-    for (const slug of JOHNSON_COUNTY_KS_SLUGS) {
+  it("names the Johnson County, Kansas county page for each of Roeland Park and De Soto", () => {
+    for (const slug of JOHNSON_COUNTY_KS_PRIMARY_SLUGS) {
       const city = cityBySlug.get(slug)!;
       expect(city.countySlug, slug).toBe("sell-my-house-fast-johnson-county-ks");
     }
   });
 
-  it("has every Johnson County KS page carry only [KS] labels and Kansas claims", () => {
-    for (const slug of JOHNSON_COUNTY_KS_SLUGS) {
-      const page = cityContentTier3a[slug];
+  it("has Roeland Park and De Soto carry only [KS] labels and Kansas claims", () => {
+    for (const slug of JOHNSON_COUNTY_KS_PRIMARY_SLUGS) {
+      const page = cityContentTier3b[slug];
       for (const claim of page.claims ?? []) {
         expect(claim.state, slug).toBe("KS");
       }
@@ -363,107 +379,98 @@ describe("city content -- tier-3 Wave 0C, batch 1", () => {
     }
   });
 
-  it("quotes 'Johnson County, Kansas' explicitly on each of Merriam, Mission, and Spring Hill so the disambiguation is provable, not just present", () => {
-    for (const slug of JOHNSON_COUNTY_KS_SLUGS) {
-      const text = cityContentTier3a[slug].body.join(" ");
+  it("quotes 'Johnson County, Kansas' explicitly on Roeland Park, De Soto, and Bonner Springs so the disambiguation is provable, not just present", () => {
+    for (const slug of JOHNSON_COUNTY_KS_MENTION_SLUGS) {
+      const text = cityContentTier3b[slug].body.join(" ");
       expect(text, slug).toMatch(/Johnson County, Kansas/);
     }
   });
 
-  it("has each of Merriam, Mission, and Spring Hill name its own distinguishing angle without collapsing into one template", () => {
-    const merriam = cityContentTier3a["sell-my-house-fast-merriam-ks"].body.join(" ");
-    expect(merriam).toMatch(/Antioch Shopping Center|landlocked/i);
+  it("has Roeland Park and De Soto each name their own distinguishing angle without collapsing into one template", () => {
+    const roelandPark = cityContentTier3b["sell-my-house-fast-roeland-park-ks"].body.join(" ");
+    expect(roelandPark).toMatch(/landlocked/i);
 
-    const mission = cityContentTier3a["sell-my-house-fast-mission-ks"].body.join(" ");
-    expect(mission).toMatch(/Gateway/);
-    expect(mission).toMatch(/landlocked/i);
-
-    const springHill = cityContentTier3a["sell-my-house-fast-spring-hill-ks"].body.join(" ");
-    expect(springHill).toMatch(/Miami County/);
-    expect(springHill).toMatch(/fastest-growing/i);
+    const deSoto = cityContentTier3b["sell-my-house-fast-de-soto-ks"].body.join(" ");
+    expect(deSoto).toMatch(/Panasonic/);
+    expect(deSoto).toMatch(/Sunflower Army Ammunition/);
   });
 
   // --- Distinguishing facts, one per city --------------------------------
 
-  it("covers the four outstate Missouri cities' small-market honesty -- fewer comparable sales, genuinely different pace", () => {
-    for (const slug of [
-      "sell-my-house-fast-marshall-mo",
-      "sell-my-house-fast-clinton-mo",
-      "sell-my-house-fast-maryville-mo",
-      "sell-my-house-fast-chillicothe-mo",
-    ]) {
-      const text = cityContentTier3a[slug].body.join(" ");
-      expect(text, slug).toMatch(/fewer|thinner|smaller market/i);
-      expect(text, slug).toMatch(/comparable/i);
-    }
+  it("covers Oak Grove's distinguishing story: eastern Jackson County, I-70, rail depot town, Lafayette County straddle", () => {
+    const text = cityContentTier3b["sell-my-house-fast-oak-grove-mo"].body.join(" ");
+    expect(text).toMatch(/Interstate 70/);
+    expect(text).toMatch(/Lafayette County/);
   });
 
-  it("covers Marshall's distinguishing story: Saline County seat, Missouri Valley College, Van Meter State Park", () => {
-    const text = cityContentTier3a["sell-my-house-fast-marshall-mo"].body.join(" ");
-    expect(text).toMatch(/Missouri Valley College/);
-    expect(text).toMatch(/Van Meter State Park/);
+  it("covers Parkville's distinguishing story: Missouri River bluffs, Park University, English Landing Park", () => {
+    const text = cityContentTier3b["sell-my-house-fast-parkville-mo"].body.join(" ");
+    expect(text).toMatch(/Park University/);
+    expect(text).toMatch(/English Landing Park/);
   });
 
-  it("covers Ottawa's distinguishing story: Franklin County seat, I-35 corridor, Ottawa University", () => {
-    const text = cityContentTier3a["sell-my-house-fast-ottawa-ks"].body.join(" ");
-    expect(text).toMatch(/Interstate 35|I-35/);
-    expect(text).toMatch(/Ottawa University/);
+  it("covers Pleasant Hill's distinguishing story: Amtrak Missouri River Runner, Cass/Jackson straddle", () => {
+    const text = cityContentTier3b["sell-my-house-fast-pleasant-hill-mo"].body.join(" ");
+    expect(text).toMatch(/Amtrak/);
+    expect(text).toMatch(/Jackson County/);
   });
 
-  it("covers Lansing's distinguishing story: Lansing Correctional Facility, a distinct economy from neighboring Leavenworth's Fort Leavenworth", () => {
-    const text = cityContentTier3a["sell-my-house-fast-lansing-ks"].body.join(" ");
-    expect(text).toMatch(/Lansing Correctional Facility/);
-    expect(text).toMatch(/Fort Leavenworth/);
+  it("covers Nevada's distinguishing story: Vernon County seat, Cottey College, Bushwhacker history", () => {
+    const text = cityContentTier3b["sell-my-house-fast-nevada-mo"].body.join(" ");
+    expect(text).toMatch(/Cottey College/);
+    expect(text).toMatch(/Bushwhacker/);
   });
 
-  it("covers Kearney's distinguishing story: Jesse James birthplace, Clay County Northland", () => {
-    const text = cityContentTier3a["sell-my-house-fast-kearney-mo"].body.join(" ");
-    expect(text).toMatch(/Jesse James/);
+  it("covers Boonville's distinguishing story: Cooper County seat, Katy Trail, farthest city in this batch", () => {
+    const text = cityContentTier3b["sell-my-house-fast-boonville-mo"].body.join(" ");
+    expect(text).toMatch(/Katy Trail/);
   });
 
-  it("covers Smithville's distinguishing story: Smithville Lake, and its Clay/Platte county straddle", () => {
-    const text = cityContentTier3a["sell-my-house-fast-smithville-mo"].body.join(" ");
-    expect(text).toMatch(/Smithville Lake/);
-    expect(text).toMatch(/Platte County/);
+  it("covers Basehor's distinguishing story: K-7 corridor, Leavenworth County exurb growth", () => {
+    const text = cityContentTier3b["sell-my-house-fast-basehor-ks"].body.join(" ");
+    expect(text).toMatch(/K-7/);
+    expect(text).toMatch(/Basehor-Linwood/);
   });
 
-  it("covers Atchison's distinguishing story: historic Missouri River town, oldest housing stock, Amelia Earhart", () => {
-    const text = cityContentTier3a["sell-my-house-fast-atchison-ks"].body.join(" ");
-    expect(text).toMatch(/Amelia Earhart/);
-    expect(text).toMatch(/older|oldest/i);
+  it("covers Bonner Springs's distinguishing story: three-county straddle, Ag Hall of Fame", () => {
+    const text = cityContentTier3b["sell-my-house-fast-bonner-springs-ks"].body.join(" ");
+    expect(text).toMatch(/National Agricultural Center and Hall of Fame/);
+    expect(text).toMatch(/three counties|three-county straddle/i);
   });
 
-  it("covers Excelsior Springs's distinguishing story: historic spa town, Hall of Waters, its Clay/Ray county straddle", () => {
-    const text = cityContentTier3a["sell-my-house-fast-excelsior-springs-mo"].body.join(" ");
-    expect(text).toMatch(/Hall of Waters/);
-    expect(text).toMatch(/Ray County/);
+  it("covers Fort Scott's distinguishing story: historic fort, oldest housing stock, thin market", () => {
+    const text = cityContentTier3b["sell-my-house-fast-fort-scott-ks"].body.join(" ");
+    expect(text).toMatch(/Fort Scott National Historic Site/);
+    expect(text).toMatch(/thinner|thin market|thinning/i);
   });
 
-  it("covers Maryville's distinguishing story: Nodaway County seat, Northwest Missouri State University", () => {
-    const text = cityContentTier3a["sell-my-house-fast-maryville-mo"].body.join(" ");
-    expect(text).toMatch(/Northwest Missouri State/);
+  it("covers Cameron's distinguishing story: I-35/US-36 crossroads, Clinton/DeKalb straddle, correctional center", () => {
+    const text = cityContentTier3b["sell-my-house-fast-cameron-mo"].body.join(" ");
+    expect(text).toMatch(/Interstate 35/);
+    expect(text).toMatch(/DeKalb County/);
+    expect(text).toMatch(/Correctional Center/);
   });
 
-  it("covers Harrisonville's distinguishing story: Cass County seat, historic square", () => {
-    const text = cityContentTier3a["sell-my-house-fast-harrisonville-mo"].body.join(" ");
-    expect(text).toMatch(/county seat/i);
-    expect(text).toMatch(/Cass County/);
+  it("covers Eudora's distinguishing story: Kansas River, between Lawrence and De Soto, owner-occupied contrast", () => {
+    const text = cityContentTier3b["sell-my-house-fast-eudora-ks"].body.join(" ");
+    expect(text).toMatch(/Kansas River/);
+    expect(text).toMatch(/owner-occupied/i);
   });
 
-  it("covers Clinton's distinguishing story: Henry County seat, Rock Island Trail, Truman Reservoir", () => {
-    const text = cityContentTier3a["sell-my-house-fast-clinton-mo"].body.join(" ");
-    expect(text).toMatch(/Rock Island Trail/);
-    expect(text).toMatch(/Truman/);
+  it("covers Greenwood's distinguishing story: Jackson County, U.S. 50, Lake Winnebago", () => {
+    const text = cityContentTier3b["sell-my-house-fast-greenwood-mo"].body.join(" ");
+    expect(text).toMatch(/Lake Winnebago/);
   });
 
-  it("covers Chillicothe's distinguishing story: Livingston County seat, birthplace of sliced bread", () => {
-    const text = cityContentTier3a["sell-my-house-fast-chillicothe-mo"].body.join(" ");
-    expect(text).toMatch(/sliced bread/i);
+  it("covers Tonganoxie's distinguishing story: Chief Tonganoxie, U.S. 24\\/40 corridor", () => {
+    const text = cityContentTier3b["sell-my-house-fast-tonganoxie-ks"].body.join(" ");
+    expect(text).toMatch(/Chief Tonganoxie/);
+    expect(text).toMatch(/24\/40/);
   });
 
   // --- Duplication -------------------------------------------------------
 
-  it("has zero duplicate 160-character windows within the tier-3a city map itself", () => {
+  it("has zero duplicate 160-character windows within the tier-3b city map itself", () => {
     const windows = new Map<string, string>();
     const duplicates: string[] = [];
     for (const page of pages) {
@@ -479,7 +486,7 @@ describe("city content -- tier-3 Wave 0C, batch 1", () => {
     expect(duplicates).toEqual([]);
   });
 
-  it("has zero duplicate 160-character windows against every prior content map (tier-1 and tier-2 cities included)", () => {
+  it("has zero duplicate 160-character windows against every prior content map", () => {
     const windows = new Map<string, string>();
     const duplicates: string[] = [];
     const priorPages = [
@@ -491,6 +498,7 @@ describe("city content -- tier-3 Wave 0C, batch 1", () => {
       ...Object.values(countyContentOuter),
       ...Object.values(cityContentTier1),
       ...Object.values(cityContentTier2),
+      ...Object.values(cityContentTier3a),
     ];
     for (const page of [...priorPages, ...pages]) {
       for (const paragraph of page.body) {
@@ -505,7 +513,7 @@ describe("city content -- tier-3 Wave 0C, batch 1", () => {
     expect(duplicates).toEqual([]);
   });
 
-  it("has zero duplicate 160-character windows across the entire content registry (all nine maps)", () => {
+  it("has zero duplicate 160-character windows across the entire content registry (all ten maps)", () => {
     expect(contentRegistries.length).toBe(10);
     const windows = new Map<string, string>();
     const duplicates: string[] = [];
@@ -525,13 +533,13 @@ describe("city content -- tier-3 Wave 0C, batch 1", () => {
   });
 
   it("registers all fourteen pages in the merged content registry", () => {
-    for (const slug of Object.keys(cityContentTier3a)) {
+    for (const slug of Object.keys(cityContentTier3b)) {
       expect(getPageContent(slug), slug).toBeDefined();
     }
   });
 
   it("makes all fourteen pages indexable now that they clear the word floor", () => {
-    for (const slug of Object.keys(cityContentTier3a)) {
+    for (const slug of Object.keys(cityContentTier3b)) {
       expect(isIndexable(slug), slug).toBe(true);
     }
   });
