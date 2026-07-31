@@ -213,8 +213,8 @@ export const citations: Record<string, LegalClaim> = {
     state: "KS",
     claim:
       "The Kansas Contract for Deed Act requires a seller under a contract for deed to hold fee simple title to the property free of encumbrances, with only narrow exceptions -- an encumbrance caused by the buyer, one taken out to fund improvements to the property, or a pre-existing encumbrance the seller discloses, keeps current, and pays off (unless the buyer assumes it) no later than the buyer's final payment. A violation is a deceptive act or practice under the Kansas Consumer Protection Act, enforceable under that act's own remedies.",
-    citation: "K.S.A. 58-5201; K.S.A. 58-5203",
-    sourceUrl: "https://ksrevisor.gov/statutes/chapters/ch58/058_052_0001.html",
+    citation: "K.S.A. 58-5203 (the operative rule); K.S.A. 58-5201 (short title and definitions)",
+    sourceUrl: "https://ksrevisor.gov/statutes/chapters/ch58/058_052_0003.html",
     verifiedOn: "2026-07-30",
     effectiveFrom: "2024-07-01",
   },

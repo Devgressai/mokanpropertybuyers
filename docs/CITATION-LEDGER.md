@@ -524,3 +524,29 @@ All ten new citations were checked for the `revisor.mo.gov` forward-dated-text h
 documented above. None exhibited it — every Missouri "Effective -" line and A.L. history
 matched a date already in the past, and every Kansas "History" line's most recent enactment
 date likewise reflected current law with no forward-dated language.
+
+### `ks-contract-for-deed-act` — sourceUrl pointed at the definitions section
+
+**Was:** `sourceUrl` → K.S.A. 58-5201.
+
+58-5201 is the short-title and definitions section of the Kansas Contract for Deed Act. It
+names the act and defines "buyer", "contract for deed", and "property". It contains **no**
+fee-simple-title requirement and none of the three exceptions the claim describes.
+
+The operative rule is **K.S.A. 58-5203**, verified 2026-07-30: *"A seller shall not execute
+a contract for deed with a buyer if the seller does not hold title to the property"* and
+must *"maintain fee simple title to the property free from any mortgage, lien or other
+encumbrance"*, excepting encumbrances arising from the buyer's conduct, those agreed to as
+a condition of a loan to improve the property, and disclosed pre-existing liens the seller
+keeps current and satisfies by final payment. A violation is *"a deceptive act or practice
+under the provisions of the Kansas consumer protection act."* L. 2024, ch. 63, § 12,
+effective July 1, 2024.
+
+`sourceUrl` now points at 58-5203, and the `citation` string labels which section carries
+the rule and which carries the definitions.
+
+**This is the third instance of the same class in this ledger** — after `mo-nonjudicial`
+citing the redemption statute for the power of sale. A reader who follows a citation and
+lands on definitions instead of the rule has good reason to distrust the other
+twenty-six, and that damage is not proportional to the size of the error. Anyone adding a
+claim should check that the linked section actually contains the language quoted.
