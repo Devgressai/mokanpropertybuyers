@@ -267,7 +267,10 @@ Merriam, Mission, Roeland Park, Fairway, Mission Hills, Westwood) all assigned t
 Wyandotte County, because Johnson's centroid is farther from its own northeastern
 suburbs than Wyandotte's is.
 
-`sell-my-house-fast-shawnee-ks` shipped saying Wyandotte County. It corrected six
-published pages to unwind. County assignment is now constrained to the crosswalk,
-with nearest-centroid used only to break ties among counties a place genuinely
-touches, and `CityDef.countiesAll` records every county a place spans.
+`sell-my-house-fast-shawnee-ks` had already shipped saying Wyandotte County — a
+live factual error on a real page. Unwinding it required correcting six
+published pages (Shawnee and Kansas City, KS's city pages; the Wyandotte,
+Johnson, Clay, and Platte County hub pages). County assignment is now
+constrained to the crosswalk, with nearest-centroid used only to break ties
+among counties a place genuinely touches, and `CityDef.countiesAll` records
+every county a place spans.

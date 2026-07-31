@@ -366,6 +366,12 @@ async function generate(): Promise<void> {
 // Source: data/footprint.json (US Census Gazetteer 2023 + Population Estimates 2023)
 // Regenerate: npm run codegen:geography
 // CI fails if this file differs from a fresh run.
+//
+// ${states.length} states, ${counties.length} counties, ${cities.length} cities.
+// ${dropped.length} place(s) excluded: every county each actually touches (per
+// the Census place-county crosswalk) sits outside this site's modeled
+// ${counties.length}-county footprint, a deliberate decision, not an oversight --
+// see docs/WAVE-0B-PREREQUISITES.md.${dropped.length > 0 ? `\n${dropped.map((d) => `//   - ${d}`).join("\n")}` : ""}
 `;
 
   const out = `${banner}
@@ -411,7 +417,8 @@ export function slugifyPlace(
 
   writeFileSync(resolve(ROOT, "src/data/geography.ts"), out);
   console.log(
-    `geography.ts: ${states.length} states, ${counties.length} counties, ${cities.length} cities`
+    `geography.ts: ${states.length} states, ${counties.length} counties, ${cities.length} cities ` +
+    `(${dropped.length} excluded: county not modeled)`
   );
 }
 

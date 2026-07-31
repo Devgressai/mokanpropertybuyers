@@ -3,9 +3,11 @@
 // Gate: the content registry merges with Object.assign({}, ...registries) --
 // last map wins, silently. If two maps define the same slug, one page's copy
 // vanishes with no error and no warning. Geography already has check:slugs
-// proving all 199 geographic slugs unique; content had no equivalent. This
-// gate closes that gap while there is still exactly one content map, rather
-// than after a second map silently hides a page.
+// proving all 196 geographic slugs unique (2 states + 53 counties + 141
+// cities -- three places dropped because their real county isn't modeled in
+// this footprint, see docs/WAVE-0B-PREREQUISITES.md); content had no
+// equivalent. This gate closes that gap while there is still exactly one
+// content map, rather than after a second map silently hides a page.
 import { contentRegistries } from "../src/data/content-registry.js";
 
 /**

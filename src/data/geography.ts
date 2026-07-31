@@ -2,6 +2,15 @@
 // Source: data/footprint.json (US Census Gazetteer 2023 + Population Estimates 2023)
 // Regenerate: npm run codegen:geography
 // CI fails if this file differs from a fresh run.
+//
+// 2 states, 53 counties, 141 cities.
+// 3 place(s) excluded: every county each actually touches (per
+// the Census place-county crosswalk) sits outside this site's modeled
+// 53-county footprint, a deliberate decision, not an oversight --
+// see docs/WAVE-0B-PREREQUISITES.md.
+//   - El Dorado Springs, MO (pop 3595) -- actually in Cedar County, which the footprint does not model
+//   - Stover, MO (pop 1049) -- actually in Morgan County, which the footprint does not model
+//   - New Franklin, MO (pop 1017) -- actually in Howard County, which the footprint does not model
 
 export type StateCode = "MO" | "KS";
 
