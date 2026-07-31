@@ -34,10 +34,13 @@ describe("geo route", () => {
     // indexable on purpose. sell-my-house-fast-jackson-county-mo was this
     // test's next example until Wave 0C's first eight county hubs (see
     // src/data/county-content-metro.ts) gave it content too. Buchanan
-    // County, Missouri is one of the 45 counties still untouched -- pick
-    // another still-uncovered county here if a later wave reaches it.
+    // County, Missouri was the example after that, until the next twelve
+    // county hubs (see src/data/county-content-outer.ts) gave it content as
+    // well. Clinton County, Missouri is one of the 33 counties still
+    // untouched -- pick another still-uncovered county here if a later wave
+    // reaches it.
     const metadata = await generateMetadata({
-      params: Promise.resolve({ slug: "sell-my-house-fast-buchanan-county-mo" }),
+      params: Promise.resolve({ slug: "sell-my-house-fast-clinton-county-mo" }),
     });
     expect(metadata.robots).toEqual({ index: false, follow: true });
   });

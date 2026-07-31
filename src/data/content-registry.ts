@@ -4,6 +4,7 @@ import { stateLineContentMoney } from "@/data/state-line-content-money";
 import { stateLineContentTransaction } from "@/data/state-line-content-transaction";
 import { stateHubContent } from "@/data/state-hub-content";
 import { countyContentMetro } from "@/data/county-content-metro";
+import { countyContentOuter } from "@/data/county-content-outer";
 import { cityContentTier1 } from "@/data/city-content-tier1";
 import { cityContentTier2 } from "@/data/city-content-tier2";
 
@@ -33,6 +34,7 @@ const registries: Record<string, PageContent>[] = [
   stateLineContentTransaction,
   stateHubContent,
   countyContentMetro,
+  countyContentOuter,
   cityContentTier1,
   cityContentTier2,
 ];
