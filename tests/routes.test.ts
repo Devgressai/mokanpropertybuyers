@@ -36,11 +36,13 @@ describe("geo route", () => {
     // src/data/county-content-metro.ts) gave it content too. Buchanan
     // County, Missouri was the example after that, until the next twelve
     // county hubs (see src/data/county-content-outer.ts) gave it content as
-    // well. Clinton County, Missouri is one of the 33 counties still
+    // well. Clinton County, Missouri was the example after that, until this
+    // next twelve county hubs (see src/data/county-content-rural.ts) gave it
+    // content too. Allen County, Kansas is one of the 21 counties still
     // untouched -- pick another still-uncovered county here if a later wave
     // reaches it.
     const metadata = await generateMetadata({
-      params: Promise.resolve({ slug: "sell-my-house-fast-clinton-county-mo" }),
+      params: Promise.resolve({ slug: "sell-my-house-fast-allen-county-ks" }),
     });
     expect(metadata.robots).toEqual({ index: false, follow: true });
   });

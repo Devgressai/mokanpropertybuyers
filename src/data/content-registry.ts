@@ -5,10 +5,12 @@ import { stateLineContentTransaction } from "@/data/state-line-content-transacti
 import { stateHubContent } from "@/data/state-hub-content";
 import { countyContentMetro } from "@/data/county-content-metro";
 import { countyContentOuter } from "@/data/county-content-outer";
+import { countyContentRural } from "@/data/county-content-rural";
 import { cityContentTier1 } from "@/data/city-content-tier1";
 import { cityContentTier2 } from "@/data/city-content-tier2";
 import { cityContentTier3a } from "@/data/city-content-tier3a";
 import { cityContentTier3b } from "@/data/city-content-tier3b";
+import { cityContentTier4a } from "@/data/city-content-tier4a";
 
 export interface PageContent {
   slug: string;
@@ -37,10 +39,12 @@ const registries: Record<string, PageContent>[] = [
   stateHubContent,
   countyContentMetro,
   countyContentOuter,
+  countyContentRural,
   cityContentTier1,
   cityContentTier2,
   cityContentTier3a,
   cityContentTier3b,
+  cityContentTier4a,
 ];
 
 /** Exported for `check:content-slugs`: a collision is invisible after merge. */
