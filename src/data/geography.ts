@@ -402,7 +402,6 @@ export const counties: CountyDef[] = [
     "citySlugs": [
       "sell-my-house-fast-cole-camp-mo",
       "sell-my-house-fast-lincoln-mo",
-      "sell-my-house-fast-stover-mo",
       "sell-my-house-fast-warsaw-mo"
     ]
   },
@@ -416,7 +415,6 @@ export const counties: CountyDef[] = [
     "lat": 37.850196,
     "lon": -94.341597,
     "citySlugs": [
-      "sell-my-house-fast-el-dorado-springs-mo",
       "sell-my-house-fast-nevada-mo"
     ]
   },
@@ -458,8 +456,7 @@ export const counties: CountyDef[] = [
     "lat": 38.847093,
     "lon": -92.810069,
     "citySlugs": [
-      "sell-my-house-fast-boonville-mo",
-      "sell-my-house-fast-new-franklin-mo"
+      "sell-my-house-fast-boonville-mo"
     ]
   },
   {
@@ -1938,22 +1935,6 @@ export const cities: CityDef[] = [
     "tier": 4
   },
   {
-    "slug": "sell-my-house-fast-el-dorado-springs-mo",
-    "name": "El Dorado Springs",
-    "state": "MO",
-    "geoid": "2921502",
-    "population": 3595,
-    "distanceMi": 90.2,
-    "lat": 37.869698,
-    "lon": -94.019954,
-    "countySlug": "sell-my-house-fast-vernon-county-mo",
-    "countiesAll": [
-      "sell-my-house-fast-cedar-county-mo",
-      "sell-my-house-fast-vernon-county-mo"
-    ],
-    "tier": 4
-  },
-  {
     "slug": "sell-my-house-fast-mission-hills-ks",
     "name": "Mission Hills",
     "state": "KS",
@@ -2892,22 +2873,6 @@ export const cities: CityDef[] = [
     "tier": 5
   },
   {
-    "slug": "sell-my-house-fast-stover-mo",
-    "name": "Stover",
-    "state": "MO",
-    "geoid": "2971044",
-    "population": 1049,
-    "distanceMi": 96.9,
-    "lat": 38.441813,
-    "lon": -92.990138,
-    "countySlug": "sell-my-house-fast-benton-county-mo",
-    "countiesAll": [
-      "sell-my-house-fast-benton-county-mo",
-      "sell-my-house-fast-morgan-county-mo"
-    ],
-    "tier": 5
-  },
-  {
     "slug": "sell-my-house-fast-lyndon-ks",
     "name": "Lyndon",
     "state": "KS",
@@ -2934,22 +2899,6 @@ export const cities: CityDef[] = [
     "countySlug": "sell-my-house-fast-linn-county-ks",
     "countiesAll": [
       "sell-my-house-fast-linn-county-ks"
-    ],
-    "tier": 5
-  },
-  {
-    "slug": "sell-my-house-fast-new-franklin-mo",
-    "name": "New Franklin",
-    "state": "MO",
-    "geoid": "2951824",
-    "population": 1017,
-    "distanceMi": 98.6,
-    "lat": 39.014819,
-    "lon": -92.744841,
-    "countySlug": "sell-my-house-fast-cooper-county-mo",
-    "countiesAll": [
-      "sell-my-house-fast-cooper-county-mo",
-      "sell-my-house-fast-howard-county-mo"
     ],
     "tier": 5
   },

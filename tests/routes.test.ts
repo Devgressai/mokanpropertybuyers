@@ -18,11 +18,14 @@ describe("geo route", () => {
     expect(slugs).toContain("sell-my-house-fast-kansas-city-ks");
   });
 
-  it("generates all 213 slugs with none repeated", async () => {
-    // 199 geographic (state/county/city) + 14 state-line silo pages (Wave 0B).
+  it("generates all 210 slugs with none repeated", async () => {
+    // 196 geographic (2 states + 53 counties + 141 cities) + 14 state-line silo
+    // pages. 141 not 144: three cities whose only real counties fall outside the
+    // modeled footprint are dropped by the codegen rather than parented to a
+    // county they are not in. See docs/WAVE-0B-PREREQUISITES.md.
     const slugs = (await generateStaticParams()).map((p) => p.slug);
-    expect(slugs).toHaveLength(199 + 14);
-    expect(new Set(slugs).size).toBe(199 + 14);
+    expect(slugs).toHaveLength(196 + 14);
+    expect(new Set(slugs).size).toBe(196 + 14);
   });
 
   it("keeps follow true and index false for a page with no hand-written content", async () => {

@@ -3,6 +3,12 @@ import { describe, expect, it } from "vitest";
 import { analyzePages, auditPages, type PageLike } from "../scripts/check-pages.mts";
 
 describe("auditPages", () => {
+  // 141, not 144: three cities (El Dorado Springs, Stover, New Franklin) are
+  // dropped by the codegen because every county they actually sit in is
+  // outside the modeled footprint -- build-footprint.py filters counties and
+  // places by distance independently, so a place can be in-radius while its
+  // county is not. Parenting them to a nearest modeled county would have put
+  // a false jurisdiction in the data. See docs/WAVE-0B-PREREQUISITES.md.
   it("finds no duplicate slugs or titles in the real page index", () => {
     const audit = auditPages();
     expect(audit.duplicateSlugs).toEqual([]);
@@ -13,11 +19,11 @@ describe("auditPages", () => {
     expect(auditPages().unresolvedRefs).toEqual([]);
   });
 
-  it("counts 2 states, 53 counties, 144 cities", () => {
+  it("counts 2 states, 53 counties, 141 cities", () => {
     const { countsByType } = auditPages();
     expect(countsByType.state).toBe(2);
     expect(countsByType.county).toBe(53);
-    expect(countsByType.city).toBe(144);
+    expect(countsByType.city).toBe(141);
   });
 });
 

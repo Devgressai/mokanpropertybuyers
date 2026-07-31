@@ -217,3 +217,57 @@ Two implementers were run concurrently in this shared checkout on disjoint file
 lists. It still broke: `tsc` and `vitest` are checkout-global, so one agent's
 in-progress code failed the other's verification. Disjoint files are not enough —
 use a git worktree per agent, or run implementers sequentially.
+
+---
+
+## Deliberate exclusion — three cities whose county is outside the footprint
+
+Added 2026-07-31. **This is a decision, not an oversight. Do not "fix" it.**
+
+`scripts/build-footprint.py` filters **counties** and **places** by distance
+**independently**. A place can therefore sit inside the 100-mile radius while the
+county it actually belongs to sits outside it. Three cities are in that position:
+
+| City | Population | Actually in | Modeled? |
+|---|---:|---|---|
+| El Dorado Springs, MO | 3,595 | Cedar County | no |
+| Stover, MO | 1,049 | Morgan County | no |
+| New Franklin, MO | 1,017 | Howard County | no |
+
+`scripts/codegen-geography.mts` **drops** them rather than assigning a parent.
+An earlier version fell back to the nearest modeled county, which put a false
+jurisdiction in the data — the record said "El Dorado Springs, Vernon County",
+and the first authoring pass to reach that page would have published it. On a
+site whose entire premise is that getting the jurisdiction right matters, a
+fallback parent is worse than no page.
+
+A city whose county is unmodeled is a city we cannot write truthful county-level
+content for: no courthouse, no county tax-sale holding period, no county hub to
+link, no county page to name.
+
+**Counts follow from this:** 141 cities (not 144), **196** geographic slugs
+(2 states + 53 counties + 141 cities), 210 total pages. Tests assert these
+numbers with the reasoning inline.
+
+The codegen prints each drop by name at generation time, so the exclusion is
+visible in the build output rather than silent.
+
+**To include them instead**, model Cedar, Morgan and Howard counties — but note
+their centroids are outside the 100-mile radius the site claims to serve, so
+that widens the footprint's meaning for 5,661 people at the far edge. Dropping
+was judged the better trade.
+
+### The underlying bug worth knowing about
+
+Before 2026-07-31, cities were assigned to counties by **nearest county
+centroid**, which is wrong near a border. Audited against the Census
+place-to-county crosswalk, **32 of 144 cities carried a county they are not in**
+— most damagingly eight Johnson County, Kansas cities (Shawnee, Prairie Village,
+Merriam, Mission, Roeland Park, Fairway, Mission Hills, Westwood) all assigned to
+Wyandotte County, because Johnson's centroid is farther from its own northeastern
+suburbs than Wyandotte's is.
+
+`sell-my-house-fast-shawnee-ks` shipped saying Wyandotte County. It corrected six
+published pages to unwind. County assignment is now constrained to the crosswalk,
+with nearest-centroid used only to break ties among counties a place genuinely
+touches, and `CityDef.countiesAll` records every county a place spans.

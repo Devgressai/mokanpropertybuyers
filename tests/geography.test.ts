@@ -3,6 +3,12 @@ import { describe, expect, it } from "vitest";
 import { states, counties, cities, slugifyPlace } from "@/data/geography";
 
 describe("slugifyPlace", () => {
+  // 141, not 144: three cities (El Dorado Springs, Stover, New Franklin) are
+  // dropped by the codegen because every county they actually sit in is
+  // outside the modeled footprint -- build-footprint.py filters counties and
+  // places by distance independently, so a place can be in-radius while its
+  // county is not. Parenting them to a nearest modeled county would have put
+  // a false jurisdiction in the data. See docs/WAVE-0B-PREREQUISITES.md.
   it("strips Census entity suffixes", () => {
     expect(slugifyPlace("Kansas City city", "MO", "city"))
       .toBe("sell-my-house-fast-kansas-city-mo");
@@ -40,7 +46,7 @@ describe("footprint", () => {
   });
 
   it("has 144 city pages, all at or above 1,000 population", () => {
-    expect(cities).toHaveLength(144);
+    expect(cities).toHaveLength(141);
     expect(Math.min(...cities.map((c) => c.population))).toBeGreaterThanOrEqual(1000);
   });
 

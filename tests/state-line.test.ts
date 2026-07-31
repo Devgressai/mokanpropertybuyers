@@ -17,7 +17,7 @@ describe("state-line silo", () => {
   it("keeps total slugs unique after adding the silo", () => {
     const all = getAllSeoSlugs();
     expect(new Set(all).size).toBe(all.length);
-    expect(all).toHaveLength(199 + 14);
+    expect(all).toHaveLength(196 + 14);
   });
 
   it("never collides with a geographic slug", () => {

@@ -5,10 +5,16 @@ import {
 } from "@/lib/seo/pageIndex";
 
 describe("pageIndex", () => {
-  it("indexes 2 state hubs, 53 counties, and 144 cities", () => {
+  // 141, not 144: three cities (El Dorado Springs, Stover, New Franklin) are
+  // dropped by the codegen because every county they actually sit in is
+  // outside the modeled footprint -- build-footprint.py filters counties and
+  // places by distance independently, so a place can be in-radius while its
+  // county is not. Parenting them to a nearest modeled county would have put
+  // a false jurisdiction in the data. See docs/WAVE-0B-PREREQUISITES.md.
+  it("indexes 2 state hubs, 53 counties, and 141 cities", () => {
     expect(getPagesByType("state")).toHaveLength(2);
     expect(getPagesByType("county")).toHaveLength(53);
-    expect(getPagesByType("city")).toHaveLength(144);
+    expect(getPagesByType("city")).toHaveLength(141);
   });
 
   it("gives every geographic page a state code", () => {
@@ -40,7 +46,7 @@ describe("pageIndex", () => {
     // alone is no longer the whole count; the single-state silo pages join it.
     const mo = getPagesByState("MO").length;
     const ks = getPagesByState("KS").length;
-    const geoTotal = 2 + 53 + 144;
+    const geoTotal = 2 + 53 + 141;
     const stateLineWithState = getPagesByType("stateLine").filter((p) => p.stateCode).length;
     expect(mo + ks).toBe(geoTotal + stateLineWithState);
     expect(mo).toBe(

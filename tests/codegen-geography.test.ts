@@ -112,7 +112,7 @@ describe("assignCounty", () => {
 
   it("assigns the single real county directly when only one of the place's real counties is modeled", () => {
     const result = assignCounty(place, ["Jackson County"], candidates);
-    expect(result.primary.slug).toBe(jackson.slug);
+    expect(result.primary?.slug).toBe(jackson.slug);
     expect(result.usedFallback).toBe(false);
     expect(result.countyNames).toEqual(["Jackson County"]);
   });
@@ -121,16 +121,20 @@ describe("assignCounty", () => {
     // A place near Jackson's centroid but real-county-constrained to Clay and Vernon
     // only must land on Clay (nearer of the two, not the unconstrained nearest overall).
     const result = assignCounty(place, ["Clay County", "Vernon County"], candidates);
-    expect(result.primary.slug).toBe(clay.slug);
+    expect(result.primary?.slug).toBe(clay.slug);
     expect(result.usedFallback).toBe(false);
   });
 
-  it("falls back to the nearest modeled same-state county, explicitly, when none of the place's real counties are modeled", () => {
+  it("returns no primary at all when none of the place's real counties are modeled, rather than inventing a parent", () => {
+    // An earlier version fell back to the nearest modeled county here. That put
+    // a false jurisdiction in the data -- "El Dorado Springs, Vernon County" --
+    // which the first authoring pass to reach that page would have published on
+    // a site whose whole premise is getting the jurisdiction right. The city is
+    // dropped by the codegen instead. See docs/WAVE-0B-PREREQUISITES.md.
     const result = assignCounty(place, ["Cedar County"], candidates);
-    expect(result.usedFallback).toBe(true);
-    expect(result.primary.slug).toBe(jackson.slug); // nearest of the three candidates to `place`
-    expect(result.countyNames).toContain("Cedar County");
-    expect(result.countyNames).toContain(result.primary.name);
+    expect(result.primary).toBeNull();
+    expect(result.usedFallback).toBe(false);
+    expect(result.countyNames).toEqual(["Cedar County"]);
   });
 });
 
@@ -154,7 +158,10 @@ describe("county assignment regression guard (live Census crosswalk)", () => {
     for (const city of cities) {
       const real = lookupRealCounties(crosswalk, city);
       const { primary } = assignCounty(city, real, countiesByState.get(city.state)!);
-      expect(primary.slug, city.slug).toBe(city.countySlug);
+      // Every city still in geography.ts must have a real modeled parent;
+      // the ones that did not were dropped by the codegen, not parented falsely.
+      expect(primary, city.slug).not.toBeNull();
+      expect(primary!.slug, city.slug).toBe(city.countySlug);
     }
   });
 

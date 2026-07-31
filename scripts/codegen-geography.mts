@@ -227,13 +227,10 @@ function nearestByCentroid<T extends CentroidCandidate>(
 }
 
 export interface CountyAssignment<T extends CentroidCandidate> {
-  /** The county this city treats as its single parent (a real page must exist for it). */
+  /** The county this city treats as its single parent. */
   primary: T;
-  /** Every county name the place actually touches, per the crosswalk, plus the
-   *  primary if it had to fall back outside that set. Always includes `primary.name`. */
+  /** Every county name the place actually touches, per the crosswalk. Always includes `primary.name`. */
   countyNames: string[];
-  /** True only for the explicit, logged fallback path (see below). */
-  usedFallback: boolean;
 }
 
 /**
@@ -242,49 +239,40 @@ export interface CountyAssignment<T extends CentroidCandidate> {
  * site's footprint. Nearest-centroid is used only to break a tie among a
  * place's own real, modeled counties -- never across the full county list.
  *
- * A small number of places (three, as of the 2023 crosswalk: El Dorado
- * Springs and Stover in Missouri each have exactly one real county -- Cedar
- * and Morgan -- that sits outside this site's 100-mile / 53-county
- * footprint; New Franklin's is Howard) have NO real county modeled here at
- * all. This site's footprint is fixed at build-footprint.py's radius (a
- * `check:slugs` / `geography.test.ts` invariant this codegen must not grow
- * by inventing new county pages), so those places cannot get a genuinely
- * correct primary parent without adding a page. The explicit, logged
- * exception: fall back to the nearest MODELED same-state county so the city
- * still resolves to a real page, but record the true jurisdiction in
- * `countyNames` (and hence `countiesAll` on the generated CityDef) so it is
- * never silently lost the way the old unconstrained nearest-centroid bug
- * lost it for cities that DID have a modeled county available.
+ * Returns `null` when NONE of a place's real counties are modeled here --
+ * the caller must drop the place rather than invent a parent for it. This
+ * happens because `build-footprint.py` filters counties and places by
+ * distance INDEPENDENTLY: a place can sit inside the 100-mile radius while
+ * every county it actually belongs to sits outside it. Three places hit
+ * this as of the 2023 crosswalk -- El Dorado Springs and Stover, Missouri
+ * (real county Cedar / Morgan) and New Franklin, Missouri (real county
+ * Howard), none of the three modeled in this footprint.
+ *
+ * An earlier version of this function fell back to the nearest MODELED
+ * same-state county for exactly this case, which left a trap: the data said
+ * "El Dorado Springs, Vernon County," and the first authoring pass to reach
+ * that page would have shipped a falsehood on a site whose whole premise is
+ * getting the jurisdiction right. A city whose county is unmodeled is a
+ * city this site cannot write truthful county-level content for -- no
+ * courthouse, no county tax-sale holding period, no county hub to link --
+ * so it is dropped instead. See `docs/WAVE-0B-PREREQUISITES.md` for the
+ * decision record.
  */
 export function assignCounty<T extends CentroidCandidate>(
   place: { name: string; state: StateCode; geoid: string; lat: number; lon: number },
   realCountyNames: string[],
   countiesInState: T[]
-): CountyAssignment<T> {
+): CountyAssignment<T> | null {
   const realModeled = countiesInState.filter((c) => realCountyNames.includes(c.name));
 
   if (realModeled.length === 1) {
-    return { primary: realModeled[0], countyNames: realCountyNames, usedFallback: false };
+    return { primary: realModeled[0], countyNames: realCountyNames };
   }
   if (realModeled.length > 1) {
     const primary = nearestByCentroid(realModeled, place);
-    return { primary, countyNames: realCountyNames, usedFallback: false };
+    return { primary, countyNames: realCountyNames };
   }
-
-  // realModeled.length === 0: every real county for this place is outside
-  // the modeled footprint. Explicit fallback, loudly logged -- see doc comment.
-  const primary = nearestByCentroid(countiesInState, place);
-  console.warn(
-    `FALLBACK COUNTY ASSIGNMENT: ${place.name}, ${place.state} (geoid ${place.geoid}) -- ` +
-    `its real county per the Census crosswalk [${realCountyNames.join(", ")}] is not modeled in ` +
-    `this site's ${countiesInState.length}-county-per-state footprint. Using nearest modeled county ` +
-    `"${primary.name}" as the structural parent page; the true county is still recorded in countiesAll.`
-  );
-  return {
-    primary,
-    countyNames: [...new Set([...realCountyNames, primary.name])],
-    usedFallback: true,
-  };
+  return null;
 }
 
 /**
@@ -318,6 +306,7 @@ async function generate(): Promise<void> {
 
   const crosswalk = await loadCrosswalk(resolve(ROOT, "scripts/.cache"));
 
+  const dropped: string[] = [];
   const cities = footprint.places.map((p) => {
     const realCountyNames = lookupRealCounties(crosswalk, p);
     const countiesInState = counties.filter((c) => c.state === p.state);
@@ -330,7 +319,19 @@ async function generate(): Promise<void> {
         `every place must have at least one county centroid in its own state`
       );
     }
-    const { primary, countyNames } = assignCounty(p, realCountyNames, countiesInState);
+    const assignment = assignCounty(p, realCountyNames, countiesInState);
+
+    if (assignment === null) {
+      // Every county this place sits in is outside the modeled footprint, so
+      // there is no truthful parent. Dropped, and named here so the exclusion
+      // is visible in the codegen output rather than silent.
+      dropped.push(
+        `${cleanName(p.name)}, ${p.state} (pop ${p.pop ?? 0}) -- actually in ` +
+        `${realCountyNames.join(" / ")}, which the footprint does not model`
+      );
+      return null;
+    }
+    const { primary, countyNames } = assignment;
 
     primary.citySlugs.push(slugifyPlace(p.name, p.state, "city"));
     const countiesAll = [...new Set(countyNames)]
@@ -349,7 +350,9 @@ async function generate(): Promise<void> {
       countiesAll,
       tier: tierOf(p.pop ?? 0),
     };
-  });
+  }).filter((c): c is NonNullable<typeof c> => c !== null);
+
+  for (const d of dropped) console.warn(`DROPPED CITY  ${d}`);
 
   for (const c of counties) c.citySlugs.sort();
 

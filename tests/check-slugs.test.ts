@@ -3,6 +3,12 @@ import { describe, expect, it } from "vitest";
 import { analyzeSlugs, auditSlugs } from "../scripts/check-slugs.mts";
 
 describe("auditSlugs", () => {
+  // 141, not 144: three cities (El Dorado Springs, Stover, New Franklin) are
+  // dropped by the codegen because every county they actually sit in is
+  // outside the modeled footprint -- build-footprint.py filters counties and
+  // places by distance independently, so a place can be in-radius while its
+  // county is not. Parenting them to a nearest modeled county would have put
+  // a false jurisdiction in the data. See docs/WAVE-0B-PREREQUISITES.md.
   it("finds no duplicate slugs in the real footprint", () => {
     expect(auditSlugs().duplicates).toEqual([]);
   });
@@ -12,7 +18,7 @@ describe("auditSlugs", () => {
   });
 
   it("audits every geographic page", () => {
-    expect(auditSlugs().total).toBe(2 + 53 + 144);
+    expect(auditSlugs().total).toBe(2 + 53 + 141);
   });
 });
 
