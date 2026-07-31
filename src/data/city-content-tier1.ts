@@ -23,8 +23,8 @@ import type { PageContent } from "@/data/content-registry";
  * this file links to that page by name instead of re-deriving the statute
  * mechanics a second (or third, or fourth) time -- both to keep these twelve
  * pages honest about what is genuinely city-specific and to avoid the
- * duplicate-paragraph risk four Jackson County cities, three Johnson County
- * cities, and two Wyandotte County cities sharing the same underlying
+ * duplicate-paragraph risk four Jackson County cities, four Johnson County
+ * cities, and one Wyandotte County city sharing the same underlying
  * statutes would otherwise create. Every shared-statute paragraph below is
  * independently worded rather than templated with the city name swapped in.
  */
@@ -125,9 +125,9 @@ export const cityContentTier1: Record<string, PageContent> = {
 
       "[KS] A seller in this city working with an agent should also confirm that Kansas puts the broader duty to disclose a known material defect on the licensee, not the seller directly: K.S.A. 58-30,106 requires an agent representing a seller to tell a buyer-customer about adverse material facts actually known, from a title problem to a physical defect in the property itself.",
 
-      "Shawnee, Bonner Springs, and Edwardsville are all separate cities inside this same Wyandotte County, and Fairway, Mission, Prairie Village, Roeland Park, Westwood, Mission Hills, and Merriam form a cluster of small, closely built residential communities ringing this city's own eastern edge. Every one of them sits under the same Kansas statutes described above -- none of that cluster's proximity to the state line changes which state's rules apply to a house inside it.",
+      "Bonner Springs, Edwardsville, and Lake Quivira are the only other cities inside this same Wyandotte County -- Shawnee and the cluster of small, closely built suburbs beyond it, Fairway, Mission, Prairie Village, Roeland Park, Westwood, Mission Hills, and Merriam, sit just across this county's own eastern line in Johnson County instead, despite ringing this city's edge closely enough that the boundary is easy to miss. Every one of them, on either side of that county line, still sits under the same Kansas statutes described above -- none of that proximity changes which state's rules apply to a house inside it.",
 
-      "The broader Wyandotte County picture -- how these same statutes reach Bonner Springs, Edwardsville, and the cluster of small cities ringing this one's own edges -- is covered in more depth on this site's Wyandotte County page rather than repeated in this summary.",
+      "The broader Wyandotte County picture -- how these same statutes reach Bonner Springs, Edwardsville, and Lake Quivira alongside this city -- is covered in more depth on this site's Wyandotte County page rather than repeated in this summary.",
 
       "[KS] Clearing title on an inherited house in this city still means clearing Kansas's probate test first. K.S.A. 59-3202 puts that decision in a court's hands, not the will's -- whether the estate is treated as simplified or supervised turns on the estate's size, how well the heirs agree, its solvency, and the likely cost of administering it.",
 
@@ -170,7 +170,7 @@ export const cityContentTier1: Record<string, PageContent> = {
 
       "Gardner, De Soto, and Spring Hill sit farther west and south of this city, still inside Johnson County and still bound by the same statutes, but trading at different price points and a slower pace than the built-up core around Overland Park and this city itself. A seller weighing this city against those smaller neighbors is weighing market pace, not legal exposure -- the law does not change from one to the next.",
 
-      "The broader Johnson County picture behind these same rules -- how the uncapped exemption and the county's own holding period apply across all eight cities sharing this county, not just the county seat -- is covered on this site's Johnson County page rather than repeated in this summary.",
+      "The broader Johnson County picture behind these same rules -- how the uncapped exemption and the county's own holding period apply across all sixteen cities sharing this county, not just the county seat -- is covered on this site's Johnson County page rather than repeated in this summary.",
 
       "[KS] Financing a purchase in this city costs nothing under the mortgage-registration tax Kansas once charged, either -- K.S.A. 79-3102 was repealed outright effective January 1, 2019, and the repeal reaches a closing at the county courthouse in this city exactly as it reaches one anywhere else in the state.",
 
@@ -422,33 +422,33 @@ export const cityContentTier1: Record<string, PageContent> = {
   "sell-my-house-fast-shawnee-ks": {
     slug: "sell-my-house-fast-shawnee-ks",
     body: [
-      "Shawnee, Kansas is a city of roughly 69,417 people inside Wyandotte County, about 13 miles from the metro's core -- and its name causes a genuine, second kind of confusion on top of the two-Kansas-Citys problem this site addresses elsewhere. This city shares its name with Shawnee County, a different Kansas county roughly 50 miles to the west that contains Topeka, the state capital. Shawnee the city and Shawnee County are not the same place, do not share a border, and a seller researching this city can easily land on information about the wrong county entirely if the search does not specify which one is meant.",
+      "Shawnee, Kansas is a city of roughly 69,417 people, about 13 miles from the metro's core -- and its name causes a genuine, second kind of confusion on top of the two-Kansas-Citys problem this site addresses elsewhere. This city shares its name with Shawnee County, a different Kansas county roughly 50 miles to the west that contains Topeka, the state capital. Shawnee the city and Shawnee County are not the same place, do not share a border, and a seller researching this city can easily land on information about the wrong county entirely if the search does not specify which one is meant.",
 
-      "[KS] Regardless of that naming overlap, this city sits in Wyandotte County, Kansas, so it follows the same statewide Kansas rules -- and the same Wyandotte County mechanics -- as Kansas City, Kansas next door, not anything specific to Shawnee County or Topeka roughly 50 miles away.",
+      "[KS] This city actually sits in Johnson County, Kansas, not Wyandotte County -- its eastern edge touches Wyandotte County's own Kansas City and Bonner Springs, close enough that the two counties are easy to blur on a map, but the statutes actually governing a house inside this city are Johnson County's, not its Wyandotte neighbor's.",
 
       "[KS] A defaulted mortgage on a house in this city heads to court rather than to a trustee's sale -- K.S.A. 60-2410 requires the lender to win a lawsuit first, K.S.A. 60-2415 then requires a judge to confirm the sheriff's sale, and only after that confirmation does K.S.A. 60-2414 open a redemption window, twelve months ordinarily or three months when an early default came on a heavily leveraged loan.",
 
-      "[KS] Kansas's homestead protection reaches a house in this city with no less force than it reaches one anywhere else in the state -- Article 15, Section 9 of the Kansas Constitution and K.S.A. 60-2301 keep an eligible homestead out of a forced sale no matter its dollar value, and Article 11, Section 1 fixes the residential assessment ratio at 11.5% of market value for a house in this city just as it does in Johnson County or the Shawnee County containing Topeka -- the constitutional percentage never changes; only the assessor's own value estimate does.",
+      "[KS] Kansas's homestead protection reaches a house in this city with no less force than it reaches one anywhere else in the state -- Article 15, Section 9 of the Kansas Constitution and K.S.A. 60-2301 keep an eligible homestead out of a forced sale no matter its dollar value, and Article 11, Section 1 fixes the residential assessment ratio at 11.5% of market value for a house in this city just as it does in neighboring Wyandotte County or the Shawnee County containing Topeka -- the constitutional percentage never changes; only the assessor's own value estimate does.",
 
       "[KS] A Kansas closing on a house in this city also skips the old mortgage-registration tax altogether -- the legislature repealed K.S.A. 79-3102 outright, effective January 1, 2019, and the fee has not returned since.",
 
-      "[KS] Once a delinquent-tax sale in this city is actually held, K.S.A. 79-2803 ends any right to redeem -- Kansas only allows redemption before that sale, never after. The real protection sits earlier in the process, in the two- or three-year holding period K.S.A. 79-2401a requires Wyandotte County to observe on property it bids off before a further sale.",
+      "[KS] Once a delinquent-tax sale on a house in this city is actually held, K.S.A. 79-2803 cuts off any further right to redeem -- Kansas only allows redemption before that sale, never after. Everything that protects a homeowner in this city happens earlier: K.S.A. 79-2401a requires Johnson County to hold a bid-off property for three full years, not the ordinary two, once it qualifies as a homestead, and this city's own housing stock -- overwhelmingly owner-occupied, postwar suburban construction -- means that three-year figure reaches more houses in this city than the shorter, default period would elsewhere.",
 
-      "This city sits west of Kansas City, Kansas within the same county, closer to Bonner Springs and Edwardsville than to the small, closely built suburbs -- Mission, Prairie Village, Fairway, Roeland Park, Westwood, Mission Hills, Merriam -- that ring the county's own eastern edge nearer Johnson County. Every one of those places answers to the same Wyandotte County rules described above regardless of which side of the county this city's own residents live closer to.",
+      "This city sits alongside Merriam, Mission, Prairie Village, Roeland Park, Fairway, Mission Hills, and Westwood, a cluster of small, closely built residential communities occupying this county's own northeastern corner, nearer to Wyandotte County's Kansas City and Bonner Springs than to Olathe, the county seat some 20 miles to the southwest. Every one of those communities answers to the same Johnson County rules described above, however close any of them sits to the Wyandotte County line.",
 
-      "This site's Wyandotte County page covers the fuller county-wide picture behind these statutes, including how they reach Kansas City, Kansas and the small cities ringing this county's own eastern edge, in more depth than fits in a single city-level summary.",
+      "This site's Johnson County page covers the fuller county-wide picture behind these statutes, including how the uncapped homestead exemption and the three-year tax-sale holding period reach Overland Park, Olathe, and Lenexa alongside this closer-in, smaller-scale cluster of cities, in more depth than fits into a single city summary.",
 
-      "[KS] A seller working with an agent in this city should know the disclosure duty Kansas imposes runs through that agent, not the seller directly -- K.S.A. 58-30,106 requires a licensee to tell a buyer-customer about adverse material facts the licensee actually knows, the same rule reaching a sale anywhere else in Wyandotte County or the rest of this footprint.",
+      "[KS] A seller working with an agent in this city should know the disclosure duty Kansas imposes runs through that agent, not the seller directly -- K.S.A. 58-30,106 requires a licensee to tell a buyer-customer about adverse material facts the licensee actually knows, the same rule reaching a sale anywhere else in Johnson County or the rest of this footprint.",
 
-      "[KS] Because the Wyandotte County district court sits in Kansas City, Kansas rather than in this city, a judicial foreclosure or probate matter involving a house in this city is actually heard a few miles away, at the county seat, rather than at a courthouse inside this city's own limits.",
+      "[KS] Because the Johnson County district court sits in Olathe, the county seat, rather than in this city, a judicial foreclosure or probate matter involving a house in this city is actually heard roughly 20 miles away, not at a courthouse inside this city's own limits.",
 
-      "This city's own housing stock, built out mostly through postwar suburban growth west of the urban core, looks different from the older, denser neighborhoods inside Kansas City, Kansas itself, even though both places answer to the identical Wyandotte County statutes described above.",
+      "This city's own housing stock, built out mostly through postwar suburban growth west of the urban core, looks different from the older, denser neighborhoods inside Kansas City, Kansas itself, even though both places answer to the same statewide Kansas statutes described above -- it is Johnson County's own three-year holding period, not Wyandotte County's, that actually reaches a delinquent property in this city.",
 
       "A homeowner unsure whether a piece of mail, a lien notice, or a news article actually concerns this city or the Shawnee County containing Topeka should check the county name printed on a tax statement or deed, not the city name alone, before assuming which treasurer's office or board of county commissioners is actually involved.",
 
       "[KS] Before an inherited house in this city can be sold with clear title, Kansas's own probate test has to run its course. K.S.A. 59-3202 leaves the simplified-versus-supervised call to a court, based on the estate's size, the heirs' own agreement, its solvency, and the expected cost of settling it.",
 
-      "[KS] None of the above makes a fast cash sale the right move just because this city's own name causes confusion with a county 50 miles away. An owner with real equity and no urgent deadline should confirm which Shawnee -- the city in Wyandotte County or the county containing Topeka -- any given piece of information actually describes, and weigh a normal listed sale before accepting a discounted cash offer just to resolve that confusion faster.",
+      "[KS] None of the above makes a fast cash sale the right move just because this city's own name causes confusion with a county 50 miles away. An owner with real equity and no urgent deadline should confirm which Shawnee -- this Johnson County city or the county containing Topeka -- any given piece of information actually describes, and weigh a normal listed sale before accepting a discounted cash offer just to resolve that confusion faster.",
 
       "[KS] None of this is legal advice. A homeowner in Shawnee, Kansas who is unsure whether a given source is describing this city or Shawnee County should confirm the actual county on a tax statement or parcel record before relying on it, and should talk to a Kansas attorney about anything time-sensitive.",
     ],

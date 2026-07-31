@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -103,13 +103,197 @@ function tierOf(pop: number): 1 | 2 | 3 | 4 | 5 {
   return 5;
 }
 
+// ---------------------------------------------------------------------------
+// Census place-to-county crosswalk. The Gazetteer-only heuristic below (a
+// city's county is "whichever county centroid is nearest, same state") is
+// wrong near a county border -- nearest-centroid has no idea where the actual
+// line is drawn. The crosswalk is the actual line: one row per place, listing
+// every county that place's boundary genuinely touches. Distance is used
+// below ONLY to break a tie among a place's own real counties (a place that
+// truly spans two counties needs one designated as the primary), never to
+// guess a county a place doesn't touch.
+// ---------------------------------------------------------------------------
+
+const CROSSWALK_SOURCES: Record<StateCode, { url: string; cache: string }> = {
+  KS: {
+    url: "https://www2.census.gov/geo/docs/reference/codes/files/st20_ks_places.txt",
+    cache: "st20_ks_places.txt",
+  },
+  MO: {
+    url: "https://www2.census.gov/geo/docs/reference/codes/files/st29_mo_places.txt",
+    cache: "st29_mo_places.txt",
+  },
+};
+
+/**
+ * Downloads a file to scripts/.cache if it is not already there, in the same
+ * style build-footprint.py caches the Gazetteer and population files it
+ * downloads -- a repeat run (or CI) only pays the network cost once.
+ */
+async function fetchCached(cacheDir: string, url: string, cacheName: string): Promise<string> {
+  const path = resolve(cacheDir, cacheName);
+  if (!existsSync(path)) {
+    mkdirSync(cacheDir, { recursive: true });
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error(`failed to download ${url}: HTTP ${res.status} ${res.statusText}`);
+    }
+    writeFileSync(path, Buffer.from(await res.arrayBuffer()));
+  }
+  return path;
+}
+
+/**
+ * Parses one Census "st<FIPS>_<state>_places.txt" crosswalk file into a map
+ * from place geoid (state FIPS + place FIPS, matching FootprintEntry.geoid)
+ * to the list of county names that place touches. A row looks like:
+ *   KS|20|64500|Shawnee city|Incorporated Place|A|Johnson County
+ * and a place spanning multiple counties lists them comma-separated in the
+ * same field:
+ *   MO|29|38000|Kansas City city|Incorporated Place|A|Cass County, Clay County, Jackson County, Platte County
+ */
+export function parseCrosswalk(text: string): Map<string, string[]> {
+  const map = new Map<string, string[]>();
+  for (const line of text.split("\n")) {
+    const row = line.trim();
+    if (!row) continue;
+    const parts = row.split("|");
+    if (parts.length < 7) continue;
+    const stateFips = parts[1];
+    const placeFips = parts[2];
+    const countyField = parts[6];
+    const geoid = `${stateFips}${placeFips}`;
+    const countyNames = countyField
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
+    map.set(geoid, countyNames);
+  }
+  return map;
+}
+
+export async function loadCrosswalk(cacheDir: string): Promise<Map<string, string[]>> {
+  const merged = new Map<string, string[]>();
+  for (const state of Object.keys(CROSSWALK_SOURCES) as StateCode[]) {
+    const { url, cache } = CROSSWALK_SOURCES[state];
+    const path = await fetchCached(cacheDir, url, cache);
+    const text = readFileSync(path, "latin1");
+    for (const [geoid, names] of parseCrosswalk(text)) merged.set(geoid, names);
+  }
+  return merged;
+}
+
+/**
+ * Fails loudly, naming the offending record, exactly like
+ * `validateFootprintEntry` -- if a place has no row in the crosswalk, this is
+ * a data problem (the crosswalk should cover every incorporated place and
+ * CDP in both states), not something to paper over with a guess.
+ */
+export function lookupRealCounties(
+  crosswalk: ReadonlyMap<string, string[]>,
+  place: { name: string; state: StateCode; geoid: string }
+): string[] {
+  const found = crosswalk.get(place.geoid);
+  if (!found || found.length === 0) {
+    throw new Error(
+      `place record {name: ${JSON.stringify(place.name)}, state: ${JSON.stringify(place.state)}, geoid: ${JSON.stringify(place.geoid)}}: ` +
+      `no matching row in the Census place-county crosswalk (st20_ks_places.txt / st29_mo_places.txt) -- ` +
+      `cannot assign a county without one`
+    );
+  }
+  return found;
+}
+
+interface CentroidCandidate {
+  slug: string;
+  name: string;
+  lat: number;
+  lon: number;
+}
+
+/** Nearest candidate by haversine distance from `place`. Throws on an empty list. */
+function nearestByCentroid<T extends CentroidCandidate>(
+  candidates: T[],
+  place: { lat: number; lon: number }
+): T {
+  let best: T | undefined;
+  let bestDist = Infinity;
+  for (const c of candidates) {
+    const d = haversine(place.lat, place.lon, c.lat, c.lon);
+    if (d < bestDist) { bestDist = d; best = c; }
+  }
+  if (!best) throw new Error("nearestByCentroid: empty candidate list");
+  return best;
+}
+
+export interface CountyAssignment<T extends CentroidCandidate> {
+  /** The county this city treats as its single parent (a real page must exist for it). */
+  primary: T;
+  /** Every county name the place actually touches, per the crosswalk, plus the
+   *  primary if it had to fall back outside that set. Always includes `primary.name`. */
+  countyNames: string[];
+  /** True only for the explicit, logged fallback path (see below). */
+  usedFallback: boolean;
+}
+
+/**
+ * Assigns a city's primary county, constrained to the counties it actually
+ * touches (per the crosswalk) whenever any of those are modeled in this
+ * site's footprint. Nearest-centroid is used only to break a tie among a
+ * place's own real, modeled counties -- never across the full county list.
+ *
+ * A small number of places (three, as of the 2023 crosswalk: El Dorado
+ * Springs and Stover in Missouri each have exactly one real county -- Cedar
+ * and Morgan -- that sits outside this site's 100-mile / 53-county
+ * footprint; New Franklin's is Howard) have NO real county modeled here at
+ * all. This site's footprint is fixed at build-footprint.py's radius (a
+ * `check:slugs` / `geography.test.ts` invariant this codegen must not grow
+ * by inventing new county pages), so those places cannot get a genuinely
+ * correct primary parent without adding a page. The explicit, logged
+ * exception: fall back to the nearest MODELED same-state county so the city
+ * still resolves to a real page, but record the true jurisdiction in
+ * `countyNames` (and hence `countiesAll` on the generated CityDef) so it is
+ * never silently lost the way the old unconstrained nearest-centroid bug
+ * lost it for cities that DID have a modeled county available.
+ */
+export function assignCounty<T extends CentroidCandidate>(
+  place: { name: string; state: StateCode; geoid: string; lat: number; lon: number },
+  realCountyNames: string[],
+  countiesInState: T[]
+): CountyAssignment<T> {
+  const realModeled = countiesInState.filter((c) => realCountyNames.includes(c.name));
+
+  if (realModeled.length === 1) {
+    return { primary: realModeled[0], countyNames: realCountyNames, usedFallback: false };
+  }
+  if (realModeled.length > 1) {
+    const primary = nearestByCentroid(realModeled, place);
+    return { primary, countyNames: realCountyNames, usedFallback: false };
+  }
+
+  // realModeled.length === 0: every real county for this place is outside
+  // the modeled footprint. Explicit fallback, loudly logged -- see doc comment.
+  const primary = nearestByCentroid(countiesInState, place);
+  console.warn(
+    `FALLBACK COUNTY ASSIGNMENT: ${place.name}, ${place.state} (geoid ${place.geoid}) -- ` +
+    `its real county per the Census crosswalk [${realCountyNames.join(", ")}] is not modeled in ` +
+    `this site's ${countiesInState.length}-county-per-state footprint. Using nearest modeled county ` +
+    `"${primary.name}" as the structural parent page; the true county is still recorded in countiesAll.`
+  );
+  return {
+    primary,
+    countyNames: [...new Set([...realCountyNames, primary.name])],
+    usedFallback: true,
+  };
+}
+
 /**
  * Reads data/footprint.json, validates every record at the boundary, derives
  * states/counties/cities, and writes src/data/geography.ts. Wrapped in a
  * function (rather than run at module load) so tests can import
  * `validateFootprintEntry` and `slugifyPlace` without triggering file I/O.
  */
-function generate(): void {
+async function generate(): Promise<void> {
   const ROOT = resolve(import.meta.dirname, "..");
   const raw = JSON.parse(
     readFileSync(resolve(ROOT, "data/footprint.json"), "utf8")
@@ -132,18 +316,12 @@ function generate(): void {
     citySlugs: [] as string[],
   }));
 
+  const crosswalk = await loadCrosswalk(resolve(ROOT, "scripts/.cache"));
+
   const cities = footprint.places.map((p) => {
-    // Nearest county centroid IN THE SAME STATE. The same-state constraint is
-    // load-bearing: without it, a Kansas town nearer a Missouri centroid would be
-    // filed under a Missouri county and inherit Missouri law.
-    let best: (typeof counties)[number] | undefined;
-    let bestDist = Infinity;
-    for (const c of counties) {
-      if (c.state !== p.state) continue;
-      const d = haversine(p.lat, p.lon, c.lat, c.lon);
-      if (d < bestDist) { bestDist = d; best = c; }
-    }
-    if (!best) {
+    const realCountyNames = lookupRealCounties(crosswalk, p);
+    const countiesInState = counties.filter((c) => c.state === p.state);
+    if (countiesInState.length === 0) {
       // Validation already rejects states outside MO/KS, so this can only
       // happen if one of the two states has zero counties in the footprint --
       // a data problem, not a code bug. Fail loudly and name the record.
@@ -152,7 +330,12 @@ function generate(): void {
         `every place must have at least one county centroid in its own state`
       );
     }
-    best.citySlugs.push(slugifyPlace(p.name, p.state, "city"));
+    const { primary, countyNames } = assignCounty(p, realCountyNames, countiesInState);
+
+    primary.citySlugs.push(slugifyPlace(p.name, p.state, "city"));
+    const countiesAll = [...new Set(countyNames)]
+      .map((name) => slugifyPlace(name, p.state, "county"))
+      .sort();
     return {
       slug: slugifyPlace(p.name, p.state, "city"),
       name: cleanName(p.name),
@@ -162,7 +345,8 @@ function generate(): void {
       distanceMi: p.dist,
       lat: p.lat,
       lon: p.lon,
-      countySlug: best.slug,
+      countySlug: primary.slug,
+      countiesAll,
       tier: tierOf(p.pop ?? 0),
     };
   });
@@ -193,7 +377,7 @@ export interface CountyDef {
 export interface CityDef {
   slug: string; name: string; state: StateCode; geoid: string;
   population: number; distanceMi: number; lat: number; lon: number;
-  countySlug: string; tier: 1 | 2 | 3 | 4 | 5;
+  countySlug: string; countiesAll: string[]; tier: 1 | 2 | 3 | 4 | 5;
 }
 
 export const states: StateDef[] = ${JSON.stringify(states, null, 2)};
@@ -235,5 +419,5 @@ const isDirectRun =
   resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isDirectRun) {
-  generate();
+  await generate();
 }

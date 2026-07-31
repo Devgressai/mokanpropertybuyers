@@ -14,7 +14,7 @@ export interface CountyDef {
 export interface CityDef {
   slug: string; name: string; state: StateCode; geoid: string;
   population: number; distanceMi: number; lat: number; lon: number;
-  countySlug: string; tier: 1 | 2 | 3 | 4 | 5;
+  countySlug: string; countiesAll: string[]; tier: 1 | 2 | 3 | 4 | 5;
 }
 
 export const states: StateDef[] = [
@@ -68,12 +68,20 @@ export const counties: CountyDef[] = [
     "citySlugs": [
       "sell-my-house-fast-de-soto-ks",
       "sell-my-house-fast-edgerton-ks",
+      "sell-my-house-fast-fairway-ks",
       "sell-my-house-fast-gardner-ks",
       "sell-my-house-fast-leawood-ks",
       "sell-my-house-fast-lenexa-ks",
+      "sell-my-house-fast-merriam-ks",
+      "sell-my-house-fast-mission-hills-ks",
+      "sell-my-house-fast-mission-ks",
       "sell-my-house-fast-olathe-ks",
       "sell-my-house-fast-overland-park-ks",
-      "sell-my-house-fast-spring-hill-ks"
+      "sell-my-house-fast-prairie-village-ks",
+      "sell-my-house-fast-roeland-park-ks",
+      "sell-my-house-fast-shawnee-ks",
+      "sell-my-house-fast-spring-hill-ks",
+      "sell-my-house-fast-westwood-ks"
     ]
   },
   {
@@ -94,7 +102,6 @@ export const counties: CountyDef[] = [
       "sell-my-house-fast-liberty-mo",
       "sell-my-house-fast-north-kansas-city-mo",
       "sell-my-house-fast-pleasant-valley-mo",
-      "sell-my-house-fast-riverside-mo",
       "sell-my-house-fast-smithville-mo"
     ]
   },
@@ -126,16 +133,8 @@ export const counties: CountyDef[] = [
     "citySlugs": [
       "sell-my-house-fast-bonner-springs-ks",
       "sell-my-house-fast-edwardsville-ks",
-      "sell-my-house-fast-fairway-ks",
       "sell-my-house-fast-kansas-city-ks",
-      "sell-my-house-fast-lake-quivira-ks",
-      "sell-my-house-fast-merriam-ks",
-      "sell-my-house-fast-mission-hills-ks",
-      "sell-my-house-fast-mission-ks",
-      "sell-my-house-fast-prairie-village-ks",
-      "sell-my-house-fast-roeland-park-ks",
-      "sell-my-house-fast-shawnee-ks",
-      "sell-my-house-fast-westwood-ks"
+      "sell-my-house-fast-lake-quivira-ks"
     ]
   },
   {
@@ -165,6 +164,7 @@ export const counties: CountyDef[] = [
     "citySlugs": [
       "sell-my-house-fast-parkville-mo",
       "sell-my-house-fast-platte-city-mo",
+      "sell-my-house-fast-riverside-mo",
       "sell-my-house-fast-weatherby-lake-mo",
       "sell-my-house-fast-weston-mo"
     ]
@@ -342,7 +342,6 @@ export const counties: CountyDef[] = [
     "lat": 39.13584,
     "lon": -93.204164,
     "citySlugs": [
-      "sell-my-house-fast-glasgow-mo",
       "sell-my-house-fast-marshall-mo",
       "sell-my-house-fast-slater-mo",
       "sell-my-house-fast-sweet-springs-mo"
@@ -756,6 +755,7 @@ export const counties: CountyDef[] = [
     "lat": 39.517968,
     "lon": -92.96162,
     "citySlugs": [
+      "sell-my-house-fast-glasgow-mo",
       "sell-my-house-fast-salisbury-mo"
     ]
   },
@@ -823,6 +823,12 @@ export const cities: CityDef[] = [
     "lat": 39.122361,
     "lon": -94.555117,
     "countySlug": "sell-my-house-fast-jackson-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-cass-county-mo",
+      "sell-my-house-fast-clay-county-mo",
+      "sell-my-house-fast-jackson-county-mo",
+      "sell-my-house-fast-platte-county-mo"
+    ],
     "tier": 1
   },
   {
@@ -835,6 +841,9 @@ export const cities: CityDef[] = [
     "lat": 38.889042,
     "lon": -94.690584,
     "countySlug": "sell-my-house-fast-johnson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks"
+    ],
     "tier": 1
   },
   {
@@ -847,6 +856,9 @@ export const cities: CityDef[] = [
     "lat": 39.122539,
     "lon": -94.741781,
     "countySlug": "sell-my-house-fast-wyandotte-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-wyandotte-county-ks"
+    ],
     "tier": 1
   },
   {
@@ -859,6 +871,9 @@ export const cities: CityDef[] = [
     "lat": 38.882031,
     "lon": -94.820054,
     "countySlug": "sell-my-house-fast-johnson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks"
+    ],
     "tier": 1
   },
   {
@@ -871,6 +886,9 @@ export const cities: CityDef[] = [
     "lat": 39.03468,
     "lon": -95.694825,
     "countySlug": "sell-my-house-fast-shawnee-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-shawnee-county-ks"
+    ],
     "tier": 1
   },
   {
@@ -883,6 +901,10 @@ export const cities: CityDef[] = [
     "lat": 39.085469,
     "lon": -94.352082,
     "countySlug": "sell-my-house-fast-jackson-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-clay-county-mo",
+      "sell-my-house-fast-jackson-county-mo"
+    ],
     "tier": 1
   },
   {
@@ -895,6 +917,10 @@ export const cities: CityDef[] = [
     "lat": 38.921601,
     "lon": -94.384763,
     "countySlug": "sell-my-house-fast-jackson-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-cass-county-mo",
+      "sell-my-house-fast-jackson-county-mo"
+    ],
     "tier": 1
   },
   {
@@ -907,6 +933,9 @@ export const cities: CityDef[] = [
     "lat": 38.960029,
     "lon": -95.26293,
     "countySlug": "sell-my-house-fast-douglas-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-douglas-county-ks"
+    ],
     "tier": 1
   },
   {
@@ -919,6 +948,9 @@ export const cities: CityDef[] = [
     "lat": 39.75946,
     "lon": -94.821143,
     "countySlug": "sell-my-house-fast-buchanan-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-buchanan-county-mo"
+    ],
     "tier": 1
   },
   {
@@ -930,7 +962,10 @@ export const cities: CityDef[] = [
     "distanceMi": 13.4,
     "lat": 39.017488,
     "lon": -94.805801,
-    "countySlug": "sell-my-house-fast-wyandotte-county-ks",
+    "countySlug": "sell-my-house-fast-johnson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks"
+    ],
     "tier": 1
   },
   {
@@ -943,6 +978,9 @@ export const cities: CityDef[] = [
     "lat": 39.012001,
     "lon": -94.267612,
     "countySlug": "sell-my-house-fast-jackson-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-jackson-county-mo"
+    ],
     "tier": 1
   },
   {
@@ -955,6 +993,9 @@ export const cities: CityDef[] = [
     "lat": 38.965268,
     "lon": -94.803937,
     "countySlug": "sell-my-house-fast-johnson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks"
+    ],
     "tier": 1
   },
   {
@@ -967,6 +1008,9 @@ export const cities: CityDef[] = [
     "lat": 39.322717,
     "lon": -94.925013,
     "countySlug": "sell-my-house-fast-leavenworth-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-leavenworth-county-ks"
+    ],
     "tier": 2
   },
   {
@@ -979,6 +1023,9 @@ export const cities: CityDef[] = [
     "lat": 38.907263,
     "lon": -94.62524,
     "countySlug": "sell-my-house-fast-johnson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks"
+    ],
     "tier": 2
   },
   {
@@ -991,6 +1038,9 @@ export const cities: CityDef[] = [
     "lat": 39.24127,
     "lon": -94.419445,
     "countySlug": "sell-my-house-fast-clay-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-clay-county-mo"
+    ],
     "tier": 2
   },
   {
@@ -1003,6 +1053,9 @@ export const cities: CityDef[] = [
     "lat": 38.994274,
     "lon": -94.461511,
     "countySlug": "sell-my-house-fast-jackson-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-jackson-county-mo"
+    ],
     "tier": 2
   },
   {
@@ -1015,6 +1068,9 @@ export const cities: CityDef[] = [
     "lat": 39.21298,
     "lon": -94.558956,
     "countySlug": "sell-my-house-fast-clay-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-clay-county-mo"
+    ],
     "tier": 2
   },
   {
@@ -1027,6 +1083,9 @@ export const cities: CityDef[] = [
     "lat": 38.81873,
     "lon": -94.529639,
     "countySlug": "sell-my-house-fast-cass-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-cass-county-mo"
+    ],
     "tier": 2
   },
   {
@@ -1039,6 +1098,9 @@ export const cities: CityDef[] = [
     "lat": 38.881359,
     "lon": -94.522744,
     "countySlug": "sell-my-house-fast-jackson-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-jackson-county-mo"
+    ],
     "tier": 2
   },
   {
@@ -1051,6 +1113,9 @@ export const cities: CityDef[] = [
     "lat": 38.811467,
     "lon": -94.929226,
     "countySlug": "sell-my-house-fast-johnson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks"
+    ],
     "tier": 2
   },
   {
@@ -1063,6 +1128,9 @@ export const cities: CityDef[] = [
     "lat": 38.803303,
     "lon": -94.45832,
     "countySlug": "sell-my-house-fast-cass-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-cass-county-mo"
+    ],
     "tier": 2
   },
   {
@@ -1075,6 +1143,9 @@ export const cities: CityDef[] = [
     "lat": 38.402869,
     "lon": -96.192906,
     "countySlug": "sell-my-house-fast-lyon-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-lyon-county-ks"
+    ],
     "tier": 2
   },
   {
@@ -1086,7 +1157,10 @@ export const cities: CityDef[] = [
     "distanceMi": 8.4,
     "lat": 38.986835,
     "lon": -94.636195,
-    "countySlug": "sell-my-house-fast-wyandotte-county-ks",
+    "countySlug": "sell-my-house-fast-johnson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks"
+    ],
     "tier": 2
   },
   {
@@ -1099,6 +1173,9 @@ export const cities: CityDef[] = [
     "lat": 38.706048,
     "lon": -93.234498,
     "countySlug": "sell-my-house-fast-pettis-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-pettis-county-mo"
+    ],
     "tier": 2
   },
   {
@@ -1111,6 +1188,9 @@ export const cities: CityDef[] = [
     "lat": 38.762381,
     "lon": -93.725337,
     "countySlug": "sell-my-house-fast-johnson-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-mo"
+    ],
     "tier": 2
   },
   {
@@ -1123,6 +1203,9 @@ export const cities: CityDef[] = [
     "lat": 39.014988,
     "lon": -94.216371,
     "countySlug": "sell-my-house-fast-jackson-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-jackson-county-mo"
+    ],
     "tier": 2
   },
   {
@@ -1135,6 +1218,9 @@ export const cities: CityDef[] = [
     "lat": 39.115093,
     "lon": -93.202469,
     "countySlug": "sell-my-house-fast-saline-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-saline-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1147,6 +1233,9 @@ export const cities: CityDef[] = [
     "lat": 38.60008,
     "lon": -95.262777,
     "countySlug": "sell-my-house-fast-franklin-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-franklin-county-ks"
+    ],
     "tier": 3
   },
   {
@@ -1159,6 +1248,9 @@ export const cities: CityDef[] = [
     "lat": 39.242592,
     "lon": -94.89632,
     "countySlug": "sell-my-house-fast-leavenworth-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-leavenworth-county-ks"
+    ],
     "tier": 3
   },
   {
@@ -1171,6 +1263,9 @@ export const cities: CityDef[] = [
     "lat": 39.355111,
     "lon": -94.35858,
     "countySlug": "sell-my-house-fast-clay-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-clay-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1182,7 +1277,10 @@ export const cities: CityDef[] = [
     "distanceMi": 8.4,
     "lat": 39.017607,
     "lon": -94.693955,
-    "countySlug": "sell-my-house-fast-wyandotte-county-ks",
+    "countySlug": "sell-my-house-fast-johnson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks"
+    ],
     "tier": 3
   },
   {
@@ -1195,6 +1293,10 @@ export const cities: CityDef[] = [
     "lat": 39.396869,
     "lon": -94.570987,
     "countySlug": "sell-my-house-fast-clay-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-clay-county-mo",
+      "sell-my-house-fast-platte-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1207,6 +1309,9 @@ export const cities: CityDef[] = [
     "lat": 39.562552,
     "lon": -95.136611,
     "countySlug": "sell-my-house-fast-atchison-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-atchison-county-ks"
+    ],
     "tier": 3
   },
   {
@@ -1219,6 +1324,10 @@ export const cities: CityDef[] = [
     "lat": 39.339929,
     "lon": -94.240992,
     "countySlug": "sell-my-house-fast-clay-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-clay-county-mo",
+      "sell-my-house-fast-ray-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1231,6 +1340,9 @@ export const cities: CityDef[] = [
     "lat": 40.342515,
     "lon": -94.870048,
     "countySlug": "sell-my-house-fast-nodaway-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-nodaway-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1242,7 +1354,10 @@ export const cities: CityDef[] = [
     "distanceMi": 6.6,
     "lat": 39.026774,
     "lon": -94.656962,
-    "countySlug": "sell-my-house-fast-wyandotte-county-ks",
+    "countySlug": "sell-my-house-fast-johnson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks"
+    ],
     "tier": 3
   },
   {
@@ -1255,6 +1370,9 @@ export const cities: CityDef[] = [
     "lat": 38.652493,
     "lon": -94.346999,
     "countySlug": "sell-my-house-fast-cass-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-cass-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1267,6 +1385,10 @@ export const cities: CityDef[] = [
     "lat": 38.756685,
     "lon": -94.820976,
     "countySlug": "sell-my-house-fast-johnson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks",
+      "sell-my-house-fast-miami-county-ks"
+    ],
     "tier": 3
   },
   {
@@ -1279,6 +1401,9 @@ export const cities: CityDef[] = [
     "lat": 38.371172,
     "lon": -93.768142,
     "countySlug": "sell-my-house-fast-henry-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-henry-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1291,6 +1416,9 @@ export const cities: CityDef[] = [
     "lat": 39.796079,
     "lon": -93.549957,
     "countySlug": "sell-my-house-fast-livingston-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-livingston-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1303,6 +1431,10 @@ export const cities: CityDef[] = [
     "lat": 39.007033,
     "lon": -94.128441,
     "countySlug": "sell-my-house-fast-jackson-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-jackson-county-mo",
+      "sell-my-house-fast-lafayette-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1315,6 +1447,9 @@ export const cities: CityDef[] = [
     "lat": 39.214445,
     "lon": -94.70434,
     "countySlug": "sell-my-house-fast-platte-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-platte-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1327,6 +1462,10 @@ export const cities: CityDef[] = [
     "lat": 38.805966,
     "lon": -94.272283,
     "countySlug": "sell-my-house-fast-cass-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-cass-county-mo",
+      "sell-my-house-fast-jackson-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1339,6 +1478,9 @@ export const cities: CityDef[] = [
     "lat": 37.844908,
     "lon": -94.350321,
     "countySlug": "sell-my-house-fast-vernon-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-vernon-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1351,6 +1493,9 @@ export const cities: CityDef[] = [
     "lat": 38.961439,
     "lon": -92.746203,
     "countySlug": "sell-my-house-fast-cooper-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-cooper-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1363,6 +1508,9 @@ export const cities: CityDef[] = [
     "lat": 39.135325,
     "lon": -94.929047,
     "countySlug": "sell-my-house-fast-leavenworth-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-leavenworth-county-ks"
+    ],
     "tier": 3
   },
   {
@@ -1375,6 +1523,11 @@ export const cities: CityDef[] = [
     "lat": 39.075368,
     "lon": -94.871739,
     "countySlug": "sell-my-house-fast-wyandotte-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks",
+      "sell-my-house-fast-leavenworth-county-ks",
+      "sell-my-house-fast-wyandotte-county-ks"
+    ],
     "tier": 3
   },
   {
@@ -1387,6 +1540,9 @@ export const cities: CityDef[] = [
     "lat": 37.828,
     "lon": -94.704141,
     "countySlug": "sell-my-house-fast-bourbon-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-bourbon-county-ks"
+    ],
     "tier": 3
   },
   {
@@ -1399,6 +1555,10 @@ export const cities: CityDef[] = [
     "lat": 39.744499,
     "lon": -94.232324,
     "countySlug": "sell-my-house-fast-clinton-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-clinton-county-mo",
+      "sell-my-house-fast-dekalb-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1410,7 +1570,10 @@ export const cities: CityDef[] = [
     "distanceMi": 5.4,
     "lat": 39.035854,
     "lon": -94.637409,
-    "countySlug": "sell-my-house-fast-wyandotte-county-ks",
+    "countySlug": "sell-my-house-fast-johnson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks"
+    ],
     "tier": 3
   },
   {
@@ -1423,6 +1586,9 @@ export const cities: CityDef[] = [
     "lat": 38.972306,
     "lon": -94.951141,
     "countySlug": "sell-my-house-fast-johnson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks"
+    ],
     "tier": 3
   },
   {
@@ -1435,6 +1601,9 @@ export const cities: CityDef[] = [
     "lat": 38.934664,
     "lon": -95.094123,
     "countySlug": "sell-my-house-fast-douglas-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-douglas-county-ks"
+    ],
     "tier": 3
   },
   {
@@ -1447,6 +1616,9 @@ export const cities: CityDef[] = [
     "lat": 38.84206,
     "lon": -94.333545,
     "countySlug": "sell-my-house-fast-jackson-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-jackson-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1459,6 +1631,9 @@ export const cities: CityDef[] = [
     "lat": 39.10789,
     "lon": -95.07909,
     "countySlug": "sell-my-house-fast-leavenworth-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-leavenworth-county-ks"
+    ],
     "tier": 3
   },
   {
@@ -1471,6 +1646,9 @@ export const cities: CityDef[] = [
     "lat": 38.730826,
     "lon": -94.468597,
     "countySlug": "sell-my-house-fast-cass-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-cass-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1483,6 +1661,9 @@ export const cities: CityDef[] = [
     "lat": 39.27545,
     "lon": -93.972584,
     "countySlug": "sell-my-house-fast-ray-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-ray-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1495,6 +1676,9 @@ export const cities: CityDef[] = [
     "lat": 38.57893,
     "lon": -94.860401,
     "countySlug": "sell-my-house-fast-miami-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-miami-county-ks"
+    ],
     "tier": 3
   },
   {
@@ -1507,6 +1691,9 @@ export const cities: CityDef[] = [
     "lat": 38.999397,
     "lon": -93.966404,
     "countySlug": "sell-my-house-fast-lafayette-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-lafayette-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1519,6 +1706,9 @@ export const cities: CityDef[] = [
     "lat": 40.081255,
     "lon": -93.602387,
     "countySlug": "sell-my-house-fast-grundy-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-grundy-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1531,6 +1721,9 @@ export const cities: CityDef[] = [
     "lat": 39.139558,
     "lon": -94.56475,
     "countySlug": "sell-my-house-fast-clay-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-clay-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1543,6 +1736,9 @@ export const cities: CityDef[] = [
     "lat": 37.927427,
     "lon": -95.400669,
     "countySlug": "sell-my-house-fast-allen-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-allen-county-ks"
+    ],
     "tier": 3
   },
   {
@@ -1555,6 +1751,9 @@ export const cities: CityDef[] = [
     "lat": 38.620506,
     "lon": -94.677082,
     "countySlug": "sell-my-house-fast-miami-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-miami-county-ks"
+    ],
     "tier": 3
   },
   {
@@ -1567,6 +1766,9 @@ export const cities: CityDef[] = [
     "lat": 39.938789,
     "lon": -94.828049,
     "countySlug": "sell-my-house-fast-andrew-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-andrew-county-mo"
+    ],
     "tier": 3
   },
   {
@@ -1579,6 +1781,9 @@ export const cities: CityDef[] = [
     "lat": 38.777506,
     "lon": -95.18748,
     "countySlug": "sell-my-house-fast-douglas-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-douglas-county-ks"
+    ],
     "tier": 4
   },
   {
@@ -1591,6 +1796,10 @@ export const cities: CityDef[] = [
     "lat": 39.205263,
     "lon": -96.310126,
     "countySlug": "sell-my-house-fast-pottawatomie-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-pottawatomie-county-ks",
+      "sell-my-house-fast-wabaunsee-county-ks"
+    ],
     "tier": 4
   },
   {
@@ -1603,6 +1812,9 @@ export const cities: CityDef[] = [
     "lat": 39.359733,
     "lon": -94.756317,
     "countySlug": "sell-my-house-fast-platte-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-platte-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1615,6 +1827,9 @@ export const cities: CityDef[] = [
     "lat": 39.065719,
     "lon": -93.726814,
     "countySlug": "sell-my-house-fast-lafayette-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-lafayette-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1627,6 +1842,9 @@ export const cities: CityDef[] = [
     "lat": 39.078168,
     "lon": -94.818818,
     "countySlug": "sell-my-house-fast-wyandotte-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-wyandotte-county-ks"
+    ],
     "tier": 4
   },
   {
@@ -1639,6 +1857,9 @@ export const cities: CityDef[] = [
     "lat": 39.180313,
     "lon": -93.869051,
     "countySlug": "sell-my-house-fast-lafayette-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-lafayette-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1650,7 +1871,10 @@ export const cities: CityDef[] = [
     "distanceMi": 5.8,
     "lat": 39.172175,
     "lon": -94.632499,
-    "countySlug": "sell-my-house-fast-clay-county-mo",
+    "countySlug": "sell-my-house-fast-platte-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-platte-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1663,6 +1887,9 @@ export const cities: CityDef[] = [
     "lat": 38.259362,
     "lon": -94.339531,
     "countySlug": "sell-my-house-fast-bates-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-bates-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1675,6 +1902,9 @@ export const cities: CityDef[] = [
     "lat": 38.49993,
     "lon": -94.945895,
     "countySlug": "sell-my-house-fast-miami-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-miami-county-ks"
+    ],
     "tier": 4
   },
   {
@@ -1686,7 +1916,10 @@ export const cities: CityDef[] = [
     "distanceMi": 5.8,
     "lat": 39.024525,
     "lon": -94.628718,
-    "countySlug": "sell-my-house-fast-wyandotte-county-ks",
+    "countySlug": "sell-my-house-fast-johnson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks"
+    ],
     "tier": 4
   },
   {
@@ -1699,6 +1932,9 @@ export const cities: CityDef[] = [
     "lat": 39.785329,
     "lon": -93.077967,
     "countySlug": "sell-my-house-fast-linn-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-linn-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1711,6 +1947,10 @@ export const cities: CityDef[] = [
     "lat": 37.869698,
     "lon": -94.019954,
     "countySlug": "sell-my-house-fast-vernon-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-cedar-county-mo",
+      "sell-my-house-fast-vernon-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1722,7 +1962,10 @@ export const cities: CityDef[] = [
     "distanceMi": 6.3,
     "lat": 39.014035,
     "lon": -94.617552,
-    "countySlug": "sell-my-house-fast-wyandotte-county-ks",
+    "countySlug": "sell-my-house-fast-johnson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks"
+    ],
     "tier": 4
   },
   {
@@ -1735,6 +1978,9 @@ export const cities: CityDef[] = [
     "lat": 39.363642,
     "lon": -93.49506,
     "countySlug": "sell-my-house-fast-carroll-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-carroll-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1747,6 +1993,9 @@ export const cities: CityDef[] = [
     "lat": 39.469861,
     "lon": -95.732555,
     "countySlug": "sell-my-house-fast-jackson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-jackson-county-ks"
+    ],
     "tier": 4
   },
   {
@@ -1759,6 +2008,10 @@ export const cities: CityDef[] = [
     "lat": 39.139505,
     "lon": -94.408507,
     "countySlug": "sell-my-house-fast-jackson-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-clay-county-mo",
+      "sell-my-house-fast-jackson-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1771,6 +2024,9 @@ export const cities: CityDef[] = [
     "lat": 38.285873,
     "lon": -95.241231,
     "countySlug": "sell-my-house-fast-anderson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-anderson-county-ks"
+    ],
     "tier": 4
   },
   {
@@ -1783,6 +2039,9 @@ export const cities: CityDef[] = [
     "lat": 39.851686,
     "lon": -95.537965,
     "countySlug": "sell-my-house-fast-brown-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-brown-county-ks"
+    ],
     "tier": 4
   },
   {
@@ -1795,6 +2054,9 @@ export const cities: CityDef[] = [
     "lat": 40.268164,
     "lon": -94.029822,
     "countySlug": "sell-my-house-fast-harrison-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-harrison-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1807,6 +2069,9 @@ export const cities: CityDef[] = [
     "lat": 38.767334,
     "lon": -93.563643,
     "countySlug": "sell-my-house-fast-johnson-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1819,6 +2084,9 @@ export const cities: CityDef[] = [
     "lat": 39.132481,
     "lon": -94.196811,
     "countySlug": "sell-my-house-fast-jackson-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-jackson-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1831,6 +2099,10 @@ export const cities: CityDef[] = [
     "lat": 38.532265,
     "lon": -93.522945,
     "countySlug": "sell-my-house-fast-henry-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-henry-county-mo",
+      "sell-my-house-fast-pettis-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1843,6 +2115,9 @@ export const cities: CityDef[] = [
     "lat": 38.634098,
     "lon": -95.821002,
     "countySlug": "sell-my-house-fast-osage-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-osage-county-ks"
+    ],
     "tier": 4
   },
   {
@@ -1855,6 +2130,10 @@ export const cities: CityDef[] = [
     "lat": 39.194168,
     "lon": -96.064174,
     "countySlug": "sell-my-house-fast-wabaunsee-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-pottawatomie-county-ks",
+      "sell-my-house-fast-wabaunsee-county-ks"
+    ],
     "tier": 4
   },
   {
@@ -1867,6 +2146,9 @@ export const cities: CityDef[] = [
     "lat": 39.217175,
     "lon": -94.48094,
     "countySlug": "sell-my-house-fast-clay-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-clay-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1879,6 +2161,9 @@ export const cities: CityDef[] = [
     "lat": 38.193289,
     "lon": -95.745428,
     "countySlug": "sell-my-house-fast-coffey-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-coffey-county-ks"
+    ],
     "tier": 4
   },
   {
@@ -1891,6 +2176,10 @@ export const cities: CityDef[] = [
     "lat": 39.432965,
     "lon": -94.220311,
     "countySlug": "sell-my-house-fast-clay-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-clay-county-mo",
+      "sell-my-house-fast-ray-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1903,6 +2192,9 @@ export const cities: CityDef[] = [
     "lat": 38.90377,
     "lon": -94.258369,
     "countySlug": "sell-my-house-fast-jackson-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-jackson-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1915,6 +2207,9 @@ export const cities: CityDef[] = [
     "lat": 39.846744,
     "lon": -94.823879,
     "countySlug": "sell-my-house-fast-andrew-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-andrew-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1927,6 +2222,10 @@ export const cities: CityDef[] = [
     "lat": 39.910228,
     "lon": -95.792832,
     "countySlug": "sell-my-house-fast-brown-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-brown-county-ks",
+      "sell-my-house-fast-nemaha-county-ks"
+    ],
     "tier": 4
   },
   {
@@ -1939,6 +2238,9 @@ export const cities: CityDef[] = [
     "lat": 38.987513,
     "lon": -93.569227,
     "countySlug": "sell-my-house-fast-lafayette-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-lafayette-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1951,6 +2253,9 @@ export const cities: CityDef[] = [
     "lat": 38.249274,
     "lon": -93.367038,
     "countySlug": "sell-my-house-fast-benton-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-benton-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1963,6 +2268,9 @@ export const cities: CityDef[] = [
     "lat": 38.713456,
     "lon": -93.989412,
     "countySlug": "sell-my-house-fast-johnson-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1975,6 +2283,9 @@ export const cities: CityDef[] = [
     "lat": 39.561848,
     "lon": -94.319853,
     "countySlug": "sell-my-house-fast-clinton-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-clinton-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1987,6 +2298,9 @@ export const cities: CityDef[] = [
     "lat": 39.554166,
     "lon": -94.463355,
     "countySlug": "sell-my-house-fast-clinton-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-clinton-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -1999,6 +2313,9 @@ export const cities: CityDef[] = [
     "lat": 39.837998,
     "lon": -96.069608,
     "countySlug": "sell-my-house-fast-nemaha-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-nemaha-county-ks"
+    ],
     "tier": 4
   },
   {
@@ -2011,6 +2328,9 @@ export const cities: CityDef[] = [
     "lat": 39.234359,
     "lon": -94.696135,
     "countySlug": "sell-my-house-fast-platte-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-platte-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -2023,6 +2343,10 @@ export const cities: CityDef[] = [
     "lat": 39.717518,
     "lon": -92.947351,
     "countySlug": "sell-my-house-fast-linn-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-chariton-county-mo",
+      "sell-my-house-fast-linn-county-mo"
+    ],
     "tier": 4
   },
   {
@@ -2035,6 +2359,9 @@ export const cities: CityDef[] = [
     "lat": 38.717662,
     "lon": -95.077862,
     "countySlug": "sell-my-house-fast-franklin-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-franklin-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2047,6 +2374,9 @@ export const cities: CityDef[] = [
     "lat": 39.910352,
     "lon": -93.964011,
     "countySlug": "sell-my-house-fast-daviess-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-daviess-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2059,6 +2389,9 @@ export const cities: CityDef[] = [
     "lat": 39.404135,
     "lon": -94.891259,
     "countySlug": "sell-my-house-fast-platte-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-platte-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2071,6 +2404,9 @@ export const cities: CityDef[] = [
     "lat": 39.223279,
     "lon": -93.065347,
     "countySlug": "sell-my-house-fast-saline-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-saline-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2083,6 +2419,9 @@ export const cities: CityDef[] = [
     "lat": 38.39633,
     "lon": -94.342954,
     "countySlug": "sell-my-house-fast-bates-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-bates-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2095,6 +2434,9 @@ export const cities: CityDef[] = [
     "lat": 38.870904,
     "lon": -94.185586,
     "countySlug": "sell-my-house-fast-jackson-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-jackson-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2106,7 +2448,10 @@ export const cities: CityDef[] = [
     "distanceMi": 4.6,
     "lat": 39.039379,
     "lon": -94.61558,
-    "countySlug": "sell-my-house-fast-wyandotte-county-ks",
+    "countySlug": "sell-my-house-fast-johnson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2119,6 +2464,9 @@ export const cities: CityDef[] = [
     "lat": 38.790773,
     "lon": -94.943611,
     "countySlug": "sell-my-house-fast-johnson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2131,6 +2479,9 @@ export const cities: CityDef[] = [
     "lat": 38.821281,
     "lon": -94.361447,
     "countySlug": "sell-my-house-fast-cass-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-cass-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2143,6 +2494,9 @@ export const cities: CityDef[] = [
     "lat": 40.247893,
     "lon": -94.333455,
     "countySlug": "sell-my-house-fast-gentry-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-gentry-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2155,6 +2509,9 @@ export const cities: CityDef[] = [
     "lat": 39.743535,
     "lon": -94.0024,
     "countySlug": "sell-my-house-fast-caldwell-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-caldwell-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2167,6 +2524,9 @@ export const cities: CityDef[] = [
     "lat": 38.562133,
     "lon": -94.195167,
     "countySlug": "sell-my-house-fast-cass-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-cass-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2179,6 +2539,9 @@ export const cities: CityDef[] = [
     "lat": 39.423327,
     "lon": -92.802424,
     "countySlug": "sell-my-house-fast-chariton-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-chariton-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2191,6 +2554,10 @@ export const cities: CityDef[] = [
     "lat": 39.613166,
     "lon": -94.59478,
     "countySlug": "sell-my-house-fast-clinton-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-buchanan-county-mo",
+      "sell-my-house-fast-clinton-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2203,6 +2570,9 @@ export const cities: CityDef[] = [
     "lat": 39.663791,
     "lon": -95.532532,
     "countySlug": "sell-my-house-fast-brown-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-brown-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2215,6 +2585,9 @@ export const cities: CityDef[] = [
     "lat": 39.198621,
     "lon": -94.478833,
     "countySlug": "sell-my-house-fast-clay-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-clay-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2227,6 +2600,9 @@ export const cities: CityDef[] = [
     "lat": 38.821793,
     "lon": -95.693154,
     "countySlug": "sell-my-house-fast-osage-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-osage-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2239,6 +2615,9 @@ export const cities: CityDef[] = [
     "lat": 39.099849,
     "lon": -95.856655,
     "countySlug": "sell-my-house-fast-shawnee-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-shawnee-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2251,6 +2630,9 @@ export const cities: CityDef[] = [
     "lat": 38.964279,
     "lon": -93.416504,
     "countySlug": "sell-my-house-fast-saline-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-saline-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2263,6 +2645,9 @@ export const cities: CityDef[] = [
     "lat": 38.481116,
     "lon": -94.350614,
     "countySlug": "sell-my-house-fast-cass-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-cass-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2275,6 +2660,9 @@ export const cities: CityDef[] = [
     "lat": 38.907756,
     "lon": -95.815555,
     "countySlug": "sell-my-house-fast-shawnee-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-shawnee-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2287,6 +2675,9 @@ export const cities: CityDef[] = [
     "lat": 39.761058,
     "lon": -94.927518,
     "countySlug": "sell-my-house-fast-doniphan-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-doniphan-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2299,6 +2690,9 @@ export const cities: CityDef[] = [
     "lat": 38.095871,
     "lon": -94.363462,
     "countySlug": "sell-my-house-fast-bates-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-bates-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2311,6 +2705,9 @@ export const cities: CityDef[] = [
     "lat": 38.394141,
     "lon": -93.33073,
     "countySlug": "sell-my-house-fast-benton-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-benton-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2323,6 +2720,9 @@ export const cities: CityDef[] = [
     "lat": 38.177877,
     "lon": -94.705328,
     "countySlug": "sell-my-house-fast-linn-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-linn-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2335,6 +2735,9 @@ export const cities: CityDef[] = [
     "lat": 38.459643,
     "lon": -93.202099,
     "countySlug": "sell-my-house-fast-benton-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-benton-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2347,6 +2750,9 @@ export const cities: CityDef[] = [
     "lat": 40.216583,
     "lon": -94.538093,
     "countySlug": "sell-my-house-fast-gentry-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-gentry-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2359,6 +2765,9 @@ export const cities: CityDef[] = [
     "lat": 39.751505,
     "lon": -94.893411,
     "countySlug": "sell-my-house-fast-doniphan-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-doniphan-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2371,6 +2780,9 @@ export const cities: CityDef[] = [
     "lat": 39.192606,
     "lon": -96.418284,
     "countySlug": "sell-my-house-fast-pottawatomie-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-pottawatomie-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2383,6 +2795,9 @@ export const cities: CityDef[] = [
     "lat": 38.375386,
     "lon": -94.710899,
     "countySlug": "sell-my-house-fast-linn-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-linn-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2395,6 +2810,9 @@ export const cities: CityDef[] = [
     "lat": 39.885628,
     "lon": -94.368991,
     "countySlug": "sell-my-house-fast-dekalb-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-dekalb-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2407,6 +2825,9 @@ export const cities: CityDef[] = [
     "lat": 39.135799,
     "lon": -95.949624,
     "countySlug": "sell-my-house-fast-shawnee-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-shawnee-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2419,6 +2840,9 @@ export const cities: CityDef[] = [
     "lat": 39.215988,
     "lon": -95.314713,
     "countySlug": "sell-my-house-fast-jefferson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-jefferson-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2430,7 +2854,11 @@ export const cities: CityDef[] = [
     "distanceMi": 93.7,
     "lat": 39.228504,
     "lon": -92.837742,
-    "countySlug": "sell-my-house-fast-saline-county-mo",
+    "countySlug": "sell-my-house-fast-chariton-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-chariton-county-mo",
+      "sell-my-house-fast-howard-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2443,6 +2871,9 @@ export const cities: CityDef[] = [
     "lat": 38.191141,
     "lon": -94.031668,
     "countySlug": "sell-my-house-fast-st-clair-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-st-clair-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2455,6 +2886,9 @@ export const cities: CityDef[] = [
     "lat": 39.339329,
     "lon": -95.461198,
     "countySlug": "sell-my-house-fast-jefferson-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-jefferson-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2467,6 +2901,10 @@ export const cities: CityDef[] = [
     "lat": 38.441813,
     "lon": -92.990138,
     "countySlug": "sell-my-house-fast-benton-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-benton-county-mo",
+      "sell-my-house-fast-morgan-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2479,6 +2917,9 @@ export const cities: CityDef[] = [
     "lat": 38.611908,
     "lon": -95.684424,
     "countySlug": "sell-my-house-fast-osage-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-osage-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2491,6 +2932,9 @@ export const cities: CityDef[] = [
     "lat": 38.347833,
     "lon": -94.761793,
     "countySlug": "sell-my-house-fast-linn-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-linn-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2503,6 +2947,10 @@ export const cities: CityDef[] = [
     "lat": 39.014819,
     "lon": -92.744841,
     "countySlug": "sell-my-house-fast-cooper-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-cooper-county-mo",
+      "sell-my-house-fast-howard-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2515,6 +2963,10 @@ export const cities: CityDef[] = [
     "lat": 39.04019,
     "lon": -94.768526,
     "countySlug": "sell-my-house-fast-wyandotte-county-ks",
+    "countiesAll": [
+      "sell-my-house-fast-johnson-county-ks",
+      "sell-my-house-fast-wyandotte-county-ks"
+    ],
     "tier": 5
   },
   {
@@ -2527,6 +2979,9 @@ export const cities: CityDef[] = [
     "lat": 40.136503,
     "lon": -95.233739,
     "countySlug": "sell-my-house-fast-holt-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-holt-county-mo"
+    ],
     "tier": 5
   },
   {
@@ -2539,6 +2994,9 @@ export const cities: CityDef[] = [
     "lat": 38.771682,
     "lon": -93.423907,
     "countySlug": "sell-my-house-fast-pettis-county-mo",
+    "countiesAll": [
+      "sell-my-house-fast-pettis-county-mo"
+    ],
     "tier": 5
   }
 ];
