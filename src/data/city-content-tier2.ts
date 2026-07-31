@@ -434,7 +434,7 @@ export const cityContentTier2: Record<string, PageContent> = {
 
       "[MO] Newer construction is no exception to RSMo 442.606's written-disclosure rule -- a seller in Raymore who actually knows a house was used to make methamphetamine has to say so in writing, and a second, separate written disclosure applies if the seller knew or should have known someone convicted of a qualifying meth offense once lived in, stored drugs in, or ran a lab out of that same house.",
 
-      "[MO] None of the above makes a fast cash sale the default answer for a seller in Raymore. An owner with time before a notice of trustee's sale is even published usually still comes out ahead bringing a loan current or listing through a realtor, particularly given how much steady demand Raymore's newer housing stock continues to draw from conventional buyers.",
+      "[MO] Time before a notice of trustee's sale even runs usually favors bringing the loan current or listing conventionally for a Raymore owner. An owner with time before a notice of trustee's sale is even published usually still comes out ahead bringing a loan current or listing through a realtor, particularly given how much steady demand Raymore's newer housing stock continues to draw from conventional buyers.",
 
       "[MO] None of this is legal advice. A Raymore owner working through an actual, real-world foreclosure notice, tax bill, or probate filing is far better served by a licensed Missouri attorney reviewing that specific paperwork than by any general description of the statewide rules given above.",
     ],
@@ -658,7 +658,7 @@ export const cityContentTier2: Record<string, PageContent> = {
 
       "[MO] RSMo 260.213 requires early written notice, before negotiations get far along, whenever a Missouri seller knows a parcel contains a solid waste dump or demolition landfill, licensed or not -- and that notice has to flag the buyer's possible exposure to state-ordered cleanup costs, a duty Grain Valley's own sellers carry exactly as a seller in downtown Kansas City does.",
 
-      "[MO] None of the above makes a fast cash sale the default answer for a seller in Grain Valley. An owner with time before a trustee's-sale notice is even published usually still comes out ahead bringing the loan current or listing through a realtor, and an owner disputing a sharp reassessment has an active process to pursue first rather than a foregone conclusion to accept either way.",
+      "[MO] Grain Valley's newer construction has kept buyer interest steady enough that an owner with time before a trustee's-sale notice is even published usually still comes out ahead listing instead of taking a cash offer. An owner with time before a trustee's-sale notice is even published usually still comes out ahead bringing the loan current or listing through a realtor, and an owner disputing a sharp reassessment has an active process to pursue first rather than a foregone conclusion to accept either way.",
 
       "[MO] None of this is legal advice. A Grain Valley owner working through a real foreclosure notice, reassessment dispute, or estate question needs a Missouri attorney looking at the actual documents involved -- a small city's own general overview, this one included, cannot settle a specific case.",
     ],

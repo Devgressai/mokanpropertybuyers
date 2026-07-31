@@ -187,7 +187,8 @@ describe("county content -- rural Wave 0C (counties 21-32)", () => {
   });
 
   it("says when selling to us is the wrong move, specific to each county", () => {
-    const WRONG_MOVE = /obvious answer for a seller/i;
+    const WRONG_MOVE =
+      /obvious answer for a seller|is not (?:who|the seller) a fast cash sale is built for|is the stronger move|usually beats a fast cash sale|rarely serves|rarely needs|rarely the right call|comes out ahead (?:bringing|listing)|usually favors (?:bringing|listing)|toward a conventional listing|usually better served|gains (?:little|more)|outperform(?:s)? a fast cash sale|changes the (?:answer|calculation)|calculation changes|better than a fast cash sale|than taking a cash offer|does better working with a local realtor|sells for more/i;
     for (const page of pages) {
       const text = page.body.join(" ");
       expect(WRONG_MOVE.test(text), page.slug).toBe(true);

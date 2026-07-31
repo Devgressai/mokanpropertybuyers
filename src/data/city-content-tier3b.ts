@@ -123,7 +123,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "Platte City, the county seat, and Weston, an older river town of its own farther north, both carry a different character than Parkville's own university-and-arts-district identity -- a difference in local flavor within one county, not in which statutes reach any of the three.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Parkville. An owner of a well-kept home on the bluff, away from the flood-prone lower blocks, with no pressing deadline, is usually still better off testing a normal listing first, since Parkville's own historic downtown and university connection continue to draw real buyer interest a discounted quick sale would leave on the table.",
+      "Time on the seller's side changes the answer in Parkville -- a normal listing, not a fast cash sale, usually serves that seller better. An owner of a well-kept home on the bluff, away from the flood-prone lower blocks, with no pressing deadline, is usually still better off testing a normal listing first, since Parkville's own historic downtown and university connection continue to draw real buyer interest a discounted quick sale would leave on the table.",
 
       "A cash sale earns genuine consideration in Parkville specifically for a lower-lying property whose flood-zone status has stalled a conventional buyer's financing, a rental between Park University-connected tenants that an owner wants off the books quickly, or an estate needing to close on a fixed date -- not as the default answer for a seller with time and a marketable house on higher ground.",
 
@@ -173,7 +173,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "Harrisonville, the Cass County seat farther south, and Lee's Summit, just across the Jackson County line to the north, both carry more active resale markets than Pleasant Hill's own smaller, rail-heritage downtown, though the identical statutes reach all three.",
 
-      "None of the above makes a fast cash sale the default answer for a seller in Pleasant Hill. An owner with no trustee's-sale notice already published and no fixed estate deadline is usually still better off listing conventionally, since the depot-area buyer interest described above has held up well even as newer construction elsewhere in the county draws its own separate demand.",
+      "A fast cash sale rarely serves a Pleasant Hill owner without an urgent deadline better than a conventional listing does. An owner with no trustee's-sale notice already published and no fixed estate deadline is usually still better off listing conventionally, since the depot-area buyer interest described above has held up well even as newer construction elsewhere in the county draws its own separate demand.",
 
       "A cash sale earns real consideration in Pleasant Hill specifically for a house whose parcel sits across the Jackson County line and has picked up a title complication as a result, an estate needing to close by a fixed date, or a property carrying repair needs no conventional lender will finance -- not as the first move for a seller with time and a clean title.",
 
@@ -225,7 +225,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "Where a cash sale genuinely fits Nevada is narrower than it might first appear: a landlord's rental near campus caught between tenants, an heir whose estate has to close by a set date, or a house whose repair list is long enough that a market this size has no lender willing to finance it -- not a seller who simply has time and a house in decent shape.",
 
-      "[MO] None of the above is legal advice, and a small-county foreclosure notice, tax bill, or probate filing touching a Nevada property deserves a Missouri attorney's own review of the actual paperwork rather than a general description of statewide rules.",
+      "[MO] None of this is legal advice, and a Nevada, Missouri owner holding an actual foreclosure notice, tax bill, or probate filing still needs a Missouri attorney's direct review of that specific paperwork -- Vernon County's small size doesn't change that.",
     ],
     claims: [
       citations["mo-nonjudicial"],
@@ -273,7 +273,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "The situations where a cash sale actually fits Boonville are specific ones: an estate that has to close by a set date, a house whose repair needs push it outside what a conventional lender in a market this size will finance, or an owner already late on payments with a trustee's-sale notice on the way.",
 
-      "[MO] None of the above is legal advice, and a small-county foreclosure notice, tax bill, or probate filing touching a Boonville property deserves a Missouri attorney's own review of the actual paperwork rather than a general description of statewide rules.",
+      "[MO] A general statewide summary is not legal advice, and a Boonville owner holding an actual foreclosure notice, tax bill, or probate filing deserves a Missouri attorney's own review of that specific paperwork instead.",
     ],
     claims: [
       citations["mo-nonjudicial"],
@@ -317,7 +317,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "Tonganoxie, a similarly fast-growing Leavenworth County exurb a few miles west, has followed a different corridor -- U.S. 24/40 rather than K-7 -- and draws a somewhat different commuter than Basehor's own growth does, even though both answer to the identical Kansas statutes above. Leavenworth and Lansing, closer to the fort and the correctional facility, round out the rest of this county's four cities with an older, more established housing stock than either of the two exurbs shows.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Basehor. An owner in a newer subdivision with real equity and no urgent deadline is usually still better off listing conventionally, since the same growth fueling new construction along that K-7 corridor keeps demand for existing homes just as strong.",
+      "Real equity and no urgent deadline make a conventional listing the smarter bet for a Basehor seller in a newer subdivision. An owner in a newer subdivision with real equity and no urgent deadline is usually still better off listing conventionally, since the same growth fueling new construction along that K-7 corridor keeps demand for existing homes just as strong.",
 
       "A cash sale earns genuine consideration in Basehor for an older, pre-boom house carrying repair needs a conventional lender will not finance, or a property whose special-assessment paperwork has stalled a conventional closing -- not the default choice for a seller sitting on real, meaningful equity with no particular rush to close before any deadline arrives.",
 
@@ -366,7 +366,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "Kansas City, Kansas, the much larger city carrying the bulk of Wyandotte County's own population, sits closer to the urban core than Bonner Springs's own smaller, more small-town footprint, even though both answer to identical Wyandotte County-anchored statutes wherever a Bonner Springs parcel actually sits on that side of the line. Edwardsville, a smaller Wyandotte County city farther east along the same Kansas River corridor, shares Bonner Springs's own small-town scale without the added complexity of touching three separate counties at once.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Bonner Springs. An owner with real equity and no urgent deadline is usually still better off listing conventionally and confirming which of the three counties actually holds a specific parcel's own records, rather than assuming a fast, discounted sale is the only option this three-county straddle allows.",
+      "An owner with real equity and no urgent deadline is not who a fast cash sale is built for -- not in a city straddling three counties any more than anywhere else. An owner with real equity and no urgent deadline is usually still better off listing conventionally and confirming which of the three counties actually holds a specific parcel's own records, rather than assuming a fast, discounted sale is the only option this three-county straddle allows.",
 
       "A cash sale earns genuine consideration in Bonner Springs specifically when the three-county straddle has muddied a title enough that a conventional buyer's lender balks, or when an owner already faces a scheduled sheriff's sale with the clock running -- not as a default response to the city's own unusual boundary.",
 
@@ -414,7 +414,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "Bourbon County's own remaining towns are considerably smaller than Fort Scott itself, leaving it as the only real commercial center for a genuinely rural stretch of southeast Kansas -- a concentration of buyer demand into one city that a county with several similarly sized towns would not show, though that concentration still translates into far fewer transactions in a typical month than a metro-area suburb would see.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Fort Scott. An owner of a well-kept historic home near the fort, with time and no pressing deadline, is usually still better off testing a normal listing first, since this fort town's own genuine architectural character continues to draw specific buyer interest a fast, discounted sale would not capture.",
+      "A historic home near the fort, owned by a seller with time to spare, is the case a normal listing serves better than a fast cash sale. An owner of a well-kept historic home near the fort, with time and no pressing deadline, is usually still better off testing a normal listing first, since this fort town's own genuine architectural character continues to draw specific buyer interest a fast, discounted sale would not capture.",
 
       "A cash sale earns real consideration in Fort Scott for a house whose age has produced repair needs a conventional lender will not finance, an estate that needs to close before a fixed date, or an owner already facing a scheduled sheriff's sale with the clock already running -- not as the default answer for a seller with time and a marketable historic home.",
 
@@ -463,7 +463,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "Plattsburg and Lathrop, both smaller Clinton County towns farther from the interstate junction, see far less of the truck-stop and warehouse-driven commerce that shapes Cameron's own economy today, even though the identical Missouri statutes above reach all three of these towns just the same.",
 
-      "None of the above makes a fast cash sale the default answer for a seller in Cameron. An owner with no trustee's-sale notice already published and no fixed estate deadline is usually still better off listing conventionally, since the crossroads economy described above has kept steady demand for housing near the interstate.",
+      "Not every owner in Cameron benefits from a fast cash sale -- one with no trustee's-sale notice already published, and no fixed estate deadline, typically comes out ahead listing conventionally instead. An owner with no trustee's-sale notice already published and no fixed estate deadline is usually still better off listing conventionally, since the crossroads economy described above has kept steady demand for housing near the interstate.",
 
       "A cash sale earns real consideration in Cameron specifically for a house whose parcel straddles the Clinton-DeKalb County line and has picked up a title complication as a result, an estate needing to close on a fixed date, or a property carrying repair needs no conventional lender in a market this size will finance.",
 
@@ -511,7 +511,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "Merriam and Mission, both nearby in the same closer-in cluster of older Johnson County, Kansas cities, share Roeland Park's own postwar-built character and small footprint, a genuinely different pattern of age and scale from Overland Park's or Olathe's own considerably newer growth farther out in the same county's own southwestern reaches.",
 
-      "None of the above makes a fast cash sale the default answer for a seller in Roeland Park. An owner of an older, well-kept house in Roeland Park with real equity and no urgent deadline is usually still better off listing conventionally instead, since its own small, landlocked footprint has not stopped it from drawing steady buyer interest from people specifically looking for its closer-in location and its own shorter commute into the metro core.",
+      "Equity and patience, more than anything else, are what make a conventional listing the better move for an older Roeland Park house. An owner of an older, well-kept house in Roeland Park with real equity and no urgent deadline is usually still better off listing conventionally instead, since its own small, landlocked footprint has not stopped it from drawing steady buyer interest from people specifically looking for its closer-in location and its own shorter commute into the metro core.",
 
       "A cash sale earns genuine consideration in Roeland Park for an older house carrying real deferred maintenance a conventional lender will not finance, or an estate racing against a fixed closing deadline -- not as the first move for an owner with plenty of time on their side and no such pressure.",
 
@@ -559,7 +559,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "Gardner and Edgerton, De Soto's own nearer neighbors at the western edge of Johnson County, Kansas, have seen a smaller version of the same construction-driven growth, while Overland Park and Olathe closer to the built-up core carry a far older, more established housing stock than any of the three. The Sunflower site's own decades as a federal ammunition plant left behind an environmental cleanup history a buyer's lender sometimes asks about directly, separate from anything the statutes above require a seller to volunteer -- an older parcel near the plant's own former boundary can carry a genuinely different due-diligence timeline than a newer subdivision lot built well clear of that history.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in De Soto. An owner with real equity and no urgent deadline is usually still better off listing conventionally, since the same Panasonic-driven construction boom happening nearby keeps interest in existing homes just as strong too.",
+      "Real equity and no urgent deadline point a De Soto seller toward a conventional listing, not a fast cash sale. An owner with real equity and no urgent deadline is usually still better off listing conventionally, since the same Panasonic-driven construction boom happening nearby keeps interest in existing homes just as strong too.",
 
       "A cash sale still earns genuine consideration in De Soto for a thin-equity owner once a mortgage and any liens are counted, or a property whose special-assessment status has complicated a conventional buyer's own financing -- not the default choice for a seller with real equity to spare and no particular reason to rush.",
 
@@ -608,7 +608,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "Baldwin City, the third of Douglas County's three incorporated cities, sits farther south and carries its own small-college character built around Baker University, a genuinely different draw than either Lawrence's larger university or Eudora's own purely residential market. All three cities answer to the identical Douglas County-anchored statutes above, but a homeowner comparing Eudora's own market against either neighbor should expect a genuinely different buyer profile in each: a Lawrence sale competes against a large, rotating pool of student and staff renters converting to ownership, a Baldwin City sale draws from a smaller pool tied to Baker University's own faculty and staff, and a Eudora sale draws overwhelmingly from families and commuters looking for an established, owner-occupied neighborhood rather than anything tied to either college.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Eudora. An owner-occupied home in genuinely good condition with no urgent deadline is usually still better off listed conventionally, since Eudora's own steady, owner-occupied character has kept demand for existing homes reasonably consistent over time.",
+      "A genuinely well-kept, owner-occupied Eudora home without an urgent deadline rarely needs the discount a fast cash sale brings. An owner-occupied home in genuinely good condition with no urgent deadline is usually still better off listed conventionally, since Eudora's own steady, owner-occupied character has kept demand for existing homes reasonably consistent over time.",
 
       "A cash sale earns genuine consideration in Eudora for a house carrying real repair needs a conventional lender will not finance, or for an estate that needs an uncomplicated and genuinely fast close -- not as the default answer for an owner-occupant with equity and time to spare.",
 
@@ -656,7 +656,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "Lee's Summit, immediately north along the same U.S. 50 corridor, carries a far larger and more active resale market than Greenwood's own smaller, quieter footprint -- a difference in scale within the same county, not in which statutes reach either city.",
 
-      "None of the above makes a fast cash sale the default answer for a seller in Greenwood. An owner with no trustee's-sale notice already published and no fixed estate deadline is usually still better off listing conventionally, since this small city's own steady commuter demand has kept a well-priced house moving even without Lee's Summit's own larger buyer pool.",
+      "Waiting out a conventional listing typically beats a fast cash sale for a Greenwood owner with no trustee's-sale notice already published and no fixed estate deadline. An owner with no trustee's-sale notice already published and no fixed estate deadline is usually still better off listing conventionally, since this small city's own steady commuter demand has kept a well-priced house moving even without Lee's Summit's own larger buyer pool.",
 
       "A cash sale earns real consideration in Greenwood for a house carrying repair needs a conventional lender will not finance, an estate needing to close on a fixed date, or an owner already behind on payments with a trustee's-sale notice approaching -- not as the first move for a seller with time and a marketable house.",
 
@@ -705,7 +705,7 @@ export const cityContentTier3b: Record<string, PageContent> = {
 
       "Tonganoxie Days, an annual community festival held downtown each fall, draws visitors from across the county, a fact about local events rather than about which statutes reach a house sale elsewhere in the city. The festival itself grew out of the city's own Delaware Township roots, and the surrounding farmland that once supplied a much smaller nineteenth-century settlement has, over the past two decades, given way to the same kind of subdivision growth reshaping Basehor a few miles east -- a pattern common to both exurbs even though each city's own downtown retains a genuinely separate identity built around its own rail-era main street.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Tonganoxie. An owner sitting on real equity in a newer subdivision, with no urgent deadline pressing, is usually still better off going the conventional-listing route, since the U.S. 24/40 corridor's own growth has kept demand for existing homes just as strong as it has for new construction.",
+      "Real equity in a newer subdivision, paired with no urgent deadline, points a Tonganoxie seller toward a conventional listing instead of a fast cash sale. An owner sitting on real equity in a newer subdivision, with no urgent deadline pressing, is usually still better off going the conventional-listing route, since the U.S. 24/40 corridor's own growth has kept demand for existing homes just as strong as it has for new construction.",
 
       "A cash sale earns genuine consideration in Tonganoxie for an older, pre-growth house carrying real repair needs a conventional lender will not finance, or an estate that genuinely cannot wait out a normal listing timeline -- not the default choice for a seller with equity and no fixed deadline in sight.",
 

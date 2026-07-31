@@ -59,7 +59,7 @@ export const countyContentRural: Record<string, PageContent> = {
 
       "Clinton County's own proximity to the metro core, closer than any other county in this batch, has made it a genuine commuter option for households working in Kansas City or St. Joseph but priced out of Clay or Buchanan County -- new construction near Cameron reflects that spillover far more than Gower or Lathrop do, and the two smaller towns have changed comparatively little.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Clinton County. An owner in Cameron with real equity and no fixed deadline is usually better off listing conventionally, since the I-35 corridor still draws a reasonably steady stream of buyers; a cash sale earns real consideration mainly for a Gower or Lathrop property that would sit for months in a thinner market, farmland caught in a stalled estate, or a house needing repairs a conventional lender won't finance.",
+      "Real equity and no fixed deadline point toward a conventional listing for a Cameron seller, not toward a fast cash sale. An owner in Cameron with real equity and no fixed deadline is usually better off listing conventionally, since the I-35 corridor still draws a reasonably steady stream of buyers; a cash sale earns real consideration mainly for a Gower or Lathrop property that would sit for months in a thinner market, farmland caught in a stalled estate, or a house needing repairs a conventional lender won't finance.",
 
       "[MO] None of this is legal advice. A Clinton County homeowner facing a foreclosure notice, an estate question, or uncertainty about how a farm-credit buyer's financing actually works should talk to a Missouri attorney who can review the specific paperwork, not rely on a general county page like this one.",
     ],
@@ -101,7 +101,7 @@ export const countyContentRural: Record<string, PageContent> = {
 
       "A landlord with a Maryville rental sitting vacant between semesters, or dealing with a difficult student tenant, is a genuinely stronger candidate for a fast cash sale than an owner-occupied farmhouse in good repair with no deadline -- the university drives a distinct, recurring reason to sell quickly that the surrounding farmland simply does not share.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Nodaway County. An owner-occupied home in Maryville with no urgent deadline is usually better off listed conventionally, given the university's own steady demand; a cash sale earns real consideration mainly for a rental between tenants, a farmhouse that would sit for months in a thin rural market, or an estate that cannot wait out either one.",
+      "A conventional listing usually beats a fast cash sale for an owner-occupied home in Maryville with no urgent deadline. An owner-occupied home in Maryville with no urgent deadline is usually better off listed conventionally, given the university's own steady demand; a cash sale earns real consideration mainly for a rental between tenants, a farmhouse that would sit for months in a thin rural market, or an estate that cannot wait out either one.",
 
       "[MO] None of this is legal advice. A Nodaway County homeowner facing a foreclosure notice, a landlord-disclosure question, or an estate involving a rental property should talk to a Missouri attorney who can review the actual paperwork, not rely on a general county overview.",
     ],
@@ -145,7 +145,7 @@ export const countyContentRural: Record<string, PageContent> = {
 
       "An heir who inherits a Benton County lake cabin used only seasonally faces a different practical question than one inheriting a Cole Camp farmhouse -- deciding whether to keep covering off-season lake-property costs, hold out for next summer's stronger buyer pool, or take a faster off-season sale instead is not the same calculation as settling an ordinary farmland estate.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Benton County. A well-maintained lake cabin near Warsaw with no urgent deadline is usually better off listed conventionally and timed around the season when lake buyers are actually looking; a cash sale earns real consideration mainly for a Cole Camp or Lincoln property that would sit for a long stretch in a thin rural market, or an off-season lake sale that genuinely cannot wait for summer.",
+      "A lake cabin near Warsaw usually sells for more on its own seasonal timing than on a fast cash sale's schedule. A well-maintained lake cabin near Warsaw with no urgent deadline is usually better off listed conventionally and timed around the season when lake buyers are actually looking; a cash sale earns real consideration mainly for a Cole Camp or Lincoln property that would sit for a long stretch in a thin rural market, or an off-season lake sale that genuinely cannot wait for summer.",
 
       "[MO] None of this is legal advice. A Benton County homeowner facing a foreclosure notice or weighing how the season affects a lake-property sale should talk to a Missouri attorney or a local realtor familiar with the reservoir market, not rely on a general county overview.",
     ],
@@ -187,7 +187,7 @@ export const countyContentRural: Record<string, PageContent> = {
 
       "An heir to Vernon County farmland scattered among several family members faces a genuinely different problem than a Nevada homeowner selling a single-family residence -- sorting out who can actually sign for the land, and whether every heir agrees to independent administration, often takes longer than settling a straightforward town-home estate does.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Vernon County. A Nevada homeowner with real equity and no fixed deadline is usually better off listing conventionally through a local realtor; a cash sale earns real consideration mainly for farmland tied up in a stalled, multi-heir estate, or a rural property needing repairs a conventional lender will not finance.",
+      "A fast cash sale rarely serves a Nevada homeowner with time and equity better than a local realtor's conventional listing does. A Nevada homeowner with real equity and no fixed deadline is usually better off listing conventionally through a local realtor; a cash sale earns real consideration mainly for farmland tied up in a stalled, multi-heir estate, or a rural property needing repairs a conventional lender will not finance.",
 
       "[MO] None of this is legal advice. A Vernon County homeowner facing a foreclosure notice or an estate involving farmland split among heirs should talk to a Missouri attorney who can review the actual paperwork, not rely on a general county summary.",
     ],
@@ -231,7 +231,7 @@ export const countyContentRural: Record<string, PageContent> = {
 
       "Jefferson County's own courthouse sits in Oskaloosa, and it handles every filing touching real estate in the county regardless of whether the parcel in question is a Valley Falls town lot, a working farm, or a cabin near the reservoir -- a single small-town courthouse standing in for what a Douglas County seller would find spread across a much larger county clerk's office in Lawrence.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Jefferson County. An owner in Oskaloosa or Valley Falls with no urgent deadline is usually better off listing conventionally; a cash sale earns real consideration mainly for an off-season lake property, farmland caught in a stalled estate, or a house needing repairs a conventional lender will not finance.",
+      "Oskaloosa and Valley Falls owners without an urgent deadline generally do better waiting out a normal listing than taking a cash offer. An owner in Oskaloosa or Valley Falls with no urgent deadline is usually better off listing conventionally; a cash sale earns real consideration mainly for an off-season lake property, farmland caught in a stalled estate, or a house needing repairs a conventional lender will not finance.",
 
       "[KS] None of this is legal advice. A Jefferson County homeowner facing a foreclosure summons or an estate question involving lake or farm property should talk to a Kansas attorney who can review the actual paperwork, not rely on a general county overview.",
     ],
@@ -274,7 +274,7 @@ export const countyContentRural: Record<string, PageContent> = {
 
       "A commuter household relocating for a St. Joseph job with a fixed start date is a genuinely different seller than a longtime Savannah resident with no deadline at all -- the first has a real, timeline-driven reason to consider a fast sale that the second usually does not share.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Andrew County. A Savannah or Country Club homeowner with real equity and no fixed deadline is usually better off listing conventionally, given the steady commuter demand from St. Joseph; a cash sale earns real consideration mainly for a relocation on a tight schedule, farmland tied up in a stalled estate, or a property needing repairs a conventional lender will not finance.",
+      "For a Savannah or Country Club homeowner with time and equity to spare, a conventional listing is the stronger move, not a fast cash sale. A Savannah or Country Club homeowner with real equity and no fixed deadline is usually better off listing conventionally, given the steady commuter demand from St. Joseph; a cash sale earns real consideration mainly for a relocation on a tight schedule, farmland tied up in a stalled estate, or a property needing repairs a conventional lender will not finance.",
 
       "[MO] None of this is legal advice. An Andrew County homeowner facing a foreclosure notice or a relocation deadline tied to a St. Joseph job should talk to a Missouri attorney who can review the actual paperwork, not rely on a general county overview.",
     ],
@@ -317,7 +317,7 @@ export const countyContentRural: Record<string, PageContent> = {
 
       "The Cooper County Courthouse sits in Boonville and handles every filing that touches real estate anywhere in the county, historic downtown property or river-bottom farmland alike, and an heir who no longer lives near central Missouri is dealing with one small-town courthouse rather than a large metro clerk's office built to process filings by the hundreds.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Cooper County. A Boonville homeowner with real equity and no urgent deadline is usually better off listing conventionally, particularly near the historic district where patient marketing tends to pay off; a cash sale earns real consideration mainly for farmland tied up in a stalled estate, or a property needing repairs a conventional lender will not finance.",
+      "Patient marketing near Boonville's historic district tends to outperform a fast cash sale for an owner with real equity and no urgent deadline. A Boonville homeowner with real equity and no urgent deadline is usually better off listing conventionally, particularly near the historic district where patient marketing tends to pay off; a cash sale earns real consideration mainly for farmland tied up in a stalled estate, or a property needing repairs a conventional lender will not finance.",
 
       "[MO] None of this is legal advice. A Cooper County homeowner facing a foreclosure notice or an estate involving river-bottom farmland should talk to a Missouri attorney who can review the actual paperwork, not rely on a general county summary.",
     ],
@@ -359,7 +359,7 @@ export const countyContentRural: Record<string, PageContent> = {
 
       "An heir to Rich Hill property with an unclear history behind it faces a different practical question than an Adrian farmland heir with straightforward title -- confirming what an older building was actually used for before assuming a fast, as-is sale is the simplest path forward is worth the extra step.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Bates County. A Butler or Adrian homeowner with real equity and no fixed deadline is usually better off listing conventionally; a cash sale earns real consideration mainly for a Rich Hill property with disclosure complications, farmland tied up in a stalled estate, or a house needing repairs a conventional lender will not finance.",
+      "A Butler or Adrian seller without a fixed deadline gains little by skipping a conventional listing for a fast cash sale. A Butler or Adrian homeowner with real equity and no fixed deadline is usually better off listing conventionally; a cash sale earns real consideration mainly for a Rich Hill property with disclosure complications, farmland tied up in a stalled estate, or a house needing repairs a conventional lender will not finance.",
 
       "[MO] None of this is legal advice. A Bates County homeowner facing a foreclosure notice or uncertain what an older Rich Hill property's history requires disclosing should talk to a Missouri attorney who can review the actual paperwork, not rely on a general county overview.",
     ],
@@ -403,7 +403,7 @@ export const countyContentRural: Record<string, PageContent> = {
 
       "The Atchison County Courthouse in Atchison itself handles every filing that touches real estate in the county, whether the parcel in question is a downtown rental near the college or a farm several miles out along the river bluffs -- a single small-town courthouse rather than a large metro clerk's office built to process filings by the hundreds.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Atchison County. An owner-occupied home in Atchison itself with no urgent deadline is usually better off listed conventionally, given the college's own steady rental demand; a cash sale earns real consideration mainly for a rental between semesters, farmland that would sit for months in a thin rural market, or an estate that cannot wait out either one.",
+      "A conventional listing usually beats a fast cash sale for an owner-occupied home in Atchison itself with no urgent deadline pressing. An owner-occupied home in Atchison itself with no urgent deadline is usually better off listed conventionally, given the college's own steady rental demand; a cash sale earns real consideration mainly for a rental between semesters, farmland that would sit for months in a thin rural market, or an estate that cannot wait out either one.",
 
       "[KS] None of this is legal advice, and confirming which Atchison County a specific property sits in isn't a legal question at all -- it's a matter of checking the state on a deed or tax bill first. An Atchison County, Kansas homeowner facing a foreclosure summons or an estate question should talk to a Kansas attorney who can review the actual paperwork.",
     ],
@@ -449,7 +449,7 @@ export const countyContentRural: Record<string, PageContent> = {
 
       "The Osage County Courthouse in Lyndon handles every filing touching real estate anywhere in the county, whether the parcel in question is a Carbondale commuter home, an Osage City rental, or farmland between the three towns -- one small-town courthouse standing in for what a Shawnee County seller would find spread across a much larger clerk's office in Topeka.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Osage County. A Carbondale homeowner with real equity and no urgent deadline is usually better off listing conventionally, given the Topeka-driven commuter demand; a cash sale earns real consideration mainly for an Osage City or Lyndon property that would sit for a long stretch in a slower, older-town market, or farmland caught in a stalled estate.",
+      "For a Carbondale homeowner with real equity and no urgent deadline, a conventional listing is the stronger move in this county, not a fast cash sale. A Carbondale homeowner with real equity and no urgent deadline is usually better off listing conventionally, given the Topeka-driven commuter demand; a cash sale earns real consideration mainly for an Osage City or Lyndon property that would sit for a long stretch in a slower, older-town market, or farmland caught in a stalled estate.",
 
       "[KS] None of this is legal advice. An Osage County homeowner facing a foreclosure summons or an estate question should talk to a Kansas attorney who can review the actual paperwork for that specific property, not rely on a general county overview.",
     ],
@@ -493,7 +493,7 @@ export const countyContentRural: Record<string, PageContent> = {
 
       "Settling a Chillicothe residence with one clear owner is a straightforward matter next to untangling a Livingston County farm left to several siblings at once -- getting every one of them to actually agree on independent administration, rather than defaulting into a court-supervised process, is where a farmland estate usually loses months a town-home estate never has to spend.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Livingston County. A Chillicothe owner sitting on real equity with no deadline forcing a decision generally comes out ahead listing through a realtor who knows the local market; where a fast sale genuinely earns consideration is a multi-heir farm estate stuck in probate, or a house that needs work no conventional buyer's lender will approve financing for.",
+      "Not every Chillicothe seller benefits from a fast cash sale; an owner with real equity and no deadline forcing a decision typically does better with a local realtor instead. A Chillicothe owner sitting on real equity with no deadline forcing a decision generally comes out ahead listing through a realtor who knows the local market; where a fast sale genuinely earns consideration is a multi-heir farm estate stuck in probate, or a house that needs work no conventional buyer's lender will approve financing for.",
 
       "[MO] None of this is legal advice, and a multi-heir farm estate in particular is not something to navigate off a general summary like this one. A Livingston County homeowner staring down a foreclosure notice, or heirs trying to sort out a shared farm, should get an actual Missouri attorney to look at the specific paperwork in front of them.",
     ],
@@ -535,7 +535,7 @@ export const countyContentRural: Record<string, PageContent> = {
 
       "A seller carrying a contract for deed on Bourbon County farmland and dealing with a defaulting buyer faces a genuinely different problem than a Fort Scott homeowner selling outright -- working through the statutory notice-and-cure process above takes real time before any forfeiture, let alone a resale, can even begin.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in Bourbon County. A Fort Scott homeowner with real equity and no fixed deadline is usually better off listing conventionally; a cash sale earns real consideration mainly for farmland that would sit for a long stretch in a thin rural market, a stalled multi-heir estate, or a contract-for-deed situation complicated enough to make a conventional buyer's lender balk.",
+      "A fast cash sale rarely serves a Fort Scott homeowner with real equity and no fixed deadline better than a conventional listing does. A Fort Scott homeowner with real equity and no fixed deadline is usually better off listing conventionally; a cash sale earns real consideration mainly for farmland that would sit for a long stretch in a thin rural market, a stalled multi-heir estate, or a contract-for-deed situation complicated enough to make a conventional buyer's lender balk.",
 
       "[KS] None of this is legal advice. A Bourbon County homeowner facing a foreclosure summons or a contract-for-deed dispute should talk to a Kansas attorney who can review the actual paperwork, not rely on a general county overview.",
     ],

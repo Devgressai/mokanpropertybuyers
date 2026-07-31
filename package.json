@@ -19,8 +19,9 @@
     "check:links": "tsx scripts/check-links.mts",
     "check:hrefs": "tsx scripts/check-hrefs.mts",
     "check:duplication": "tsx scripts/check-duplication.mts",
+    "check:sentence-stems": "tsx scripts/check-sentence-stems.mts",
     "check:leads": "tsx scripts/check-leads.mts",
-    "check:all": "npm run typecheck && npm run test && npm run check:slugs && npm run check:state-claims && npm run check:content-slugs && npm run check:pages && npm run check:assets && npm run check:links && npm run check:hrefs && npm run check:duplication && npm run check:leads"
+    "check:all": "npm run typecheck && npm run test && npm run check:slugs && npm run check:state-claims && npm run check:content-slugs && npm run check:pages && npm run check:assets && npm run check:links && npm run check:hrefs && npm run check:duplication && npm run check:sentence-stems && npm run check:leads"
   },
   "dependencies": {
     "next": "^15.3.0",

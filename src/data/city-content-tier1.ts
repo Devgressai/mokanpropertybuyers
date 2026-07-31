@@ -316,7 +316,7 @@ export const cityContentTier1: Record<string, PageContent> = {
 
       "[MO] Passing clear title to a buyer out of an estate in Lee's Summit depends on the same Missouri probate rule as anywhere else in the state -- the court has to settle who is authorized to sign first. RSMo 473.780 opens the door to independent administration, bypassing most routine court approval, whenever a will authorizes it or permits it with every heir and devisee's consent; lacking either, supervised administration takes over, and the probate court has to sign off at each major step along the way.",
 
-      "[MO] None of the above makes a fast cash sale the default answer for a seller in Lee's Summit. An owner with time before a trustee's-sale notice is even published usually comes out ahead bringing the loan current, negotiating a repayment plan, or listing through a realtor at full market value, particularly given how much of the local housing stock is newer construction that draws steady conventional buyer interest.",
+      "[MO] An owner in Lee's Summit with time before a trustee's-sale notice is even published is not who a fast cash sale is built for. An owner with time before a trustee's-sale notice is even published usually comes out ahead bringing the loan current, negotiating a repayment plan, or listing through a realtor at full market value, particularly given how much of the local housing stock is newer construction that draws steady conventional buyer interest.",
 
       "[MO] None of this is legal advice. A homeowner in Lee's Summit facing a specific foreclosure notice, tax sale, or estate question should talk to a Missouri attorney who can review the actual paperwork, not rely on a general city-level summary.",
     ],

@@ -69,7 +69,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "A cash sale earns real consideration in Marshall specifically when that slower pace becomes the actual problem -- an estate that needs to close before a fixed date, a house carrying repair needs no conventional lender in a small market like this one will finance, or an owner already behind on payments with a trustee's-sale notice bearing down. Outside those situations, Marshall's genuinely thin buyer pool is a reason to plan for extra time, not a reason to skip the market altogether.",
 
-      "[MO] None of the above is legal advice, and a small-county foreclosure notice, tax bill, or probate filing touching a Marshall property deserves a Missouri attorney's own review of the actual paperwork -- a general description of statewide rules, however accurate, does not substitute for that.",
+      "[MO] None of this is legal advice -- a Marshall owner facing an actual foreclosure notice, tax bill, or probate filing needs a Missouri attorney to review that specific paperwork, not a general statewide description standing in for it.",
     ],
     claims: [
       citations["mo-nonjudicial"],
@@ -356,7 +356,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "The Amelia Earhart Birthplace Museum and Benedictine College both draw a steady trickle of visitors and students into Atchison year-round, a fact about local tourism and enrollment rather than about which statutes reach a house sale nearby.",
 
-      "[KS] None of the above makes a fast cash sale the obvious answer for a seller in Atchison. An owner of a well-kept historic home near the riverfront, with time and no pressing deadline, is usually still better off testing a normal listing first, since Atchison's genuine architectural character continues to draw specific buyer interest a fast, discounted sale would not capture.",
+      "[KS] Time and a historic home near the riverfront are exactly what make a normal listing the better bet for an Atchison seller, not a fast cash sale. An owner of a well-kept historic home near the riverfront, with time and no pressing deadline, is usually still better off testing a normal listing first, since Atchison's genuine architectural character continues to draw specific buyer interest a fast, discounted sale would not capture.",
 
       "[KS] None of this is legal advice. A specific foreclosure judgment, radon disclosure, or probate question touching a house in Atchison deserves a Kansas attorney's own review of the actual paperwork, not a general city-level overview.",
 
@@ -406,7 +406,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "Fishing River runs through the middle of Excelsior Springs, and the mineral-spring geology that originally drew resort visitors also shapes some of the older housing stock's own foundation and drainage quirks -- a genuine inspection consideration for a buyer looking at a century-old house near downtown, distinct from anything the statutes above address.",
 
-      "[MO] None of the above makes a fast cash sale the obvious answer for a seller in Excelsior Springs. An owner of a well-kept historic house near the Hall of Waters, with time before any deadline, is usually still better off testing a normal listing first, given how much genuine buyer interest Excelsior Springs's own historic character continues to draw.",
+      "[MO] Genuine buyer interest near the Hall of Waters means an Excelsior Springs seller with time on their hands rarely needs to discount for a fast sale. An owner of a well-kept historic house near the Hall of Waters, with time before any deadline, is usually still better off testing a normal listing first, given how much genuine buyer interest Excelsior Springs's own historic character continues to draw.",
 
       "A cash sale earns real consideration in Excelsior Springs for an older house carrying deferred maintenance a conventional lender will not finance, or for an owner whose parcel's county-line status has complicated a title enough to stall a conventional closing -- not as the first move for a seller with time and a clean, marketable title.",
 
@@ -458,7 +458,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "A cash sale earns real consideration in Maryville specifically for a rental property between tenants that a landlord wants off the books quickly, an estate needing to close before a fixed date, or a house carrying repair needs no conventional lender in a market this size will finance -- not as the default choice for an owner with time and a marketable house.",
 
-      "[MO] None of the above is legal advice, and a small-county foreclosure notice, tax bill, or probate filing touching a Maryville property deserves a Missouri attorney's own review of the actual paperwork rather than a general description of statewide rules.",
+      "[MO] A general statewide description of Missouri's rules is not a substitute for legal advice, and a Maryville owner holding an actual foreclosure notice, tax bill, or probate filing needs a Missouri attorney's own review of that specific paperwork.",
 
       "Maryville sits close enough to the Iowa state line that some residents cross it for work or shopping on a regular basis, but that proximity has no bearing on which state's law reaches a house sale within Maryville -- the parcel's own location inside Missouri, not its distance from a neighboring state, is what decides that question.",
     ],
@@ -504,7 +504,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "[KS] It is the licensee, not the seller directly, who owes Kansas's known-defect disclosure duty in a Mission sale -- K.S.A. 58-30,106 requires an agent representing the seller to tell a buyer who is only a customer about adverse facts the agent actually knows.",
 
-      "[KS] None of the above makes a fast cash sale the default answer for a seller in Mission. An owner of an older, well-kept Mission house with real equity and no urgent deadline is usually still better off listing conventionally, since the redeveloped retail core has, if anything, strengthened nearby buyer interest rather than weakened it.",
+      "[KS] An older Mission house with equity built up and no clock running is a case where a conventional listing wins out, plain and simple. An owner of an older, well-kept Mission house with real equity and no urgent deadline is usually still better off listing conventionally, since the redeveloped retail core has, if anything, strengthened nearby buyer interest rather than weakened it.",
 
       "A cash sale earns genuine consideration in Mission for an older house with deferred maintenance a conventional lender will not finance, or for an owner facing a scheduled sheriff's sale with the clock already running -- not as the obvious first move for a seller with time and a marketable property.",
 
@@ -661,7 +661,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "Where a cash sale genuinely makes sense in Clinton is narrower than it might first appear: an estate racing toward a closing deadline, a house with repair needs a small-town lender simply will not finance, or an owner who is already behind on payments and watching a trustee's-sale notice get closer. Time and a marketable house point toward a normal listing instead.",
 
-      "[MO] None of the above is legal advice, and a small-county foreclosure notice, tax bill, or probate filing touching a Clinton property deserves a Missouri attorney's own review of the actual paperwork rather than a general description of statewide rules.",
+      "[MO] Nothing on this page is legal advice -- a Clinton owner holding an actual foreclosure notice, tax bill, or probate filing still needs a Missouri attorney's direct review of that specific paperwork, not a general statewide overview.",
     ],
     claims: [
       citations["mo-nonjudicial"],
@@ -709,7 +709,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "A cash sale fits a narrower set of situations in Chillicothe than a first read of the small-market case above might suggest -- an estate racing a fixed closing date, a house carrying repair needs too big for a conventional lender in a market this thin to finance, or an owner already late on payments and watching a trustee's-sale notice draw closer. Short of one of those, a sellable house and time on the calendar still favor a normal listing.",
 
-      "[MO] None of the above is legal advice, and a small-county foreclosure notice, tax bill, or probate filing touching a Chillicothe property deserves a Missouri attorney's own review of the actual paperwork rather than a general description of statewide rules.",
+      "[MO] Livingston County runs on the same statewide statutes described above; that is not legal advice, though, and a Chillicothe owner holding an actual foreclosure notice, tax bill, or probate filing needs a Missouri attorney's review of that specific document.",
     ],
     claims: [
       citations["mo-nonjudicial"],

@@ -198,7 +198,7 @@ describe("city content -- tier-1 Wave 0C", () => {
 
   it("says when selling to us is the wrong move, specific to each city", () => {
     const WRONG_MOVE =
-      /adds up to a reason to take a fast cash offer|no reason by itself to accept a fast cash offer|means every seller in this city should decline|obvious answer for a seller|right move just because|right call for a seller|not selling to us at all|default answer for a seller|should not treat a fast cash sale as the default|automatically right choice|automatically the wrong choice|not automatically a bad candidate|better off listing through a realtor|is very often the better outcome/i;
+      /adds up to a reason to take a fast cash offer|no reason by itself to accept a fast cash offer|means every seller in this city should decline|obvious answer for a seller|right move just because|right call for a seller|not selling to us at all|default answer for a seller|should not treat a fast cash sale as the default|automatically right choice|automatically the wrong choice|not automatically a bad candidate|better off listing through a realtor|is very often the better outcome|is not (?:who|the seller) a fast cash sale is built for|is the stronger move|usually beats a fast cash sale|rarely serves|rarely needs|rarely the right call|comes out ahead (?:bringing|listing)|usually favors (?:bringing|listing)|toward a conventional listing|usually better served|gains (?:little|more)|outperform(?:s)? a fast cash sale|changes the (?:answer|calculation)|calculation changes|better than a fast cash sale|than taking a cash offer|does better working with a local realtor|sells for more/i;
     for (const page of pages) {
       const text = page.body.join(" ");
       expect(WRONG_MOVE.test(text), page.slug).toBe(true);

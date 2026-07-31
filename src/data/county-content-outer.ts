@@ -50,7 +50,7 @@ export const countyContentOuter: Record<string, PageContent> = {
 
       "At roughly 83,518 people, this county's housing market looks more like the outer edge of the metro core than like the smaller, more rural counties elsewhere in this batch -- Leavenworth clears the population figures of some metro counties covered elsewhere on this site, even though it sits farther out and carries a distinct military economy those counties do not share.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in this county. An owner with no fixed deadline and real equity in a Leavenworth, Lansing, Basehor, or Tonganoxie home is still generally better off listing conventionally; a cash sale earns real consideration mainly when a PCS order, a distant heir settling an estate, or a property needing repairs a conventional lender will not finance makes a normal listing timeline genuinely unworkable.",
+      "Time and equity, not urgency, are what most sellers in this county actually have -- which is why a conventional listing usually serves them better than a fast cash sale would. An owner with no fixed deadline and real equity in a Leavenworth, Lansing, Basehor, or Tonganoxie home is still generally better off listing conventionally; a cash sale earns real consideration mainly when a PCS order, a distant heir settling an estate, or a property needing repairs a conventional lender will not finance makes a normal listing timeline genuinely unworkable.",
 
       "[KS] None of this is legal advice. A Leavenworth County homeowner facing a foreclosure summons, a PCS deadline, or a probate question involving out-of-state heirs should talk to a Kansas attorney who can look at the actual paperwork, not rely on a general county overview like this one.",
     ],
@@ -89,7 +89,7 @@ export const countyContentOuter: Record<string, PageContent> = {
 
       "[MO] The step-by-step version of a Missouri trustee's-sale timeline -- exactly how the twenty-insertion notice runs, and what the four redemption conditions actually require in practice -- lives on this site's dedicated Missouri trustee-sale-timeline page rather than being repeated at length on this one; a Buchanan County homeowner facing an actual notice should read that page for the mechanics, not just this county's own summary.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in this county. An owner with time before a notice of trustee's sale runs usually comes out ahead bringing a loan current or listing through a realtor, and an owner unsure whether an older property carries an undisclosed history or sits in a flood-prone area has real reason to have it inspected before assuming a quick, as-is sale is the only option.",
+      "The clock still running before a trustee's sale is what changes the answer for most sellers in this county. An owner with time before a notice of trustee's sale runs usually comes out ahead bringing a loan current or listing through a realtor, and an owner unsure whether an older property carries an undisclosed history or sits in a flood-prone area has real reason to have it inspected before assuming a quick, as-is sale is the only option.",
 
       "[MO] None of this is legal advice. A Buchanan County homeowner facing a foreclosure notice or a question about what an older property's history requires disclosing should talk to a Missouri attorney who can review the actual paperwork, not rely on a general county summary.",
     ],
@@ -127,7 +127,7 @@ export const countyContentOuter: Record<string, PageContent> = {
 
       "A tax bill, deed, or GPS pin naming only \"Johnson County\" without a state attached is the single most reliable way to end up on the wrong page entirely. This Johnson County's own tax parcels are administered by the Johnson County, Missouri assessor's office based in Warrensburg, not by anything located in Olathe or Overland Park -- two cities that sit two states removed in name only.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in this county. An owner with no fixed deadline is usually better off listing conventionally, particularly in Warrensburg where university-driven demand supports an active market; a cash sale becomes worth real consideration mainly for a rental between tenants, a distant heir's estate, or a base-driven relocation on a schedule a normal listing cannot match.",
+      "Without a fixed deadline forcing the decision, an owner in this county is usually better served waiting out a conventional listing. An owner with no fixed deadline is usually better off listing conventionally, particularly in Warrensburg where university-driven demand supports an active market; a cash sale becomes worth real consideration mainly for a rental between tenants, a distant heir's estate, or a base-driven relocation on a schedule a normal listing cannot match.",
 
       "[MO] None of this is legal advice, and confirming which Johnson County a specific property actually sits in is not a legal question at all -- it is a matter of checking the county on a tax bill or deed before assuming anything else. A homeowner in this Johnson County facing a foreclosure notice or a probate question should talk to a Missouri attorney who can review the actual paperwork.",
     ],
@@ -166,7 +166,7 @@ export const countyContentOuter: Record<string, PageContent> = {
 
       "A county of 43,530 people spread across essentially one mid-sized city and one small town has fewer comparable sales in a given month than a metro county sees in a week, and that scarcity is a real fact for a Pettis County seller to reckon with -- an appraiser or a realtor pricing a specific Pettis County home is working from a thinner set of recent sales than the same professional would find just across the county line closer to Kansas City.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in this county. An owner with time before a notice of trustee's sale is even published usually does better bringing a loan current or listing through a realtor, particularly in Sedalia where the fair supports a steadier stream of buyer interest than La Monte's smaller market sees; a cash sale earns real consideration mainly when repairs, an estate, or a deadline make waiting out that thinner market genuinely impractical.",
+      "A fast cash sale rarely serves a seller with time still on the clock better than a conventional listing does in this county. An owner with time before a notice of trustee's sale is even published usually does better bringing a loan current or listing through a realtor, particularly in Sedalia where the fair supports a steadier stream of buyer interest than La Monte's smaller market sees; a cash sale earns real consideration mainly when repairs, an estate, or a deadline make waiting out that thinner market genuinely impractical.",
 
       "[MO] None of this is legal advice. A Pettis County homeowner facing a foreclosure notice, a delinquent-tax sale, or a question about how long redemption actually runs on a specific parcel should talk to a Missouri attorney who can review the real paperwork, not rely on a general county overview.",
     ],
@@ -208,7 +208,7 @@ export const countyContentOuter: Record<string, PageContent> = {
 
       "A homeowner selling in this county is working from a genuinely smaller pool of comparable sales than a Johnson County, Kansas seller a few miles north sees -- 35,320 people across three cities produces far fewer transactions in a given month than Overland Park alone generates, and a house priced off Johnson County comparables rather than this county's own thinner market risks being priced wrong in either direction.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in this county. An owner with real equity and no fixed deadline, especially in Louisburg where demand spilling over from Johnson County, Kansas keeps a market moving, is usually better off listing conventionally; a cash sale earns real consideration mainly for a property in Osawatomie or Paola that would sit a long time in a smaller, slower Kansas market, or one tied to a deadline that cannot wait.",
+      "For an owner with real equity and no fixed deadline, a conventional listing is the stronger move in this county, not a fast cash sale. An owner with real equity and no fixed deadline, especially in Louisburg where demand spilling over from Johnson County, Kansas keeps a market moving, is usually better off listing conventionally; a cash sale earns real consideration mainly for a property in Osawatomie or Paola that would sit a long time in a smaller, slower Kansas market, or one tied to a deadline that cannot wait.",
 
       "[KS] None of this is legal advice. A Miami County homeowner facing a foreclosure summons, a tax-sale question, or uncertainty over whether a property qualifies as a homestead should talk to a Kansas attorney who can review the specific parcel, not rely on a general county overview.",
     ],
@@ -251,7 +251,7 @@ export const countyContentOuter: Record<string, PageContent> = {
 
       "This county's own river-bottom farmland, much of it in agricultural use rather than residential subdivision, means an appraisal or a realtor's comparable-sales analysis in this county often has to draw on a smaller and more scattered set of recent transactions than a denser residential county nearby provides -- a genuine constraint on how quickly and how precisely a specific Lafayette County property can be priced.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in this county. An owner with time before a trustee's-sale notice runs, or an heir with a farmland parcel and no urgent deadline, is usually better off listing conventionally or working directly with a local realtor familiar with agricultural land; a cash sale earns real consideration mainly for a property needing repairs a conventional lender will not finance, or an estate that cannot wait out a thin, slow-moving market.",
+      "Not every seller in this county benefits from a fast cash sale; an heir with time and no urgent deadline typically does better working with a local realtor instead. An owner with time before a trustee's-sale notice runs, or an heir with a farmland parcel and no urgent deadline, is usually better off listing conventionally or working directly with a local realtor familiar with agricultural land; a cash sale earns real consideration mainly for a property needing repairs a conventional lender will not finance, or an estate that cannot wait out a thin, slow-moving market.",
 
       "[MO] None of this is legal advice. A Lafayette County homeowner facing a foreclosure notice, a farmland tax-sale question, or an estate involving agricultural property should talk to a Missouri attorney who can review the actual paperwork, not rely on a general county summary.",
     ],
@@ -298,7 +298,7 @@ export const countyContentOuter: Record<string, PageContent> = {
 
       "A buyer financing a purchase in this county also owes nothing under the old Kansas mortgage registration tax, repealed statewide effective January 1, 2019 -- a fact that reaches a Lyon County closing exactly as it does one 96 miles closer to the metro core.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in this county. An owner-occupied home in good condition with no urgent deadline is still generally better off listed conventionally, even at this distance from the metro core; a cash sale earns real consideration mainly for a rental between tenants, a property needing repairs a lender will not finance, or an estate that cannot wait out a slower, more rural market.",
+      "A conventional listing usually beats a fast cash sale for an owner-occupied home in good condition with no urgent deadline in this county. An owner-occupied home in good condition with no urgent deadline is still generally better off listed conventionally, even at this distance from the metro core; a cash sale earns real consideration mainly for a rental between tenants, a property needing repairs a lender will not finance, or an estate that cannot wait out a slower, more rural market.",
 
       "[KS] None of this is legal advice. A Lyon County homeowner facing a foreclosure summons or a rental-property question should talk to a Kansas attorney who can review the actual paperwork, not rely on a general county overview.",
     ],
@@ -344,7 +344,7 @@ export const countyContentOuter: Record<string, PageContent> = {
 
       "Wamego's own tourism-adjacent economy, built in part around its riverside location and small-town festivals, gives it a somewhat steadier flow of buyer interest than St. George sees on its own, even though both cities sit under the identical statewide statutes described above.",
 
-      "None of the above makes a fast cash sale the default answer for a seller in this county. An owner-occupied home with no urgent deadline, particularly in Wamego where a steadier local market exists, is usually better off listed conventionally; a cash sale earns real consideration mainly for a property that would sit a long time in St. George's thinner market, or one tied to an estate or a repair need a conventional lender will not finance.",
+      "An owner-occupied home with no urgent deadline rarely needs what a fast cash sale offers in this county. An owner-occupied home with no urgent deadline, particularly in Wamego where a steadier local market exists, is usually better off listed conventionally; a cash sale earns real consideration mainly for a property that would sit a long time in St. George's thinner market, or one tied to an estate or a repair need a conventional lender will not finance.",
 
       "[KS] None of this is legal advice. A Pottawatomie County homeowner facing a foreclosure summons or an estate question should talk to a Kansas attorney who can review the actual paperwork for that property, not rely on a general county overview.",
     ],
@@ -391,7 +391,7 @@ export const countyContentOuter: Record<string, PageContent> = {
 
       "A seller comparing a fast cash offer against a normal listing in this county should weigh the interstate corridor's own faster pace honestly: a well-priced Ottawa home near I-35 often draws real buyer interest within a normal listing window, while a Wellsville property farther from the highway may need more patience -- the right comparison depends on where in the county the specific property actually sits, not on the county as a whole.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in this county. An owner in Ottawa with real equity and no urgent deadline is usually better off listing conventionally, given the corridor's own active market; a cash sale earns real consideration mainly for a Wellsville property that would sit a long time in a slower market, or a special-assessment situation complicated enough that a conventional buyer's lender balks at it.",
+      "An Ottawa owner with real equity and no urgent deadline gains more from a conventional listing than from a fast cash sale, given how active that corridor's market already is. An owner in Ottawa with real equity and no urgent deadline is usually better off listing conventionally, given the corridor's own active market; a cash sale earns real consideration mainly for a Wellsville property that would sit a long time in a slower market, or a special-assessment situation complicated enough that a conventional buyer's lender balks at it.",
 
       "[KS] None of this is legal advice. A Franklin County homeowner facing a foreclosure summons or unsure whether a specific parcel carries a special assessment should talk to a Kansas attorney who can review the actual paperwork, not rely on a general county overview.",
     ],
@@ -436,7 +436,7 @@ export const countyContentOuter: Record<string, PageContent> = {
 
       "A county this size and this agricultural has genuinely thin comparable-sales data outside Richmond itself -- an appraiser pricing a rural Ray County property is often working from sales that happened months or years earlier, or from a farm sale rather than a residential one, in a way a denser county nearby does not require.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in this county. An owner in Richmond with time before a trustee's-sale notice runs is usually better off bringing a loan current or listing conventionally; an heir to farmland outside Richmond, working through probate with multiple family members, has real reason to sort out who can actually sign for the property before assuming any sale, fast or otherwise, can move forward.",
+      "The calculation changes for a Richmond owner only once a trustee's-sale notice actually runs -- short of that, bringing the loan current or listing conventionally usually wins. An owner in Richmond with time before a trustee's-sale notice runs is usually better off bringing a loan current or listing conventionally; an heir to farmland outside Richmond, working through probate with multiple family members, has real reason to sort out who can actually sign for the property before assuming any sale, fast or otherwise, can move forward.",
 
       "[MO] None of this is legal advice. A Ray County homeowner facing a foreclosure notice or an estate involving multiple heirs to farmland should talk to a Missouri attorney who can review the actual paperwork, not rely on a general county summary.",
     ],
@@ -481,7 +481,7 @@ export const countyContentOuter: Record<string, PageContent> = {
 
       "A Marshall seller weighing a cash offer against Missouri Valley College's own steady rental demand faces a different calculation than a Slater or Sweet Springs seller facing a genuinely thin buyer pool -- the same statutes govern both, but the practical urgency behind accepting a discounted cash offer is not the same in the two settings.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in this county. An owner in Marshall with no urgent deadline is usually better off listing conventionally, given the college-supported local market; a cash sale earns real consideration mainly for a Slater or Sweet Springs property that would otherwise sit for a long stretch, or a rural parcel with a delinquent-tax history complicated enough to concern a conventional buyer's lender.",
+      "For a Marshall owner with no urgent deadline, a conventional listing is the stronger move, not a fast cash sale. An owner in Marshall with no urgent deadline is usually better off listing conventionally, given the college-supported local market; a cash sale earns real consideration mainly for a Slater or Sweet Springs property that would otherwise sit for a long stretch, or a rural parcel with a delinquent-tax history complicated enough to concern a conventional buyer's lender.",
 
       "[MO] None of this is legal advice. A Saline County homeowner facing a foreclosure notice, a tax-sale question, or uncertainty over what a specific defect requires disclosing should talk to a Missouri attorney who can review the actual paperwork, not rely on a general county overview.",
     ],
@@ -525,7 +525,7 @@ export const countyContentOuter: Record<string, PageContent> = {
 
       "An heir inheriting a Henry County lake house from a relative who used it seasonally faces a different practical question than an heir inheriting a Windsor town home -- deciding whether to keep making off-season lake-property costs work, sell into next summer's buyer pool, or take a faster off-season sale is a genuinely different calculation than settling an ordinary town-home estate.",
 
-      "None of the above makes a fast cash sale the obvious answer for a seller in this county. An owner with a well-maintained lake or town home and no urgent deadline is usually better off listing conventionally and timing a sale around the season when lake buyers are actually looking; a cash sale earns real consideration mainly for a property needing repairs a conventional lender will not finance, or a seller who genuinely cannot wait for the next warm-weather selling window.",
+      "Timing decides this one more than anything else in this county -- waiting for the season when lake buyers are actually looking tends to pay off better than a fast cash sale. An owner with a well-maintained lake or town home and no urgent deadline is usually better off listing conventionally and timing a sale around the season when lake buyers are actually looking; a cash sale earns real consideration mainly for a property needing repairs a conventional lender will not finance, or a seller who genuinely cannot wait for the next warm-weather selling window.",
 
       "[MO] None of this is legal advice. A Henry County homeowner facing a foreclosure notice or weighing how season affects a lake-property sale should talk to a Missouri attorney or a local realtor familiar with the lake market, not rely on a general county overview.",
     ],
