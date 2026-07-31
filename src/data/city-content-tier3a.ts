@@ -2,7 +2,7 @@ import { citations } from "@/data/legal-citations";
 import type { PageContent } from "@/data/content-registry";
 
 /**
- * Wave 0C, batch 1 -- fourteen tier-3 city pages, the eighth content map.
+ * Wave 0C, batch 1 -- fourteen tier-3 city pages, the ninth content map.
  * Four of these fourteen (Marshall, Clinton, Maryville, Chillicothe) are
  * genuinely outstate Missouri: small markets with far fewer comparable
  * sales than anywhere else this site covers, and each one says so plainly
@@ -18,14 +18,16 @@ import type { PageContent } from "@/data/content-registry";
  * across that line -- without treating it as this page's own primary
  * county, which stays whatever CityDef.countySlug in geography.ts says.
  *
- * Four of this batch's counties (Clay, Johnson KS, Cass) already carry a
- * hub page in county-content-metro.ts, and every city below that sits in
- * one of those three links to it by name instead of re-deriving the same
- * statute mechanics a fourth, fifth, or sixth time. The remaining counties
- * -- Saline, Franklin, Leavenworth, Atchison, Ray, Nodaway, Miami (KS), and
- * Livingston -- carry no hub page in the registry as of this map's own
- * commit (see the per-page note on each), and each of those pages says so
- * rather than pointing at a page that is not actually there yet.
+ * Nine of this batch's twelve counties already carry a hub page as of this
+ * map's own commit: Clay, Johnson KS, and Cass in county-content-metro.ts,
+ * and Saline, Franklin, Leavenworth, Ray, Miami (KS), and Henry in
+ * county-content-outer.ts, added by a concurrent agent working the same
+ * wave. Every city below that sits in one of those nine links to its own
+ * county page by name instead of re-deriving the same statute mechanics a
+ * further time. Only Atchison, Nodaway, and Livingston Counties carry no
+ * hub page in the registry as of this map's own commit, and each of those
+ * three pages says so explicitly rather than pointing at a page that is not
+ * actually there.
  *
  * Same binding rules as every content map before this one: every paragraph
  * asserting law carries `[MO]` or `[KS]`, never both; every legal assertion
@@ -53,7 +55,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "[MO] Unpaid property taxes, separate from a missed mortgage payment, send a house down RSMo 140.340's own track instead -- a full, unconditional year to redeem measured from the tax sale itself, plus a weaker right that survives even past that year until the purchaser actually collects the deed.",
 
-      "[MO] No dedicated Saline County hub page exists yet in this site's registry, so a seller in Marshall looking for county-level depth behind these figures should treat the statewide Missouri pages as the fuller reference for now rather than a county page that is not yet part of this footprint.",
+      "[MO] This site's Saline County page covers the fuller river-bottom picture behind these figures, including how the same weekly-notice schedule and statewide dollar figures reach Slater and Sweet Springs alongside Marshall itself.",
 
       "[MO] An heir inheriting a house in Marshall still has to clear the same probate question every Missouri estate faces before a sale can close. RSMo 473.780 opens the door to independent administration -- skipping most routine court sign-off -- when the will authorizes it, or permits it with every heir's consent; short of either, supervised administration takes over and the probate division reviews a sale of the house alongside every other major step.",
 
@@ -99,9 +101,9 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "[KS] Financing a purchase in Ottawa also carries none of the old Kansas mortgage-registration tax on the closing statement -- K.S.A. 79-3102 was repealed outright effective January 1, 2019, a repeal that reaches a closing in this city exactly as it reaches one anywhere else in the state.",
 
-      "No dedicated Franklin County hub page exists yet in this site's registry, so a seller in Ottawa looking for county-level depth behind these figures should treat the statewide Kansas pages as the fuller reference for now.",
+      "This site's Franklin County page covers the fuller countywide picture behind these figures, including how the same judicial process and homestead protection reach Wellsville alongside this county seat.",
 
-      "[KS] Settling an estate that owns a house in Ottawa still means clearing the same K.S.A. 59-3202 test every Kansas estate faces -- a court, not the will by itself, weighs the estate's size, the heirs' own agreement, its solvency, and the likely cost of administering it before deciding whether a simplified or a supervised process applies.",
+      "[KS] Whether an Ottawa estate proceeds under simplified or supervised administration is a call K.S.A. 59-3202 leaves to the probate court, not to the will alone -- the judge looks at the estate's overall size, how well the heirs actually get along, whether debts exceed assets, and what administering it is likely to cost before choosing a track.",
 
       "[KS] A seller working through an agent in this city should also know Kansas puts the duty to flag a known material defect on that licensee rather than on the seller directly -- K.S.A. 58-30,106 requires an agent representing a seller to disclose adverse facts actually known to a buyer who counts only as a customer, from a title problem to an environmental hazard requiring legal disclosure, the identical rule reaching an agent-assisted sale anywhere else in Kansas.",
 
@@ -140,7 +142,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "[KS] Corrections-department employment in this city often runs on transfer and shift-bid schedules rather than the kind of hard relocation deadline a military PCS order creates next door -- a real difference in how quickly a seller in Lansing typically needs to close compared with a seller in Leavenworth, even though the identical Kansas statutes below reach a house in either city without distinction.",
 
-      "[KS] A mortgage default on a house in this city still runs through Kansas's judicial process rather than a trustee acting alone: K.S.A. 60-2410 requires the lender to win a lawsuit first, K.S.A. 60-2415 then requires a district judge to confirm the resulting sheriff's sale, and only after that confirmation does K.S.A. 60-2414 open a redemption window -- twelve months ordinarily, three months when an early default hit a loan still carrying most of its original balance.",
+      "[KS] Kansas gives a lender no shortcut around the courthouse when a Lansing loan goes into default -- K.S.A. 60-2410 forces a lawsuit and a judgment first, K.S.A. 60-2415 then makes a district judge confirm the sheriff's sale that follows, and the redemption clock K.S.A. 60-2414 starts only once that confirmation is entered, running twelve months unless an early default against a still heavily-leveraged loan shortens it to three.",
 
       "[KS] Kansas's uncapped homestead shield reaches a house in Lansing with the same force it reaches one in Leavenworth or anywhere else in the state -- Kan. Const. Art. 15 Section 9 and K.S.A. 60-2301 keep an eligible homestead out of an unsecured creditor's reach with no dollar limit written into the exemption at all.",
 
@@ -152,7 +154,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "[KS] A house financed in Lansing also skips the old Kansas mortgage-registration tax entirely -- K.S.A. 79-3102 was repealed outright effective January 1, 2019, reaching a closing in this city exactly as it reaches one anywhere else in the state.",
 
-      "[KS] Settling an estate that owns a house in this city still means clearing the same K.S.A. 59-3202 test every Kansas estate faces, a court weighing the estate's size, the heirs' own agreement, and its solvency before deciding whether a simplified or a supervised process applies.",
+      "[KS] K.S.A. 59-3202 puts the simplified-versus-supervised call in a Kansas judge's hands rather than an heir's own preference -- the estate's size, the heirs' willingness to cooperate, and whether the estate can cover its own debts all factor into a Lansing probate court's decision on which track a house sale in this city has to follow.",
 
       "[KS] A seller in Lansing should also know Kansas requires disclosing any known elevated radon reading in writing, with the sale contract itself carrying the state's own required warning language calling radon a leading cause of lung cancer in non-smokers -- K.S.A. 58-3078a, a duty reaching a house near the correctional facility exactly as it reaches one anywhere else in Kansas.",
 
@@ -209,7 +211,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "The Jesse James Birthplace Museum draws a steady trickle of history-minded visitors into the area surrounding this city each year, a fact about local tourism rather than about which statutes reach a house sale within Kearney's own limits, where the museum itself sits just outside the city boundary in unincorporated Clay County.",
 
-      "[MO] None of the above makes a fast cash sale the automatic right call for a seller in Kearney. An owner with time before a notice of trustee's sale is even published usually still comes out ahead bringing a loan current or listing through a realtor, particularly given how steady buyer demand has stayed for this city's own bedroom-community housing stock.",
+      "[MO] A fast cash sale is not automatically the right call just because Kearney is growing. Absent an actual notice already published, a Kearney owner is typically better off bringing a defaulted loan current or simply listing the house, since buyer demand for this city's own bedroom-community housing has held up well.",
 
       "A cash sale is a genuine reason to consider a fast option in Kearney for an owner already behind on payments with a notice approaching, an estate needing an uncomplicated and quick close, or a property carrying repair needs a conventional lender will not finance -- not for a seller with time and no pressing deadline.",
 
@@ -235,25 +237,25 @@ export const cityContentTier3a: Record<string, PageContent> = {
     body: [
       "Merriam is a small, landlocked city of roughly 10,875 people in Johnson County, Kansas, about 8.4 miles from the metro's core -- inner-ring and considerably older than the sprawling newer suburbs farther southwest in the same county. The Antioch Shopping Center, one of the earliest large retail centers built in the Kansas City area, opened in this city in the 1950s and has been redeveloped more than once since, a marker of just how early this particular corner of the county was built out compared with Overland Park's own later growth.",
 
-      "[KS] Every part of this city sits in Johnson County, Kansas -- not the differently named Johnson County, Missouri, roughly 65 miles to the southeast, which this site's Warrensburg page covers -- so a house in Merriam answers to Kansas law throughout, with no Missouri statute reaching it regardless of the shared county name.",
+      "[KS] Merriam belongs entirely to Johnson County, Kansas -- a distinct place from Johnson County, Missouri, roughly 65 miles southeast and covered instead on this site's Warrensburg page -- so Kansas law, not Missouri's, governs a house sale in Merriam from start to finish despite the identical county name.",
 
       "[KS] Because Merriam built out decades before Johnson County, Kansas's own newer southwestern suburbs did, a much larger share of its housing stock is now old enough to be genuinely comparable in age to the older, closer-in Kansas suburbs elsewhere in this footprint rather than to newer subdivision construction -- a fact that shapes what a buyer expects to find in this city, not which statutes reach a sale.",
 
-      "[KS] A mortgage default on a house in this city still runs through Kansas's judicial process rather than a trustee acting alone: K.S.A. 60-2410 requires the lender to win a lawsuit first, K.S.A. 60-2415 requires a district judge to confirm the resulting sheriff's sale, and only then does K.S.A. 60-2414 start a redemption clock -- twelve months by default, three months when an early default hit a heavily leveraged loan.",
+      "[KS] There is no trustee shortcut for a defaulted Merriam mortgage -- Kansas routes it through K.S.A. 60-2410's lawsuit requirement, then K.S.A. 60-2415's district-court confirmation of the sheriff's sale, before K.S.A. 60-2414's redemption clock even begins running, twelve months as the standard length, shortened to three when the default came early against a loan still mostly unpaid.",
 
       "[KS] The uncapped homestead exemption reaches a house in Merriam with the same force it reaches one in a wealthier corner of this Kansas county -- Kan. Const. Art. 15 Section 9 and K.S.A. 60-2301 shield an eligible homestead from forced sale with no dollar limit written into the exemption at all, a real protection even where this city's own home values run more modestly than Leawood's or Overland Park's.",
 
-      "[KS] That exemption pairs with this Kansas county's own tax-sale holding period -- K.S.A. 79-2401a requires Johnson County, Kansas to sit on a bid-off property for two years before pursuing a further sale, three years when that property qualifies as a homestead, giving a Merriam owner facing delinquent taxes years, not weeks, before the county moves toward a further sale.",
+      "[KS] Delinquent taxes give a Merriam owner far more breathing room than a missed mortgage payment would -- under K.S.A. 79-2401a, this Kansas county has to hold a bid-off property for two full years before it can pursue any further sale, stretching to three years if the parcel actually qualifies as a homestead.",
 
       "[KS] This site's Johnson County, Kansas page covers the fuller countywide picture behind these figures, including how the same uncapped exemption and multi-year holding period reach Overland Park, Shawnee, and Roeland Park alongside this smaller, closer-in city.",
 
-      "[KS] Property in Merriam carries the identical 11.5% assessment ratio Article 11, Section 1 of the Kansas Constitution sets statewide, applied to whatever market-value estimate the county assessor sets for a specific parcel -- an older home in this city and a newer one farther southwest in the same county carry the same percentage, only the underlying estimate differs.",
+      "[KS] The 11.5% figure Article 11, Section 1 of the Kansas Constitution fixes for residential assessment does not bend for Merriam's own older housing stock -- it is the market-value estimate a specific parcel carries that varies, not the ratio applied to that estimate, whether the house sits in this city or in a newer subdivision farther southwest.",
 
-      "[KS] A closing on a house in this city also skips the old Kansas mortgage-registration tax entirely -- K.S.A. 79-3102 was repealed outright effective January 1, 2019, reaching a Merriam closing exactly as it reaches one anywhere else in the state.",
+      "[KS] Kansas's old mortgage-registration tax has no bearing on a Merriam closing today -- the legislature repealed the statute imposing it, K.S.A. 79-3102, effective January 1, 2019, and the repeal has stood untouched since.",
 
       "Roeland Park, Fairway, and Mission border this small city on every side, all four sitting in the same closer-in, older cluster of Johnson County, Kansas cities described on this site's county page -- a genuinely different pattern of age and scale from Overland Park's, Olathe's, or Gardner's own newer growth farther out in the same county.",
 
-      "[KS] Settling an estate that owns a house in Merriam still means clearing the same K.S.A. 59-3202 test every Kansas estate faces, a court weighing the estate's size, the heirs' agreement, and its solvency before deciding whether a simplified or a supervised process applies.",
+      "[KS] K.S.A. 59-3202 hands the simplified-or-supervised decision to a Kansas probate judge rather than to the family itself -- factoring in a Merriam estate's own size, how cooperative the heirs actually are with each other, whether the estate can cover what it owes, and the likely cost of running a fuller administration.",
 
       "Interstate 35 and Interstate 635 both cut through the edges of this small city, giving Merriam a level of commercial and warehouse development well out of proportion to its own residential population -- a genuine local economic driver distinct from the purely residential character of a Johnson County, Kansas suburb farther from either interstate.",
 
@@ -264,6 +266,8 @@ export const cityContentTier3a: Record<string, PageContent> = {
       "[KS] None of this is legal advice. A Merriam homeowner facing a specific foreclosure judgment, tax-sale question, or probate filing should talk to a Kansas attorney who can review the actual documents, not rely on a general city-level summary.",
 
       "Merriam's own small footprint means a single redevelopment project, like the shopping-center rebuild described above, can shift the character of a meaningful share of the city's own commercial tax base at once -- a level of concentrated local impact a larger, more spread-out Johnson County, Kansas suburb would rarely see from any single project.",
+
+      "A house near either interstate frontage in Merriam sometimes carries road noise or access considerations a purely residential block farther from either highway does not share -- a genuinely local factor in how a specific buyer values a specific property, distinct from anything the statutes above touch on.",
     ],
     claims: [
       citations["ks-judicial"],
@@ -292,7 +296,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "[MO] Falling behind on property taxes, as distinct from a mortgage, routes a Smithville property through RSMo 140.340 instead -- a full year of unconditional redemption counting from the tax-sale date, and a weaker right afterward that lasts until the purchaser actually secures the collector's deed.",
 
-      "This site's Clay County page covers the fuller Northland picture behind these figures, including how the same twenty-insertion notice schedule and statewide dollar figures reach Liberty, Gladstone, Kearney, and Excelsior Springs alongside this lake-adjacent city, while this site's Platte County page covers the same figures from that county's own side of the Smithville Lake shoreline.",
+      "A fuller county-level treatment of these same numbers sits on this site's Clay County page, walking through how the notice schedule and dollar figures above reach Liberty, Gladstone, Kearney, and Excelsior Springs alongside this lake-adjacent city -- and the Platte County page picks up the identical figures from that county's own side of the Smithville Lake shoreline.",
 
       "[MO] Who can actually authorize a sale out of a Smithville estate depends on the same Missouri probate rule that applies statewide -- RSMo 473.780 grants independent administration, and the reduced court oversight it brings, only where the will itself calls for that path or allows it with every heir consenting; without one of those two, the estate proceeds under supervised administration and a judge signs off on the sale.",
 
@@ -330,7 +334,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "[KS] Every part of this city sits in Kansas, inside Atchison County, so a house sale in Atchison answers to Kansas's statewide statutes throughout, this county's own status as one of the state's oldest settled areas notwithstanding -- no Missouri rule reaches a property in Atchison despite sitting directly across the river from Missouri soil.",
 
-      "[KS] A mortgage default on a house in this city runs through Kansas's judicial process rather than a trustee acting alone: K.S.A. 60-2410 requires the lender to win a lawsuit first, K.S.A. 60-2415 requires a district judge to confirm the resulting sheriff's sale, and only then does K.S.A. 60-2414 open a redemption window -- twelve months by default, three when an early default hit a heavily leveraged loan.",
+      "[KS] Foreclosing on a defaulted Atchison mortgage takes a Kansas lender through court, not around it -- a lawsuit and judgment under K.S.A. 60-2410, a district judge's confirmation of the sheriff's sale under K.S.A. 60-2415, and only after that confirmation, a redemption window under K.S.A. 60-2414 that runs twelve months as the default length, or three when an early default hit a loan still owing most of its balance.",
 
       "[KS] Kansas's uncapped homestead exemption reaches a house in Atchison with the same force it reaches one anywhere else in the state -- Kan. Const. Art. 15 Section 9 and K.S.A. 60-2301 shield an eligible homestead from forced sale with no dollar limit written into the exemption at all.",
 
@@ -342,11 +346,11 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "[KS] Because this city's housing stock skews so much older than a newer subdivision elsewhere in this footprint, a seller in Atchison should pay particular attention to Kansas's own radon-disclosure rule -- K.S.A. 58-3078a requires disclosing any known elevated radon reading in writing, and requires the sale contract itself to carry the state's warning that radon is a leading cause of lung cancer in non-smokers, a genuinely more common issue in older basement construction than in a newer build.",
 
-      "[KS] A closing on a house in this city also skips the old Kansas mortgage-registration tax entirely -- K.S.A. 79-3102 was repealed outright effective January 1, 2019, reaching an Atchison closing exactly as it reaches one anywhere else in the state.",
+      "[KS] Financing a purchase in Atchison no longer triggers Kansas's former mortgage-registration tax -- lawmakers repealed the statute behind it, K.S.A. 79-3102, effective January 1, 2019, ending the fee statewide.",
 
-      "[KS] A seller working with an agent in Atchison should also know Kansas places the duty to flag a known material defect on that licensee, not on the seller directly -- K.S.A. 58-30,106 requires the agent to disclose adverse facts actually known to a buyer who counts only as a customer, a rule that matters more in a city with this much century-old housing stock than in a newer subdivision elsewhere in the footprint.",
+      "[KS] Kansas puts the burden of flagging a known defect on the real estate licensee handling an Atchison sale rather than on the seller personally -- K.S.A. 58-30,106 obligates that agent to tell a buyer-customer about adverse facts actually known, a duty that carries extra weight given how much of this city's own housing predates modern building standards.",
 
-      "[KS] Settling an estate that owns a house in this city still means clearing the same K.S.A. 59-3202 test every Kansas estate faces, a court weighing the estate's size, the heirs' agreement, and its solvency before deciding whether simplified or supervised administration applies.",
+      "[KS] A Kansas probate judge, applying K.S.A. 59-3202, is the one who actually decides whether an Atchison estate gets the lighter simplified track or the fuller supervised one -- weighing the estate's overall size against the heirs' own relationship, its solvency, and what a more involved administration would likely cost to run.",
 
       "Atchison's own bluff-top position on the Missouri River gave it real commercial weight in the steamboat era, before the railroad shifted trade patterns toward towns farther inland -- a piece of history that shaped how this city was originally laid out, and one reason its downtown grid and housing stock look genuinely older than a town built up mostly during the postwar highway era.",
 
@@ -384,7 +388,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "[MO] Excelsior Springs answers to the same non-judicial foreclosure statutes as any Missouri city its size -- RSMo 443.290 puts the power of sale in the trustee named on the deed of trust, and RSMo 443.327 lets that trustee actually use it, courtroom-free. Because Clay County's roughly 259,772 residents clear the 50,000-person mark RSMo 443.320 sets by a wide margin, the notice ahead of an Excelsior Springs sale has to run twenty separate times in a daily paper before the sale can proceed.",
 
-      "[MO] A trustee's sale here does not automatically carry a right to undo it -- RSMo 443.410 and RSMo 443.420 open that door only when three things line up: the buyer at the sale was the lender itself, the borrower already gave written notice of intent to redeem, and a bond for the full debt amount was posted inside twenty days of the sale.",
+      "[MO] A trustee's sale in Excelsior Springs does not automatically carry a right to undo it -- RSMo 443.410 and RSMo 443.420 open that door only when three things line up: the buyer at the sale was the lender itself, the borrower already gave written notice of intent to redeem, and a bond for the full debt amount was posted inside twenty days of the sale.",
 
       "[MO] Two dollar figures set by the state, not the county, follow an Excelsior Springs sale -- RSMo 513.475's current $15,000 equity shield against an unsecured judgment, on track to reach $40,000 in 2027, and RSMo 137.115's flat 19% assessment ratio, a number that stays fixed whether the house sits in a historic district or a newer subdivision.",
 
@@ -394,9 +398,9 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "[MO] Missouri probate law decides who can actually put a signature on an Excelsior Springs deed before an inherited house sells -- RSMo 473.780 grants independent administration, and the lighter court oversight that comes with it, only when a will calls for that route or lets every heir agree to it; anything short of one of those two paths sends the estate into supervised administration, with the probate court signing off on the sale itself.",
 
-      "[MO] Missouri's own constitutional transfer-tax ban keeps an Excelsior Springs closing free of any state or local tax on the sale -- Article X, Section 25 has stood since Missouri's own voters approved it in 2010, and it applies here with the same force it applies statewide.",
+      "[MO] Missouri's own constitutional transfer-tax ban keeps an Excelsior Springs closing free of any state or local tax on the sale -- Article X, Section 25 has stood since Missouri's own voters approved it in 2010, and it applies in Excelsior Springs with the same force it applies statewide.",
 
-      "[MO] Given how much of this city's own housing predates modern construction standards, RSMo 442.606's methamphetamine-disclosure rule carries real weight here -- a seller who actually knows a specific house was used to produce methamphetamine has to say so in writing, and owes a second, separate written disclosure if the seller knew or should have known the same house sheltered or supplied someone with a qualifying conviction.",
+      "[MO] Given how much of this city's own housing predates modern construction standards, RSMo 442.606's methamphetamine-disclosure rule carries real weight in this city -- a seller who actually knows a specific house was used to produce methamphetamine has to say so in writing, and owes a second, separate written disclosure if the seller knew or should have known the same house sheltered or supplied someone with a qualifying conviction.",
 
       "The Elms Hotel, another Hall of Waters-era resort landmark still operating downtown, continues to draw a modest but real stream of visitors into this city, a fact about local tourism rather than about which county's statutes reach a house sale nearby.",
 
@@ -434,11 +438,11 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "[MO] Getting that sale reversed afterward is the exception, not the rule, under RSMo 443.410 and RSMo 443.420 -- only if the lender bought back its own collateral at the sale, the former owner put an intent to redeem in writing, and a bond for the full debt amount was filed inside twenty days does a one-year redemption period actually open on a Maryville property.",
 
-      "[MO] Two fixed statewide numbers follow a Maryville sale regardless of the county's population: RSMo 513.475 keeps $15,000 of equity out of reach of an unsecured judgment right now, climbing to $40,000 once 2027 arrives under a bill Missouri has already enacted, while RSMo 137.115 taxes a residential parcel here at the same 19%-of-value rate used from the metro core to the smallest county in this footprint.",
+      "[MO] Two fixed statewide numbers follow a Maryville sale regardless of the county's population: RSMo 513.475 keeps $15,000 of equity out of reach of an unsecured judgment right now, climbing to $40,000 once 2027 arrives under a bill Missouri has already enacted, while RSMo 137.115 taxes a residential parcel in this city at the same 19%-of-value rate used from the metro core to the smallest county in this footprint.",
 
       "[MO] A tax delinquency, rather than a defaulted loan, moves a Maryville property under RSMo 140.340 instead, which guarantees a clean, no-strings first year of redemption counted from the sale date, and lets a narrower right linger afterward until whoever bought at that sale finally holds the collector's deed.",
 
-      "[MO] Nodaway County itself has no dedicated hub page in this site's registry as of this writing, so a Maryville seller wanting county-specific depth beyond what appears here should rely on the statewide Missouri pages until that gap in the footprint is filled.",
+      "[MO] Nodaway County itself has no dedicated hub page in this site's registry as of this writing, so a Maryville seller wanting county-specific depth beyond what appears in this summary should rely on the statewide Missouri pages until that gap in the footprint is filled.",
 
       "[MO] Before a Maryville house can change hands out of an estate, Missouri probate has to settle who is even authorized to sign the deed -- RSMo 473.780 lets a personal representative skip most of that court oversight only if the will itself calls for independent administration, or allows it once every heir signs on; anything less funnels the estate into supervised administration instead.",
 
@@ -476,19 +480,19 @@ export const cityContentTier3a: Record<string, PageContent> = {
     body: [
       "Mission is one of the smallest cities by area in Johnson County, Kansas, roughly 10,014 people about 6.6 miles from the metro's core, entirely landlocked by Fairway, Roeland Park, Prairie Village, and Overland Park on every side. The old Mission Center Mall, an enclosed shopping center that anchored this city's own retail base for decades, has since been redeveloped into Gateway, a mixed-use district of apartments and street-level retail -- a physical marker of how much earlier this inner-ring city built out than the newer subdivisions farther southwest in the same county.",
 
-      "[KS] Every part of this city sits in Johnson County, Kansas -- not the differently named Johnson County, Missouri, roughly 65 miles to the southeast, which this site's Warrensburg page covers -- so a house in Mission answers to Kansas law throughout, with no Missouri statute reaching it regardless of the shared county name.",
+      "[KS] Every acre of Mission sits in Johnson County, Kansas -- not the Missouri county carrying the identical name roughly 65 miles southeast, which this site instead treats on its Warrensburg page -- so Kansas law governs a house sale in Mission in full, and no Missouri statute enters into it.",
 
-      "[KS] A mortgage default on a house in this city still runs through Kansas's judicial process rather than a trustee acting alone: K.S.A. 60-2410 requires the lender to win a lawsuit first, K.S.A. 60-2415 requires a district judge to confirm the resulting sheriff's sale, and only then does K.S.A. 60-2414 start a redemption clock -- twelve months by default, three months when an early default hit a heavily leveraged loan.",
+      "[KS] A Mission mortgage in default still has to clear a Kansas courtroom before anything else happens -- K.S.A. 60-2410's lawsuit and judgment requirement, K.S.A. 60-2415's district-court confirmation of the sheriff's sale, and only once that confirmation lands, the K.S.A. 60-2414 redemption period, twelve months normally or three when an early default struck a loan still carrying most of its balance.",
 
-      "[KS] The uncapped homestead exemption reaches a house in Mission with the same force it reaches one anywhere else in this Kansas county -- Kan. Const. Art. 15 Section 9 and K.S.A. 60-2301 shield an eligible homestead from forced sale with no dollar limit written into the exemption at all, a real protection even in a city this small and this built-out.",
+      "[KS] Size has nothing to do with how far Kansas's own homestead protection extends -- Kan. Const. Art. 15 Section 9 together with K.S.A. 60-2301 keeps a qualifying Mission homestead entirely beyond an unsecured creditor's reach, with no dollar cap on the exemption at all, regardless of how compact and built-out this particular city happens to be.",
 
-      "[KS] That exemption pairs with this county's own tax-sale holding period -- K.S.A. 79-2401a requires Johnson County, Kansas to sit on a bid-off property for two years before pursuing a further sale, three years when that property qualifies as a homestead, giving an owner in Mission facing delinquent taxes years, not weeks, before the county moves further.",
+      "[KS] A Mission owner behind on property taxes rather than mortgage payments gets a genuinely long runway before losing the property for good -- K.S.A. 79-2401a keeps this county from pursuing a further sale on a bid-off parcel for two years, extended to three whenever a homestead is involved.",
 
-      "[KS] This site's Johnson County, Kansas page covers the fuller countywide picture behind these figures, including how the same uncapped exemption and multi-year holding period reach Merriam, Roeland Park, and the rest of the closer-in cluster alongside this landlocked city.",
+      "[KS] The full countywide detail behind the exemption and the multi-year holding period lives on this site's Johnson County, Kansas page, which walks through how the identical rules reach Merriam, Roeland Park, and the rest of the closer-in cluster surrounding this landlocked city.",
 
-      "[KS] Property in Mission carries the identical 11.5% assessment ratio Article 11, Section 1 of the Kansas Constitution sets statewide, applied to whatever market-value estimate the county assessor sets for a specific parcel -- redeveloped mixed-use land near Gateway and an older single-family lot nearby carry the same percentage, only the underlying estimate differs.",
+      "[KS] Redeveloped Gateway land and an older single-family lot down the street pay the same 11.5% residential rate Article 11, Section 1 of the Kansas Constitution sets for the whole state -- the county assessor's own market-value estimate is what actually changes from parcel to parcel in Mission, never that fixed percentage.",
 
-      "[KS] A closing on a house in this city also skips the old Kansas mortgage-registration tax entirely -- K.S.A. 79-3102 was repealed outright effective January 1, 2019, reaching a Mission closing exactly as it reaches one anywhere else in the state.",
+      "[KS] The old Kansas mortgage-registration tax simply no longer applies to a Mission closing -- K.S.A. 79-3102, the statute that once imposed it, was repealed statewide effective January 1, 2019.",
 
       "The Gateway redevelopment has drawn new apartment construction and street-level retail into a city with almost no room left to grow outward, since every adjoining acre already belongs to a neighboring city -- a genuinely different growth constraint than a newer, still-expanding Johnson County, Kansas suburb faces farther southwest.",
 
@@ -496,17 +500,19 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "This city's own name causes a genuinely separate mix-up from the county-name collision described above -- a reader searching for the Shawnee Mission school district, which serves several nearby cities, sometimes lands on this city's own page by mistake, since Mission itself is only one of several communities the district actually covers.",
 
-      "[KS] Settling an estate that owns a house in Mission still means clearing the same K.S.A. 59-3202 test every Kansas estate faces, a court weighing the estate's size, the heirs' agreement, and its solvency before deciding whether a simplified or a supervised process applies.",
+      "[KS] Under K.S.A. 59-3202, it is the probate judge, not the family, who chooses between a simplified and a supervised administration for a Mission estate -- a decision that turns on the estate's own size, how well the heirs are getting along, whether it can pay its own debts, and the cost a fuller administration would likely add.",
 
-      "[KS] A seller working with an agent in this city should also know Kansas places the duty to flag a known material defect on that licensee, not on the seller directly -- K.S.A. 58-30,106 requires the agent to disclose adverse facts actually known to a buyer who counts only as a customer.",
+      "[KS] It is the licensee, not the seller directly, who owes Kansas's known-defect disclosure duty in a Mission sale -- K.S.A. 58-30,106 requires an agent representing the seller to tell a buyer who is only a customer about adverse facts the agent actually knows.",
 
       "[KS] None of the above makes a fast cash sale the default answer for a seller in Mission. An owner of an older, well-kept house in this city with real equity and no urgent deadline is usually still better off listing conventionally, since this city's redeveloped retail core has, if anything, strengthened nearby buyer interest rather than weakened it.",
 
       "A cash sale earns genuine consideration in this city for an older house with deferred maintenance a conventional lender will not finance, or for an owner facing a scheduled sheriff's sale with the clock already running -- not as the obvious first move for a seller with time and a marketable property.",
 
-      "[KS] None of this is legal advice. A Mission homeowner facing a specific foreclosure judgment, tax-sale question, or probate filing should talk to a Kansas attorney who can review the actual documents, not rely on a general city-level summary.",
+      "[KS] None of this is legal advice, and a Mission owner staring down an actual foreclosure judgment, tax-sale notice, or probate filing needs a Kansas attorney's own look at the specific paperwork -- a general overview like this one cannot substitute for that.",
 
       "Being landlocked on every side has meant this city's own population has stayed roughly flat for decades even as newer Johnson County, Kansas suburbs farther southwest have grown substantially -- a genuine ceiling on Mission's own future growth that a still-expanding city in the same county simply does not face.",
+
+      "A house close to the Gateway redevelopment in Mission has, if anything, gained value from the new apartments and retail nearby, while a quieter block farther from that corridor trades more on its own established, older character -- two genuinely different micro-markets inside one small city.",
     ],
     claims: [
       citations["ks-judicial"],
@@ -528,7 +534,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "[MO] Every part of this city sits in Cass County, Missouri, so it follows the identical statewide rules reaching Belton and Raymore -- Missouri law throughout, with this city's own status as the county seat changing nothing about which statutes apply.",
 
-      "[MO] As the seat of Cass County, Harrisonville answers to the identical trustee-sale statutes RSMo 443.290 and RSMo 443.327 set up statewide -- the deed of trust's own trustee sells directly on default, courtroom-free -- and with the county's own population above 111,000, well past the 50,000-person line RSMo 443.320 draws, notice ahead of a sale here has to run the full twenty daily-newspaper insertions.",
+      "[MO] As the seat of Cass County, Harrisonville answers to the identical trustee-sale statutes RSMo 443.290 and RSMo 443.327 set up statewide -- the deed of trust's own trustee sells directly on default, courtroom-free -- and with the county's own population above 111,000, well past the 50,000-person line RSMo 443.320 draws, notice ahead of a sale in this city has to run the full twenty daily-newspaper insertions.",
 
       "[MO] A defaulted borrower's path back to the property is anything but guaranteed under RSMo 443.410 and RSMo 443.420: only when the lender itself was the buyer at the trustee's sale, only when the borrower already filed written notice of intent to redeem, and only when a bond covering the full debt went up inside twenty days does a one-year redemption right actually exist.",
 
@@ -540,7 +546,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "[MO] Signing away a Harrisonville house from an estate takes a Missouri probate court's blessing first -- RSMo 473.780 lets a personal representative bypass most of that routine oversight through independent administration, but only if the will authorizes it directly or allows it once every heir agrees; falling short of either condition means the county's own probate division reviews the sale step by step under supervised administration.",
 
-      "[MO] A Harrisonville closing owes no transfer tax to the state, Cass County, or the city itself, courtesy of Article X, Section 25 of the Missouri Constitution -- a rule Missouri voters wrote into the constitution in 2010, applying here exactly as it applies statewide.",
+      "[MO] A Harrisonville closing owes no transfer tax to the state, Cass County, or the city itself, courtesy of Article X, Section 25 of the Missouri Constitution -- a rule Missouri voters wrote into the constitution in 2010, applying in Harrisonville exactly as it applies statewide.",
 
       "Unlike Belton and Raymore, whose own growth has followed newer subdivision construction pushing south along the interstate from the built-up Jackson County line, Harrisonville's own housing stock skews older and more established around its historic square -- a genuinely different pace and character within the same county, not a difference in which statutes reach any of the three cities.",
 
@@ -557,6 +563,8 @@ export const cityContentTier3a: Record<string, PageContent> = {
       "[MO] None of this is legal advice. A Harrisonville homeowner facing a specific foreclosure notice, tax sale, or probate filing should talk to a Missouri attorney who can review the actual paperwork, not rely on a general city-level overview.",
 
       "As the county seat, Harrisonville draws a steady base of government and legal-services employment that a smaller Cass County town without a courthouse does not share, giving this city's own resale market a somewhat steadier floor than Archie's or Garden City's, even in years when Belton and Raymore's newer subdivisions are absorbing most of the county's overall growth.",
+
+      "A house within a few blocks of Harrisonville's own historic square tends to draw a genuinely different kind of buyer interest than one in a newer subdivision farther out toward the interstate -- a preference for the square's own older character rather than a newer floor plan, a fact about local taste rather than about which county statutes apply.",
     ],
     claims: [
       citations["mo-nonjudicial"],
@@ -576,21 +584,21 @@ export const cityContentTier3a: Record<string, PageContent> = {
     body: [
       "Spring Hill sits at the far southwestern edge of Johnson County, Kansas, roughly 9,689 people about 27 miles from the metro's core -- one of the fastest-growing small cities in this footprint, its own newer subdivisions pushing outward even as much of the surrounding farmland stays undeveloped for now. Part of this city's own footprint actually extends over the boundary into Miami County as well.",
 
-      "[KS] Most of Spring Hill sits in Johnson County, Kansas -- not the differently named Johnson County, Missouri, roughly 65 miles to the southeast, which this site's Warrensburg page covers -- and that is where this page's legal treatment points. A portion of the city also reaches into Miami County, which determines which courthouse handles a filing and which county treasurer runs a tax sale for a parcel on that side of the line, even though both counties answer to the identical statewide Kansas statutes below.",
+      "[KS] The larger share of Spring Hill sits in Johnson County, Kansas -- never to be confused with the differently named Missouri county roughly 65 miles southeast that this site's Warrensburg page handles instead -- and that Kansas county is where this page's legal treatment is anchored. A smaller slice of the city reaches into Miami County, which decides the courthouse and treasurer for a parcel on that side, even though the same statewide Kansas statutes below reach either half.",
 
-      "[KS] A mortgage default on a house in this city still runs through Kansas's judicial process rather than a trustee acting alone: K.S.A. 60-2410 requires the lender to win a lawsuit first, K.S.A. 60-2415 requires a district judge to confirm the resulting sheriff's sale, and only then does K.S.A. 60-2414 start a redemption clock -- twelve months by default, three months when an early default hit a heavily leveraged loan.",
+      "[KS] Kansas requires a lender to sue, not simply act, on a defaulted Spring Hill mortgage -- K.S.A. 60-2410's judgment requirement, K.S.A. 60-2415's district-judge confirmation of the sheriff's sale, and only afterward, K.S.A. 60-2414's redemption period, running twelve months in the ordinary case or three when an early default hit a loan still owing most of what it borrowed.",
 
       "[KS] The uncapped homestead exemption reaches a house in Spring Hill with the same force it reaches one anywhere else in Kansas -- Kan. Const. Art. 15 Section 9 and K.S.A. 60-2301 shield an eligible homestead from forced sale with no dollar limit written into the exemption at all, regardless of which side of the Johnson-Miami county line a specific parcel actually sits on.",
 
-      "[KS] Johnson County, Kansas holds a bid-off property at a tax foreclosure sale for two years before pursuing a further sale, three years when the property qualifies as a homestead, under K.S.A. 79-2401a -- Miami County follows the identical statute for the sliver of Spring Hill sitting on its own side of the line.",
+      "[KS] K.S.A. 79-2401a applies the identical holding period regardless of which county actually runs a Spring Hill tax sale -- two years before either county can pursue a further sale on property it bid off, or three years if the parcel qualifies as a homestead.",
 
       "[KS] This site's Johnson County, Kansas page covers the fuller countywide picture behind the exemption and holding-period figures above, including how they reach Gardner and Edgerton nearby alongside the larger share of Spring Hill sitting in that county.",
 
-      "[KS] New subdivision construction has driven most of this city's own recent growth, and a newer subdivision in this city more often carries a special assessment or improvement-district fee tied to that construction than an older Johnson County, Kansas home closer to the built-up core does. K.S.A. 12-6a20 requires a Kansas seller to disclose any such special assessment to a buyer -- making a good-faith estimate if the exact figure is not yet fixed -- and to get the buyer's written acknowledgment before closing.",
+      "[KS] Spring Hill's own recent subdivision boom carries a practical consequence at closing: a special assessment or improvement-district fee tied to that construction shows up far more often in this city than on an older, already-built-out lot near the county's urban core. Kansas law does not let a seller stay quiet about it -- K.S.A. 12-6a20 requires disclosing any such assessment to the buyer, with a good-faith estimate standing in when the final number is not yet set, and requires the buyer's own written acknowledgment before the sale closes.",
 
-      "[KS] Property in Spring Hill is assessed at the identical 11.5% ratio Article 11, Section 1 of the Kansas Constitution sets statewide, applied to whatever market-value estimate the county assessor sets for a specific parcel -- the percentage does not change on either side of the Johnson-Miami line, only the underlying value estimate does.",
+      "[KS] Article 11, Section 1 of the Kansas Constitution fixes the 11.5% residential assessment figure regardless of which county actually values a Spring Hill parcel -- crossing from the Johnson County, Kansas side of this city to the Miami County side changes nothing about that ratio, only the underlying dollar estimate a given assessor arrives at.",
 
-      "[KS] A buyer moving into one of this city's newer subdivisions occasionally finances the purchase through a contract for deed rather than an ordinary mortgage, and where that happens, the Kansas Contract for Deed Act -- in force since mid-2024 -- requires the seller to hold title free of most undisclosed encumbrances under K.S.A. 58-5203, and requires written notice and real time to cure a default under K.S.A. 58-5204 before the buyer's interest can be forfeited, 30 days if less than half the price has been paid, 90 days if half or more has.",
+      "[KS] Some buyers in Spring Hill's newer subdivisions finance their purchase through a contract for deed instead of a bank mortgage, and since mid-2024 the Kansas Contract for Deed Act has governed that arrangement -- K.S.A. 58-5203 obligates the seller to keep title clear of most undisclosed encumbrances, and K.S.A. 58-5204 forces the seller to give written notice and a real cure period, 30 days on a buyer under halfway paid down or 90 days on one past the halfway point, before any forfeiture of the buyer's interest.",
 
       "This city's own newer growth stands apart from the county seat cluster closer to the metro core -- Overland Park, Olathe, and Lenexa -- which built out decades earlier and carries a far older, more established housing stock than Spring Hill's own recent subdivisions.",
 
@@ -598,9 +606,9 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "A house near the Johnson-Miami line in Spring Hill occasionally has its own school-district assignment cross the same county boundary its taxing jurisdiction does, so confirming both the county and the district a specific parcel actually falls under is worth doing before assuming either one from the mailing address alone.",
 
-      "[KS] A closing on a house in Spring Hill also skips the old Kansas mortgage-registration tax entirely -- K.S.A. 79-3102 was repealed outright effective January 1, 2019, reaching a newer subdivision closing in Spring Hill exactly as it reaches one anywhere else in the state.",
+      "[KS] Buyers financing a newer Spring Hill subdivision home owe nothing under the old Kansas mortgage-registration tax -- that statute, K.S.A. 79-3102, went off the books statewide effective January 1, 2019.",
 
-      "[KS] None of the above makes a fast cash sale the obvious answer for a seller in this city. A homeowner with real equity in a newer subdivision home and no urgent deadline is usually still better off listing conventionally, particularly given how steady buyer demand has stayed for the new construction driving this city's own growth.",
+      "[KS] A cash sale is not the automatic right call just because Spring Hill happens to be growing fast. A homeowner with genuine equity and no urgent deadline generally comes out ahead listing through a realtor instead, since the same new-construction demand fueling this city's growth keeps buyer interest in existing homes strong too.",
 
       "A cash sale earns genuine consideration in this city for a thin-equity owner once a mortgage and any liens are counted, an estate needing an uncomplicated and fast close, or a property carrying repair needs a conventional lender will not finance -- not as the default answer for a seller with equity and time to spare.",
 
@@ -625,9 +633,9 @@ export const cityContentTier3a: Record<string, PageContent> = {
     body: [
       "Clinton is the county seat of Henry County, roughly 9,416 people about 66.6 miles from the metro's core, sitting at the northern trailhead of the Rock Island Trail, a rail-to-trail conversion that has turned an old freight corridor into a genuine recreational draw, and within a short drive of the Harry S. Truman Reservoir's own recreation areas along the Henry-Benton County line.",
 
-      "[MO] Every acre of this city sits in Missouri, inside Henry County, so Missouri law reaches a house sale in this city start to finish -- but this is a genuinely smaller market than Jackson, Clay, or Cass County, with far fewer comparable recent sales to price a specific house against and a slower overall pace of turnover.",
+      "[MO] Henry County sits entirely inside Missouri, and Clinton along with it, so state law governs a sale in Clinton without exception -- though the market itself behaves nothing like Jackson, Clay, or Cass County's. Comparable recent sales are genuinely scarce in a city this size, and turnover simply moves slower.",
 
-      "[MO] Clinton's own trustee's sales run on the same non-judicial track RSMo 443.290 and RSMo 443.327 set up across the state -- a named trustee, not a court, sells on default -- but the notice leading up to that sale reflects Henry County's own modest size. At roughly 22,485 residents, this county sits under the 50,000-person cutoff RSMo 443.320 uses, so notice here takes the smaller-county form: four weekly newspaper insertions rather than twenty daily ones, the last one running no more than seven days before the sale.",
+      "[MO] Clinton's own trustee's sales run on the same non-judicial track RSMo 443.290 and RSMo 443.327 set up across the state -- a named trustee, not a court, sells on default -- but the notice leading up to that sale reflects Henry County's own modest size. At roughly 22,485 residents, this county sits under the 50,000-person cutoff RSMo 443.320 uses, so notice in this city takes the smaller-county form: four weekly newspaper insertions rather than twenty daily ones, the last one running no more than seven days before the sale.",
 
       "[MO] A defaulting owner's shot at redemption is narrow by design under RSMo 443.410 and RSMo 443.420 -- it exists only if the lender itself, and not some third-party buyer, ends up holding the property after the trustee's sale, only if that owner filed written notice of an intent to redeem, and only if a bond for the full debt was posted inside a twenty-day window.",
 
@@ -635,7 +643,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "[MO] Delinquent taxes send a Clinton property down an entirely different statutory path than a mortgage default does -- RSMo 140.340 hands the owner an unconditional full year to redeem from the tax-sale date, with a second, weaker redemption right persisting after that year until the purchaser actually obtains the collector's deed.",
 
-      "[MO] Henry County has no hub page of its own in this site's registry yet, so anyone in Clinton wanting a deeper county-specific treatment of these figures should look to the statewide Missouri pages in the meantime.",
+      "[MO] This site's Henry County page covers the fuller countywide picture behind these figures, including how the same weekly-notice schedule and lake-property considerations reach Windsor alongside Clinton itself, and how a vacation home's own off-season timeline differs from a full-time residence's.",
 
       "[MO] Probate has the final say over who can actually sign for a Clinton house before it changes hands -- RSMo 473.780 lets an estate skip most routine court oversight through independent administration only when the will itself authorizes that path, or allows it with every heir's sign-off; without one of those two, supervised administration takes over and the court reviews each major step, sale included.",
 
@@ -651,7 +659,7 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "[MO] The trade-off in a market this size cuts both ways: fewer active buyers means a house can sit unsold for a longer stretch once listed, but it also means less pressure toward an unnecessarily fast decision. An owner in Clinton with no pending foreclosure notice or fixed estate deadline is usually still better off listing through a realtor and giving that slower market the time it genuinely needs.",
 
-      "A cash sale earns real consideration in Clinton specifically for an estate that needs to close before a fixed date, a house carrying repair needs no conventional lender in a market this size will finance, or an owner already behind on payments with a trustee's-sale notice approaching -- not as the default choice for an owner with time and a marketable house.",
+      "Where a cash sale genuinely makes sense in Clinton is narrower than it might first appear: an estate racing toward a closing deadline, a house with repair needs a small-town lender simply will not finance, or an owner who is already behind on payments and watching a trustee's-sale notice get closer. Time and a marketable house point toward a normal listing instead.",
 
       "[MO] None of the above is legal advice, and a small-county foreclosure notice, tax bill, or probate filing touching a Clinton property deserves a Missouri attorney's own review of the actual paperwork rather than a general description of statewide rules.",
     ],
@@ -697,9 +705,9 @@ export const cityContentTier3a: Record<string, PageContent> = {
 
       "Chillicothe functions as the only real commercial hub for a wide stretch of north-central Missouri farmland, drawing buyers from several smaller surrounding towns the way a larger regional center would -- a genuine concentration of demand into one city, even though that demand still runs thinner overall than anything the metro core sees.",
 
-      "[MO] The trade-off in a market this size cuts both ways: fewer active buyers means a house can sit unsold for a longer stretch once listed, but it also means less pressure toward an unnecessarily fast decision. An owner in Chillicothe with no pending foreclosure notice or fixed estate deadline is usually still better off listing through a realtor and giving that slower market the time it genuinely needs.",
+      "[MO] A thin buyer pool cuts two directions at once in a city this size -- a Chillicothe listing can take considerably longer to sell than one in the metro, but that same thinness also removes the pressure to rush a decision. Without an actual foreclosure notice or a hard estate deadline already in motion, an owner in Chillicothe is usually better off listing through a realtor and accepting the longer timeline rather than taking a discounted cash sale.",
 
-      "A cash sale earns real consideration in Chillicothe specifically for an estate that needs to close before a fixed date, a house carrying repair needs no conventional lender in a market this size will finance, or an owner already behind on payments with a trustee's-sale notice approaching -- not as the default choice for an owner with time and a marketable house.",
+      "The situations where a cash sale actually fits Chillicothe are specific ones: an estate that has to close by a set date, a house whose repair needs push it outside what a conventional lender in a market this size will finance, or an owner already late on payments with a trustee's-sale notice on the way. Absent one of those, time and a sellable house favor a normal listing.",
 
       "[MO] None of the above is legal advice, and a small-county foreclosure notice, tax bill, or probate filing touching a Chillicothe property deserves a Missouri attorney's own review of the actual paperwork rather than a general description of statewide rules.",
     ],
