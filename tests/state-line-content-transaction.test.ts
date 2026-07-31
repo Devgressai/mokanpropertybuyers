@@ -6,13 +6,15 @@
 // broken content, not just pass against correct content -- see the addendum in
 // docs/CITATION-LEDGER.md on why a clean sweep deserves scrutiny.
 //
-// This cluster is deliberately NOT held to the same "every page has a claim" or
-// "every page clears 900 words" bar as the foreclosure and money clusters: the
-// ledger has no verified Kansas tax-sale claim and no verified claim at all for
-// contract for deed or seller disclosure in either state. Two of these four pages
-// therefore carry zero `claims` on purpose -- asserting a floor here would have
-// meant inventing law to clear it, which is the one outcome worse than a short,
-// honest page. See the Task 7 report for the reasoning.
+// Wave 0B closed with three ledger gaps in this cluster: no Kansas tax-sale
+// claim, and no claim at all -- for either state -- on contract for deed or
+// seller disclosure. Wave 0C closed all three (see the file-level comment in
+// state-line-content-transaction.ts and docs/CITATION-LEDGER.md), so all four
+// pages in this cluster now carry at least one verified claim and all four
+// clear the 900-word flagship floor. Nothing here asserts law that was not
+// independently verified against a primary source -- Missouri's absence of a
+// dedicated contract-for-deed statute is itself a verified (negative) finding,
+// not a gap papered over.
 import { describe, expect, it } from "vitest";
 import { stateLineContentTransaction } from "../src/data/state-line-content-transaction";
 import { stateLineContentForeclosure } from "../src/data/state-line-content-foreclosure";
@@ -53,44 +55,27 @@ describe("state-line transaction cluster content", () => {
     }
   });
 
-  // Word counts are reported per page, not asserted against an invented floor.
-  // The ledger backs probate and tax-sale (partially); it backs neither state
-  // for contract-for-deed or seller-disclosure. Padding either of the last two
-  // to 900 words would have required unsourced law -- the one thing this task
-  // was explicitly told not to do. Each assertion below reflects what the page
-  // actually, honestly reaches, with headroom trimmed just enough that this
-  // test still fails if a future edit quietly shrinks a page instead of only
-  // ever growing one.
-  it("clears the flagship 900-word floor: probate (fully backed by the ledger)", () => {
+  // All four pages now clear the flagship 900-word floor -- closing the
+  // ledger's three gaps (Kansas tax-sale, contract for deed, seller
+  // disclosure) gave each page enough independently-verified law to state
+  // that padding was never required to get here.
+  it("clears the flagship 900-word floor on all four pages", () => {
     expect(FLAGSHIP_MIN_WORDS).toBeGreaterThan(MIN_INDEXABLE_WORDS);
-    const page = stateLineContentTransaction["probate-missouri-vs-kansas"];
-    expect(wordCount(page.body)).toBeGreaterThanOrEqual(FLAGSHIP_MIN_WORDS);
-  });
-
-  it("clears the site's 600-word indexable floor on the three pages the ledger only partly or doesn't cover", () => {
-    const partial = [
-      "tax-sale-missouri-vs-kansas",
-      "contract-for-deed-missouri-vs-kansas",
-      "seller-disclosure-missouri-vs-kansas",
-    ] as const;
-    for (const slug of partial) {
-      const page = stateLineContentTransaction[slug];
-      expect(wordCount(page.body), slug).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
-      // None of these three should be mistaken for having cleared the flagship
-      // bar honestly -- if one ever does, that is a fact worth re-checking
-      // against the ledger, not silently accepting.
+    for (const page of pages) {
+      expect(wordCount(page.body), page.slug).toBeGreaterThanOrEqual(FLAGSHIP_MIN_WORDS);
     }
   });
 
   it("reports the actual word count of every page (regression guard against silent shrinkage)", () => {
-    // These are the real counts measured when this cluster was written. A
-    // meaningful future edit can grow a page; this test exists to catch one
-    // quietly losing content, not to freeze the copy in place.
+    // These are the real counts measured after Wave 0C closed this cluster's
+    // three ledger gaps. A meaningful future edit can grow a page; this test
+    // exists to catch one quietly losing content, not to freeze the copy in
+    // place.
     const minimums: Record<string, number> = {
       "probate-missouri-vs-kansas": 1000,
-      "tax-sale-missouri-vs-kansas": 700,
-      "contract-for-deed-missouri-vs-kansas": 700,
-      "seller-disclosure-missouri-vs-kansas": 700,
+      "tax-sale-missouri-vs-kansas": 1050,
+      "contract-for-deed-missouri-vs-kansas": 1000,
+      "seller-disclosure-missouri-vs-kansas": 1100,
     };
     for (const [slug, min] of Object.entries(minimums)) {
       const page = stateLineContentTransaction[slug];
@@ -100,10 +85,9 @@ describe("state-line transaction cluster content", () => {
 
   it("labels every paragraph asserting state-specific law with [MO] or [KS]", () => {
     // A paragraph that names neither state, or names a state but asserts no
-    // law (e.g. the honest statement that Kansas's tax-sale process is not
-    // covered here), makes no jurisdictional claim and needs no label. One
-    // that names a state AND uses a legal-marker word IS an assertion of that
-    // state's law and must be labeled.
+    // law, makes no jurisdictional claim and needs no label. One that names a
+    // state AND uses a legal-marker word IS an assertion of that state's law
+    // and must be labeled.
     let checked = 0;
     for (const page of pages) {
       for (const paragraph of page.body) {
@@ -114,8 +98,7 @@ describe("state-line transaction cluster content", () => {
       }
     }
     // Guards against the test being vacuously true if content ever stopped
-    // asserting law at all. Lower bar than the other two clusters (7, not 20)
-    // because two of these four pages assert no state law by design.
+    // asserting law at all.
     expect(checked).toBeGreaterThan(6);
   });
 
@@ -142,27 +125,31 @@ describe("state-line transaction cluster content", () => {
     }
   });
 
-  it("gives probate and tax-sale at least one claim, each passing the citation audit", () => {
-    for (const slug of ["probate-missouri-vs-kansas", "tax-sale-missouri-vs-kansas"] as const) {
-      const page = stateLineContentTransaction[slug];
+  it("gives every page in this cluster at least one claim, each passing the citation audit", () => {
+    for (const page of pages) {
       const claims = page.claims ?? [];
-      expect(claims.length, slug).toBeGreaterThan(0);
-      expect(auditClaimList(slug, claims)).toEqual([]);
+      expect(claims.length, page.slug).toBeGreaterThan(0);
+      expect(auditClaimList(page.slug, claims)).toEqual([]);
     }
   });
 
-  it("leaves contract-for-deed and seller-disclosure with zero claims -- the ledger has none for either state", () => {
-    // This is the honest outcome the task brief asked for, not an omission.
-    // If either of these ever gains a claims entry, it must come from a
-    // ledger id, exercised by the identity-reference test below -- never a
-    // retyped statute number.
-    for (const slug of [
-      "contract-for-deed-missouri-vs-kansas",
-      "seller-disclosure-missouri-vs-kansas",
-    ] as const) {
-      const page = stateLineContentTransaction[slug];
-      expect(page.claims ?? []).toEqual([]);
-    }
+  it("gives contract-for-deed exactly the two Kansas Contract for Deed Act claims -- no matching Missouri statute was found", () => {
+    const page = stateLineContentTransaction["contract-for-deed-missouri-vs-kansas"];
+    const claims = page.claims ?? [];
+    expect(claims).toContainEqual(citations["ks-contract-for-deed-act"]);
+    expect(claims).toContainEqual(citations["ks-contract-for-deed-notice-cure"]);
+    expect(claims.every((c) => c.state === "KS"), "no MO claim -- none was verified").toBe(true);
+  });
+
+  it("gives seller-disclosure narrow statutory claims for both states plus Kansas's licensee-duty claim", () => {
+    const page = stateLineContentTransaction["seller-disclosure-missouri-vs-kansas"];
+    const claims = page.claims ?? [];
+    expect(claims).toContainEqual(citations["mo-seller-disclosure-meth"]);
+    expect(claims).toContainEqual(citations["mo-seller-disclosure-solid-waste"]);
+    expect(claims).toContainEqual(citations["mo-merchandising-practices-act"]);
+    expect(claims).toContainEqual(citations["ks-seller-disclosure-radon"]);
+    expect(claims).toContainEqual(citations["ks-seller-disclosure-special-assessment"]);
+    expect(claims).toContainEqual(citations["ks-broker-disclosure-duty"]);
   });
 
   it("references claims by identity to the ledger -- never a retyped copy", () => {
@@ -187,29 +174,36 @@ describe("state-line transaction cluster content", () => {
     expect(citations["mo-tax-sale-redemption"]).not.toBe(citations["mo-redemption"]);
   });
 
-  it("states plainly that the Kansas tax-sale process is not covered, rather than guessing at it", () => {
+  it("states the Kansas tax-sale redemption cutoff as the mirror image of Kansas mortgage-foreclosure redemption", () => {
     const page = stateLineContentTransaction["tax-sale-missouri-vs-kansas"];
     const text = page.body.join(" ");
-    expect(text).toMatch(/does not describe how Kansas handles/i);
-    expect(text).toMatch(/takes no position on what actually does apply/i);
-    // The page must not assert a specific Kansas tax-sale redemption period
-    // anywhere -- that would be exactly the unsourced assertion this task was
-    // told to avoid.
-    expect(text).not.toMatch(/Kansas[^.]{0,80}(twelve|12|three|3)[^.]{0,20}months? to redeem/i);
+    // The verified rule: redemption only before the tax foreclosure sale,
+    // none after -- the opposite of the 12-month post-sale window that
+    // applies to a Kansas mortgage foreclosure (ks-redemption-12mo).
+    expect(text).toMatch(/K\.S\.A\. 79-2803/);
+    expect(text).toMatch(/no redemption right survives it|no redemption after that sale|closes the door/i);
+    expect(text).toMatch(/mirror image/i);
+    expect(text).toMatch(/K\.S\.A\. 79-2401a/);
   });
 
-  it("states plainly, twice, that neither state's contract-for-deed default rule is covered", () => {
+  it("states the Kansas Contract for Deed Act's notice-and-cure periods and says plainly no Missouri statute was found", () => {
     const page = stateLineContentTransaction["contract-for-deed-missouri-vs-kansas"];
     const text = page.body.join(" ");
-    expect(text).toMatch(/has not checked.*exactly what Missouri does with a defaulted contract for deed/i);
-    expect(text).toMatch(/exactly what Kansas does/i);
+    expect(text).toMatch(/Kansas Contract for Deed Act/i);
+    expect(text).toMatch(/30 days.*50%|50%.*30 days/i);
+    expect(text).toMatch(/90 days/i);
+    expect(text).toMatch(/did not find a Missouri statute creating a dedicated contract-for-deed framework/i);
   });
 
-  it("states plainly, twice, that neither state's seller-disclosure requirement is covered", () => {
+  it("states each state's narrow seller-disclosure statutes and says plainly neither has one comprehensive statute", () => {
     const page = stateLineContentTransaction["seller-disclosure-missouri-vs-kansas"];
     const text = page.body.join(" ");
-    expect(text).toMatch(/has not verified.*exactly what Missouri requires a seller to put in writing/i);
-    expect(text).toMatch(/exactly what Kansas requires/i);
+    expect(text).toMatch(/methamphetamine/i);
+    expect(text).toMatch(/solid waste disposal site|demolition landfill/i);
+    expect(text).toMatch(/radon/i);
+    expect(text).toMatch(/special assessment/i);
+    expect(text).toMatch(/does not have one statute requiring a residential seller to complete a general property-condition disclosure form/i);
+    expect(text).toMatch(/does not have a single comprehensive seller-disclosure statute/i);
   });
 
   it("frames probate and disclosure as areas where a lawyer is often genuinely necessary", () => {
@@ -298,25 +292,23 @@ describe("state-line transaction cluster content", () => {
     }
   });
 
-  it("clears the 600-word floor on all four pages, honestly", () => {
-    // Unlike the foreclosure and money clusters, this is not a foregone
-    // conclusion -- two of these pages carry zero legal claims. If any of
-    // these four is ever trimmed below 600 words, it should go noindex rather
-    // than have this assertion loosened.
+  it("clears the 600-word floor on all four pages", () => {
+    // If any of these four is ever trimmed below 600 words, it should go
+    // noindex rather than have this assertion loosened.
     for (const slug of Object.keys(stateLineContentTransaction)) {
       expect(isBodyIndexable(getPageContent(slug)!.body), slug).toBe(true);
     }
   });
 
-  it("indexes only the two pages with a verified claim -- claims-less pages wait for ledger coverage", () => {
+  it("indexes all four pages -- each now carries at least one verified claim", () => {
     // Task 7.5: a stateLine page's title promises a named legal comparison,
-    // so clearing the word floor is not enough on its own. probate and
-    // tax-sale each carry a verified claim and index; contract-for-deed and
-    // seller-disclosure carry none and stay noindex,follow until the ledger
-    // covers either state for those topics. See src/lib/seo/indexation.ts.
+    // so clearing the word floor is not enough on its own; it also needs a
+    // claim. Wave 0C closed the ledger gaps that used to leave
+    // contract-for-deed and seller-disclosure claims-less, so all four pages
+    // in this cluster now index. See src/lib/seo/indexation.ts.
     expect(isIndexable("probate-missouri-vs-kansas")).toBe(true);
     expect(isIndexable("tax-sale-missouri-vs-kansas")).toBe(true);
-    expect(isIndexable("contract-for-deed-missouri-vs-kansas")).toBe(false);
-    expect(isIndexable("seller-disclosure-missouri-vs-kansas")).toBe(false);
+    expect(isIndexable("contract-for-deed-missouri-vs-kansas")).toBe(true);
+    expect(isIndexable("seller-disclosure-missouri-vs-kansas")).toBe(true);
   });
 });

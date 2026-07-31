@@ -360,3 +360,167 @@ possible, but a clean sweep on a first pass deserves scrutiny rather than trust 
 spot-checking three claims found three precision problems. No claim was downgraded to
 UNVERIFIED, because all three survived restatement. Future waves should assume the same
 scrutiny applies to their own ledger additions.
+
+---
+
+## Wave 0C — closing the three transaction-cluster gaps, 2026-07-30
+
+Three gaps carried forward from Wave 0B (`docs/WAVE-0B-PREREQUISITES.md`, "Wave 0C
+inheritance"): no Kansas tax-sale claim, and no claim at all — for either state — on contract
+for deed or seller disclosure. All three were closed in this pass. Ten new entries were added
+to `citations`. Zero were left UNVERIFIED, but — unlike Wave 0B's Missouri contract-for-deed
+question, where the honest answer turned out to be "no such statute" — that is a report of
+what was actually found, not a repeat of the "perfect record" pattern flagged above; see the
+near-miss below for the one place a clean-looking secondary source was wrong.
+
+### `ks-tax-sale-no-post-sale-redemption` and `ks-tax-sale-county-holding-period`
+
+Pre-verified by the controller against `ksrevisor.gov` on 2026-07-30 and used verbatim, not
+re-checked in this pass.
+
+- **`ks-tax-sale-no-post-sale-redemption`** — K.S.A. 79-2803, captioned "Property not subject
+  to redemption after sale." Redemption is permitted only *before* the day of the tax
+  foreclosure sale. Case annotation: *Sumner County Comm'rs v. Avis*, 163 Kan. 388, 393, 183
+  P.2d 462, holds no redemption right exists following the sale.
+  Source: https://ksrevisor.gov/statutes/chapters/ch79/079_028_0003.html
+- **`ks-tax-sale-county-holding-period`** — K.S.A. 79-2401a. Real estate bid off by the county
+  is held before the county pursues foreclosure: two years generally, three years if the
+  property is a homestead under section 9 of article 15 of the Kansas Constitution, one year
+  for an abandoned building or structure and the land under it. Redeemable during that period
+  by the owner/holder of record title, their heirs, devisees, executors, administrators, or
+  assigns, or a mortgagee or the owner's/holder's assigns.
+  Source: https://ksrevisor.gov/statutes/chapters/ch79/079_024_0001a.html
+
+**Why this matters:** Kansas tax foreclosure is close to the mirror image of Kansas mortgage
+foreclosure, which the ledger already covers (`ks-redemption-12mo`: 12 months to redeem,
+sometimes shortened to 3, *after* a mortgage foreclosure sale). For a tax foreclosure, the
+entire redemption opportunity sits *before* the sale — none after. `tax-sale-missouri-vs-kansas`
+now states this contrast explicitly and warns against carrying the mortgage-foreclosure
+12-month intuition across to a tax sale. Johnson County, Kansas (~622,237 people, the largest
+Kansas county in this footprint per `data/footprint.json`) is called out because the
+three-year homestead holding period reaches a large share of its housing stock specifically.
+
+### `ks-contract-for-deed-act` and `ks-contract-for-deed-notice-cure`
+
+Verified directly against `ksrevisor.gov` on 2026-07-30. The Kansas Contract for Deed Act
+(K.S.A. 58-5201 to 58-5204) is genuinely new law, **effective 2024-07-01**
+(`L. 2024, ch. 63, §§ 10-13; July 1`), confirmed on all four sections fetched directly.
+
+- **58-5201** — citation and definitions (contract for deed = executory agreement, 5+ payments
+  exclusive of down payment, buyer's principal residence).
+  https://ksrevisor.gov/statutes/chapters/ch58/058_052_0001.html
+- **58-5202** — recording of the contract or an affidavit of equitable interest; seller
+  remedies on buyer default after the notice-and-cure period runs.
+- **58-5203** — seller must hold fee simple title free of encumbrances, with narrow disclosed
+  exceptions; violation is a deceptive act or practice under the Kansas Consumer Protection
+  Act. https://ksrevisor.gov/statutes/chapters/ch58/058_052_0003.html
+- **58-5204** — buyer's notice-and-cure right before forfeiture: 30 days if the buyer has paid
+  less than 50% of the purchase price, 90 days if 50% or more. Notice must be served in person,
+  left at the buyer's residence, or sent by certified mail.
+  https://ksrevisor.gov/statutes/chapters/ch58/058_052_0004.html
+
+Two ledger ids were made from these four sections: `ks-contract-for-deed-act` (58-5201,
+58-5203 — the title-holding requirement and its Consumer Protection Act consequence) and
+`ks-contract-for-deed-notice-cure` (58-5204 — the 30/90-day buyer protection), mirroring the
+existing pattern of splitting one topic across sibling ids (`ks-redemption-12mo` /
+`ks-redemption-3mo`).
+
+### Near-miss: Missouri has no dedicated Contract for Deed Act — "RSMo 442.700-442.746" is not enacted law
+
+This is the most important finding in this pass, and it very nearly went the other way.
+
+Multiple search results — a legal-forms marketing site, a Kansas City-area real-estate
+investors' association blog, and search-engine summaries drawing on both — describe a
+"Missouri Contract for Deed Act" at RSMo 442.700 through 442.746, with provisions (a 60-day
+cure period, a 30%-of-price-or-48-payments threshold before a trustee-style sale replaces
+forfeiture, a 15%-paid conversion-to-title right, a 14-day buyer rescission window) that
+exactly match two real Missouri bills: **HB 296**, introduced in the House in 2011, and **SB
+555**, pre-filed in the Senate in December 2011 for the 2012 session, carrying identical
+text. The introduced-bill PDF (`https://www.senate.mo.gov/12info/pdf-bill/intro/SB555.pdf`,
+fetched and read directly) and the House's own bill summary
+(`https://documents.house.mo.gov/billtracking/bills111/sumpdf/HB0296I.HTM` and its summary
+PDF, fetched directly) both describe this in detail — but an introduced bill is not enacted
+law, and initial attempts to confirm passage via `revisor.mo.gov`'s `OneSection.aspx` for
+442.700, 442.706, 442.710, and 442.742 all returned the site's bot-block page on every
+attempt, while adjacent sections (442.606, 260.213, 407.020, 443.410) fetched normally in the
+same session — a pattern that looked, at first, like the site was specifically protecting
+this range rather than that the range simply did not exist.
+
+**Resolved by fetching the chapter's own table of contents directly:**
+`https://revisor.mo.gov/main/OneChapter.aspx?chapter=442` lists every section in Chapter 442
+in order. It runs from 442.010 through 442.606 ("Methamphetamine production, seller of
+property to disclose...") and then jumps straight to **442.920** ("Missouri Residential Sale
+Leaseback Protection Act" — a real, different, enacted statute about a different transaction
+structure). **There is no 442.700 through 442.746 in the current code.** HB 296 and SB 555
+either died in committee or were never brought to a vote in either session; nothing in the
+current chapter index reflects them.
+
+This is exactly the "near-miss" pattern the Addendum above warns about, but in the opposite
+direction from `mo-assessment-19`'s proposed-bill-mistaken-for-enacted-text trap: here, several
+independent-*looking* secondary sources converged on the same specific, plausible, detailed
+citation, and only a direct fetch of the primary source's own table of contents caught that it
+was describing a bill, not a statute. **No `mo-contract-for-deed` citation was added.** The
+`contract-for-deed-missouri-vs-kansas` page states plainly that no Missouri statute was found,
+rather than repeating what every secondary source claims.
+
+### `mo-seller-disclosure-meth` and `mo-seller-disclosure-solid-waste`
+
+Verified directly against `revisor.mo.gov` on 2026-07-30.
+
+- **RSMo 442.606** — "Methamphetamine production, seller of property to disclose to buyer such
+  production and certain criminal convictions." Effective 28 Aug 2001 (L. 2001 S.B. 89 & 37).
+  https://revisor.mo.gov/main/OneSection.aspx?section=442.606
+- **RSMo 260.213** — "Disclosure of landfill, sale of property, required." Effective 28 Aug
+  1990 (L. 1990 S.B. 530). Operative text confirmed verbatim: "No person may knowingly sell,
+  convey or transfer title to any property that contains a permitted or unpermitted solid
+  waste disposal site or demolition landfill, without disclosing to the buyer early in the
+  negotiation process the existence and location of the site."
+  https://revisor.mo.gov/main/OneSection.aspx?section=260.213
+
+### `mo-merchandising-practices-act`
+
+Verified directly against `revisor.mo.gov` on 2026-07-30.
+
+- **RSMo 407.020** — "Unlawful practices, penalty — exceptions." Effective 28 Aug 2020 (five
+  amendments since 1967). Operative text (subsection 1) declares "deception, fraud, false
+  pretense, false promise, misrepresentation, unfair practice or the concealment, suppression,
+  or omission of any material fact in connection with the sale or advertisement of any
+  merchandise" an unlawful practice.
+- **RSMo 407.010** — fetched specifically to confirm "merchandise" reaches real estate, not
+  just goods. Definition confirmed verbatim: "any objects, wares, goods, commodities,
+  intangibles, real estate or services."
+
+This is Missouri's closest analog to a general seller-silence duty, in the explicit absence of
+a dedicated disclosure-form statute. It is a consumer-protection statute, not a disclosure
+statute — the page frames it that way rather than calling it a disclosure requirement.
+
+### `ks-seller-disclosure-radon` and `ks-seller-disclosure-special-assessment`
+
+Verified directly against `ksrevisor.gov` on 2026-07-30.
+
+- **K.S.A. 58-3078a** — "Contract to include information regarding radon." Effective 2008-07-01
+  (L. 2008, ch. 153, § 1). Confirmed: "Kansas law requires sellers to disclose any information
+  known to the seller that shows elevated concentrations of radon gas in residential real
+  property," plus mandatory contract language warning radon is a Class A human carcinogen.
+- **K.S.A. 12-6a20** — "Disclosure by seller; acknowledgment." Effective 2003-07-01 (L. 2003,
+  ch. 156, § 5). Confirmed verbatim: seller must disclose a special assessment/fee or
+  improvement-district membership, with a good-faith estimate if the amount is unknown, and
+  obtain the buyer's written acknowledgment.
+
+### `ks-broker-disclosure-duty`
+
+Verified directly against `ksrevisor.gov` on 2026-07-30. K.S.A. 58-30,106, "Minimum
+requirements of seller's or landlord's agent," part of the Brokerage Relationships in Real
+Estate Transactions Act. Most recent amendment effective 2015-07-01 (L. 2015, ch. 21, § 5).
+**Important distinction confirmed by reading the actual subsection, not the section title:**
+this duty runs from the *licensee* to a buyer/tenant who is a customer rather than a client —
+"a licensee shall disclose to any customer all adverse material facts actually known by the
+licensee" — it is not a duty imposed on the seller directly. The page states this distinction
+explicitly rather than describing it as a seller disclosure requirement.
+
+### Effective-date trap check, Wave 0C additions
+
+All ten new citations were checked for the `revisor.mo.gov` forward-dated-text hazard
+documented above. None exhibited it — every Missouri "Effective -" line and A.L. history
+matched a date already in the past, and every Kansas "History" line's most recent enactment
+date likewise reflected current law with no forward-dated language.

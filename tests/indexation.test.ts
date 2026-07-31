@@ -43,26 +43,36 @@ describe("indexation gate", () => {
   });
 
   describe("stateLine claims gate", () => {
-    // These two carry zero verified claims by design (see
-    // state-line-content-transaction.ts) -- the ledger has no MO or KS
-    // coverage for either topic yet. They clear the word-count floor, so if
-    // the claims gate ever regresses to a word-count-only check, these
-    // assertions catch it.
-    it("does not index a stateLine page with 0 claims, even past the word floor", () => {
-      expect(isIndexable("contract-for-deed-missouri-vs-kansas")).toBe(false);
-      expect(isIndexable("seller-disclosure-missouri-vs-kansas")).toBe(false);
+    // NOTE: as of Wave 0C, every stateLine page in the registry carries at
+    // least one claim, so there is currently no live content example of the
+    // "0 claims, past the word floor, stays noindex" branch of
+    // isTopicallyIndexable() in src/lib/seo/indexation.ts. That branch is
+    // still real code, exercised the moment a future stateLine page ships
+    // without a verified claim -- it is just not under test against live
+    // content right now. Don't read the absence of that example as the rule
+    // having been relaxed.
+    //
+    // contract-for-deed and seller-disclosure used to carry zero verified
+    // claims (see state-line-content-transaction.ts's history) -- the ledger
+    // had no MO or KS coverage for either topic. Wave 0C closed that gap, so
+    // both now carry real claims and index. The assertions below confirm the
+    // gate lets them through now that they qualify, and still exercises the
+    // "index + follow" shape a passing stateLine page gets.
+    it("indexes contract-for-deed and seller-disclosure now that each carries a verified claim", () => {
+      expect(isIndexable("contract-for-deed-missouri-vs-kansas")).toBe(true);
+      expect(isIndexable("seller-disclosure-missouri-vs-kansas")).toBe(true);
     });
 
-    it("still follows links on those two pages", () => {
+    it("indexes and follows links on those two pages", () => {
       expect(robotsFor("contract-for-deed-missouri-vs-kansas"))
-        .toEqual({ index: false, follow: true });
+        .toEqual({ index: true, follow: true });
       expect(robotsFor("seller-disclosure-missouri-vs-kansas"))
-        .toEqual({ index: false, follow: true });
+        .toEqual({ index: true, follow: true });
     });
 
     it("indexes a stateLine page that carries at least one verified claim", () => {
-      // tax-sale-missouri-vs-kansas: 2 Missouri claims, honest about the
-      // Kansas gap -- this is the shape the gate is supposed to let through.
+      // tax-sale-missouri-vs-kansas: Missouri and Kansas claims alike now --
+      // this is the shape the gate is supposed to let through.
       expect(isIndexable("tax-sale-missouri-vs-kansas")).toBe(true);
     });
 

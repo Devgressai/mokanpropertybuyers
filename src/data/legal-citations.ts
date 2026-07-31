@@ -170,6 +170,25 @@ export const citations: Record<string, LegalClaim> = {
     effectiveFrom: "2015-08-28",
   },
 
+  "ks-tax-sale-no-post-sale-redemption": {
+    state: "KS",
+    claim:
+      "Kansas allows redemption of real estate from a tax foreclosure judgment only before the day of the sale -- the statute is captioned 'Property not subject to redemption after sale.' Once the sale is held, no right of redemption exists; Kansas courts have held that no redemption right survives a tax foreclosure sale.",
+    citation:
+      "K.S.A. 79-2803; Sumner County Comm'rs v. Avis, 163 Kan. 388, 393, 183 P.2d 462",
+    sourceUrl: "https://ksrevisor.gov/statutes/chapters/ch79/079_028_0003.html",
+    verifiedOn: "2026-07-30",
+  },
+
+  "ks-tax-sale-county-holding-period": {
+    state: "KS",
+    claim:
+      "When a county itself bids off real estate at a tax foreclosure sale, it holds the property before selling it: two years from the date of sale generally, three years if the property is a homestead under section 9 of article 15 of the Kansas Constitution, and one year for an abandoned building or structure and the land accommodating it. During that holding period, any owner or holder of the record title, that person's heirs, devisees, executors, administrators, or assigns, or any mortgagee or the owner's or holder's assigns, may redeem.",
+    citation: "K.S.A. 79-2401a",
+    sourceUrl: "https://ksrevisor.gov/statutes/chapters/ch79/079_024_0001a.html",
+    verifiedOn: "2026-07-30",
+  },
+
   "mo-probate-independent": {
     state: "MO",
     claim:
@@ -188,6 +207,86 @@ export const citations: Record<string, LegalClaim> = {
     sourceUrl: "https://ksrevisor.gov/statutes/chapters/ch59/059_032_0002.html",
     verifiedOn: "2026-07-29",
     effectiveFrom: "1976-01-01",
+  },
+
+  "ks-contract-for-deed-act": {
+    state: "KS",
+    claim:
+      "The Kansas Contract for Deed Act requires a seller under a contract for deed to hold fee simple title to the property free of encumbrances, with only narrow exceptions -- an encumbrance caused by the buyer, one taken out to fund improvements to the property, or a pre-existing encumbrance the seller discloses, keeps current, and pays off (unless the buyer assumes it) no later than the buyer's final payment. A violation is a deceptive act or practice under the Kansas Consumer Protection Act, enforceable under that act's own remedies.",
+    citation: "K.S.A. 58-5201; K.S.A. 58-5203",
+    sourceUrl: "https://ksrevisor.gov/statutes/chapters/ch58/058_052_0001.html",
+    verifiedOn: "2026-07-30",
+    effectiveFrom: "2024-07-01",
+  },
+
+  "ks-contract-for-deed-notice-cure": {
+    state: "KS",
+    claim:
+      "Before a Kansas seller can forfeit a defaulting buyer's interest under a contract for deed, the seller must give written notice identifying the contract, describing the property, specifying the breach, and giving the buyer time to cure it -- 30 days if the buyer has paid less than 50% of the purchase price, or 90 days if the buyer has paid 50% or more. Notice must be served in person, left at the buyer's residence, or sent by certified mail.",
+    citation: "K.S.A. 58-5204",
+    sourceUrl: "https://ksrevisor.gov/statutes/chapters/ch58/058_052_0004.html",
+    verifiedOn: "2026-07-30",
+    effectiveFrom: "2024-07-01",
+  },
+
+  "mo-seller-disclosure-meth": {
+    state: "MO",
+    claim:
+      "A Missouri seller who knows real property was used as a site for methamphetamine production must disclose that fact in writing to the buyer, and must separately disclose in writing if the property was the residence of, or a storage site or lab for, someone convicted of specified methamphetamine-related crimes, if the seller knew or should have known of the conviction.",
+    citation: "RSMo 442.606",
+    sourceUrl: "https://revisor.mo.gov/main/OneSection.aspx?section=442.606",
+    verifiedOn: "2026-07-30",
+    effectiveFrom: "2001-08-28",
+  },
+
+  "mo-seller-disclosure-solid-waste": {
+    state: "MO",
+    claim:
+      "A Missouri seller may not knowingly sell, convey, or transfer title to property containing a permitted or unpermitted solid waste disposal site or demolition landfill without disclosing the site's existence and location to the buyer, in a written notice signed and dated by the seller, early in the negotiation process -- and must also tell the buyer they may be assuming liability to the state for remedial action at the site.",
+    citation: "RSMo 260.213",
+    sourceUrl: "https://revisor.mo.gov/main/OneSection.aspx?section=260.213",
+    verifiedOn: "2026-07-30",
+    effectiveFrom: "1990-08-28",
+  },
+
+  "mo-merchandising-practices-act": {
+    state: "MO",
+    claim:
+      "Missouri has no single statute requiring a residential seller to complete a general property-condition disclosure form. Its broadest protection against a seller's silence about a known defect instead comes from the Missouri Merchandising Practices Act, which declares the concealment, suppression, or omission of any material fact in connection with the sale of 'merchandise' -- a term the Act defines to expressly include real estate -- an unlawful practice, actionable in a public or private suit, alongside outright deception, fraud, false pretense, false promise, and misrepresentation.",
+    citation: "RSMo 407.020; RSMo 407.010",
+    sourceUrl: "https://revisor.mo.gov/main/OneSection.aspx?section=407.020",
+    verifiedOn: "2026-07-30",
+    effectiveFrom: "2020-08-28",
+  },
+
+  "ks-seller-disclosure-radon": {
+    state: "KS",
+    claim:
+      "Kansas law requires a seller to disclose any information the seller knows showing elevated concentrations of radon gas in residential real property, and requires the sale contract itself to include specific language warning that radon is a class-A human carcinogen and the leading cause of lung cancer in non-smokers, and recommending testing before purchase.",
+    citation: "K.S.A. 58-3078a",
+    sourceUrl: "https://ksrevisor.gov/statutes/chapters/ch58/058_030_0078a.html",
+    verifiedOn: "2026-07-30",
+    effectiveFrom: "2008-07-01",
+  },
+
+  "ks-seller-disclosure-special-assessment": {
+    state: "KS",
+    claim:
+      "A Kansas seller of real property subject to a special assessment or fee, or located in an improvement district, must disclose that fact to the buyer -- making a good-faith estimate if the exact amount is unknown -- as part of the contract or before it is signed, and must obtain the buyer's written acknowledgment of the disclosure.",
+    citation: "K.S.A. 12-6a20",
+    sourceUrl: "https://ksrevisor.gov/statutes/chapters/ch12/012_006a_0020.html",
+    verifiedOn: "2026-07-30",
+    effectiveFrom: "2003-07-01",
+  },
+
+  "ks-broker-disclosure-duty": {
+    state: "KS",
+    claim:
+      "Kansas does not impose its broader material-defect disclosure duty on the seller directly by statute -- it imposes it on the real estate licensee. A licensee acting as a seller's or landlord's agent owes no general duty to a buyer or tenant who is a customer rather than a client, except that the licensee must disclose to that customer all adverse material facts actually known to the licensee, including environmental hazards requiring legal disclosure, the property's physical condition, material defects in the property or its title, and material limitations on the seller's ability to perform.",
+    citation: "K.S.A. 58-30,106",
+    sourceUrl: "https://ksrevisor.gov/statutes/chapters/ch58/058_030_0106.html",
+    verifiedOn: "2026-07-30",
+    effectiveFrom: "2015-07-01",
   },
 
   "kcmo-earnings-tax": {

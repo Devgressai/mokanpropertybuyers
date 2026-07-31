@@ -125,25 +125,21 @@ legal comparison; word count alone doesn't prove the comparison happened.
 State/county/city pages are unaffected — their titles describe a place, not a
 legal comparison, so they keep the word-count-only rule.
 
-Two pages currently sit below that bar, both `noindex, follow` (reachable,
-linked, passing link equity — just not indexed):
+~~Two pages currently sit below that bar, both `noindex, follow` (reachable,
+linked, passing link equity — just not indexed):~~ **CLOSED 2026-07-30.** Both
+pages gained verified claims (see "Wave 0C inheritance" below) and now index.
 
-- `contract-for-deed-missouri-vs-kansas` — 745 words, 0 claims. The ledger has
-  no verified rule for either Missouri or Kansas on contract-for-deed default
-  or reinstatement.
-- `seller-disclosure-missouri-vs-kansas` — 756 words, 0 claims. The ledger has
-  no verified seller-disclosure requirement for either state.
+**No code change was needed to bring these into the index.** Adding a verified
+citation to `src/data/legal-citations.ts` for either topic in either state,
+plus a `claims: [...]` entry naming it on the corresponding page in
+`src/data/state-line-content-transaction.ts`, was enough for `isIndexable()` to
+pick it up automatically. Do not lower the claims-gate bar to work around a
+future wait like this one — see the comment above `isTopicallyIndexable()` in
+`indexation.ts` for why.
 
-**No code change is needed to bring these into the index.** Once
-`src/data/legal-citations.ts` gains a verified citation for either topic in
-either state, and the corresponding page in
-`src/data/state-line-content-transaction.ts` adds a `claims: [...]` entry
-naming it, `isIndexable()` picks it up automatically the next time the site
-builds. Do not lower the claims-gate bar to work around the wait — see the
-comment above `isTopicallyIndexable()` in `indexation.ts` for why.
-
-Indexable count: 12 of 213 pages (14 before this gate; the two pages above
-dropped out). `check:links` confirms 0 orphans among the 12.
+Indexable count: 16 of 213 pages (was 12 immediately after this gate first
+landed, 14 before that; the two pages above are back in). `check:links`
+confirms 0 orphans among the 16.
 
 ---
 
@@ -168,19 +164,38 @@ dropped out). `check:links` confirms 0 orphans among the 12.
 
 ## Wave 0C inheritance — added 2026-07-30
 
-### Ledger gaps that keep two pages out of the index
+### Ledger gaps that kept two pages out of the index — CLOSED 2026-07-30
 
 `contract-for-deed-missouri-vs-kansas` and `seller-disclosure-missouri-vs-kansas`
-are written, linked, and `noindex, follow`. They index themselves the moment the
-ledger covers their topic — no code change. Verify and add:
+were written, linked, and `noindex, follow`, waiting on ledger coverage. All
+three of the gaps below were closed in a single pass; see
+`docs/CITATION-LEDGER.md` for the verification detail and
+`src/data/state-line-content-transaction.ts`'s file-level comment for the
+resulting content. Both pages now index.
 
-| Needed claim | Where to look |
-|---|---|
-| Kansas tax-sale redemption | K.S.A. ch. 79 |
-| Contract-for-deed default/forfeiture, Missouri | RSMo ch. 443 / case law |
-| Contract-for-deed default/forfeiture, Kansas | K.S.A. ch. 58 |
-| Seller disclosure duty, Missouri | RSMo ch. 339; Mo. real-estate commission rules |
-| Seller disclosure duty, Kansas | K.S.A. ch. 58; KREC rules |
+| Needed claim | Where it was found | Result |
+|---|---|---|
+| Kansas tax-sale redemption | K.S.A. 79-2803; K.S.A. 79-2401a | Verified. Redemption only *before* the sale, none after — the mirror image of the 12-month post-sale window on a Kansas mortgage foreclosure. |
+| Contract-for-deed default/forfeiture, Kansas | K.S.A. 58-5201 to 58-5204 | Verified. A real, dedicated Kansas Contract for Deed Act, effective 2024-07-01 — new law, not previously on anyone's radar. |
+| Contract-for-deed default/forfeiture, Missouri | RSMo ch. 443 / case law | **Checked and found not to exist.** See the near-miss below — do not re-add "RSMo 442.700-442.746" without re-verifying against `revisor.mo.gov`'s live chapter index first. |
+| Seller disclosure duty, Missouri | RSMo ch. 339; Mo. real-estate commission rules | No general disclosure-form statute exists. Found instead: RSMo 442.606 (meth production), RSMo 260.213 (solid-waste/demolition-landfill site), and RSMo 407.020/407.010 (Merchandising Practices Act — concealment ban, "merchandise" includes real estate). |
+| Seller disclosure duty, Kansas | K.S.A. ch. 58; KREC rules | No general disclosure-form statute exists either. Found instead: K.S.A. 58-3078a (radon), K.S.A. 12-6a20 (special assessments), and K.S.A. 58-30,106 — a *licensee's* material-fact duty, not a seller's. |
+
+### Near-miss: "RSMo 442.700-442.746" is not enacted Missouri law
+
+Multiple secondary sources (legal-forms sites, a REIA blog, and search-engine
+summaries drawing on them) describe a Missouri "Contract for Deed Act" at RSMo
+442.700-442.746, matching two real bills: HB 296 (introduced 2011) and SB 555
+(pre-filed 2012, identical text). **Neither bill's numbering appears in current
+Missouri law.** `revisor.mo.gov`'s live Chapter 442 section index runs
+442.600 → 442.606 (psychologically-impacted-property and meth disclosure) and
+then jumps straight to 442.920 (the unrelated Missouri Residential Sale
+Leaseback Protection Act) — there is no 442.700 through 442.746 gap in between.
+Confirmed by fetching `OneChapter.aspx?chapter=442` directly, not by inference.
+Anyone who cites "RSMo 442.700-442.746" going forward is repeating a bill that
+appears never to have passed — re-verify against the live chapter index before
+trusting any source that names it, including this document if enough time has
+passed that the chapter could have changed again.
 
 ### The remaining ~26 silo pages
 
