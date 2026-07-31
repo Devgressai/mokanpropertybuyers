@@ -513,8 +513,17 @@ describe("city content -- tier-3 Wave 0C, batch 2", () => {
     expect(duplicates).toEqual([]);
   });
 
-  it("has zero duplicate 160-character windows across the entire content registry (all ten maps)", () => {
-    expect(contentRegistries.length).toBe(10);
+  it("has zero duplicate 160-character windows across the entire content registry (whole registry)", () => {
+    // Asserts this file's map is REGISTERED, not how many maps exist. Pinning
+    // an exact count means every future content wave breaks a test in an
+    // unrelated file. A count is not the property under test.
+    //
+    // NOTE: the scan below samples at stride 20. The authoritative duplication
+    // check is `npm run check:duplication` (gate #10), exhaustive at stride 1.
+    expect(
+      contentRegistries.some((m) => "sell-my-house-fast-oak-grove-mo" in m),
+      "this batch's map is registered"
+    ).toBe(true);
     const windows = new Map<string, string>();
     const duplicates: string[] = [];
     for (const map of contentRegistries) {
