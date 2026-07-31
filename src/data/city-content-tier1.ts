@@ -402,9 +402,9 @@ export const cityContentTier1: Record<string, PageContent> = {
 
       "This site's Missouri page covers the fuller statewide picture behind the figures above in more depth than a single city summary can, which matters more for a seller in this city than it does for a seller in a county that already has its own dedicated hub page on this site.",
 
-      "[MO] None of the above makes a fast cash sale the automatically right choice for a seller in this city. An owner with time before a trustee's-sale notice is even published usually comes out ahead bringing the loan current or listing through a realtor, and an owner working through an estate in this city has real reason to confirm who actually holds authority to sign before assuming a sale, quick or otherwise, can move forward at all.",
+      "[MO] A fast cash sale is not automatically the right call for a seller in this city, any more than it is elsewhere. Time before a trustee's-sale notice is published is usually better spent bringing the loan current or listing through a realtor, and anyone selling a St. Joseph property through an estate should nail down who actually has signing authority before treating any sale -- cash or otherwise -- as ready to close.",
 
-      "[MO] None of this is legal advice. A homeowner in St. Joseph facing a specific foreclosure notice, tax sale, or probate question should talk to a Missouri attorney who can review the actual paperwork for that property, not rely on a general city-level overview.",
+      "[MO] None of this is legal advice. A St. Joseph homeowner with a specific foreclosure notice, tax sale, or probate question in hand should bring the actual paperwork to a Missouri attorney rather than lean on a general city overview like this one.",
     ],
     claims: [
       citations["mo-nonjudicial"],
