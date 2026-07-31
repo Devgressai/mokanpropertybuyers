@@ -205,11 +205,45 @@ describe("city content -- tier-1 Wave 0C", () => {
     }
   });
 
-  it("frames each page with a no-legal-advice closing", () => {
+  it("frames each page with a no-legal-advice closing that points at a professional", () => {
+    // Matches the PROPERTY, not one blessed sentence. The earlier version of
+    // this test asserted the literal phrase "None of this is legal advice" on
+    // every page, which mandated an identical closing across all twelve --
+    // exactly the scaled-content duplication the rest of this suite forbids.
+    // A test that requires boilerplate is worse than no test.
+    const DISCLAIMS = /\b(not|nothing (?:above|here|on this page) is|none of this is)\b[^.]{0,40}\blegal advice\b/i;
+    const POINTS_AT_COUNSEL = /\b(attorney|lawyer|counsel)\b/i;
     for (const page of pages) {
       const text = page.body.join(" ");
-      expect(text, page.slug).toMatch(/None of this is legal advice/i);
+      expect(DISCLAIMS.test(text), `${page.slug} disclaims legal advice`).toBe(true);
+      expect(POINTS_AT_COUNSEL.test(text), `${page.slug} points at counsel`).toBe(true);
     }
+  });
+
+  it("does not reuse a substantive legal-advice sentence across pages", () => {
+    // The inverse of the test above, and the reason it was rewritten: the
+    // disclaimer must appear on every page without the SUBSTANCE being copied.
+    //
+    // The threshold is deliberate. A short conventional formula -- "None of
+    // this is legal advice." -- is a legal idiom, not scaled content, and
+    // demanding twelve different phrasings of it would be make-work that costs
+    // clarity. What must not repeat is the sentence that actually explains
+    // WHY, and what the reader should do instead. Flagging only sentences past
+    // MIN_SUBSTANTIVE draws that line explicitly rather than pretending every
+    // repeated string is equally bad.
+    const sentences = new Map<string, string[]>();
+    for (const page of pages) {
+      for (const raw of page.body.join(" ").split(/(?<=\.)\s+/)) {
+        if (!/legal advice/i.test(raw)) continue;
+        const MIN_SUBSTANTIVE = 80;
+        if (raw.trim().length < MIN_SUBSTANTIVE) continue;
+        const key = raw.trim().toLowerCase();
+        if (!sentences.has(key)) sentences.set(key, []);
+        sentences.get(key)!.push(page.slug);
+      }
+    }
+    const shared = [...sentences.entries()].filter(([, slugs]) => slugs.length > 1);
+    expect(shared.map(([, slugs]) => slugs.join(" + ")), "identical disclaimer reused").toEqual([]);
   });
 
   it("never fabricates a market statistic -- no medians, day-on-market counts, or homes-bought claims", () => {

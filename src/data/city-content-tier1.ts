@@ -229,7 +229,7 @@ export const cityContentTier1: Record<string, PageContent> = {
 
       "[KS] None of the distance or the slower pace above means a fast cash sale is the obvious answer for a seller in this city. An owner with real equity and no urgent deadline is generally still better off listing through a realtor and letting this city's own market run its course. A cash sale becomes worth serious consideration mainly for a property that would sit a long time on the market, needs repairs a conventional lender will not finance, or is tied to an estate or deadline that cannot wait out a longer listing period.",
 
-      "[KS] None of this is legal advice. A homeowner in Topeka facing a foreclosure notice, a tax sale, or a probate question should talk to a Kansas attorney who can look at the actual documents for that property, not a general city-level description of statewide rules.",
+      "[KS] Nothing above is legal advice, and a page cannot be. Statutes set the outer shape of a Kansas foreclosure, a tax sale, or an estate, but which of them govern a particular house turns on the paperwork attached to it — the security instrument, the recorded liens, the notices already served, the dates. A Topeka homeowner with those documents in hand should put them in front of a Kansas attorney, who can say what applies to that property rather than what applies in general.",
     ],
     claims: [
       citations["ks-judicial"],
@@ -523,7 +523,7 @@ export const cityContentTier1: Record<string, PageContent> = {
 
       "[KS] An owner in this city carrying real equity in an owner-occupied home is frequently better protected against losing that equity than an owner in a smaller, less wealthy Kansas county elsewhere in this footprint -- often well enough protected that refinancing, negotiating directly with a creditor, or simply relying on the exemption itself is the sounder move rather than a fast cash sale.",
 
-      "[KS] A mortgage default on a house in this city still runs through the same judicial process every Kansas county follows: K.S.A. 60-2410 and K.S.A. 60-2415 require a lawsuit, a sheriff's sale, and a judge's confirmation before a deed can issue, followed by a twelve-month redemption right under K.S.A. 60-2414 that narrows to three months only for an early, heavily leveraged default. This site's Kansas right-of-redemption page covers exactly how that three-month line is drawn.",
+      "[KS] Lenexa's housing stock and price points differ from its neighbors', but a mortgage default in Lenexa reaches the courthouse the same way it does anywhere in Kansas. A lender cannot sell the house on its own initiative: K.S.A. 60-2410 and K.S.A. 60-2415 route the whole thing through a petition, a sheriff's sale, and a judge's confirmation before any deed changes hands. What follows that confirmation is the part most sellers underestimate — K.S.A. 60-2414 leaves twelve months to redeem, shortened to three only where the default came early against a heavily leveraged loan. The Kansas right-of-redemption page sets out precisely where that line falls.",
 
       "This city's own position between Overland Park to its east and Olathe to its southwest has made it a mix of established residential neighborhoods closer to the Johnson County core and newer development pushing toward the county's edges, without the sheer scale of either of its two larger neighbors -- a seller in this city is competing in a market shaped by both without matching the size of either.",
 
