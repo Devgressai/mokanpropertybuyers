@@ -1,13 +1,29 @@
+import type { Metadata } from "next";
+import { SITE } from "@/lib/site";
+import Hero from "@/components/home/Hero";
+import WhatWeBuy from "@/components/home/WhatWeBuy";
+import HowOfferWorks from "@/components/home/HowOfferWorks";
+import StateLineDifference from "@/components/home/StateLineDifference";
+import WhereWeBuy from "@/components/home/WhereWeBuy";
+import WrongMove from "@/components/home/WrongMove";
+import OfferFormSection from "@/components/home/OfferFormSection";
+
+export const metadata: Metadata = {
+  title: `${SITE.name} | Cash Offers for Houses, Land, and Small Multifamily in Missouri and Kansas`,
+  description: SITE.description,
+  alternates: { canonical: SITE.url },
+};
+
 export default function HomePage() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-24">
-      <h1 className="text-4xl font-bold text-river-deep">
-        MoKan Property Buyers
-      </h1>
-      <p className="mt-4 text-slate">
-        This is a placeholder homepage. The real site — service-area copy,
-        offer process, and trust content — is built in a later wave.
-      </p>
+    <main>
+      <Hero />
+      <WhatWeBuy />
+      <HowOfferWorks />
+      <StateLineDifference />
+      <WhereWeBuy />
+      <WrongMove />
+      <OfferFormSection />
     </main>
   );
 }
