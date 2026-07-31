@@ -32,7 +32,7 @@ export const countyContentOuter: Record<string, PageContent> = {
 
       "[KS] All four cities sit in Kansas, so a homeowner selling anywhere in this county works under the same statewide Kansas rules covered on this site's Kansas hub page -- a judicial foreclosure process rather than a Missouri-style trustee's sale, a redemption right measured in months rather than a set dollar figure, and a homestead exemption capped by category, not by value.",
 
-      "[KS] A missed mortgage payment in this county leads to a lawsuit, not a private sale: K.S.A. 60-2410 requires a judgment before a sheriff can sell the property under execution, and K.S.A. 60-2415 requires the district court to confirm that sale before a deed passes to the buyer. Nobody named in a Kansas deed of trust in this county has the power to sell the house directly the way a trustee could just across the state line.",
+      "[KS] A missed mortgage payment in this county leads to a lawsuit, not a private sale: K.S.A. 60-2410 requires a judgment before a sheriff can sell the property under execution, and K.S.A. 60-2415 requires the district court to confirm that sale before a deed passes to the buyer. Nobody named in a Kansas deed of trust in this county has the power to sell the house directly the way a trustee could under a Missouri deed of trust.",
 
       "[KS] Once that sale is confirmed, K.S.A. 60-2414 still gives the owner a right to redeem -- twelve months as the default figure, narrowed to three months only for an owner who defaulted early with less than a third of the original debt paid down, and restored to the full year whenever total liens against the property stay under a third of its market value regardless of how soon the default came.",
 
@@ -367,7 +367,7 @@ export const countyContentOuter: Record<string, PageContent> = {
 
       "[KS] Both cities sit in Kansas, so this county follows the same statewide Kansas rules covered on this site's Kansas hub page -- judicial foreclosure, a months-long redemption right, an uncapped homestead exemption -- and Franklin County's own position on a major interstate corridor does not change any of it; the same law reaches a house a mile off I-35 in Ottawa and one on a quiet farm road well away from it.",
 
-      "[KS] A mortgage default in this county proceeds the way it does everywhere in the state: K.S.A. 60-2410 requires a lawsuit and a judgment, and K.S.A. 60-2415 requires the district court to confirm the sheriff's sale before a deed transfers -- no trustee-driven private sale exists in Kansas the way one does just across the state line.",
+      "[KS] A mortgage default in this county proceeds the way it does everywhere in the state: K.S.A. 60-2410 requires a lawsuit and a judgment, and K.S.A. 60-2415 requires the district court to confirm the sheriff's sale before a deed transfers -- no trustee-driven private sale exists in Kansas the way one does under a Missouri deed of trust.",
 
       "[KS] K.S.A. 60-2414 gives the owner twelve months to redeem after that sale, narrowed to three months for an owner who defaulted early with less than a third of the debt paid off, restored to the full year whenever total liens stay under a third of the property's market value.",
 
