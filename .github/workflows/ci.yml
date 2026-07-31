@@ -41,6 +41,8 @@ jobs:
         run: npm run check:links
       - name: Internal href gate
         run: npm run check:hrefs
+      - name: Duplication gate
+        run: npm run check:duplication
       - name: Lead delivery smoke test
         run: npm run check:leads
       - name: Build
